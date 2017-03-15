@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <!-- Title -->
-    <title>Jharu-HTML 5 Template</title>
+    <title>Welcome to Swan</title>
 
     <!-- ================================================================
         ***Favicon***
