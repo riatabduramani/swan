@@ -1,0 +1,4227 @@
+/* =======================================================================
+Template Name:Jharu html5 templete
+Author:  CrazyCafe
+Author URI:
+Version: 1.0
+Description: This Template is created for web template
+--------------------------------------------------------------------------
+CSS INDEX
+=========
+    1.Base Css
+    2.Common Css
+    3.Hover Effect Css
+    4.Header_area
+        4.1-Header_top_Area Css
+        4.2-Header_bottom_Area Css
+    5.Hero_Area Css
+    6.Service_Area Css
+    7.Explore_Area Css
+    8.Team_area Css
+    9.Testimonial_Area Css
+    10.Service_booking_area Css
+    11.Counter_Area  Css
+    12.Pricing_Area  Css
+    13.Blog_Area Css
+    14.Brand_area Css
+    15.Footer Area Css
+        15.1-Footer_top_area Css
+        15.2-Footer_bottom_area Css
+    16.Index-2 Css
+    17.Inner Pages css
+        17.1-Inner Pages common css
+        17.2-About Page Css
+        17.3-Service Page Css
+        17.4-Single-Service Page Css
+        17.5-Pricing Page Css
+        17.6-Testimonial Page Css
+        17.7-Error Page Css
+        17.8-Thanks Page Css
+        17.9-Portfolio Page Css
+        17.10-Single-Portfolio Page Css
+        17.11-Contact page Css
+        17.12-Blog page Css
+        17.13-Single-Blog Page Css
+        17.14-Cart Page Css
+        17.15-Shop Page Css
+        17.16-Single Product Page Css
+        17.17-check Out Page Css
+    18.Responsive Css
+======================================================================= */
+
+/* ------------------------------------------------
+    1.***Base Css Start***
+------------------------------------------------- */
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    outline:none;
+}
+a:hover, a:focus, input, textarea{
+    text-decoration: none;
+    outline: none;
+}
+h1,h2,h3,h4,h5,h6{
+    margin: 0px;
+    padding: 0px;
+}
+img {
+    max-width: 100%;
+}
+ol, ul{
+    margin: 0px;
+}
+html,
+body {
+    height: 100%;
+}
+body {
+    font-family: 'proxima_novalight';
+    font-size:14px;
+    line-height: 25px;
+    color:#a0a0a0;
+    background: #fff;
+}
+.slicknav_menu{display:none;}
+.fix:after,
+.fix:before {
+    content: "";
+    display: table;
+}
+.fix:after {
+    clear: both;
+}
+.floatleft {
+    float: left;
+}
+.floatright {
+    float: right;
+}
+/* ------------------------------------------------
+    2.***Common Css Start***
+------------------------------------------------- */
+.section_padding{
+    padding: 96px 0px
+}
+.section_padding_top{
+     padding-top:96px;
+}
+.section_padding_bottom{
+   padding-bottom: 96px;
+}
+.section_title{
+    color: #7a7a7a;
+    font-size: 15px;
+    max-width: 356px;
+}
+.section_title h2{
+    font-size: 26px;
+    color: #2a2a2a;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding-bottom: 16px;
+    position: relative;
+    margin-bottom: 22px;
+}
+.section_title h2:before{
+    background: #ededed none repeat scroll 0 0;
+    bottom: 0;
+    height: 4px;
+    left: 0;
+    width: 60px;
+     border-radius: 3px;
+}
+.section_title h2:after{
+    background: #14adf4 none repeat scroll 0 0;
+    bottom: 0;
+    height: 4px;
+    left: 0;
+    width: 50px;
+    border-radius: 3px;
+}
+.about_page .owl-dots,  .portfolio_page .owl-dots{
+    bottom: 0;
+}
+.mainmenu li a, .mainmenu ul li ul.sub-menu li a, .mainmenu ul li ul.sub-menu, .single_text a, .team_area .owl-prev, .team_area .owl-next, .owl-item, .widget.footer_top_menu li a, .romana_contract_address .romana_socail_link a, .romana_catagory_text li a, .romana_tag_list li, .romana_single_blog_share_icon a, .romana_team_area .owl-prev, .romana_team_area .owl-next, .romana_booking_form input[type="submit"], .common_btn::after, .romana_single_price a, .single_post, .romana_clean_theme_btn a, .footer_social_icon a, .romana_prev_next_button a, .romana_prev_next_button a span, .romana_view_btn a, .romana_single_portfolio_aside a, .romana_post_content a, .romana_post_content a span, .romana_leave_comment_input input[type="submit"], .romana_comment_reply a, .romana_popular_post_title h3, .romana_error_text.text-center a, .romana_thanks_text a, .romana_single_product a, button.filtedr, .select-pay-method > a, .view_product.text-center > a, .romana_contact_form form input[type="submit"], .romana_contract_address ul.address li span{
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+}
+.contact_form.contact_margin_bottom input:focus, .contact_form.contact_margin_bottom textarea:focus {
+    border: 1px solid #f44336;
+}
+.section_title h2:before, .section_title h2:after, div#slider-3:after, .slider_circle:after, .slider_circle:before, .romana_counter_area::before, .romana_single_price h3::before, .romana_single_price ul li::before, .romana_blog_area::before, .crsl_text:after, .romana_booking_image::before, .index-2 .hrader_top_area::after, .index-2 .romana_hero_area:after, .romana_client_area::before, .romana_client_area::after, .single_service_page aside::before, .portflio-thumb::before, .romana_contact_area::before, .total-cart h3:before, .total-cart h3:after, .romana_product_img:before, .select-pay-method ul li .check::before, .romana_clean_theme_area::after{
+    position: absolute;
+    content:"";
+}
+.post_date h2 span, .romana_clean_theme_area, .romana_search_box input, .romana_admin_icon li a, .romana_comment_textt span,  .single-product-name-rating p{
+    font-family: 'proxima_novalight';
+}
+.single_staff, ul.totla-list li, .cart_margin_top label, .single_counter h4 {
+    font-family: 'proxima_nova_rgregular';
+}
+.mainmenu li a{
+    font-family: 'proxima_novasemibold';
+}
+.section_title h2, .single_text a, .single_service h2, .explore_text  a, .single_staff h3, .single_c_crsl h4, .romana_booking_form input[type="submit"], .single_counter h4, .romana_single_price h3, .romana_single_price h4, .romana_single_price h4 span, .romana_single_price a, .post_date h2, .post_text h2, .blog_btn a, .widget.footer_top_menu h2, .subscrib h3, .subscrib input[type="submit"], .romana_single_client_text h3, .romana_single_client_text h3, .romana_clean_theme_text h3, .romana_house_cleaning_text h2, .romana_clean_theme_btn a, .romana_error_text a, .romana_thanks_text a, ul.isotop-nav, .portflio-caption h5, .romana_view_btn  a, .romana_prev_next_button a, .romana_contact_form form input[type="submit"], .romana_post_content h2, .romana_post_content a, .romana_recent_content h3, .romana_about_author_text h3, .romana_popular_post_title h3, .romana_comment_reply a, .romana_comment_textt h3, .romana_leave_comment_input input[type="submit"], .romana_product_rating_tool, .total-cart h3, .total-pricecc h4, a.proced-check-out, input.apply-coupon, .romana_product_name h2, .romana_single_product a, .recent-shop-price-title h5, .romana_hover_show a, .single-product-name h3, ul.nav.product-nav.nav-tabs li a, .tab-pane h4, .view_product.text-center > a, .chackout-page-total h3, .total-pricecc h6, .select-pay-method > a, .single_counter h2{
+
+    font-family: 'proxima_nova_rgbold';
+}
+.single_text h1, .romana_page_text h1, .index-2 .single_text h1, .single_text2 h1{
+    font-family: 'proxima_novaextrabold';
+}
+
+/* ------------------------------------------------
+    3.***Hover Effect Start***
+------------------------------------------------- */
+.mainmenu nav > ul > li> a:hover, .romana_leave_comment_input input[type="submit"]:hover, .romana_contact_form form input[type="submit"]:hover{
+    background: #0888c2 none repeat scroll 0 0;
+}
+.mainmenu ul li ul.sub-menu li:hover a {
+    color: #0888c2;
+    margin-left: 10px;
+}
+.single_text a:hover{
+    background: #0888c2;
+}
+.single_post:hover{
+   box-shadow: 0px 0px 22px rgba(0, 0, 0, .17);
+}
+.widget.footer_top_menu li a:hover{
+   margin-left: 10px;
+}
+.index-2 .mainmenu nav > ul > li> a:hover {
+    background: none;
+    color: #14adf4;
+}
+.index-2 .single_text a:hover{
+    background: #0888c2;
+    color:#fff;
+}
+.single-portfolio:hover .portflio-caption h5{
+    color: #ffffff;
+}
+.single-portfolio:hover .portflio-caption h6{
+    color: #ffffff;
+}
+.romana_catagory_text li.active a, .romana_catagory_text li a:hover{
+    color: #2a2a2a;
+}
+.romana_contract_address .romana_socail_link a:hover {
+    color: #ffffff;
+}
+.romana_tag_list li:hover a, .romana_contract_address ul.address li:hover span{
+    color: #fff;
+}
+.romana_single_blog_share_icon a:hover, .view_product.text-center > a:hover, .explore_text a:hover, .romana_popular_post_title h3:hover{
+    color: #14adf4; 
+}
+/* common btn effect */
+.common_btn{
+    position: relative;
+}
+.common_btn::after {
+    background: #ffffff none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 0;
+    z-index: -1;
+}
+.common_btn:hover::after {
+    width: 100%;
+}
+.romana_booking_form input[type="submit"]:hover, .romana_single_price a:hover{
+    background: #efa508;
+}
+.clean_purchase a:hover {
+    background: #14adf4 none repeat scroll 0 0;
+    border: 2px solid #ffffff;
+    color: #fff;
+}
+.romana_clean_theme_btn.clean_purchase2_btn a:hover, .romana_view_btn a:hover, .romana_clean_theme_btn.clean_purchase3_btn > a:hover, .romana_error_text.text-center a:hover, .romana_thanks_text a:hover, .romana_single_product a:hover, button.filtedr:hover, .select-pay-method > a:hover {
+    background: #ffffff none repeat scroll 0 0;
+    border: 2px solid #14adf4;
+    color: #14adf4;
+}
+.romana_single_aside li a:hover:before{
+    right: 5px;
+}
+.hvr-icon-hang {
+    padding-right: 17px;
+    position: relative;
+}
+.hvr-icon-hang::before {
+    content: "ïƒ­";
+    right: 160px;
+    top: 0;
+}
+.hvr-icon-bob::before {
+    color: #2a2a2a;
+    /*content: "ï…¶";*/
+    font-family: FontAwesome;
+    font-size: 11px;
+    right: 11px;
+    top: -19px;
+}
+.romana_single_portfolio_aside a:hover{
+    color:#14adf4;
+}
+.romana_post_content a:hover, .romana_comment_reply a:hover{
+    color:#2a2a2a;
+}
+.romana_post_content a:hover span{
+    margin-left: 5px;
+}
+.footer_social_icon a:hover {
+    font-size: 18px;
+}
+/* ------------------------------------------------
+    4.***Header_Area Css Start***
+------------------------------------------------- */
+.romana_header {
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+}
+.romana_header::before {
+    background: rgba(0, 0, 0, 0) linear-gradient(#ffffff, rgba(255, 255, 255, 0.48)) repeat scroll 0 0;
+    box-shadow: 2px 0 20px #ffffff;
+    content: "";
+    height: 62%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+/* 4.1 Header_top Css Start */
+.hrader_top_area {
+    padding-bottom: 24px;
+    padding-top: 37px;
+}
+.header_top_left {
+    text-align: right;
+}
+.header_top_left ul li {
+    color: #545454;
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 20px;
+}
+.header_top_left ul li span {
+    color: #1c1c1c;
+    padding-right: 10px;
+}
+.header_top_right {
+    text-align: right;
+    border-left: 1px solid #cecece;
+}
+.header_top_right i {
+    padding-right: 12px;
+    cursor: pointer;
+}
+.header_top_right a {
+    color: #1c1c1c;
+    margin-right: 0px;
+}
+.header_top_right i:last-child {
+    padding-right: 0;
+}
+.searchbox {
+    background: #000000 none repeat scroll 0 0;
+    display: none;
+    position: absolute;
+    left: 15px;
+    width: 97.5%;
+    z-index: 5;
+    margin-top: -39px;
+}
+.searchbox input.search-box {
+    border: 1px solid #ffffff;
+    box-shadow: 0 0 4px #dddddd;
+    height: 40px;
+    padding-left: 10px;
+    width: 90%;
+}
+label.mainsearch {
+    cursor: pointer;
+    position: absolute;
+    right: 12%;
+    top: 14px;
+}
+.searchbox i {
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 21px;
+    line-height: normal;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 8%;
+}
+/* 4.2 Header_bottom Css Start */
+.mainmenu {
+    float: left;
+    background: #12a3e6;
+    width: 100%;
+    border-radius: 3px;
+}
+.mainmenu nav > ul >li {
+    display: inline-block;
+    position: relative;
+
+}
+.mainmenu nav > ul >li:first-child{
+    margin-left: 19px;
+}
+.mainmenu li a {
+    color: #ffffff;
+    display: block;
+    font-size: 12px;
+    padding: 15px 15px;
+    text-transform: uppercase;
+}
+.mainmenu nav > ul >li.active>a{
+    background: #0888c2 none repeat scroll 0 0;
+}
+/* this code is for sub-menu */
+.mainmenu ul li ul.sub-menu {
+    position: absolute;
+    width: 173px;
+    background-color: #fafafa;
+    top:146px;
+    opacity: 0;
+}
+.mainmenu ul li:hover ul.sub-menu {
+    opacity: 1;
+    z-index: 9999999;
+    top: 55px;
+}
+.index-2 .mainmenu ul li:hover ul.sub-menu {
+  top: 89px;
+}
+.mainmenu ul li ul.sub-menu li {
+    display: block!important;
+    border-bottom: 1px solid #e2e2e2;
+    position: relative;
+}
+
+.mainmenu ul li ul.sub-menu li a {
+    padding:10px!important;
+    display: block;
+    color: #333333;
+    font-size: 12px;
+}
+.mainmenu ul li ul.sub-menu li:last-child {
+    border: none;
+}
+/* ------------------------------------------------
+    5.***Hero_Area Css Start***
+------------------------------------------------- */
+.romana_hero_area{
+    background: rgba(0, 0, 0, 0) url("../images/banner-img.jpg") no-repeat scroll top center / cover ;
+    position: relative;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    height: 700px;
+}
+.single_text{
+    padding-top: 275px;
+    padding-bottom: 150px;
+    color: #434242;
+    font-size: 18px;
+    height: 652px;
+}
+.single_text h1, .romana_page_text h1{
+    color: #161515;
+    font-size: 38px;
+    text-transform: uppercase;
+    line-height: 48px;
+    margin-bottom: 20px;
+}
+.single_text a{
+    background: #13a7ec none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 50px;
+    display: inline-block;
+    font-size: 14px;
+    height: 50px;
+    line-height: 50px;
+    margin-top: 26px;
+    text-transform: uppercase;
+    width: 186px;
+    text-align: center;
+    color: #fff;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-delay: 1.30s;
+    -webkit-animation-delay: 1.30s;
+}
+.single_text h1 {
+    animation-duration: 1s;
+     -webkit-animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-delay: .0s;
+    -webkit-animation-delay: .0s;
+}
+.single_text p{
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-delay: 1.0s;
+    -webkit-animation-delay: 1.0s;
+}
+.owl-dots {
+    bottom: 70px;
+    position: absolute;
+    left: 0;
+}
+.owl-theme .owl-dots .owl-dot {
+  display: inline-block;
+}
+.owl-theme .owl-dots .owl-dot span {
+    background: #13a7ec none repeat scroll 0 0;
+    border-radius: 0;
+    display: inline-block;
+    height: 3px;
+    margin: 0 5px;
+    transition: opacity 200ms ease 0s;
+    width: 20px;
+     -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+}
+.owl-theme .owl-dots .owl-dot.active span{
+    background: #016d9f none repeat scroll 0 0;
+    width: 30px;
+}
+/* ------------------------------------------------
+    6.***Service_Area Css Start***
+------------------------------------------------- */
+.romana_service_area{
+    padding-top: 82px;
+}
+.single_service.text-center {
+    padding: 0 37px;
+}
+.single_service h2 {
+    color: #2a2a2a;
+    font-size: 18px;
+    margin-bottom: 14px;
+    margin-top: 30px;
+    text-transform: uppercase;
+}
+/* ------------------------------------------------
+    7.***explore_area Css Start***
+------------------------------------------------- */
+.romana_explore_area{
+    background: #14adf4;
+    margin-top: 110px;
+    position: relative;
+}
+.explore_text{
+    color: #ffffff;
+    line-height: 23px;
+    padding-bottom: 37px;
+    padding-top: 47px;
+}
+.explore_text_padding {
+  padding-left: 20px;
+}
+.explore_img {
+  bottom: -185px;
+  position: absolute;
+}
+.explore_text  a {
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 14px;
+    height: 39px;
+    line-height: 37px;
+    margin-top: 7px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 135px;
+    position: relative;
+    z-index: 9999;
+}
+.team_slider{
+  padding-top: 60px;
+}
+/* ------------------------------------------------
+    8.***Team_Area Css Start***
+------------------------------------------------- */
+.single_staff {
+    padding-right: 19px;
+    color: #4e4e4e;
+}
+.single_staff img {
+  border-radius: 50%;
+}
+.romana_team_area .owl-carousel .owl-item img {
+    display: block;
+    width: auto;
+}
+.single_staff h3 {
+    color: #2a2a2a;
+    font-size: 17px;
+    margin-top: 36px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+.single_staff h4 {
+    color: #a5a5a5;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+.romana_team_area .owl-nav {
+    display: inline-flex;
+    position: absolute;
+    right: 0;
+    top: -10px;
+}
+.romana_team_area .owl-nav div {
+    padding: 7px 15px;
+    font-size: 20px;
+}
+.romana_team_area .owl-prev {
+    background: #f3f3f3 none repeat scroll 0 0;
+    color: #6f6f6f;
+}
+
+.romana_team_area .owl-prev:hover{
+    background: #14adf4 none repeat scroll 0 0;
+    color: #fff;
+}
+.romana_team_area .owl-next {
+    background: #14adf4 none repeat scroll 0 0;
+    color: #fff;
+}
+.romana_team_area .owl-next:hover{
+    background: #f3f3f3 none repeat scroll 0 0;
+    color: #6f6f6f;
+}
+/* ------------------------------------------------
+    9.***Testimonial_Area Css Start***
+------------------------------------------------- */
+.romana_testimonials_area{
+    background: rgba(0, 0, 0, 0) url("../images/tesbg.jpg") repeat scroll 0 0;
+    position: relative;
+    color:#fff;
+}
+.section_title.client_title {
+    margin-bottom: 38px;
+    margin-top: -4px;
+}
+.romana_testimonials_area .client_title h2{
+    color:#fff;
+}
+.single_c_crsl {
+    padding-bottom: 100px;
+    padding-top: 25px;
+    text-align: center;
+}
+.romana_testimonials_area .section_title{
+    color:#fcfcfc;
+}
+.testi_img{
+    bottom: -17px;
+    position: absolute;
+    right: 10%;
+    z-index: 1;
+}
+.crsl_text {
+    background: #14adf4 none repeat scroll 0 0;
+    border: 1px solid #1497d4;
+    padding: 32px 20px;
+    position: relative;
+
+}
+.crsl_text:after{
+    background: #14adf4 none repeat scroll 0 0;
+    border-bottom: 1px solid #1497d4;
+    bottom: -10px;
+    height: 20px;
+    left: 50%;
+    margin-left: -10px;
+    transform: rotate(45deg);
+    width: 20px;
+    border-right: 1px solid #1497d4;
+}
+.single_c_crsl h4 {
+    margin-bottom: 6px;
+    margin-top: 34px;
+    text-transform: uppercase;
+}
+.single_c_crsl h5 {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+/* ------------------------------------------------
+    10.***Service_booking_area Css Start***
+------------------------------------------------- */
+.romana_service_booking_area {
+    position: relative;
+}
+.home_page .romana_booking_form, .index-2 .romana_booking_form {
+    margin-top: 41px;
+}
+.romana_booking_image {
+    position: absolute;
+    right: 208px;
+    top: 136px;
+}
+.romana_booking_image::before {
+    border: 2px solid #e2e2e2;
+    bottom: -1px;
+    height: 89%;
+    right: -17px;
+    width: 82%;
+    z-index: -1;
+}
+.romana_booking_form label{
+    margin-bottom: 10px;
+    margin-top: 18px;
+    color: #606060;
+    font-size: 14px;
+    font-family: 'proxima_nova_rgregular';
+    font-weight: 400;
+}
+.romana_booking_form input {
+    background: #f8f8f8 none repeat scroll 0 0;
+    border: 1px solid #eaeaea;
+    height: 46px;
+    padding-left: 10px;
+    width: 100%;
+    color:#bebebe;
+}
+.romana_booking_form textarea {
+    background: #f8f8f8 none repeat scroll 0 0;
+    border: 1px solid #eeeeee;
+    height: 135px;
+    padding: 20px 10px;
+    resize: none;
+    width: 100%;
+    color:#bebebe;
+}
+.romana_booking_form input[type="submit"]{
+    background: #ffbf37 none repeat scroll 0 0;
+    color: #ffffff;
+    height: 45px;
+    line-height: 46px;
+    text-transform: uppercase;
+    width: 140px;
+    border:none;
+    margin-top: 30px;
+}
+/* ------------------------------------------------
+    11.***Counter_Area Css Start***
+------------------------------------------------- */
+.romana_counter_area{
+    background: rgba(0, 0, 0, 0) url("../images/counter_bg.jpg") no-repeat scroll center center / cover ;
+    color: #ffffff;
+    padding: 55px 0;
+    position: relative;
+    margin-top: 100px;
+}
+.romana_counter_area::before {
+    background: rgba(26, 168, 234, 0.93) none repeat scroll 0 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    width: 100%;
+}
+.single_counter{
+    float: left;
+    width: 20%;
+}
+.single_counter a {
+    color: #ffffff;
+    font-size: 30px;
+}
+.single_counter h2{
+    font-size: 36px;
+    margin: 8px 0px;
+}
+.single_counter h4 {
+    font-size: 16px;
+}
+/* ------------------------------------------------
+    12.***Pricing_Area Css Start***
+------------------------------------------------- */
+.romana_single_price {
+    background: #f7f7f7 none repeat scroll 0 0;
+    padding: 40px 0;
+    transition: all 0.4s ease 0s;
+    float: left;
+    width: 25%;
+    margin-top: 82px;
+}
+.romana_single_price h3 {
+    color: #2a2a2a;
+    font-size: 19px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    text-transform: uppercase;
+}
+.romana_single_price h3::before {
+    background: #bababa none repeat scroll 0 0;
+    bottom: 0;
+    height: 1px;
+    left: 50%;
+    margin-left: -10px;
+    width: 20px;
+}
+.romana_single_price h4 {
+    color: #14adf4;
+    line-height: normal;
+    margin-bottom: 30px;
+    margin-top: 26px;
+    text-transform: uppercase;
+    font-size: 38px;
+}
+.romana_single_price h4 span {
+    display: block;
+    font-size: 19px;
+}
+.romana_single_price ul li {
+    color: #999999;
+    font-family: "proxima_nova_rgregular";
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    position: relative;
+}
+.romana_single_price ul li::before {
+    background: #dfdfdf none repeat scroll 0 0;
+    bottom: 0;
+    height: 1px;
+    left: 50%;
+    margin-left: -27px;
+    width: 54px;
+}
+.romana_single_price ul li:last-child::before {
+    background: transparent;
+}
+.price_current_item {
+    background: #14adf4 none repeat scroll 0 0;
+    color: #ffffff;
+    transform: scale(1, 1.1);
+}
+.price_current_item h3, .price_current_item h4, .price_current_item ul li {
+    color: #ffffff;
+}
+.price_current_item h3::before{
+    background: #fff;
+}
+.price_current_item ul li::before{
+    background: #4ec7ff;
+}
+.romana_single_price a {
+    background: #ffbf37 none repeat scroll 0 0;
+    border-radius: 50px;
+    color: #ffffff;
+    display: inline-block;
+    height: 37px;
+    line-height: 37px;
+    margin-top: 12px;
+    text-transform: uppercase;
+    transition: all 0.4s ease 0s;
+    width: 104px;
+    font-size: 12px;
+}
+/* -------------------------------------------------
+    13.***Blog_Area Start***
+-------------------------------------------------- */
+.romana_blog_area {
+    background-image: url("../images/blog_bg.jpg");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 100% 60.6%;
+    padding-top: 118px;
+    position: relative;
+    margin-top: 122px;
+    padding-bottom: 40px;
+}
+.romana_blog_area::before {
+    background: rgba(238, 240, 241, 0.95) none repeat scroll 0 0;
+    height: 60.6%;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+.single_post{
+    border: 1px solid rgba(0, 0, 0, 0);
+    margin-bottom: 28px;
+    margin-top: 19px;
+    position: relative;
+    text-align: center;
+}
+.post_thumb {
+  height: 190px;
+}
+.romana_blog_area .owl-carousel .owl-item img {
+    height: 100%;
+}
+.post_date {
+    background: #13a3e6 none repeat scroll 0 0;
+    left: 50%;
+    margin: 0 auto 0 -39px;
+    padding: 10px;
+    position: absolute;
+    top: 130px;
+    width: 78px;
+    height: 60px;
+}
+.post_date h2 {
+    color: #ffffff;
+    font-size: 17px;
+}
+.post_date h2 span{
+    display: block;
+}
+.post_text  h2 {
+    color: #2a2a2a;
+    font-size: 20px;
+    margin-top: 24px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.post_text {
+    padding: 15px 32px;
+}
+.blog_btn {
+    padding-bottom: 20px;
+}
+.blog_btn a {
+    color: #14adf4;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.blog_btn > a:hover {
+    text-decoration: underline;
+}
+.romana_blog_area .owl-controls {
+    display: block;
+    font-size: 26px;
+    left: -49px;
+    top: 32%;
+    color: #4d4d4d;
+}
+.romana_blog_area .owl-prev:hover, .romana_blog_area .owl-next:hover{
+    color: #14adf4;
+}
+.romana_blog_area .owl-prev {
+    left: -38px;
+    position: absolute;
+    top: 32%;
+}
+.romana_blog_area .owl-next {
+    position: absolute;
+    right: -38px;
+    top: 32%;
+}
+/* -------------------------------------------------
+    14.***Brand_Area Start***
+-------------------------------------------------- */
+.romana_brand_area {
+    border-top: 1px solid #f0f0f0;
+    padding-bottom: 60px;
+    padding-top: 70px;
+}
+.owl-carousel .owl-item img {
+    width: auto;
+    display: inline-block;
+    height: 100px;
+}
+/* -------------------------------------------------
+    15.***footer_Area Start***
+-------------------------------------------------- */
+.romana_footer {
+    background:#13a3e6;
+    position: relative;
+}
+.footer_logo {
+    margin-bottom: 25px;
+}
+/* 15.1 Footer_Top_Area*/
+.footer_top_area {
+    padding-bottom: 46px;
+    padding-top: 52px;
+}
+.widget.widget_text {
+    color: #fff;
+}
+.footer_social_icon {
+    margin-top: 27px;
+}
+.footer_social_icon a {
+    color: #ffffff;
+    font-size: 16px;
+    padding-right: 12px;
+}
+.widget.footer_top_menu h2 {
+    color: #ffffff;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.widget.footer_top_menu > ul {
+    margin-top: 30px;
+}
+.address {
+    margin-top: 0 !important;
+}
+.widget.footer_top_menu li {
+    line-height: 22px;
+}
+.widget.footer_top_menu li a {
+    color: #ffffff;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+.single_footer {
+    color: #ffffff;
+}
+.single_footer ul.address li {
+    margin-bottom: 20px;
+}
+.single_footer ul.address li span {
+    padding-right: 20px;
+}
+.subscrib h3 {
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.subscrib input[type="text"] {
+    background: #f7f7f7 none repeat scroll 0 0;
+    border: 0 none;
+    color: #767676;
+    float: left;
+    height: 30px;
+    padding-left: 10px;
+    width: 70%;
+    font-size: 12px;
+}
+.subscrib input[type="submit"] {
+    background: #ffffff none repeat scroll 0 0;
+    border: 0 none;
+    color: #14adf4;
+    height: 30px;
+    line-height: 32px;
+    margin-left: 2%;
+    text-transform: uppercase;
+    width: 28%;
+    margin-bottom: 5px;
+}
+/* 15.2 Footer_Bottom_Area*/
+.footer_bottom_area {
+  background: #ffffff none repeat scroll 0 0;
+    font-family: 'proxima_nova_rgregular';
+}
+.footer_bottom {
+    padding-bottom: 8px;
+    padding-top: 15px;
+}
+.footer_bottom span {
+  text-transform: uppercase;
+}
+.footer_bottom a{
+    color: #9c9c9c;
+    font-family: 'proxima_nova_rgregular';
+}
+/* ------------------------------------------------
+    16.*** Index-2 Css Start ***
+------------------------------------------------- */
+.index-2 .romana_header {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+}
+.index-2 .logo {
+    margin-top: 33px;
+}
+.index-2 .hrader_top_area {
+    padding-bottom: 1px;
+    padding-top: 20px;
+    position: relative;
+}
+.index-2 .hrader_top_area::after {
+    background: #14adf4 none repeat scroll 0 0;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 34%;
+}
+.index-2 .header_top_text{
+    color: #ffffff;
+    position: relative;
+    z-index: 1;
+}
+.index-2 .header_bottom_area {
+    border-top: 1px solid #e8e8e8;
+}
+.index-2 .mainmenu {
+    background: #fff;
+    width: 100%;
+    border-radius: 0px;
+}
+.index-2 .mainmenu ul{
+    float: right;
+}
+.index-2 .mainmenu li a{
+    color: #2a2a2a;
+    padding: 33px 0 31px 19px;
+}
+.index-2 .mainmenu nav > ul >li.active>a{
+    background: none;
+    color: #14adf4;
+}
+/*Hero_Area*/
+.index-2 .romana_hero_area{
+    background: rgba(0, 0, 0, 0) url("../images/banner-img2.jpg") no-repeat scroll center center / cover ;
+    position: relative;
+    height: 557px;
+}
+.index-2 .romana_hero_area:after{
+    background: rgba(11, 57, 78, 0.80) none repeat scroll 0 0;
+    height: 100%;
+    left: 0;
+    text-align: center;
+    top: 0;
+    width: 100%;
+}
+.index-2 .single_text {
+    padding-top: 160px;
+    padding-bottom: 170px;
+    color: #fff;
+    font-size: 18px;
+    height: 550px;
+}
+.index-2 .single_text h1{
+    color: #fff;
+    font-size: 38px;
+    text-transform: uppercase;
+    line-height: 48px;
+    margin-bottom: 19px;
+}
+.index-2 .single_text span{
+    color: #14adf4;
+}
+.index-2 .single_text a{
+    background: #fff none repeat scroll 0 0;
+    color: #14adf4;
+    margin-top: 23px;
+}
+.index-2 .romana_hero_area .owl-dots {
+    bottom: 113px;
+    display: block;
+    left: 46%;
+    position: absolute;
+}
+.index-2 .romana_hero_area .owl-theme .owl-dots .owl-dot span {
+    background: #fff none repeat scroll 0 0;
+}
+.index-2 .romana_hero_area .owl-theme .owl-dots .owl-dot.active span {
+  background: #016d9f none repeat scroll 0 0;
+}
+/*Scroll Top Css Start*/
+#scrollTop {
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px #13a3e6;
+    cursor: pointer;
+    height: 34px;
+    left: 90%;
+    line-height: 34px;
+    position: absolute;
+    top: -18px;
+    width: 34px;
+}
+preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    background: #fff url('../images/broomswp.gif') no-repeat center center;
+}
+/* ****************************************************************
+            17.This Code is For Inner Pages
+***************************************************************** */
+
+/* --------------------- 17.1- Inner_pages common css ----------------- */
+.romana_allPage_area{
+    background-image: url("../images/page-titlebg.jpg");
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    height: 330px;
+}
+.romana_page_text {
+    padding-top: 190px;
+}
+.breadcrumb {
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 4px;
+    margin-bottom: 0;
+    margin-top: -14px;
+    padding: 0;
+}
+.breadcrumb li a{
+    color: #14adf4;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: 'proxima_nova_rgregular';
+}
+.breadcrumb li.active a{
+    color:#2a2a2a;
+}
+.breadcrumb > li + li::before {
+    color: #7b7a7a;
+    content: "/ ";
+    padding: 0px;
+}
+/* --------------------- 17.2-About Page css --------------------------- */
+.romana_client_area{
+    background: rgba(0, 0, 0, 0) url("../images/client-says.jpg") no-repeat scroll right center / 50% 100%;
+    color: #ffffff;
+    position: relative;
+    padding-top: 31px;
+    padding-bottom: 78px;
+    margin-top: 30px;
+}
+.romana_client_area::before {
+    background: #24b2f4 none repeat scroll 0 0;
+    height: 100%;
+    opacity: 0.93;
+    right: 0;
+    top: 0;
+    width: 50%;
+}
+.romana_client_area::after {
+    border: 1px solid #14adf4;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 49.8%;
+    z-index: -1;
+}
+.romana_single_client_text h2 {
+    margin-top: 60px;
+    margin-bottom: 48px;
+}
+.about_page .section_title {
+    max-width: 100%;
+}
+.romana_client_area .owl-theme .owl-dots .owl-dot span {
+    width: 12px;
+    margin: 0px 2px;
+    height: 2px;
+}
+.romana_client_area .owl-theme .owl-dots .owl-dot.active span{
+    width: 20px;
+}
+.about_page .single_counter, .portfolio_page .single_counter {
+    float: none;
+    width: 100%;
+    margin-top: 47px;
+    height: 116px;
+}
+.romana_story_text {
+    margin-top: 200px;
+}
+.romana_story_text h2 {
+    margin-bottom: 50px;
+}
+.romana_single_client_text h3 {
+    color: #2a2a2a;
+    font-size: 18px;
+    margin-bottom: 8px;
+    margin-top: 25px;
+    text-transform: uppercase;
+}
+.romana_single_client_text h4 {
+    color: #2a2a2a;
+    font-size: 12px;
+    margin-bottom: 36px;
+    text-transform: uppercase;
+}
+
+/* ---------------------- 17.3- Service Page css ------------------------- */
+.service_page .romana_service_area {
+    padding-top: 107px;
+}
+.service_page .single_service {
+    margin-bottom: 65px;
+}
+.romana_clean_theme_area{
+    background: rgba(0, 0, 0, 0) url("../images/purses.jpg") no-repeat scroll center center / cover ;
+    color: #ffffff;
+    padding: 50px 0;
+    position: relative;
+    margin-top: 20px;
+}
+.romana_clean_theme_area:after{
+    background: #1caff4 none repeat scroll 0 0;
+    height: 100%;
+    left: 0;
+    opacity: 0.95;
+    top: 0;
+    width: 100%;
+}
+.romana_clean_theme_text {
+    position: relative;
+    z-index: 9;
+}
+.romana_clean_theme_text h3, .romana_house_cleaning_text h2 {
+    color: #ffffff;
+    font-size: 22px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+.romana_clean_theme_btn a{
+    background: #ffffff none repeat scroll 0 0;
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-radius: 3px;
+    color: #14adf4;
+    display: inline-block;
+    height: 47px;
+    line-height: 47px;
+    margin-top: 27px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    width: 185px;
+    z-index: 9;
+}
+.service_page .romana_pricing_area{
+    margin-bottom: 25px;
+}
+/* ---------------------- 17.4- Single-Service Page css ------------------------- */
+.romana_house_cleaning_text{
+    color: #7e7e7e;
+    font-size: 16px;
+    line-height: 33px;
+    padding-right: 94px;
+}
+.romana_house_cleaning_img {
+    margin-top: 43px;
+}
+.romana_house_cleaning_text h2 {
+    color: #2a2a2a;
+    margin-bottom: 40px;
+}
+.romana_house_cleaning_text img {
+    margin-left: 10px;
+}
+.romana_house_cleaning_text.romana_clean_theme_text img {
+    margin-left: 18px;
+}
+.romana_single_aside{
+    text-align: right;
+}
+.romana_single_aside h2 {
+    font-size: 20px;
+}
+.single_service_page .romana_house_cleaning_area .section_title h2::before, .single_service_page .romana_house_cleaning_area .section_title h2::after, .single_portfolio_page .romana_house_cleaning_area .section_title h2::before, .single_portfolio_page .romana_house_cleaning_area .section_title h2::after {
+    left: 198px;
+}
+.romana_single_aside ul {
+    margin-top: 32px;
+}
+.romana_single_aside li {
+  margin-bottom: 17px;
+  text-align: right;
+}
+.romana_single_aside li a {
+    color: #838383;
+    font-family: 'proxima_nova_rgregular';
+    font-size: 16px;
+    padding-right: 35px;
+    position: relative;
+    text-transform: uppercase;
+}
+.romana_single_aside li a:hover, .romana_single_aside li.active a{
+    color: #2a2a2a;
+}
+.romana_single_aside li a::before {
+    color: #14adf4;
+    content: "ï…·";
+    font-family: fontawesome;
+    height: 2px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 0.4s ease 0s;
+    width: 20px;
+}
+.single_service_page aside::before {
+    background: #e4e4e4 none repeat scroll 0 0;
+    height: 100%;
+    left: 0;
+    top: 15%;
+    width: 1px;
+}
+.aside2{
+    margin-top: 90px;
+}
+.romana_single_aside.aside2 a {
+    background: #f6f6f6 none repeat scroll 0 0;
+    border: 1px solid #bebebe;
+    display: inline-block;
+    height: 42px;
+    line-height: 42px;
+    text-align: right;
+    width: 200px;
+    color: #525252;
+    margin-top: 15px;
+}
+.romana_single_aside.aside2 a span{
+    margin-right: 10px;
+}
+.single_service_page .romana_booking_form {
+    margin-bottom: 5px;
+}
+.single_service_page .romana_booking_image {
+    top: 95px;
+}
+/* ---------------------- 17.5- Pricing page ------------------------ */
+.price_page .romana_pricing_area{
+    margin: 28px 0px;
+}
+/* ---------------------- 17.6- Testimonial page ------------------------ */
+.romana_clean_theme_area2 {
+    background: #f7f7f7 none repeat scroll 0 0;
+    color: #939393;
+    padding: 50px 0;
+}
+.testimonial_page .romana_testimonials_area {
+    background:none;
+    margin-bottom: 42px;
+}
+.testimonial_page .single_c_crsl h4, .testimonial_page .single_c_crsl h5{
+    color: #2a2a2a;
+}
+.testimonial_page .single_c_crsl {
+    padding-bottom: 56px;
+}
+.testimonial_page .romana_clean_theme_text h3, .portfolio_page .romana_clean_theme_text h3 {
+    color: #14adf4;
+}
+.testimonial_page .romana_clean_theme_btn a, .portfolio_page .romana_clean_theme_btn a {
+    background: #14adf4 none repeat scroll 0 0;
+    color: #fff;
+}
+/* ---------------------- 17.7 - Error page--------------------------------- */
+.romana_error_text {
+    color: #727272;
+    font-family: 'proxima_nova_rgregular';
+    font-size: 16px;
+}
+.romana_error_text img {
+    margin-bottom: -4px;
+    margin-left: 92px;
+}
+.romana_error_text a, .romana_thanks_text a{
+    background: #14adf4 none repeat scroll 0 0;
+    border-radius: 3px;
+    color: #ffffff;
+    display: inline-block;
+    height: 47px;
+    line-height: 47px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    width: 124px;
+    font-size: 16px;
+    border:2px solid transparent;
+}
+.romana_search_box {
+    display: inline-block;
+    position: relative;
+    margin-top: 20px;
+}
+.romana_search_box input {
+    border: 1px solid #dedede;
+    height: 40px;
+    padding-left: 15px;
+    width: 230px;
+    position: relative;
+}
+.romana_search_box span {
+    cursor: pointer;
+    position: absolute;
+    right: 5%;
+    top: 36%;
+    color: #1c1c1c;
+    font-size: 12px;
+}
+/* ---------------------- 17.8 - Thanks Page ------------------------------ */
+.thanks_page .romana_footer {
+    margin-top: 0px;
+}
+.romana_thanks_text{
+    color: #494949;
+    font-size: 16px;
+    padding-top: 387px;
+}
+.romana_thanks_text img{
+    margin-bottom: 20px;
+}
+/* ---------------------- 17.9 - Portfolio Page ------------------------------ */
+ul.isotop-nav {
+    margin-bottom: 40px;
+}
+ul.isotop-nav li {
+    color: #a2a2a2;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    margin-right: 6px;
+    position: relative;
+    text-transform: uppercase;
+    transition: all 0.2s ease 0s;
+}
+ul.isotop-nav li.active, .isotop-nav > li:hover{
+    color: #2a2a2a;
+}
+ul.isotop-nav > li + li::before {
+    color: #7b7a7a;
+    content: " - ";
+    padding-right: 10px;
+}
+.portflio-caption {
+    background: #f5f5f5 none repeat scroll 0 0;
+    color: #2a2a2a;
+    margin-top: 5px;
+    padding: 15px;
+    transition: all 0.4s ease 0s;
+}
+.portflio-caption h5 {
+    margin-bottom: 3px;
+    text-transform: uppercase;
+    color: #2a2a2a;
+}
+.portflio-caption h6 {
+    font-family: "proxima_nova_rgregular";
+    text-transform: capitalize;
+    color: #7d7d7d;
+}
+.single-portfolio {
+  margin-bottom: 30px;
+  transition: all 0.4s ease 0s;
+}
+.single-portfolio:hover .portflio-caption {
+    background: #14adf4 none repeat scroll 0 0;
+}
+.portflio-thumb {
+    position: relative;
+}
+.portflio-thumb::before {
+    background: rgba(225, 215, 209, 0.63) none repeat scroll 0 0;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    top: 0;
+    transition: all 0.4s ease 0s;
+    width: 100%;
+}
+.single-portfolio:hover .portflio-thumb::before{
+    opacity: 1;
+}
+.portfolio_page .romana_client_area {
+    margin-top: 68px;
+}
+.romana_clean_theme_area3 {
+    padding-bottom: 43px;
+    padding-top: 56px;
+}
+/* ---------------------- 17.10 - Single_Portfolio Page ------------------------------ */
+.single_portfolio_page .romana_house_cleaning_img img {
+    width: 80%;
+}
+.single_portfolio_page aside::before {
+    width: 0px;
+}
+.romana_single_portfolio_aside{
+    text-align: right;
+}
+.romana_single_portfolio_aside li {
+  margin-top: 20px;
+}
+.romana_single_portfolio_aside a {
+    color: #2a2a2a;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: 'proxima_nova_rgregular';
+}
+.romana_single_portfolio_aside a i{
+    color: #14adf4;
+    margin-left: 15px;
+}
+.romana_single_portfolio_aside span {
+    color: #969696;
+    display: block;
+    font-size: 14px;
+    margin-top: 6px;
+    text-transform: capitalize;
+}
+.romana_single_portfolio_aside h2 {
+    margin-bottom: 32px;
+}
+.romana_view_btn  a {
+    background: #12a2e5 none repeat scroll 0 0;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 12px;
+    height: 38px;
+    line-height: 38px;
+    margin-top: 33px;
+    text-align: center;
+    width: 106px;
+    border: 2px solid transparent;
+}
+.romana_prev_next_button {
+    margin-top: 125px;
+    text-align: right;
+}
+.romana_prev_next_button a:first-child {
+    padding-right: 10px !important;
+}
+.romana_prev_next_button a {
+    font-size: 12px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    transition: all 0.4s ease 0s;
+    color: #838383;
+}
+.romana_prev_next_button a span{
+    color:#2a2a2a
+}
+.romana_prev_next_button a:hover{
+    color:#2a2a2a;
+}
+.romana_prev_next_button a:hover span{
+    color:#14adf4;
+}
+.romana_prev_next_button a:first-child span {
+    margin-right: 5px;
+}
+.romana_prev_next_button a:last-child {
+    border-left: 1px solid #14adf4;
+    padding-left: 10px;
+    padding-right: 0;
+}
+/* ---------------------- 17.11 - Contact Page ------------------------------ */
+.romana_contact_area{
+    position: relative;
+}
+.romana_contact_area::before {
+    background: #14adf4 none repeat scroll 0 0;
+    height: 56%;
+    right: 0;
+    width: 50%;
+}
+.romana_contact_form label {
+    color: #2a2a2a;
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-family: 'proxima_nova_rgregular';
+}
+.romana_contact_form form input {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color -moz-use-text-color #eaeaea;
+    border-image: none;
+    border-style: none none solid;
+    border-width: medium medium 1px;
+    height: 30px;
+    width: 100%;
+    margin-bottom: 25px;
+}
+.romana_contact_form form textarea {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color -moz-use-text-color #eaeaea;
+    border-image: none;
+    border-style: none none solid;
+    border-width: medium medium 1px;
+    font-size: 14px;
+    height: 92px;
+    padding: 10px 10px 10px 0;
+    resize: none;
+    width: 100%;
+    color: #979797;
+}
+.romana_contact_form form input[type="submit"]{
+    background: #14adf4 none repeat scroll 0 0;
+    border-radius: 3px;
+    color: #ffffff;
+    height: 45px;
+    text-transform: uppercase;
+    width: 120px;
+    margin-top: 48px;
+    line-height: 45px;
+}
+.romana_contract_address {
+    padding-top: 92px;
+}
+.romana_contract_address ul.address li {
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+.romana_contract_address ul.address li a{
+    color:#fff;
+}
+.romana_contract_address ul.address li span {
+    color: #4ec7ff;
+    padding-right: 20px;
+}
+.romana_contract_address .romana_socail_link {
+    margin-top: 50px;
+}
+.romana_contract_address .romana_socail_link a {
+    color: #a3e2ff;
+    font-size: 20px;
+    margin-right: 50px;
+}
+#googleMap {
+    height: 272px;
+}
+.content_bg {
+  position: relative;
+  width: 133px;
+}
+.content_bg::after {
+    background: #2a2a2a none repeat scroll 0 0;
+    border-radius: 3px;
+    color: #14adf4;
+    content: "we are here";
+    font-size: 14px;
+    height: 50px;
+    left: 546%;
+    line-height: 50px;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: -185px;
+    width: 133px;
+    z-index: 9;
+    font-family: 'proxima_nova_rgregular';
+}
+.border {
+    border-color: #2a2a2a rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-width: 11px 5px 12px;
+    bottom: 112px;
+    left: 593%;
+    position: absolute;
+    z-index: 13;
+}
+/* ---------------------- 17.12 - Blog Page ------------------------------ */
+.romana_aside_title h2 {
+    font-size: 20px;
+}
+.romana_blog_left_content {
+      padding-right: 53px;
+}
+.romana_post_thumb {
+    margin-bottom: 40px;
+}
+.romana_post_buttom{
+    overflow: hidden;
+}
+.romana_post_icon {
+    float: left;
+}
+.romana_admin_icon {
+    float: right;
+}
+.romana_post_icon li, .romana_admin_icon li {
+    display: inline-block;
+}
+.romana_post_icon li a{
+    color: #bababa;
+    font-size: 12px;
+    font-family: 'proxima_nova_rgregular';
+    text-transform: uppercase;
+    margin-right: 20px;
+}
+.romana_admin_icon li a {
+    color: #979797;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.romana_post_icon li a span, .romana_admin_icon li a span {
+    margin-right: 13px;
+}
+.romana_admin_icon li:first-child {
+    margin-right: 33px;
+}
+.romana_post_content {
+    color: #7e7e7e;
+    font-size: 16px;
+    line-height: 32px;
+}
+.romana_post_content h2 {
+    color: #2a2a2a;
+    font-size: 22px;
+    margin-bottom: 30px;
+    margin-top: 18px;
+    text-transform: uppercase;
+}
+.romana_post_btn {
+    margin-top: 23px;
+}
+.romana_post_content a{
+    color: #14adf4;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+.romana_single_post{
+    margin-bottom: 56px;
+}
+.romana_pagination li {
+    color: #9a9a9a;
+    display: inline-block;
+    padding: 0 17px;
+}
+.romana_pagination li a{
+    color: #9a9a9a;
+    font-size: 15px;
+    font-family: 'proxima_nova_rgregular';
+}
+.romana_pagination li.active a{
+    color: #2a2a2a;
+    font-size: 16px;
+}
+.romana_pagination li a span{
+    font-size: 12px;
+}
+.romana_catagory_tex ul{
+    margin-top: 33px;
+}
+.romana_catagory_text li a{
+    color: #acacac;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-family: 'proxima_nova_rgregular';
+    line-height: 29px;
+}
+.romana_recen_post{
+    margin-top: 88px;
+}
+.romana_single_recent{
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+.romana_recent_thumb {
+    float: left;
+    margin-right: 23px;
+}
+.romana_recent_content{
+    color: #c5c5c5;
+    font-size: 12px;
+    padding-left: 80px;
+}
+.recent_margin_top, .romana_tag_list {
+  margin-top: 40px;
+}
+.romana_recent_content h3 {
+    color: #636363;
+    font-size: 14px;
+}
+.romana_aside_tags{
+    margin-top: 96px;
+}
+.romana_tag_list li {
+    border: 1px solid #e5e5e5;
+    display: inline-block;
+    margin-bottom: 6px;
+    padding: 5px 20px;
+}
+.romana_tag_list li:hover{
+    background: #14adf4;
+    border: 1px solid #14adf4;
+}
+.romana_tag_list li a {
+    color: #737373;
+    display: block;
+    font-size: 12px;
+}
+/* ---------------------- 17.13- Single_Blog Page ------------------------------ */
+blockquote {
+    border-left: 0 none;
+    color: #797979;
+    font-size: 18px;
+    padding: 34px 86px 18px 100px;
+    position: relative;
+    font-family: 'ProximaNova-LightIt';
+}
+blockquote::before {
+    color: #14adf4;
+    content: "ï„Ž";
+    font-family: fontawesome;
+    font-size: 34px;
+    left: 51px;
+    position: absolute;
+    top: 67px; 
+}
+.romana_single_blog_share_icon {
+  text-align: right;
+}
+.romana_single_blog_share_icon li {
+    color: #b9b9b9;
+    display: inline-block;
+    font-size: 12px;
+    padding-right: 9px;
+    text-transform: uppercase;
+    font-family: 'proxima_nova_rgregular';
+}
+.romana_single_blog_share_icon a {
+    color: #464646;
+    font-size: 12px;
+}
+.romana_about_author {
+    background: #f7f7f7 none repeat scroll 0 0;
+    overflow: hidden;
+    padding: 22px 25px;
+}
+.romana_about_author_img {
+    float: left;
+}
+.romana_about_author_text {
+    color: #7f7f7f;
+    font-size: 15px;
+    padding-left: 140px;
+}
+.romana_about_author_text h3{
+    color: #2a2a2a;
+    font-size: 14px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+.romana_about_author_text h3 span{
+    font-family: 'proxima_nova_rgregular';
+    color: #bcbcbc;
+}
+.single_blog_page .section_title {
+    max-width: 100%;
+}
+.romana_single_popular_post {
+    margin-top: 18px;
+}
+.romana_popular_post_date {
+    color: #b1b1b1;
+    font-size: 12px;
+    margin-top: 12px;
+}
+.romana_popular_post_title h3 {
+    color: #2a2a2a;
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: -3px;
+    padding-right: 55px;
+    text-transform: uppercase;
+}
+.romana_single_3comment {
+    float: left;
+}
+.romana_comment_reply {
+    position: absolute;
+    right: 135px;
+}
+.romana_comment_reply a{
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #14adf4;
+}
+.romana_comment_img {
+    display: block;
+    float: left;
+}
+.romana_comment_textt {
+    color: #909090;
+    margin-bottom: 60px;
+    padding-left: 120px;
+    padding-right: 134px;
+}
+.romana_single_comment_reply:nth-child(3){
+    padding-left: 100px;
+}
+.romana_comment_textt h3 {
+    color: #404040;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 17px;
+}
+.romana_comment_textt span {
+    color: #b2b2b2;
+    font-size: 12px;
+    margin-left: 16px;
+    text-transform: none;
+}
+.leave_comment_title h2 {
+    margin-bottom: 33px;
+}
+.romana_leave_comment_input textarea{
+    width: 82%;
+    resize: none;
+    margin-bottom: 17px;
+    background: #f9f9f9 none repeat scroll 0 0;
+    border: 1px solid #e4e4e4;
+    height: 150px;
+    padding: 0px 15px;
+    color: #a4a4a4;
+}
+.Website_input {
+    width: 82%!important;
+    margin-bottom: 20px;
+}
+.romana_leave_comment_input input {
+    background: #f9f9f9 none repeat scroll 0 0;
+    border: 1px solid #e4e4e4;
+    height: 40px;
+    margin-bottom: 20px;
+    margin-right: 7px;
+    padding: 0px 15px;
+    width: 40.4%;
+    color: #a4a4a4;
+}
+.romana_leave_comment_input input[type="submit"] {
+    height: 45px;
+    width: 150px;
+    display: inline-block;
+    border: none;
+    background: #14adf4;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 10px;
+}
+/* ----------------------- 17.14 - Cart Page ----------------------- 16.14 - */
+.romana_cart_page.section_padding {
+    padding-top: 90px;
+}
+.romana_cart_text{
+    margin-bottom: 50px;
+    color: #2a2a2a;
+    font-size: 14px;
+}
+.cart-item{
+    height: 110px;
+    text-align: center;
+    border-bottom: 1px solid #e7e7e7;
+}
+.row.cart-item:last-child {
+    margin-bottom: 60px;
+}
+.romana_close_button i {
+    height: 15px;
+    width: 15px;
+    background: #14adf4;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    line-height: 15px;
+    cursor: pointer
+}
+.romana_close_button {
+    line-height: 110px;
+}
+.romana_product_image {
+    line-height: 110px;
+    text-align: left
+}
+.cart-price h6 {
+    line-height: 110px;
+}
+.product-image span {
+    margin-left: 15px;
+}
+.romana_product_image h5 {
+    text-align: center;
+}
+span.change_qty.plus.cursor_hover.fa.fa-angle-up {
+    background: #14adf4 none repeat scroll 0 0;
+    color: #ffffff;
+    height: 35px;
+    line-height: 35px;
+    position: relative;
+    text-align: center;
+    top: 38px;
+    width: 20px!important;
+    position: absolute;
+    left: 67px;
+}
+span.change_qty.minus.cursor_hover.fa.fa-angle-down {
+    background: #14adf4 none repeat scroll 0 0;
+    color: #ffffff;
+    height: 35px;
+    left: 4px;
+    line-height: 35px;
+    position: relative;
+    text-align: center;
+    top: 1px;
+    width: 20px!important;
+    border-left: 1px solid #dedede;
+}
+.cart-quantity input {
+    display: inline-block;
+    float: left;
+    height: 35px;
+    margin-top: 1px;
+    text-align: center;
+    width: 50px;
+    border-top: 1px solid #dedede;
+    border-bottom: 1px solid #dedede;
+    border-left: none;
+    border-right: none;
+}
+.cart-quantity span.minus {
+    float: left;
+    width: 15px !important;
+    left: 0 !important;
+}
+.cart-quantity span.plus {
+    float: left;
+    right: 0 !important;
+    width: 15px !important;
+}
+.cart-quantity {
+    line-height: 110px;
+    padding: 37px 0;
+}
+.cart-total h6 {
+    line-height: 110px;
+    margin: 0;
+}
+.cart-quantity div {
+    margin-left: 21px;
+}
+.romana_product_rating_tool {
+    background: #14adf4;
+    padding: 20px 0;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-radius: 3px;
+}
+.row.prduct-rating-tool h5 {
+    margin: 0;
+    margin-top: 4px;
+    font-size: 14px;
+}
+.row.cart-item h6 {
+    font-size: 14px;
+    font-family: 'proxima_nova_rgregular';
+}
+.cart_margin_top label {
+    color: #616161;
+}
+.total-cart h3 {
+    padding-bottom: 20px;
+    margin-bottom: 15px;
+    color: #2a2a2a;
+    position: relative;
+    font-size: 20px;
+}
+.total-cart h3:before {
+    background: #14adf4;
+    height: 4px;
+    width: 60px;
+    bottom: 0;
+    border-radius: 3px;
+}
+.total-cart h3:after {
+    left: 0;
+    bottom: 0;
+    background: #dfdfdf;
+    width: 70px;
+    height: 4px;
+    z-index: -1;
+    border-radius: 3px;
+}
+ul.totla-list li {
+    border-bottom: 1px solid #eeeeee;
+    color: #6b6b6b;
+    display: block;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    width: 100%;
+}
+ul.totla-list li span {
+    color: #2a2a2a;
+    text-align: right;
+    float: right;
+}
+.total-pricecc h4 {
+    text-transform: uppercase;
+    color: #2a2a2a;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+.total-pricecc h4 span {
+    float: right;
+    text-align: right;
+}
+a.proced-check-out {
+    text-transform: uppercase;
+    background: #14adf4;
+    padding: 15px 25px;
+    display: inline-block;
+    border-radius: 3px;
+    color: #fff;
+    line-height: normal;
+    margin-bottom: 20px;
+}
+input.apply-coupon {
+    background: #14adf4;
+    border: none;
+    border-radius: 2px;
+    margin-left: 10px;
+    color: #fff;
+    padding: 11px 18px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+.cart_margin_top {
+    margin-top: 60px;
+}
+/* ----------------------- 17.15 - Shop Page ----------------------- */
+.romana_shop_page {
+    margin-bottom: 45px;
+}
+.romana_result_count {
+    color: #838383;
+    font-family: 'proxima_nova_rgregular';
+}
+.romana_result_count span{
+    color: #585858;
+}
+.romana_product_name {
+    margin-top: 25px
+}
+.romana_product_name h2 {
+    color: #2a2a2a;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.romana_product_name h3 {
+    color: #ababab;
+    margin-bottom: 10px;
+    font-family: 'proxima_nova_rgregular';
+    font-size: 12px;
+}
+.romana_price_rating {
+    overflow: hidden;
+}
+.pricerecent {
+    width: 50%;
+    float: left;
+    color: #232323;
+    font-family: 'proxima_nova_rgregular';
+}
+.romana_rating {
+    width: 50%;
+    float: left;
+    margin-left: -16px;
+}
+.romana_price_rating.recent-price .romana_rating span {
+    font-size: 11px;
+}
+.romana_rating span, .single-prduct-rating span {
+    color: #14adf4
+}
+.romana_shop_select {
+    width: 185px;
+    height: 45px;
+    position: relative;
+    font-family: 'proxima_nova_rgregular';
+    font-size: 14px;
+    margin-bottom: 50px;
+}
+.romana_shop_select:before {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #14adf4;
+    height: 100%;
+    width: 20px;
+    content: "\f107";
+    color: #fff;
+    font-family: fontAwesome;
+    text-align: center;
+    line-height: 45px;
+    z-index: -1;
+}
+.romana_shop_select select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    color: #919191;
+    width: 100%;
+    height: 100%;
+    padding-left: 15px;
+    background: transparent;
+    border: 1px solid #e3e3e3;
+    font-family: 'proxima_nova_rgregular';
+}
+.romana_single_product a {
+    background: #14adf4 none repeat scroll 0 0;
+    border-radius: 3px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 14px;
+    height: 35px;
+    line-height: 35px;
+    margin-top: 19px;
+    text-align: center;
+    width: 120px;
+    border:2px solid transparent;
+}
+.romana_single_product {
+    margin-bottom: 87px
+}
+button.filtedr {
+    padding: 5px 20px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    background: #14adf4;
+    border: none;
+    border:2px solid transparent;
+}
+.pricing-rang {
+    margin-top: 30px;
+}
+input#price {
+    width: 70px;
+    border: none;
+    margin-left: 0px;
+    color: #232323
+}
+.romana_price {
+    color: #232323;
+    float: left;
+    font-size: 18px;
+    width: 50%;
+    font-family: 'proxima_nova_rgregular';
+    margin-top: 2px;
+}
+span.price-text {
+    margin-left: 50px;
+    text-transform: capitalize;
+    color: #5e5e5e
+}
+span.price-text b{
+    font-family: 'proxima_nova_rgregular';
+}
+div#slider-3 {
+    background: #e1e1e1;
+    height: 4px;
+    margin-top: 50px;
+    position: relative;
+}
+div#slider-3:after, .slider_circle:after, .slider_circle:before{
+    background: #14adf4;
+    width: 113px;
+    height: 100%;
+    left: 15px;
+    top: 0;
+}
+.slider_circle{
+    position: relative;
+}
+.slider_circle:before{
+    border-radius: 50%;
+    height: 10px;
+    top: -7px;
+    width: 10px;
+}
+.slider_circle:after{
+    border-radius: 50%;
+    height: 10px;
+    top: -7px;
+    width: 10px;
+    left: 45%;
+}
+.shop-search input {
+    border: none;
+    width: 90%;
+    height: 100%
+}
+.best_seller_margin_top {
+  margin-top: 40px;
+}
+.shop-search button {
+    color: #1c1c1c;
+    border: none;
+    background: none;
+}
+.shop-search {
+    border-bottom: 1px solid #cfcfcf;
+    height: 36px;
+}
+.recent-shop-item {
+    display: inline-block;
+    float: left;
+    margin-right: 25px;
+    width: 61px;
+}
+.recent-shop-price-title {
+    padding-left: 86px;
+}
+.recent-shop-price-title h5 {
+    color: #949494;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+.recent-item {
+    margin-bottom: 15px;
+}
+.romana_product_img {
+    position: relative;
+}
+.romana_hover_show {
+    position: absolute;
+    top: 50%;
+    margin-top: -7.5px;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: .4s
+}
+.romana_single_product:hover .romana_hover_show {
+    visibility: visible;
+    opacity: 1;
+}
+.romana_single_product:hover .romana_product_img:before {
+    opacity: .5
+}
+.romana_product_img:before {
+    width: 100%;
+    height: 100%;
+    background: #f3fbfe;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: .4s;
+}
+.romana_hover_show a {
+    background: #14adf4;
+    color: #fff;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+/*shop page notifecation*/
+
+.shoping {
+    position: relative;
+    display: inline-block;
+}
+.shoping span {
+    position: absolute;
+    top: -11px;
+    background: #14adf4;
+    color: #fff;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    font-size: 11px;
+    border-radius: 50%;
+    right: 50%;
+    margin-right: -6px;
+}
+.notification .shoping i {
+    margin-right: 0 !important;
+    padding-right: 0;
+}
+.notification a {
+    color: #1c1c1c;
+}
+/* -------------------- 17.16 - single prduct Page -------------------- */
+.romana_sp_page {
+    margin-bottom: 72px;
+}
+.single-product-name {
+    width: 70%;
+    float: left;
+}
+.single-prduct-rating.rating {
+    width: 30%;
+    text-align: right;
+    float: left;
+}
+.single-product-name-rating {
+    overflow: hidden;
+    margin-bottom: 22px
+}
+.Quantity {
+    margin-bottom: 11px;
+}
+.single-product-name h3 {
+    color: #2a2a2a;
+    text-transform: uppercase;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+.single-prduct-rating.rating h2 {
+    font-size: 24px;
+    font-family: 'proxima_nova_rgregular';
+    color: #2a2a2a;
+}
+.single-product-name h5 span {
+    color: #959595;
+    margin-right: 10px;
+    text-transform: capitalize;
+}
+.single-product-name h5 {
+    color: #727272;
+    font-size: 12px;
+    font-family: 'proxima_nova_rgregular';
+}
+h5.instok {
+    color: #14adf4;
+    margin: 30px 0;
+    font-size: 14px;
+    font-family: 'proxima_nova_rgregular';
+}
+.single-product-name-rating p {
+    color: #919191;
+    font-size: 14px;
+}
+.Quantity label {
+    color: #7e7e7e;
+    margin: 0;
+    margin-right: 7px;
+    font-size: 12px;
+}
+.Quantity input {
+    height: 35px;
+    width: 32px;
+    text-align: center;
+    border: 1px solid #dedede
+}
+.product-privew-padding {
+    padding-bottom: 100px
+}
+ul.nav.product-nav.nav-tabs {
+    border-bottom: none;
+    margin-top: 60px;
+}
+.single_product_page .tab-content {
+    margin-bottom: 100px;
+}
+.single_product_page .romana_single_product {
+    margin-bottom: 83px;
+    margin-top: 17px;
+}
+.single_product_page span.change_qty.plus.cursor_hover.fa.fa-angle-up {
+    left: 112px;
+    top: 241px;
+}
+.single_product_page span.change_qty.minus.cursor_hover.fa.fa-angle-down {
+  top: 0;
+}
+ul.nav.product-nav.nav-tabs li a {
+    border: none;
+    border-radius: none;
+    color: #2a2a2a;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+ul.nav.product-nav.nav-tabs li.active a {
+    background: #14adf4;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+}
+.row.product-description-padding {
+    margin-bottom: 100px;
+}
+.tab-pane {
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+}
+.tab-pane h4 {
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #2a2a2a;
+    margin-top: 15px;
+}
+.tab-pane p {
+    margin-bottom: 30px;
+    font-size: 16px;
+    color: #777777;
+    padding-right: 111px;
+}
+.view_product.text-center > a {
+    color: #2a2a2a;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+/* --------------------- 17.17 - check out Page --------------------- */
+.romana_check_out {
+    background: #f6f6f6 none repeat scroll 0 0;
+    border-radius: 3px;
+    font-family: "proxima_nova_rgregular";
+    font-size: 14px;
+    padding: 27px 0;
+    text-align: center;
+}
+.romana_check_out li:first-child {
+    margin-right: 100px;
+}
+.romana_check_out li {
+    display: inline-block;
+}
+.romana_check_out li span {
+    background: #14adf4 none repeat scroll 0 0;
+    color: #ffffff;
+    font-size: 12px;
+    height: 16px;
+    line-height: 16px;
+    margin-right: 10px;
+    text-align: center;
+    width: 16px;
+}
+.romana_check_out li a {
+  color: #14adf4;
+}
+.single-input-check {
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-right: 3%;
+    width: 46%;
+}
+.single-input-check p {
+    color: #7e7e7e;
+    font-size: 14px;
+}
+.single-input-check input, .s_countryu {
+    border: 1px solid #eeeeee;
+    height: 40px;
+    margin-top: 10px;
+    padding-left: 15px !important;
+    width: 100%;
+}
+select {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+    
+}
+.select_country, .select_payment_method{
+    position:relative
+}
+.select_country:after, .select_payment_method:after{
+    content:'\f0dd ';
+    font-size:14px;
+    color:#2a2a2a;
+    right:14px; 
+    top:14px;
+    pointer-events:none;
+    cursor: pointer;
+    font-family: FontAwesome;
+    position: absolute;
+}
+.single-input-check span {
+    color: #f70000;
+}
+.single-input-check.input-full-widh {
+    width: 95% !important;
+}
+.check_page .section_title {
+    max-width: 100%;
+}
+.chackout-page-total h3 {
+    color: #2a2a2a;
+    font-size: 16px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    margin-top: 37px;
+}
+.chackout-page-total h3 span {
+    float: right;
+}
+ul.total-hisab li {
+    border-bottom: 1px solid #dddddd;
+    color: #7e7e7e;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    font-family: 'proxima_nova_rgregular';
+}
+ul.total-hisab li span {
+    color: #444444;
+    float: right;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+.check_page .section_title {
+    max-width: 100%;
+}
+.free_shipping_mt {
+    margin-top: -25px;
+}
+.total-pricecc h6 {
+    color: #2a2a2a;
+    font-size: 14px;
+}
+.total-pricecc h6 span {
+    float: right;
+}
+.select-pay-method ul li{
+    color: #AAAAAA;
+    display: block;
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-bottom: -23px;
+}
+.select-pay-method ul li input[type=radio]{
+    position: absolute;
+    visibility: hidden;
+}
+.select-pay-method ul li label{
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 13px auto;
+    padding: 16px 25px 0 80px;
+    position: relative;
+    z-index: 9;
+    color: #2a2a2a;
+}
+.select-pay-method ul li .check{
+    border: 1px solid #979797;
+    border-radius: 100%;
+    display: block;
+    height: 18px;
+    left: 20px;
+    position: absolute;
+    top: 30px;
+    transition: border 0.25s linear 0s;
+    width: 18px;
+    z-index: 5;
+}
+.select-pay-method ul li .check::before {
+    border-radius: 100%;
+    display: block;
+    height: 10px;
+    left: 3px;
+    margin: auto;
+    top: 3px;
+    transition: background 0.25s linear 0s;
+    width: 10px;
+}
+input[type=radio]:checked ~ .check {
+    border: 1px solid #979797;
+}
+input[type=radio]:checked ~ .check::before{
+    background: #14adf4;
+}
+.select-pay-method span {
+    display: block;
+    margin-top: 12px;
+    color: #686868;
+}
+.select-pay-method {
+    background: #f6f6f6 none repeat scroll 0 0;
+    height: 320px;
+    margin-top: 56px;
+}
+.select-pay-method > a {
+    background: #14adf4 none repeat scroll 0 0;
+    border-radius: 3px;
+    color: #ffffff;
+    display: inline-block;
+    height: 46px;
+    line-height: 46px;
+    margin-top: 36px;
+    text-align: center;
+    width: 150px;
+    margin-left: 21px;
+    border:2px solid transparent;
+}
+.check-out-form, .chackout-page-total{
+    margin-bottom: 34px;
+}
+/*country select*/
+.country-select.inside {
+    margin-top: 10px;
+    width: 100%;
+}
+.country-select {
+    display: inline-block;
+    position: relative;
+}
+.country-select.inside input[type="text"], .country-select.inside input[type="tel"] {
+    padding-left: 0;
+}
+.country-select.inside .flag-dropdown {
+    padding: 1px;
+}
+.country-select .flag-dropdown {
+    bottom: 0;
+    position: absolute;
+    top: 0;
+}
+.flag-dropdown {
+    position: absolute;
+    right: 10px;
+}
+.country-select .selected-flag {
+  height: 100%;
+  padding: 0 0 0 8px;
+  position: relative;
+  width: 38px;
+  z-index: 1;
+}
+.country-select .selected-flag .flag {
+    margin-top: -5px;
+    position: absolute;
+    top: 50%;
+}
+.country-select .ve {
+    background-position: -48px 0;
+}
+.country-select .flag {
+    background: rgba(0, 0, 0, 0) url("../images/flags.png") repeat scroll 0 0;
+    height: 11px;
+    width: 16px;
+}
+.country-select .selected-flag .arrow {
+    border-left: 3px solid rgba(0, 0, 0, 0);
+    border-right: 3px solid rgba(0, 0, 0, 0);
+    border-top: 4px solid #555555;
+    height: 0;
+    left: 20px;
+    margin-top: -2px;
+    position: relative;
+    top: 50%;
+    width: 0;
+}
+.country-select .country-list {
+    position: absolute;
+    right: 0;
+}
+/* ****************************************************************
+        18. This Code is For Responsive
+***************************************************************** */
+/* =================================================================
+*   For 1200-1599
+================================================================== */
+@media (min-width: 1200px) and (max-width: 1599px) {
+.testi_img {
+    right: 0;
+}
+.content_bg::after {
+    left: 411%;
+}
+.border {
+    left: 462%;
+}
+.romana_booking_image {
+    position: absolute;
+    right: 34px;
+    top: 135px;
+}
+.romana_popular_post_title h3 {
+    font-size: 13px;
+}
+.romana_comment_reply a {
+    font-size: 13px;
+}
+.romana_blog_area .owl-next {
+    right: -20px;
+}
+.romana_blog_area .owl-prev {
+    left: -20px;
+}
+}
+/* =================================================================
+*   For Medium Desktop
+*   Resolation 970px
+================================================================== */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+.owl-dots {
+    bottom: 79px;
+}
+.single_text h1 {
+    font-size: 32px;
+}
+.single_text{
+    font-size: 14px;
+}
+.explore_text {
+    padding-bottom: 26px;
+    padding-top: 35px;
+}
+.testi_img {
+    right: 0;
+}
+.romana_booking_image {
+    right: 0;
+    top: 102px;
+    z-index: -1;
+}
+.home_page .romana_booking_form, .index-2 .romana_booking_form {
+    margin-top: 0;
+}
+.romana_booking_image::before {
+    right: 30px;
+    width: 62%;
+    z-index: -1;
+}
+.romana_blog_area {
+    padding: 57px 0;
+    background-size: 100% 61.5%;
+}
+.romana_blog_area::before {
+    height: 61.5%;
+}
+.single_post {
+  margin-top: 56px;
+  max-width: 290px;
+}
+.post_text h2 {
+    font-size: 18px;
+    margin-bottom: 6px;
+    margin-top: 0px;
+}
+.romana_blog_area .owl-prev {
+    left: -21px;
+}
+.romana_blog_area .owl-next {
+    right: -17px;
+}
+.romana_brand_area {
+    padding-top: 39px;
+}
+.home_page .romana_footer, .index-2 .romana_footer {
+    margin-top: 40px;
+}
+.subscrib {
+    font-size: 13px;
+}
+.subscrib h3 {
+    font-size: 14px;
+}
+/* index-2 */
+.header_top_left ul li {
+    font-size: 13px;
+    margin-left: 8px;
+}
+/* about page */
+.romana_page_text h1 {
+    font-size: 35px;
+}
+.about_page .section_title h2 {
+    font-size: 24px;
+}
+.about_page .owl-dots, .portfolio_page .owl-dots {
+  bottom: 0;
+}    
+/* testimonial page */
+.romana_clean_theme_btn {
+    position: absolute;
+    right: 17px;
+}    
+/* contact page */
+.content_bg::after {
+    left: 327%;
+}    
+.border {
+    left: 379%;
+}    
+/* single service */
+.romana_single_aside li a {
+    font-size: 13px;
+}
+.single_service_page .romana_house_cleaning_area .section_title h2::before, .single_service_page .romana_house_cleaning_area .section_title h2::after, .single_portfolio_page .romana_house_cleaning_area .section_title h2::before, .single_portfolio_page .romana_house_cleaning_area .section_title h2::after {
+  left: 150px;
+}
+.romana_booking_image {
+    top: 96px;
+}
+.romana_booking_image::before {
+    height: 90%;
+}    
+.romana_popular_post_title h3 {
+    font-size: 13px;
+}    
+.romana_comment_reply a {
+    font-size: 13px;
+}    
+/* shop page */
+.shop_page .romana_aside_title h2 {
+    font-size: 17px;
+} 
+div#slider-3::after{
+    width: 90px;
+}
+.romana_aside_tags {
+    margin-bottom: 30px;
+    margin-top: 59px;
+}
+/* single-portfolio */
+.romana_single_portfolio_aside h2 {
+    font-size: 22px;
+}
+.romana_prev_next_button a:last-child {
+    padding-left: 6px;
+}
+.romana_prev_next_button a:first-child {
+    padding-right: 2px !important;
+}
+/* single-product */
+.single_product_page span.change_qty.plus.cursor_hover.fa.fa-angle-up {
+  left: 112px;
+  top: 266px;
+}
+}/* End Medium Desktop responsive media query */
+
+/* =================================================================
+*   For Tablet
+*   Resolation 970px
+================================================================== */
+
+@media (min-width: 768px) and (max-width: 991px) {
+/* ======================== Index-1 ============================== */
+.header_top_left {
+    text-align: left;
+}
+.header_top_left ul li {
+    font-size: 13px;
+    margin-left: 13px;
+}
+.header_top_right i {
+    padding-right: 21px;
+}
+.mainmenu li a {
+    padding: 15px 10px;
+} 
+.index-2 .mainmenu ul li:hover ul.sub-menu {
+    top: 84px;
+}
+.romana_hero_area {
+    height: 670px;
+}
+.single_text {
+    font-size: 17px;
+    padding-bottom: 150px;
+    padding-top: 270px;
+}    
+.single_text h1, .romana_page_text h1 {
+    font-size: 24px;
+    line-height: 38px;
+}  
+.single_text a {
+    font-size: 13px;
+    height: 45px;
+    line-height: 45px;
+    width: 164px;
+}
+.owl-dots {
+    bottom: 70px;
+}
+.single_service.text-center {
+    padding: 0;
+}
+.single_service h2 {
+    font-size: 16px;
+}    
+.romana_explore_area {
+    margin-top: 70px;
+}    
+.romana_team_area.section_padding {
+    padding-top: 84px;
+}    
+.single_staff {
+    padding-right: 36px;
+} 
+.romana_team_area .owl-nav {
+    top: -53px;
+}    
+.team_slider.section_padding_top.owl-carousel.owl-theme.owl-responsive-768.owl-loaded {
+    padding-top: 50px;
+} 
+.testi_img {
+    right: 0;
+}
+.client_crsl.owl-carousel.owl-theme.owl-responsive-768.owl-loaded {
+    position: relative;
+    z-index: 9;
+}
+.romana_single_price h4 {
+    font-size: 23px;
+}
+.romana_counter_area {
+    margin-top: 88px;
+}
+.romana_pricing_area.section_padding_top {
+    padding-top: 85px;
+}    
+.romana_single_price h3 {
+    font-size: 14px;
+}    
+.romana_single_price h4 {
+    font-size: 25px;
+    margin-top: 14px;
+} 
+.romana_single_price h4 span {
+    font-size: 14px;
+}
+.single_post {
+  margin-top: 42px;
+  max-width: 290px;
+}    
+.blog_crsl.owl-carousel.owl-theme.owl-responsive-768.owl-loaded {
+  margin-left: 30px;
+}
+.romana_blog_area .owl-next {
+    right: 20px;
+}
+
+.romana_blog_area::before {
+    height: 59.8%;
+}
+.romana_blog_area {
+    background-size: 100% 59.8%;
+    padding: 50px 0px;
+    overflow:hidden;
+}
+.post_text {
+    margin-top: 93px;
+    padding: 0 17px;
+}
+.post_text h2 {
+    margin-top: -59px;
+    font-size: 18px;
+    margin-bottom: 13px;
+}
+.single_post {
+    border: 1px solid transparent;
+}    
+.blog_btn a {
+    font-size: 12px;
+}    
+.widget.footer_top_menu h2 {
+    font-size: 16px;
+}    
+.subscrib h3 {
+    font-size: 14px;
+} 
+.widget.footer_top_menu.margin_top_tablet.single_footer {
+    margin-top: -35px;
+}
+.address {
+    margin-top: 35px !important;
+}
+.subscrib {
+    font-size: 12px;
+}
+.footer_bottom {
+    padding-top: 15px;
+}
+.footer_bottom span {
+    font-size: 13px;
+}
+/* index-2 */
+.index-2 .hrader_top_area::after {
+    width: 26%;
+} 
+.index-2 .header_top_text {
+    font-size: 11px;
+}
+.header_top_left ul li {
+    font-size: 12px;
+    margin-left: 3px;
+}
+.header_top_right i {
+    padding-right: 17px;
+    font-size: 12px;
+}
+.index-2 .mainmenu ul {
+    float: left;
+}
+.index-2 .mainmenu li a {
+    font-size: 11px;
+    padding: 33px 0 26px 15px;
+}
+.index-2 .mainmenu ul li ul.sub-menu {
+  width: 135px;
+}
+.index-2 .romana_hero_area .owl-dots {
+    left: 43%;
+}
+/* about page */
+.romana_page_text h1 {
+    text-align: center;
+}
+.breadcrumb {
+    text-align: center;
+}
+.romana_story_text {
+    margin-top: 97px;
+}
+.about_page .owl-dots, .portfolio_page .owl-dots {
+    bottom: 0;
+}
+/* contact page */
+.romana_contact_area {
+    padding-bottom: 54px;
+}
+.romana_contact_area::before {
+    height: 58%;
+}
+.romana_contact_form form input, .romana_contact_form form textarea {
+    width: 90%;
+}
+.romana_contact_form label {
+    font-size: 14px;
+}
+.romana_contact_form form input[type="submit"] {
+    font-size: 13px;
+    width: 115px;
+}
+.content_bg::after {
+    left: 234%;
+}
+.border {
+    bottom: 112px;
+    left: 283%;
+} 
+/* single service */
+.romana_single_aside li a {
+    font-size: 13px;
+}
+.single_service_page .romana_house_cleaning_area .section_title h2::before, .single_service_page .romana_house_cleaning_area .section_title h2::after, .single_portfolio_page .romana_house_cleaning_area .section_title h2::before, .single_portfolio_page .romana_house_cleaning_area .section_title h2::after {
+    left: 158px;
+}
+.romana_clean_theme_btn {
+    text-align: right;
+}
+.romana_single_aside ul {
+    margin-right: 10px;
+}
+/* blog page */
+.romana_post_icon li a {
+    margin-right: 5px;
+}
+.romana_admin_icon li a {
+    font-size: 12px;
+}
+.romana_admin_icon li:first-child {
+    margin-right: 12px;
+}
+.romana_post_icon li a span, .romana_admin_icon li a span {
+    margin-right: 5px;
+}
+.romana_post_icon li a {
+    margin-right: 15px;
+}
+/* single blog */
+blockquote::before {
+    top: 19px;
+}
+blockquote {
+    font-size: 16px;
+    padding: 12px 0 2px 100px;
+}
+.single_blog_page .romana_post_content {
+    font-size: 14px;
+}
+.romana_about_author_text {
+    font-size: 13px;
+    padding-left: 134px;
+}
+.romana_about_author_text h3 {
+    margin-bottom: 10px;
+}
+.romana_popular_post_title h3 {
+    font-size: 12px;
+}
+.romana_comment_textt {;
+    padding-left: 104px;
+    padding-right: 108px;
+}
+.romana_comment_reply a {
+    font-size: 12px;
+}
+.romana_single_comment_reply:nth-child(3) {
+    padding-left: 0;
+}
+.single_blog_page .section_title h2 {
+    font-size: 20px;
+}
+.romana_leave_comment_input input {
+    width: 40%;
+}
+/* single portfolio */
+.romana_single_portfolio_aside h2 {
+    font-size: 22px;
+} 
+.romana_clean_theme_text h3, .romana_house_cleaning_text h2, .romana_single_portfolio_aside h2 {
+    font-size: 20px;
+}
+.romana_single_portfolio_aside a {
+    font-size: 14px;
+}
+.romana_house_cleaning_text {
+    padding-right: 70px;
+}
+/* portfolio page*/
+.romana_portfolio-area.section_padding_top {
+    padding-top: 72px;
+}
+ul.isotop-nav {
+    text-align: center;
+}
+/* shop page */
+.romana_shopo_right_content {
+    margin-right: 25px;
+}
+.romana_shop_left_content {
+    margin-left: 10px;
+}
+.romana_rating {
+    width: 55%;
+}
+.shop_page .romana_aside_title h2{
+    font-size: 18px;
+}
+.romana_product_name h2 {
+    font-size: 14px;
+}
+.romana_single_product a {
+    font-size: 12px;
+    width: 110px;
+}
+button.filtedr {
+    font-size: 12px;
+    padding: 2px 12px;
+}
+span.price-text {
+    margin-left: 25px;
+}
+div#slider-3::after{
+  width: 88px;
+}
+span.change_qty.plus.cursor_hover.fa.fa-angle-up {
+    left: 70px;
+}
+/* single product*/
+.single_product_page span.change_qty.minus.cursor_hover.fa.fa-angle-down {
+    top: 1px;
+}
+.single_product_page span.change_qty.plus.cursor_hover.fa.fa-angle-up {
+    left: 112px;
+    top: 225px;
+}
+}/* End tablet responsive media query */
+
+/* ==============================================
+*   For Small Mobile:
+*   Resolation 0 to 768px
+================================================ */
+
+@media only screen and (max-width: 767px) {
+.mean-container .mean-bar {
+    background: #14adf4 none repeat scroll 0 0;
+}
+.mean-container .mean-nav {
+  background: #14adf4 none repeat scroll 0 0;
+  float: left;
+  margin-top: 44px;
+  width: 100%;
+}
+.mean-container .mean-nav ul li a.mean-expand {
+    padding: 9px !important;
+}
+.mean-container .mean-nav ul li a.mean-expand:hover {
+    background:#0888c2;
+}
+.mean-container .mean-nav ul li a {
+    font-size: 12px;
+    font-family: 'proxima_novasemibold';
+}
+.logo {
+    margin-top: 25px;
+    position: absolute;
+    z-index: 9;
+}
+.header_top_right {
+    border-left: 0 solid #cececc;
+    margin-top: 29px;
+    text-align: right;
+}
+.header_top_left {
+    display: none;
+}
+.header_top_right i {
+    font-size: 16px;
+}
+.searchbox {
+    width: 91%;
+    z-index: 17;
+}
+.searchbox input.search-box {
+    width: 87%;
+}
+label.mainsearch {
+    right: 18%;
+}
+.searchbox i {
+    width: 9%;
+}
+.romana_hero_area {
+    height: 580px;
+}
+.single_text {
+    font-size: 16px;
+    padding-bottom: 101px;
+    padding-top: 145px;
+    text-align: center;
+    height: 600px;
+}
+.single_text h1 {
+    font-size: 23px;
+    line-height: 30px;
+}
+.owl-theme .owl-dots .owl-dot span {
+    height: 2px;
+    width: 15px;
+}    
+.owl-theme .owl-dots .owl-dot.active span {
+    width: 20px;
+}    
+.owl-dots {
+    bottom: 130px;
+    left: 104px;
+}    
+.single_service.text-center {
+    margin-bottom: 35px;
+} 
+.romana_explore_area {
+    margin-top: 45px;
+}
+.explore_text_padding {
+    padding-left: 0px;
+    margin-top: -92px;
+}   
+.explore_text {
+    padding-bottom: 50px;
+    padding-top: 51px;
+    text-align: center;
+}    
+.explore_text a {
+    margin-top: 25px;
+}    
+.romana_team_area.section_padding {
+    padding-top: 80px;
+}    
+.romana_team_area .owl-nav div {
+    font-size: 17px;
+    padding: 2px 8px;
+}    
+.romana_team_area .owl-carousel .owl-item img {
+    margin: 0 auto;
+}    
+.single_staff h3 {
+    font-size: 16px;
+    margin-top: 20px;
+}   
+.testi_img {
+    display: none;
+}
+.section_title {
+    text-align: center;
+}
+.section_title h2::before {
+    left: 50%;
+    margin-left: -30px;
+}   
+.section_title h2::after {
+    left: 39%;
+} 
+.section_title h2 {
+    font-size: 22px;
+    text-align: center;
+}
+.single_staff {
+    padding-right: 0;
+    text-align: center;
+    padding: 0px 13px;
+}
+.romana_testimonials_area {
+    margin-top: -35px;
+    padding: 40px 0 0;
+}
+.romana_team_area .owl-nav {
+    top: 20px;
+}
+.single_c_crsl {
+    padding-bottom: 50px;
+    padding-top: 0;
+}
+.romana_service_booking_area {
+  padding-top: 80px;
+}
+.romana_booking_form {
+    margin-top: 20px;
+}
+.romana_booking_form input[type="submit"] {
+    display: block;
+    margin: 30px auto 0;
+}
+.romana_counter_area {
+    margin-top: 80px;
+    padding: 40px 0px;
+}    
+.single_counter h2 {
+    font-size: 15px;
+}    
+.single_counter h4 {
+    font-size: 10px;
+    font-family: 'proxima_novalight';
+}
+.romana_pricing_area.section_padding_top {
+    padding-top: 80px;
+}
+.romana_single_price {
+    width: 100%;
+    margin-top: 50px;
+}
+.romana_blog_area {
+    margin-top: 80px;
+    padding: 43px 0;
+}
+.single_post {
+    margin-top: 32px;;
+}
+.post_text h2 {
+    margin-top: 6px;
+}
+.romana_blog_area {
+  background-size: 100% 57.6%;
+}
+.romana_blog_area::before {
+    height: 57.6%;
+}
+.romana_blog_area .owl-prev {
+    left: 0;
+}
+.romana_blog_area .owl-next {
+    right: 0;
+}
+.romana_brand_area {
+    padding-bottom: 85px;
+    padding-top: 56px;
+}
+.footer_top_area {
+    margin-top: -45px;
+    padding-top: 40px;
+}
+#scrollTop {
+    left: 84%;
+}
+.widget.footer_top_menu {
+    margin-top: 40px;
+}
+.widget.footer_top_menu h2 {
+    font-size: 18px;
+}
+.widget.footer_top_menu > ul {
+    margin-top: 20px;
+}
+.subscrib h3 {
+    font-size: 14px;
+}
+.footer_bottom {
+    padding-bottom: 7px;
+    text-align: center;
+}
+.footer_bottom.footer_top.text-left {
+    margin-bottom: -15px;
+}
+.blog_btn {
+    margin-top: -10px;
+    padding-bottom: 26px;
+}
+.blog_btn a {
+    font-size: 12px;
+}
+.single_c_crsl h4 {
+    font-size: 16px;
+}
+/* index-2 */
+.index-2 .hrader_top_area::after {
+    width: 0;
+}
+.index-2 .header_bottom_area {
+    border-top: 0 solid #e8e8e8;
+}
+.index-2 .logo {
+    margin-top: -42px;
+}
+.header_top_right {
+    margin-top: 23px;
+}
+.index-2 .single_text h1 {
+    font-size: 23px;
+    line-height: 35px;
+}
+.index-2 .single_text {
+    font-size: 15px;
+    padding-top: 156px;
+}
+.single_text a {
+    font-size: 12px;
+    height: 44px;
+    line-height: 44px;
+    width: 150px;
+}
+.index-2 .romana_hero_area .owl-dots {
+    bottom: 60px;
+    left: 37%;
+}
+.romana_single_price h4 {
+    font-size: 30px;
+}
+.romana_single_price h3 {
+    font-size: 15px;
+}
+.romana_single_price h4 span {
+    font-size: 16px;
+}
+.romana_header::before {
+    width: 0;
+}
+/* other page*/
+.romana_allPage_area {
+    background-position: right center;
+}
+.romana_page_text h1 {
+    font-size: 29px;
+    margin-top: -67px;
+    text-align: center;
+}
+.breadcrumb {
+    text-align: center;
+}
+/* about page */
+.romana_client_area::before {
+    width: 100%;
+}
+.romana_single_client_text.section_title {
+    color: #ffffff;
+    margin-bottom: 85px;
+}
+.about_page .owl-theme .owl-dots .owl-dot span, .portfolio_page .owl-theme .owl-dots .owl-dot span {
+    background: #ffffff none repeat scroll 0 0;
+}
+.about_page .owl-theme .owl-dots .owl-dot.active span, .portfolio_page .owl-theme .owl-dots .owl-dot.active span {
+    background: #016d9f none repeat scroll 0 0;
+}
+.romana_story_text {
+    margin-top: 25px;
+}
+.romana_story_text h2 {
+    margin-bottom: 20px;
+}
+.romana_client_area {
+    margin-top: 50px;
+    padding-top: 0px;
+}
+.romana_single_client_text h2 {
+    margin-bottom: 30px;
+    margin-top: 50px;
+}
+.romana_single_client_text h3 {
+    font-size: 16px;
+}
+.romana_single_client_text h4 {
+    font-size: 11px;
+}
+.about_page .owl-dots, .portfolio_page .owl-dots {
+  bottom: 28px;
+  left: 115px;
+}
+.romana_client_area {
+    padding-bottom: 50px;
+}
+.single_counter h4 {
+    font-size: 11px;
+}
+.about_page .romana_team_area.section_padding {
+    padding-top: 60px;
+}
+.about_page .romana_team_area .owl-nav {
+    top: 3px;
+}
+.about_page .team_slider {
+    padding-top: 65px;
+}
+/* error page*/
+.romana_error_text img {
+    margin-left: 14px;
+}
+.romana_error_text {
+    margin-bottom: 40px;
+}
+/* thanks page */
+.thanks_page .romana_hero_area {
+    height: 542px;
+}    
+.romana_thanks_text {
+    padding-top: 200px;
+}    
+.thanks_page .widget.widget_text {
+    padding-top: 50px;
+} 
+.romana_error_text a, .romana_thanks_text a {
+    font-size: 13px;
+}    
+.testimonial_page .romana_testimonials_area {
+    margin-bottom: 20px;
+    padding-top: 116px;
+}    
+.romana_clean_theme_text {
+    text-align: center;
+}    
+.romana_clean_theme_btn {
+    text-align: center;
+}
+.romana_clean_theme_btn a {
+    color: #14adf4;
+    font-size: 12px;
+    height: 45px;
+    line-height: 45px;
+    margin-bottom: 74px;
+    margin-top: 18px;
+    width: 150px;
+}
+.romana_clean_theme_text h3, .romana_house_cleaning_text h2 {
+    font-size: 18px;
+}
+.service_page .romana_clean_theme_btn a {
+    margin-bottom: 0px;
+}
+.service_page .romana_pricing_area {
+    margin-bottom: 25px;
+    padding-top: 80px;
+}
+.service_page .romana_service_area {
+    padding-top: 74px;
+}
+.service_page .single_service{
+    margin-bottom: 40px;
+    padding: opx 20px;
+}
+.service_page .single_service h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-top: 23px;
+}
+/* contact page */
+.romana_contact_area {
+    padding-bottom: 50px;
+    padding-top: 60px;
+}
+.romana_contact_area::before {
+  top: 600px;
+  width: 100%;
+}
+.romana_contact_form {
+    margin-bottom: -28px;
+}
+.romana_contract_address {
+    padding-top: 110px;
+}
+.border {
+    left: 153px;
+}
+.content_bg::after {
+    font-size: 12px;
+    left: 88px;
+}
+/* single service */
+.romana_house_cleaning_text h2 {
+    margin-bottom: 16px;
+}
+.romana_house_cleaning_text {
+    padding-right: 0;
+    text-align: center;
+    margin-top: -23px;
+}
+.romana_single_aside.section_title {
+    margin-top: 50px;
+}
+.romana_single_aside ul {
+    margin-right: 48px;
+}
+.romana_single_aside li a {
+    font-size: 14px;
+}
+.romana_house_cleaning_area.section_padding {
+    margin-bottom: -30px;
+}
+.romana_single_aside.aside2.section_title > h2:after {
+    left: 187px!important;
+}
+.single_service_page .romana_clean_theme_area {
+    margin-top: 0;
+    padding: 50px 0 0;
+}
+.single_service_page .romana_clean_theme_btn {
+    margin-top: 10px;
+}
+.single_service_page .romana_clean_theme_text {
+  margin-top: 20px;
+}
+/* blog page */
+.romana_blog_left_content {
+    padding-right: 0px;
+}
+.romana_post_icon li a span, .romana_admin_icon li a span {
+    margin-right: 6px;
+}
+.romana_post_icon li a {
+    margin-right: 8px;
+    font-size: 11px;
+}
+.romana_admin_icon {
+    float: none;
+    text-align: center;
+}
+.romana_post_thumb {
+    margin-bottom: 20px;
+}
+.romana_admin_icon li:first-child {
+    margin-right: 10px;
+}
+.romana_admin_icon li a {
+    font-size: 12px;
+}
+.romana_blog_page_area.section_padding {
+    padding-top: 80px;
+}
+.romana_post_content h2 {
+    font-size: 20px;
+    margin-bottom: 18px;
+    margin-top: 40px;
+}
+.romana_post_content {
+    font-size: 14px;
+    text-align: center;
+}
+.romana_catagory_text.section_title.romana_aside_title {
+    margin-top: 80px;
+}
+.romana_pagination li {
+    padding: 0 12px;
+}
+.romana_aside_tags {
+    margin-top: 70px;
+}
+.romana_recen_post {
+    margin-top: 70px;
+}
+.romana_recent_thumb {
+    margin-right: 0px;
+    margin-left: 39px;
+}
+/* single blog */
+blockquote {
+    font-size: 15px;
+    padding: 17px;
+}
+blockquote::before {
+    font-size: 20px;
+    left: 4px;
+    top: 20px;
+}
+.romana_about_author_img {
+    float: none;
+    text-align: center;
+    margin-top: 12px;
+}
+.romana_about_author_text {
+    font-size: 14px;
+    margin-top: 24px;
+    text-align: center;
+    padding-left: 0px;
+}
+.romana_about_author_text h3 {
+    margin-bottom: 15px;
+}
+.romana_popular_text.section_title.section_padding_top {
+    padding-top: 60px;
+}
+.romana_popular_post_title h3 {
+    font-size: 15px;
+    margin-top: -8px;
+    padding-right: 0;
+}
+.romana_single_popular_post {
+    margin-top: 35px;
+}
+.romana_comment_reply a {
+    font-size: 11px;
+}
+.romana_comment_textt {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.romana_comment_img {
+    float: none;
+}
+.romana_comment_textt h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+.romana_single_comment_reply:nth-child(3) {
+    padding-left: 0;
+}
+.romana_comment_reply {
+    position: relative;
+    right: 0;
+}
+.romana_comment_reply a {
+    font-size: 12px;
+    position: absolute;
+    right: 43%;
+    top: 244px;
+}
+.romana_leave_comment_input.section_title.leave_comment_title {
+    margin-top: 30px;
+}
+.recent_margin_top, .romana_tag_list {
+    margin-top: 60px;
+}
+.romana_three_comments.section_title.section_padding_top {
+    padding-top: 70px;
+}
+.romana_leave_comment_input form{
+    margin-top: 30px;
+}
+.romana_leave_comment_input input {
+    margin-left: 6px;
+    width: 82%;
+}
+.romana_leave_comment_input input[type="submit"] {
+    font-size: 12px;
+    height: 43px;
+    width: 126px;
+    line-height: 43px;
+}
+.romana_single_blog_share_icon {
+    text-align: center;
+}
+.single_blog_page .romana_post_icon {
+    float: none;
+    text-align: center;
+}    
+/* single portfolio */
+.romana_house_cleaning_area.section_padding{
+    padding-top: 80px;
+}
+.romana_single_portfolio_aside.section_title {
+    padding-top: 60px;
+}
+.romana_single_portfolio_aside.section_title h2, .romana_house_cleaning_text h2 {
+    font-size: 22px;
+}
+.single_portfolio_page .romana_house_cleaning_img img {
+    width: 100%;
+}
+.single_service_page .romana_house_cleaning_area .section_title h2::before, .single_service_page .romana_house_cleaning_area .section_title h2::after, .single_portfolio_page .romana_house_cleaning_area .section_title h2::before, .single_portfolio_page .romana_house_cleaning_area .section_title h2::after {
+    left:186px;
+}
+.romana_single_portfolio_aside a {
+    font-size: 14px;
+}
+.romana_prev_next_button {
+    text-align: center;
+}
+/* portfolio page */
+.romana_portfolio-area.section_padding_top {
+    padding-top: 70px;
+    
+}
+.portfolio_page .romana_client_area {
+    margin-top: 40px;
+}
+ul.isotop-nav li {
+    margin-bottom: 10px;
+}
+.portflio-thumb img {
+    width: 100%;
+}
+/* shop page*/
+.romana_product_img img {
+    width: 100%;
+}
+.romana_shop_select {
+    width: 150px;
+} 
+.shop_page .romana_tag_list {
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+div#slider-3::after{
+    width: 118px;
+}
+/* cart page */
+.romana_cart_page.section_padding {
+    padding-top: 60px;
+}
+span.change_qty.minus.cursor_hover.fa.fa-angle-down {
+    width: 16px !important;
+}
+.cart-quantity input {
+    width: 29px;
+}
+span.change_qty.plus.cursor_hover.fa.fa-angle-up {
+    width: 16px !important;
+    left: 45px;
+}
+.romana_product_image {
+    line-height: 1;
+    margin-top: 17px;
+    text-align: center;
+}
+.cart-item {
+    height: 139px;
+    margin-top: 26px;
+}
+.romana_product_image h5 {
+    text-align: center;
+    font-size: 10px;
+}
+.romana_product_image span {
+    display: block;
+}
+.romana_cart_text {
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+/* check out */
+.romana_check_out {
+    padding: 5px 0;
+}
+.romana_check_out ul {
+    padding: 10px 0;
+}
+.romana_check_out li {
+    padding: 5px 0;
+}
+.romana_check_out li:first-child {
+    margin-right: 0;
+}
+.single-input-check {
+    width: 100%;
+}
+.single-input-check.input-full-widh {
+    width: 100% !important;
+}
+.chackout-page-total.section_title.section_padding_top {
+    text-align: left;
+}
+.select-pay-method {
+    height: 420px;
+    margin-top: 35px;
+}
+.select-pay-method span {
+    font-size: 13px;
+}
+.select-pay-method > a {
+    height: 42px;
+    line-height: 42px;
+    width: 130px;
+    font-size: 13px;
+}
+.section_padding {
+    padding: 80px 0;
+}
+.check-out-form.section_padding_top.section_title {
+    margin-top: -34px;
+}
+.chackout-page-total.section_title.section_padding_top {
+    margin-top: -50px;
+}
+.romana_check_page.section_padding {
+    padding-bottom: 120px;
+}
+.single_product_page span.change_qty.plus.cursor_hover.fa.fa-angle-up {
+    left: 108px;
+    top: 249px;
+}
+ul.nav.product-nav.nav-tabs {
+    margin-top: 0;
+}
+.tab-pane p {
+    padding-right: 19px;
+}
+ul.nav.product-nav.nav-tabs li a {
+    font-size: 12px;
+}
+.romana_sp_page.section_padding_top {
+    padding-top: 50px;
+}
+.romana_aside_tags {
+    margin-bottom: 40px;
+}
+}/* End small mobile responsive media query */
+
+/*========================================
+*   For Wide Mobile
+*   Resolation 480px to 768px
+==========================================*/
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+.searchbox {
+    width: 94%;
+}
+.searchbox input.search-box {
+    width: 89%;
+}
+.section_title h2::after {
+    width: 63px;
+}
+.owl-dots {
+    bottom: 200px;
+    left: 179px;
+}
+.section_title {
+    max-width: 474px;
+}
+.index-2 .romana_hero_area .owl-dots {
+    bottom: 122px;
+    left: 41%;
+}
+.romana_blog_area::before {
+    height: 62%;
+}
+.romana_blog_area {
+  background-size: 100% 62%;
+}
+/* about page */
+.about_page .owl-dots, .portfolio_page .owl-dots {
+    left: 193px;
+}
+/* error page */
+.romana_error_text img {
+    margin-left: 90px;
+}
+/* contact page */
+.content_bg::after {
+    left: 130%;
+}    
+.border {
+    left: 180%;
+}    
+/* single service page */
+.romana_single_aside ul {
+    margin-right: 145px;
+} 
+/* blog page */
+.romana_admin_icon li:first-child {
+    margin-right: 9px;
+}    
+.romana_recent_thumb {
+    margin-left: 130px;
+    margin-right: 0;
+}  
+.blog_page .section_title h2::after {
+    left: 42%;
+}
+/* single blog page */
+.romana_comment_reply a {
+    right: 45%;
+    top: 217px;
+}    
+div#slider-3::after{
+    width:180px;    
+    }
+/* single portfolio */
+.single_service_page .romana_house_cleaning_area .section_title h2::before, .single_service_page .romana_house_cleaning_area .section_title h2::after, .single_portfolio_page .romana_house_cleaning_area .section_title h2::before, .single_portfolio_page .romana_house_cleaning_area .section_title h2::after {
+    left:217px;
+}    
+/*check out page */
+.select-pay-method > a {
+    margin-top: 50px;
+}
+.select-pay-method {
+    height: 372px;
+}
+div#slider-3::after {
+    width: 190px;
+}
+.single_product_page span.change_qty.plus.cursor_hover.fa.fa-angle-up {
+    top: 224px;
+}
+}/* End wide mobile responsive media query */
+
+
+/*placeholder*/
+body.preloader_active {
+    position: relative;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+#preloader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F9F9FA;
+    z-index: 99999999999;
+}
+.preloader_spinner {
+    background: rgba(0, 0, 0, 0) url("../images/broomswp.gif") no-repeat scroll center center;
+    display: block;
+    height: 120px;
+    left: 50%;
+    margin-left: -32px;
+    margin-top: -32px;
+    position: absolute;
+    top: 50%;
+    width: 142px;
+    z-index: 2147483647;
+}
