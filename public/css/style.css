@@ -231,7 +231,7 @@ body {
     width: 100%;
 }
 .romana_booking_form input[type="submit"]:hover, .romana_single_price a:hover{
-    background: #efa508;
+    background: #4aab31;
 }
 .clean_purchase a:hover {
     background: #14adf4 none repeat scroll 0 0;
@@ -422,7 +422,8 @@ label.mainsearch {
     top: 0;
     width: 100%;
     z-index: 1;
-    height: 800px;
+    height: auto;
+    padding-bottom: 40px;
 }
 .single_text{
     padding-top: 275px;
@@ -777,8 +778,8 @@ label.mainsearch {
     bottom: 0;
     height: 1px;
     left: 50%;
-    margin-left: -10px;
-    width: 20px;
+    margin-left: -48%;
+    width: 95%;
 }
 .romana_single_price h4 {
     color: #14adf4;
@@ -796,8 +797,8 @@ label.mainsearch {
     color: #999999;
     font-family: "proxima_nova_rgregular";
     margin-bottom: 10px;
-    padding-bottom: 10px;
-    position: relative;
+    /*padding-bottom: 10px;
+    position: relative;*/
 }
 .romana_single_price ul li::before {
     background: #dfdfdf none repeat scroll 0 0;
@@ -826,7 +827,7 @@ label.mainsearch {
     background: #4ec7ff;
 }
 .romana_single_price a {
-    background: #4aab31 none repeat scroll 0 0;
+    background: #14adf4 none repeat scroll 0 0;
     border-radius: 50px;
     color: #ffffff;
     display: inline-block;

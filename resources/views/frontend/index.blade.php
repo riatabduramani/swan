@@ -185,9 +185,11 @@
                             <h3>basis</h3>
                             <h4>29  €<span>/mo</span></h4>
                             <ul>
-                                <li>Apartment Cleaning</li>
-                                <li>Building Cleaning</li>
-                                <li>Wooden Floor Cleaning</li>
+                                <li><i class="fa fa-check"></i>&nbsp Hovendregoring</li>
+                                <li><i class="fa fa-check"></i>&nbsp Klargoring</li>
+                                <li><i class="fa fa-check"></i>&nbsp 14 dags kontrol</li>
+                                <li><i class="fa fa-check"></i>&nbsp Manedlig kontrol</li>
+                                <li><i class="fa fa-check"></i>&nbsp Fajlrapportering</li>
                             </ul>
                             <a href="#">order</a>
                         </div>
@@ -196,31 +198,55 @@
                             <h3>ekstra</h3>
                             <h4>49 € <span>/mo</span></h4>
                             <ul>
-                                <li>Apartment Cleaning</li>
-                                <li>Building Cleaning</li>
-                                <li>Wooden Floor Cleaning</li>
+                                <li><i class="fa fa-check"></i>&nbsp Hovendregoring</li>
+                                <li><i class="fa fa-check"></i>&nbsp Klargoring</li>
+                                <li><i class="fa fa-check"></i>&nbsp 14 dags kontrol</li>
+                                <li><i class="fa fa-check"></i>&nbsp Manedlig kontrol</li>
+                                <li><i class="fa fa-check"></i>&nbsp Fajlrapportering</li>
+                                <li><i class="fa fa-check"></i>&nbsp Vinterpakke</li>
+                                <li><i class="fa fa-check"></i>&nbsp Vinduespolering</li>
+                                <li><i class="fa fa-check"></i>&nbsp Afdakning af mobler</li>
                             </ul>
                             <a href="#">order</a>
                         </div>
 
-                        <div class="romana_single_price text-center" style="margin-top:40px; height: 463px;">
+                        <div class="romana_single_price text-center">
                             <h3>eksklusiv</h3>
                             <h4>69 € <span>/mo</span></h4>
                             <ul>
-                                <li>Apartment Cleaning</li>
-                                <li>Building Cleaning</li>
-                                <li>Wooden Floor Cleaning</li>
+                                <li><i class="fa fa-check"></i>&nbsp Hovendregoring</li>
+                                <li><i class="fa fa-check"></i>&nbsp Klargoring</li>
+                                <li><i class="fa fa-check"></i>&nbsp 14 dags kontrol</li>
+                                <li><i class="fa fa-check"></i>&nbsp Manedlig kontrol</li>
+                                <li><i class="fa fa-check"></i>&nbsp Fajlrapportering</li>
+                                <li><i class="fa fa-check"></i>&nbsp Vinterpakke</li>
+                                <li><i class="fa fa-check"></i>&nbsp Vinduespolering</li>
+                                <li><i class="fa fa-check"></i>&nbsp Afdakning af mobler</li>
+                                <li><i class="fa fa-check"></i>&nbsp Betalinger af regninger</li>
+                                <li><i class="fa fa-check"></i>&nbsp Indkob</li>
+                                <li><i class="fa fa-check"></i>&nbsp Have</li>
                             </ul>
                             <a href="#">order</a>
                         </div>
 
-                        <div class="romana_single_price text-center" style="margin-top:20px; height: 483px;">
+                        <div class="romana_single_price text-center">
                             <h3>eksklusiv +</h3>
                             <h4>119 € <span>/mo</span></h4>
                             <ul>
-                                <li>Apartment Cleaning</li>
-                                <li>Building Cleaning</li>
-                                <li>Wooden Floor Cleaning</li>
+                                <li><i class="fa fa-check"></i>&nbsp Hovendregoring</li>
+                                <li><i class="fa fa-check"></i>&nbsp Klargoring</li>
+                                <li><i class="fa fa-check"></i>&nbsp 14 dags kontrol</li>
+                                <li><i class="fa fa-check"></i>&nbsp Manedlig kontrol</li>
+                                <li><i class="fa fa-check"></i>&nbsp Fajlrapportering</li>
+                                <li><i class="fa fa-check"></i>&nbsp Vinterpakke</li>
+                                <li><i class="fa fa-check"></i>&nbsp Vinduespolering</li>
+                                <li><i class="fa fa-check"></i>&nbsp Afdakning af mobler</li>
+                                <li><i class="fa fa-check"></i>&nbsp Betalinger af regninger</li>
+                                <li><i class="fa fa-check"></i>&nbsp Indkob</li>
+                                <li><i class="fa fa-check"></i>&nbsp Have</li>
+                                <li><i class="fa fa-check"></i>&nbsp Plantning af planter</li>
+                                <li><i class="fa fa-check"></i>&nbsp Internet</li>
+                                <li><i class="fa fa-check"></i>&nbsp Bilpalle</li>
                             </ul>
                             <a href="#">order</a>
                         </div>
@@ -520,7 +546,7 @@
                         <!-- column end -->
                         <div class="col-md-2 col-md-offset-1 col-sm-3 col-xs-6">
                             <div class="widget footer_top_menu margin_top_tablet">
-                                <h2>iservices</h2>
+                                <h2>Services</h2>
                                 <ul>
                                     <li><a href="">Apartment Cleaning</a></li>
                                     <li><a href="">bulding Cleaning</a></li>
@@ -535,8 +561,8 @@
                         <div class="col-md-3 col-md-offset-1 col-sm-4 col-xs-12">
                             <div class="widget footer_top_menu margin_top_tablet single_footer">
                                 <ul class="address">
-                                    <li><span class="fa fa-map-marker"></span>123, Sisimpur West Indies</li>
-                                    <li> <span class="fa fa-envelope"></span><a href="#">crazycafe@gmail.com</a></li>
+                                    <li><span class="fa fa-map-marker"></span>Tetovo, Macedonia</li>
+                                    <li> <span class="fa fa-envelope"></span><a href="#">info@swan.mk</a></li>
                                     <li><span class="fa fa-phone"></span><a href="#">(000) 11 222 3333</a></li>
                                 </ul>
                                 <div class="subscrib">
