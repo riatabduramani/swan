@@ -35,9 +35,21 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'SWAN') }}
+                    @role('admin')
+                    <a class="navbar-brand" href="{{ url('/admin/dashboard') }}">
+                    {{ config('app.name', 'SWAN') }}
                     </a>
+                    @endrole
+                    @role('agent')
+                    <a class="navbar-brand" href="{{ url('/agent/dashboard') }}">
+                    {{ config('app.name', 'SWAN') }}
+                    </a>
+                    @endrole
+                     @if (Auth::guest())
+                        <a class="navbar-brand" href="{{ url('/login') }}">
+                            {{ config('app.name', 'SWAN') }}
+                        </a>
+                    @endif
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
