@@ -169,7 +169,7 @@
                             </div>
                         </div>-->
                         
-                          <section class="romana_pricing_area section_padding_top">
+        <section class="romana_pricing_area section_padding_top">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -236,69 +236,10 @@
 <!--=============================================
     9.*Pricing_area  start
 ===============================================-->
-        <section class="romana_pricing_area section_padding_top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="section_title">
-                            <h2>our pricing</h2>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="romana_single_price text-center">
-                            <h3>basis</h3>
-                            <h4>29  €<span>/mo</span></h4>
-                            <ul>
-                                <li>Apartment Cleaning</li>
-                                <li>Building Cleaning</li>
-                                <li>Wooden Floor Cleaning</li>
-                            </ul>
-                            <a href="#">order</a>
-                        </div>
-
-                        <div class="romana_single_price price_current_item text-center">
-                            <h3>ekstra</h3>
-                            <h4>49 € <span>/mo</span></h4>
-                            <ul>
-                                <li>Apartment Cleaning</li>
-                                <li>Building Cleaning</li>
-                                <li>Wooden Floor Cleaning</li>
-                            </ul>
-                            <a href="#">order</a>
-                        </div>
-
-                        <div class="romana_single_price text-center" style="margin-top:40px; height: 463px;">
-                            <h3>eksklusiv</h3>
-                            <h4>69 € <span>/mo</span></h4>
-                            <ul>
-                                <li>Apartment Cleaning</li>
-                                <li>Building Cleaning</li>
-                                <li>Wooden Floor Cleaning</li>
-                            </ul>
-                            <a href="#">order</a>
-                        </div>
-
-                        <div class="romana_single_price text-center" style="margin-top:20px; height: 483px;">
-                            <h3>eksklusiv +</h3>
-                            <h4>119 € <span>/mo</span></h4>
-                            <ul>
-                                <li>Apartment Cleaning</li>
-                                <li>Building Cleaning</li>
-                                <li>Wooden Floor Cleaning</li>
-                            </ul>
-                            <a href="#">order</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 <!-- ==================================================
     BANNER
 =================================================== -->
-        <section class="romana_counter_area">
+        <!--<section class="romana_counter_area">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -319,7 +260,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>-->
 <!-- ==================================================
     3.*Service-Area Start
 =================================================== -->
@@ -335,14 +276,36 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="single_service text-center">
-                            <img src="images/icon2.png" alt="">
+                            <img src="images/icon1.png" alt="">
                             <h2>house cleaning</h2>
                             <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="single_service text-center">
-                            <img src="images/icon3.png" alt="">
+                            <img src="images/icon1.png" alt="">
+                            <h2>house cleaning</h2>
+                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                        </div>
+                    </div>
+                    
+                     <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon1.png" alt="">
+                            <h2>house cleaning</h2>
+                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon1.png" alt="">
+                            <h2>house cleaning</h2>
+                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon1.png" alt="">
                             <h2>house cleaning</h2>
                             <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
                         </div>
@@ -358,20 +321,21 @@
                 <div class="row">
                     <div class="col-md-5">
                         <div class="explore_img hidden-sm hidden-xs">
-                            <img src="images/explore-im.png" alt="">
+                            <img src="http://static.wixstatic.com/media/e634ef_f3bf3b4500144c55a73cdcc6aa4ec5f7.png_srz_144_171_85_22_0.50_1.20_0.00_png_srz" alt="" style="width:100%;">
                         </div>
                     </div>
                     <div class="col-md-7 col-xs-12">
                         <div class="row">
                             <div class="col-sm-6 col-xs-12">
                                 <div class="explore_text">
+                                    <h3>Vision</h3>
                                     <p>Duis autem vel eum iriure dolor hendrerit vulputate esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto augue duis dolore te feugait.</p>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-xs-12">
                                 <div class="explore_text explore_text_padding">
-                                    <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming. </p>
-                                    <a href="#" class="common_btn">explore</a>
+                                    <h3>Mission</h3>
+                                    <p>Duis autem vel eum iriure dolor hendrerit vulputate esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto augue duis dolore te feugait.</p>
                                 </div>
                             </div>
                         </div>
@@ -583,11 +547,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- column end -->
                     </div>
-                    <!-- row end -->
                 </div>
-                <!-- container end -->
             </div>
 
             <div class="footer_bottom_area">
@@ -595,7 +556,7 @@
                     <div class="row">
                         <div class="col-sm-8 col-xs-12">
                             <div class="footer_bottom footer_top text-left">
-                                <p><span>Swan © 2017 | All Rights Reserved</span></p>
+                                <p><span>{{ config('app.name') }} © <?php echo date("Y"); ?> | All Rights Reserved</span></p>
                             </div>
                         </div>
                         <div class="col-sm-4 col-xs-12">

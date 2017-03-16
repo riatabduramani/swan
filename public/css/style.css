@@ -531,7 +531,10 @@ label.mainsearch {
 .explore_img {
   bottom: -185px;
   position: absolute;
+  width: 45%;
+  margin-left: 15%;
 }
+
 .explore_text  a {
     border: 2px solid #ffffff;
     color: #ffffff;
