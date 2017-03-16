@@ -209,7 +209,7 @@
                             <a href="#">order</a>
                         </div>
 
-                        <div class="romana_single_price text-center" style="margin-top:40px;">
+                        <div class="romana_single_price text-center" style="margin-top:40px; height: 463px;">
                             <h3>eksklusiv</h3>
                             <h4>69 € <span>/mo</span></h4>
                             <ul>
@@ -220,7 +220,7 @@
                             <a href="#">order</a>
                         </div>
 
-                        <div class="romana_single_price text-center" style="margin-top:20px;">
+                        <div class="romana_single_price text-center" style="margin-top:20px; height: 483px;">
                             <h3>eksklusiv +</h3>
                             <h4>119 € <span>/mo</span></h4>
                             <ul>
