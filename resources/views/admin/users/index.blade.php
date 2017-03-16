@@ -32,7 +32,6 @@
 					<td>{{ ++$i }}</td>
 					<td>{{ $user->name }} </td>
 					<td>{{ $user->email }}</td>
-					<td>{!! $user->showConfirmedOf($user) !!}</td>
 					<td>{!! $user->showStatusOf($user) !!}</td>
 					<td>
 						@if(!empty($user->roles))
