@@ -417,12 +417,12 @@ label.mainsearch {
     5.***Hero_Area Css Start***
 ------------------------------------------------- */
 .romana_hero_area{
-    background: rgba(0, 0, 0, 0) url("../images/banner-img.jpg") no-repeat scroll top center / cover ;
+    background: rgba(0, 0, 0, 0) url("http://www.v3wall.com/wallpaper/1680_1050/1003/1680_1050_20100327123938157200.jpg") no-repeat scroll top center / cover ;
     position: relative;
     top: 0;
     width: 100%;
     z-index: 1;
-    height: 700px;
+    height: 800px;
 }
 .single_text{
     padding-top: 275px;
@@ -759,6 +759,7 @@ label.mainsearch {
     margin-top: 82px;
     margin-right: 15px;
     border-radius: 10px;
+    border: #9cd2e0 solid 2px;
 }
 .romana_single_price h3 {
     color: #2a2a2a;
