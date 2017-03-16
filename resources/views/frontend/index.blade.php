@@ -149,25 +149,86 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
-                        <div class="hero_slider">
+                        <!--<div class="hero_slider">
                             <div class="single_text single_text1">
-                                <h1>We are cleaning manager<br>always at your service.</h1>
-                                <p>Typi non habent claritatem insitam est usus legentis in iis qui facit</p>
-                                <a href="#">learn more</a>
+                                <h1></h1>
+                                <p></p>
+                                <a href="#"></a>
                             </div>
 
                             <div class="single_text single_text2">
-                                <h1>We are cleaning manager<br>always at your service.</h1>
-                                <p>Typi non habent claritatem insitam est usus legentis in iis qui facit</p>
-                                <a href="#">learn more</a>
+                                <h1></h1>
+                                <p></p>
+                                <a href="#"></a>
                             </div>
 
                             <div class="single_text single_text3">
-                                <h1>We are cleaning manager<br>always at your service.</h1>
-                                <p>Typi non habent claritatem insitam est usus legentis in iis qui facit</p>
-                                <a href="#">learn more</a>
+                                <h1></h1>
+                                <p></p>
+                                <a href="#"></a>
                             </div>
+                        </div>-->
+                        
+                          <section class="romana_pricing_area section_padding_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="section_title">
+                            <h2>our pricing</h2>
+                            <p></p>
                         </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 50px;">
+                    <div class="col-sm-12">
+                        <div class="romana_single_price text-center">
+                            <h3>basis</h3>
+                            <h4>29  €<span>/mo</span></h4>
+                            <ul>
+                                <li>Apartment Cleaning</li>
+                                <li>Building Cleaning</li>
+                                <li>Wooden Floor Cleaning</li>
+                            </ul>
+                            <a href="#">order</a>
+                        </div>
+
+                        <div class="romana_single_price price_current_item text-center">
+                            <h3>ekstra</h3>
+                            <h4>49 € <span>/mo</span></h4>
+                            <ul>
+                                <li>Apartment Cleaning</li>
+                                <li>Building Cleaning</li>
+                                <li>Wooden Floor Cleaning</li>
+                            </ul>
+                            <a href="#">order</a>
+                        </div>
+
+                        <div class="romana_single_price text-center" style="margin-top:40px; height: 463px;">
+                            <h3>eksklusiv</h3>
+                            <h4>69 € <span>/mo</span></h4>
+                            <ul>
+                                <li>Apartment Cleaning</li>
+                                <li>Building Cleaning</li>
+                                <li>Wooden Floor Cleaning</li>
+                            </ul>
+                            <a href="#">order</a>
+                        </div>
+
+                        <div class="romana_single_price text-center" style="margin-top:20px; height: 483px;">
+                            <h3>eksklusiv +</h3>
+                            <h4>119 € <span>/mo</span></h4>
+                            <ul>
+                                <li>Apartment Cleaning</li>
+                                <li>Building Cleaning</li>
+                                <li>Wooden Floor Cleaning</li>
+                            </ul>
+                            <a href="#">order</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+                        
                     </div>
                 </div>
             </div>
