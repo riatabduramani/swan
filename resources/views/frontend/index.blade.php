@@ -5,46 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <!-- Title -->
     <title>Welcome to Swan</title>
 
-    <!-- ================================================================
-        ***Favicon***
-    ================================================================= -->
-
-    <link rel="shortcut icon" type="image/png" href="images/fevicon.png">
-
-    <!-- ================================================================
-        ***CSS File***
-    ================================================================= -->
-
-    <!-- ================= ***Animate CSS *** ======================= -->
-    <link href="css/front/animate.min.css" rel="stylesheet" type="text/css">
-
-    <!-- ================= ***Bootstrap CSS *** ===================== -->
-    <link href="css/front/bootstrap.min.css" rel="stylesheet" type="text/css">
-
-    <!-- ================= ***camera CSS *** ======================== -->
-    <link href="css/front/hover-min.css" rel="stylesheet" type="text/css">
-
-    <!-- ================= ***Font-awesome CSS *** ================== -->
-    <link href="css/front/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- ================= ***icofont CSS *** ======================= -->
-    <link href="css/front/icofont.css" rel="stylesheet" type="text/css">
-
-    <!-- ================= ***meanmenu CSS *** ====================== -->
-    <link href="css/front/meanmenu.css" rel="stylesheet" type="text/css">
-
-    <!-- ================= ***Owl Carousel CSS *** ================== -->
-    <link href="css/front/owl.carousel.css" rel="stylesheet" type="text/css">
-
-    <!-- ================= ***Font CSS *** ========================== -->
-    <link href="fonts/webfonts/fonts.css" rel="stylesheet" type="text/css">
-
-    <!-- ================= ***Main CSS *** ========================== -->
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('images/fevicon.png') }}" rel="shortcut icon" type="image/png">
+    <link href="{{ asset('css/front/animate.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/front/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/front/hover-min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/front/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/front/icofont.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/front/meanmenu.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/front/owl.carousel.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('fonts/webfonts/fonts.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -77,8 +49,8 @@
                             <div class="header_top_left">
                                 <ul>
                                     <li><span class="fa fa-phone"></span>(000) 11 222 3333</li>
-                                    <li><span class="fa fa-envelope"></span>crazycafe@gmail.com</li>
-                                    <li><span class="fa fa-map-marker"></span>123, Sismpur, West Indies</li>
+                                    <li><span class="fa fa-envelope"></span>info@swan.mk</li>
+                                    <!--<li><span class="fa fa-map-marker"></span></li>-->
                                 </ul>
                             </div>
                         </div>
@@ -183,26 +155,109 @@
                                 <p>Typi non habent claritatem insitam est usus legentis in iis qui facit</p>
                                 <a href="#">learn more</a>
                             </div>
-                            <!-- single text -->
+
                             <div class="single_text single_text2">
                                 <h1>We are cleaning manager<br>always at your service.</h1>
                                 <p>Typi non habent claritatem insitam est usus legentis in iis qui facit</p>
                                 <a href="#">learn more</a>
                             </div>
-                            <!-- single text -->
+
                             <div class="single_text single_text3">
                                 <h1>We are cleaning manager<br>always at your service.</h1>
                                 <p>Typi non habent claritatem insitam est usus legentis in iis qui facit</p>
                                 <a href="#">learn more</a>
                             </div>
-                            <!-- single text -->
                         </div>
                     </div>
-                    <!-- column End -->
                 </div>
-                <!-- row End -->
             </div>
-            <!-- container End -->
+        </section>
+<!--=============================================
+    9.*Pricing_area  start
+===============================================-->
+        <section class="romana_pricing_area section_padding_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="section_title">
+                            <h2>our pricing</h2>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="romana_single_price text-center">
+                            <h3>basis</h3>
+                            <h4>29  €<span>/mo</span></h4>
+                            <ul>
+                                <li>Apartment Cleaning</li>
+                                <li>Building Cleaning</li>
+                                <li>Wooden Floor Cleaning</li>
+                            </ul>
+                            <a href="#">order</a>
+                        </div>
+
+                        <div class="romana_single_price price_current_item text-center">
+                            <h3>ekstra</h3>
+                            <h4>49 € <span>/mo</span></h4>
+                            <ul>
+                                <li>Apartment Cleaning</li>
+                                <li>Building Cleaning</li>
+                                <li>Wooden Floor Cleaning</li>
+                            </ul>
+                            <a href="#">order</a>
+                        </div>
+
+                        <div class="romana_single_price text-center" style="margin-top:40px;">
+                            <h3>eksklusiv</h3>
+                            <h4>69 € <span>/mo</span></h4>
+                            <ul>
+                                <li>Apartment Cleaning</li>
+                                <li>Building Cleaning</li>
+                                <li>Wooden Floor Cleaning</li>
+                            </ul>
+                            <a href="#">order</a>
+                        </div>
+
+                        <div class="romana_single_price text-center" style="margin-top:20px;">
+                            <h3>eksklusiv +</h3>
+                            <h4>119 € <span>/mo</span></h4>
+                            <ul>
+                                <li>Apartment Cleaning</li>
+                                <li>Building Cleaning</li>
+                                <li>Wooden Floor Cleaning</li>
+                            </ul>
+                            <a href="#">order</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!-- ==================================================
+    BANNER
+=================================================== -->
+        <section class="romana_counter_area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="single_counter">      
+                        </div>
+                        
+                        <div class="single_counter">           
+                        </div>
+
+                        <div class="single_counter">          
+                        </div>
+
+                        <div class="single_counter">              
+                        </div>
+
+                        <div class="single_counter">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 <!-- ==================================================
     3.*Service-Area Start
@@ -216,31 +271,23 @@
                             <h2>house cleaning</h2>
                             <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
                         </div>
-                        <!-- single service -->
                     </div>
-                    <!-- column End -->
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon2.png" alt="">
                             <h2>house cleaning</h2>
                             <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
                         </div>
-                        <!-- single service -->
                     </div>
-                    <!-- column End -->
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon3.png" alt="">
                             <h2>house cleaning</h2>
                             <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
                         </div>
-                        <!-- single service -->
                     </div>
-                    <!-- column End -->
                 </div>
-                <!-- row End -->
             </div>
-            <!-- container End -->
         </section>
 <!-- ==================================================
     4.*Explore_Area Start
@@ -253,7 +300,6 @@
                             <img src="images/explore-im.png" alt="">
                         </div>
                     </div>
-                    <!-- column End -->
                     <div class="col-md-7 col-xs-12">
                         <div class="row">
                             <div class="col-sm-6 col-xs-12">
@@ -269,120 +315,55 @@
                             </div>
                         </div>
                     </div>
-                    <!-- column End -->
                 </div>
-                <!-- row End -->
             </div>
-            <!-- container End -->
         </section>
 <!-- ==================================================
     5.*Team_area start
 =================================================== -->
-        <section class="romana_team_area section_padding">
+        <!--<section class="romana_team_area section_padding">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="section_title">
-                            <h2>our staff</h2>
-                            <p>Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem. </p>
+                            <h2></h2>
+                            <p></p>
                         </div>
                     </div>
-                    <!-- column end -->
                 </div>
-                <!-- row end -->
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="team_slider section_padding_top">
                             <div class="single_staff">
                                 <a href="#"><img src="images/img1.jpg" alt=""></a>
-                                <a href="#"><h3>merry han</h3></a>
-                                <h4>Cleaning Staff</h4>
-                                <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip.</p>
+                                <a href="#"><h3></h3></a>
+                                <h4></h4>
+                                <p></p>
                             </div>
-                            <!-- single_staff end -->
                             <div class="single_staff">
                                 <a href="#"><img src="images/img2.jpg" alt=""></a>
-                                <a href="#"><h3>dan brown</h3></a>
-                                <h4>Cleaning Staff</h4>
-                                <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip.</p>
+                                <a href="#"><h3></h3></a>
+                                <h4></h4>
+                                <p></p>
                             </div>
-                            <!-- single_staff end -->
                             <div class="single_staff">
                                 <a href="#"><img src="images/img3.jpg" alt=""></a>
-                                <a href="#"><h3>miky jones</h3></a>
-                                <h4>Cleaning Staff</h4>
-                                <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip.</p>
+                                <a href="#"><h3></h3></a>
+                                <h4></h4>
+                                <p></p>
                             </div>
-                            <!-- single_staff end -->
                             <div class="single_staff">
                                 <a href="#"><img src="images/img4.jpg" alt=""></a>
-                                <a href="#"><h3>jenny dep</h3></a>
-                                <h4>Cleaning Staff</h4>
-                                <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip.</p>
+                                <a href="#"><h3></h3></a>
+                                <h4></h4>
+                                <p></p>
                             </div>
-                            <!-- single_staff end -->
                         </div>
                     </div>
-                    <!-- column end -->
                 </div>
-                <!-- row end -->
             </div>
-            <!-- container end -->
-        </section>
-<!-- =================================================================
-    6.*testimonials_area  start
-=================================================================== -->
-        <section class="romana_testimonials_area section_padding_top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="section_title client_title">
-                            <h2>testimonials</h2>
-                            <p>Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem. </p>
-                        </div>
-                    </div>
-                    <!-- column end-->
-                </div>
-                <!-- row end -->
-                <div class="row">
-                    <div class="col-sm-9">
-                        <div class="client_crsl">
-                            <div class="single_c_crsl">
-                                <div class="crsl_text">
-                                    <p>Duis autem vel eum iriure dolor hendrerit in vulputate esse molestie sequat, vel illum dolore </p>
-                                </div>
-                                <h4>tonny joe</h4>
-                                <h5>manager, OPT</h5>
-                            </div>
-                            <!-- single_c_crsl end -->
-                            <div class="single_c_crsl">
-                                <div class="crsl_text">
-                                    <p>Duis autem vel eum iriure dolor hendrerit in vulputate esse molestie sequat, vel illum dolore </p>
-                                </div>
-                                <h4>peterson</h4>
-                                <h5>manager, OPT</h5>
-                            </div>
-                            <!-- single_c_crsl end -->
-                            <div class="single_c_crsl">
-                                <div class="crsl_text">
-                                    <p>Duis autem vel eum iriure dolor hendrerit in vulputate esse molestie sequat, vel illum dolore </p>
-                                </div>
-                                <h4>angelina tim</h4>
-                                <h5>manager, OPT</h5>
-                            </div>
-                            <!-- single_c_crsl end -->
-                        </div>
-                        <!-- client_crsl_two end -->
-                    </div>
-                    <!-- column end -->
-                </div>
-                <!-- row end -->
-            </div>
-            <!-- container end -->
-            <div class="testi_img">
-                <img src="images/testi-man.png" alt="">
-            </div>
-        </section>
+        </section>-->
+
 <!-- ==================================================
     7.*Service_booking_area Start
 =================================================== -->
@@ -395,9 +376,7 @@
                             <p>Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem. </p>
                         </div>
                     </div>
-                    <!-- column end-->
                 </div>
-                <!-- row end -->
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
                         <div class="romana_booking_form">
@@ -411,7 +390,6 @@
                                         <input type="text" name="Phone" placeholder="Enter phone no name here" id="Phone">
                                         <br>
                                     </div>
-                                    <!-- column end -->
                                     <div class="col-sm-6">
                                         <label for="email">E-mail*</label>
                                         <br>
@@ -420,7 +398,6 @@
                                         <br>
                                         <input type="text" name="Date" placeholder="Enter your date here" id="Date">
                                     </div>
-                                    <!-- column end-->
                                     <div class="col-xs-12">
                                         <label for="Message">Message*</label>
                                         <br>
@@ -428,205 +405,17 @@
                                         <br>
                                         <input type="submit" value="send">
                                     </div>
-                                    <!-- column end-->
                                 </div>
-                                <!-- row end -->
                             </form>
                         </div>
                     </div>
-                    <!-- column end-->
                 </div>
-                <!-- row end -->
                 <div class="romana_booking_image hidden-sm hidden-xs">
                     <img src="images/booking-man.png" alt="">
                 </div>
             </div>
         </section>
-<!-- ==================================================
-    8.*Counter_Area Start
-=================================================== -->
-        <section class="romana_counter_area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="single_counter">
-                            <a href="#"><i class="icofont icofont-emo-simple-smile"></i></a>
-                            <h2 class="counter">2048</h2>
-                            <h4>satisfied customer</h4>
-                        </div>
-                        <div class="single_counter">
-                            <a href="#"><i class="icofont icofont-thumbs-up"></i></a>
-                            <h2><span class="counter">100</span>%</h2>
-                            <h4>quality</h4>
-                        </div>
-                        <!-- single_counter end-->
-                        <div class="single_counter">
-                            <a href="#"><i class="icofont icofont-paper-plane"></i></a>
-                            <h2 class="counter">3000</h2>
-                            <h4>project finished</h4>
-                        </div>
-                        <!-- single_counter end-->
-                        <div class="single_counter">
-                            <a href="#"><i class="icofont icofont-clock-time"></i></a>
-                            <h2 class="counter">10</h2>
-                            <h4>years of experience</h4>
-                        </div>
-                        <!-- single_counter end-->
-                        <div class="single_counter">
-                            <a href="#"><i class="icofont icofont-speech-comments"></i></a>
-                            <h2 class="counter">4466</h2>
-                            <h4>cleaning tip advices</h4>
-                        </div>
-                        <!-- single_counter end-->
-                    </div>
-                    <!-- column end-->
-                </div>
-                <!-- row end-->
-            </div>
-            <!-- container end-->
-        </section>
-<!--=============================================
-    9.*Pricing_area  start
-===============================================-->
-        <section class="romana_pricing_area section_padding_top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="section_title">
-                            <h2>our pricing</h2>
-                            <p>Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem. </p>
-                        </div>
-                    </div>
-                    <!-- column end -->
-                </div>
-                <!-- row end -->
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="romana_single_price text-center">
-                            <h3>basic</h3>
-                            <h4>$300 <span>/mo</span></h4>
-                            <ul>
-                                <li>Apartment Cleaning</li>
-                                <li>Building Cleaning</li>
-                                <li>Wooden Floor Cleaning</li>
-                            </ul>
-                            <a href="#">order</a>
-                        </div>
-                        <!-- romana_single_price end-->
-                        <div class="romana_single_price price_current_item text-center">
-                            <h3>standard</h3>
-                            <h4>$500 <span>/mo</span></h4>
-                            <ul>
-                                <li>Apartment Cleaning</li>
-                                <li>Building Cleaning</li>
-                                <li>Wooden Floor Cleaning</li>
-                            </ul>
-                            <a href="#">order</a>
-                        </div>
-                        <!-- romana_single_price end-->
-                        <div class="romana_single_price text-center">
-                            <h3>ultimate</h3>
-                            <h4>$700 <span>/mo</span></h4>
-                            <ul>
-                                <li>Apartment Cleaning</li>
-                                <li>Building Cleaning</li>
-                                <li>Wooden Floor Cleaning</li>
-                            </ul>
-                            <a href="#">order</a>
-                        </div>
-                        <!-- romana_single_price end-->
-                        <div class="romana_single_price text-center">
-                            <h3>gold</h3>
-                            <h4>$900 <span>/mo</span></h4>
-                            <ul>
-                                <li>Apartment Cleaning</li>
-                                <li>Building Cleaning</li>
-                                <li>Wooden Floor Cleaning</li>
-                            </ul>
-                            <a href="#">order</a>
-                        </div>
-                        <!-- romana_single_price end-->
-                    </div>
-                    <!-- column end-->
-                </div>
-                <!-- row end -->
-            </div>
-            <!-- container end -->
-        </section>
-<!-- ==================================================
-    10.*Latest_News_area start
-=================================================== -->
-        <section class="romana_blog_area section_padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="section_title">
-                            <h2>latest blog post</h2>
-                            <p>Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem. </p>
-                        </div>
-                    </div>
-                    <!-- column end -->
-                </div>
-                <!-- row end -->
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="blog_crsl">
-                            <article class="single_post">
-                                <div class="post_thumb">
-                                    <a href="single-blog.html"><img src="images/blog-1.jpg" alt=""></a>
-                                </div>
-                                <div class="post_date">
-                                    <h2>22 <span>january</span></h2>
-                                </div>
-                                <div class="post_text">
-                                    <h2>cleaning glasses</h2>
-                                    <p>Lobortis aliquip ex ea commodo consequat.Duis autem vel eum iriure dolor hendrerit vulputate velit esse onsequat, vel illum</p>
-                                </div>
-                                <div class="blog_btn">
-                                    <a href="#">Read more</a>
-                                </div>
-                            </article>
-                            <!-- single_post end-->
-                            <article class="single_post">
-                                <div class="post_thumb">
-                                    <a href="single-blog.html"><img src="images/blog-2.jpg" alt=""></a>
-                                </div>
-                                <div class="post_date">
-                                    <h2>22 <span>january</span></h2>
-                                </div>
-                                <div class="post_text">
-                                    <h2>cleaning glasses</h2>
-                                    <p>Lobortis aliquip ex ea commodo consequat.Duis autem vel eum iriure dolor hendrerit vulputate velit esse onsequat, vel illum</p>
-                                </div>
-                                <div class="blog_btn">
-                                    <a href="#">Read more</a>
-                                </div>
-                            </article>
-                            <!-- single_post end-->
-                            <article class="single_post">
-                                <div class="post_thumb">
-                                    <a href="single-blog.html"><img src="images/blog-3.jpg" alt=""></a>
-                                </div>
-                                <div class="post_date">
-                                    <h2>22 <span>january</span></h2>
-                                </div>
-                                <div class="post_text">
-                                    <h2>cleaning glasses</h2>
-                                    <p>Lobortis aliquip ex ea commodo consequat.Duis autem vel eum iriure dolor hendrerit vulputate velit esse onsequat, vel illum</p>
-                                </div>
-                                <div class="blog_btn">
-                                    <a href="#">Read more</a>
-                                </div>
-                            </article>
-                            <!-- single_post end-->
-                        </div>
-                    </div>
-                    <!-- column end-->
-                </div>
-                <!-- row end -->
-            </div>
-            <!-- container end -->
-        </section>
+
 <!-- ==================================================
     11.*Contact_area start
 =================================================== -->
@@ -739,13 +528,13 @@
                 </div>
                 <!-- container end -->
             </div>
-            <!-- Footer_Top_area end -->
+
             <div class="footer_bottom_area">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-xs-12">
                             <div class="footer_bottom footer_top text-left">
-                                <p><span>jharu © 2016 / All Rights Reserved</span> design by <a href="#">CrazyCafe</a></p>
+                                <p><span>Swan © 2017 | All Rights Reserved</span></p>
                             </div>
                         </div>
                         <div class="col-sm-4 col-xs-12">
@@ -754,37 +543,18 @@
                             </div>
                         </div>
                     </div>
-                    <!-- row end -->
                 </div>
-                <!-- container end -->
             </div>
-            <!-- Footer_bottom_area end -->
         </footer>
-<!-- ======================================================
-    ***Js Files***
-=========================================================== -->
 
-        <!-- ================= Main Js ==================== -->
-        <script src="js/front/jquery-3.1.0.min.js"></script>
+        <script src="{{ asset('js/front/jquery-3.1.0.min.js') }}"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-
-        <!-- ================= Bootstrap min Js =========== -->
-        <script src="js/front/bootstrap.min.js"></script>
-
-        <!-- ================= owl carousel min Js ======== -->
-        <script src="js/front/owl.carousel.min.js"></script>
-
-        <!-- ================= Meanmenu Js ================ -->
-        <script src="js/front/jquery.meanmenu.js"></script>
-
-        <!-- ================= counterup min Js ============== -->
-        <script src="js/front/jquery.counterup.min.js"></script>
-
-        <!-- ================= waypoints min Js ============== -->
-        <script type="text/javascript" src="js/front/waypoints.min.js"></script>
-
-        <!-- ================= Active Js ================== -->
-        <script src="js/front/active.js"></script>
+        <script src="{{ asset('js/front/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/front/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('js/front/jquery.meanmenu.js') }}"></script>
+        <script src="{{ asset('js/front/jquery.counterup.min.js') }}"></script>
+        <script src="{{ asset('js/front/waypoints.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('js/front/active.js') }}"></script>
     </div>
 
 </body>
