@@ -30,7 +30,6 @@
     <div id="preloader">
         <div class="preloader_spinner"></div>
     </div>
-    <!-- preloader end -->
     <div class="home_page">
 <!-- ==========================================================
     1.*header_area start
@@ -44,7 +43,6 @@
                                 <a href="index.html"><img src="images/logo.png" alt="logo"></a>
                             </div>
                         </div>
-                        <!-- column End -->
                         <div class="col-sm-7 col-md-offset-1">
                             <div class="header_top_left">
                                 <ul>
@@ -54,7 +52,6 @@
                                 </ul>
                             </div>
                         </div>
-                        <!-- column End -->
                         <div class="col-md-2 col-sm-3 col-xs-12">
                             <div class="header_top_right">
                              @if (Auth::check())
@@ -65,9 +62,7 @@
                             @endif
                             </div>
                         </div>
-                        <!-- column End -->
                     </div>
-                    <!-- row End -->
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="searchbox">
@@ -78,9 +73,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- container End -->
             </div>
-            <!-- Header_Top End -->
             <div class="header_bottom_area">
                 <div class="container">
                     <div class="row">
@@ -88,46 +81,9 @@
                             <div class="mainmenu">
                                 <nav>
                                     <ul>
-                                        <li class="active"><a href="index.html">home</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="index.html">HOME ONE</a></li>
-                                                <li><a href="index-2.html">home two</a></li>
-                                            </ul>
-                                        </li>
+                                        <li class="active"><a href="index.html">home</a></li>
                                         <li><a href="about.html">about us</a></li>
-                                        <li><a href="service.html">our services</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="service.html">service page</a></li>
-                                                <li><a href="single-service.html">single service</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="portfolio.html">portfolio</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="portfolio.html">portfolio page</a></li>
-                                                <li><a href="single-portfolio.html">single portfolio</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="blog.html">our blog</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="blog.html">blog page</a></li>
-                                                <li><a href="single-blog.html">single blog</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">pages</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="price.html">pricing page</a></li>
-                                                <li><a href="testimonial.html">testimonial page</a></li>
-                                                <li><a href="404.html">404 page</a></li>
-                                                <li><a href="thanks.html">thank you page</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="shop.html">shop</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="cart.html">cart page</a></li>
-                                                <li><a href="checkout.html">Checkout page</a></li>
-                                                <li><a href="single-product.html">single product</a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a href="service.html">our services</a></li>
                                         <li><a href="contact.html">contact us</a></li>
                                     </ul>
                                 </nav>
