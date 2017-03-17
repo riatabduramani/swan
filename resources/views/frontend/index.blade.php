@@ -30,7 +30,6 @@
     <div id="preloader">
         <div class="preloader_spinner"></div>
     </div>
-    <!-- preloader end -->
     <div class="home_page">
 <!-- ==========================================================
     1.*header_area start
@@ -44,7 +43,6 @@
                                 <a href="index.html"><img src="images/logo.png" alt="logo"></a>
                             </div>
                         </div>
-                        <!-- column End -->
                         <div class="col-sm-7 col-md-offset-1">
                             <div class="header_top_left">
                                 <ul>
@@ -54,7 +52,6 @@
                                 </ul>
                             </div>
                         </div>
-                        <!-- column End -->
                         <div class="col-md-2 col-sm-3 col-xs-12">
                             <div class="header_top_right">
                              @if (Auth::check())
@@ -65,9 +62,7 @@
                             @endif
                             </div>
                         </div>
-                        <!-- column End -->
                     </div>
-                    <!-- row End -->
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="searchbox">
@@ -78,9 +73,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- container End -->
             </div>
-            <!-- Header_Top End -->
             <div class="header_bottom_area">
                 <div class="container">
                     <div class="row">
@@ -88,46 +81,9 @@
                             <div class="mainmenu">
                                 <nav>
                                     <ul>
-                                        <li class="active"><a href="index.html">home</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="index.html">HOME ONE</a></li>
-                                                <li><a href="index-2.html">home two</a></li>
-                                            </ul>
-                                        </li>
+                                        <li class="active"><a href="index.html">home</a></li>
                                         <li><a href="about.html">about us</a></li>
-                                        <li><a href="service.html">our services</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="service.html">service page</a></li>
-                                                <li><a href="single-service.html">single service</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="portfolio.html">portfolio</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="portfolio.html">portfolio page</a></li>
-                                                <li><a href="single-portfolio.html">single portfolio</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="blog.html">our blog</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="blog.html">blog page</a></li>
-                                                <li><a href="single-blog.html">single blog</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">pages</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="price.html">pricing page</a></li>
-                                                <li><a href="testimonial.html">testimonial page</a></li>
-                                                <li><a href="404.html">404 page</a></li>
-                                                <li><a href="thanks.html">thank you page</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="shop.html">shop</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="cart.html">cart page</a></li>
-                                                <li><a href="checkout.html">Checkout page</a></li>
-                                                <li><a href="single-product.html">single product</a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a href="service.html">our services</a></li>
                                         <li><a href="contact.html">contact us</a></li>
                                     </ul>
                                 </nav>
@@ -169,7 +125,7 @@
                             </div>
                         </div>-->
                         
-                          <section class="romana_pricing_area section_padding_top">
+        <section class="romana_pricing_area section_padding_top">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -185,9 +141,11 @@
                             <h3>basis</h3>
                             <h4>29  €<span>/mo</span></h4>
                             <ul>
-                                <li>Apartment Cleaning</li>
-                                <li>Building Cleaning</li>
-                                <li>Wooden Floor Cleaning</li>
+                                <li><i class="fa fa-check"></i>&nbsp Hovendregoring</li>
+                                <li><i class="fa fa-check"></i>&nbsp Klargoring</li>
+                                <li><i class="fa fa-check"></i>&nbsp 14 dags kontrol</li>
+                                <li><i class="fa fa-check"></i>&nbsp Manedlig kontrol</li>
+                                <li><i class="fa fa-check"></i>&nbsp Fajlrapportering</li>
                             </ul>
                             <a href="#">order</a>
                         </div>
@@ -196,31 +154,55 @@
                             <h3>ekstra</h3>
                             <h4>49 € <span>/mo</span></h4>
                             <ul>
-                                <li>Apartment Cleaning</li>
-                                <li>Building Cleaning</li>
-                                <li>Wooden Floor Cleaning</li>
+                                <li><i class="fa fa-check"></i>&nbsp Hovendregoring</li>
+                                <li><i class="fa fa-check"></i>&nbsp Klargoring</li>
+                                <li><i class="fa fa-check"></i>&nbsp 14 dags kontrol</li>
+                                <li><i class="fa fa-check"></i>&nbsp Manedlig kontrol</li>
+                                <li><i class="fa fa-check"></i>&nbsp Fajlrapportering</li>
+                                <li><i class="fa fa-check"></i>&nbsp Vinterpakke</li>
+                                <li><i class="fa fa-check"></i>&nbsp Vinduespolering</li>
+                                <li><i class="fa fa-check"></i>&nbsp Afdakning af mobler</li>
                             </ul>
                             <a href="#">order</a>
                         </div>
 
-                        <div class="romana_single_price text-center" style="margin-top:40px; height: 463px;">
+                        <div class="romana_single_price text-center">
                             <h3>eksklusiv</h3>
                             <h4>69 € <span>/mo</span></h4>
                             <ul>
-                                <li>Apartment Cleaning</li>
-                                <li>Building Cleaning</li>
-                                <li>Wooden Floor Cleaning</li>
+                                <li><i class="fa fa-check"></i>&nbsp Hovendregoring</li>
+                                <li><i class="fa fa-check"></i>&nbsp Klargoring</li>
+                                <li><i class="fa fa-check"></i>&nbsp 14 dags kontrol</li>
+                                <li><i class="fa fa-check"></i>&nbsp Manedlig kontrol</li>
+                                <li><i class="fa fa-check"></i>&nbsp Fajlrapportering</li>
+                                <li><i class="fa fa-check"></i>&nbsp Vinterpakke</li>
+                                <li><i class="fa fa-check"></i>&nbsp Vinduespolering</li>
+                                <li><i class="fa fa-check"></i>&nbsp Afdakning af mobler</li>
+                                <li><i class="fa fa-check"></i>&nbsp Betalinger af regninger</li>
+                                <li><i class="fa fa-check"></i>&nbsp Indkob</li>
+                                <li><i class="fa fa-check"></i>&nbsp Have</li>
                             </ul>
                             <a href="#">order</a>
                         </div>
 
-                        <div class="romana_single_price text-center" style="margin-top:20px; height: 483px;">
+                        <div class="romana_single_price text-center">
                             <h3>eksklusiv +</h3>
                             <h4>119 € <span>/mo</span></h4>
                             <ul>
-                                <li>Apartment Cleaning</li>
-                                <li>Building Cleaning</li>
-                                <li>Wooden Floor Cleaning</li>
+                                <li><i class="fa fa-check"></i>&nbsp Hovendregoring</li>
+                                <li><i class="fa fa-check"></i>&nbsp Klargoring</li>
+                                <li><i class="fa fa-check"></i>&nbsp 14 dags kontrol</li>
+                                <li><i class="fa fa-check"></i>&nbsp Manedlig kontrol</li>
+                                <li><i class="fa fa-check"></i>&nbsp Fajlrapportering</li>
+                                <li><i class="fa fa-check"></i>&nbsp Vinterpakke</li>
+                                <li><i class="fa fa-check"></i>&nbsp Vinduespolering</li>
+                                <li><i class="fa fa-check"></i>&nbsp Afdakning af mobler</li>
+                                <li><i class="fa fa-check"></i>&nbsp Betalinger af regninger</li>
+                                <li><i class="fa fa-check"></i>&nbsp Indkob</li>
+                                <li><i class="fa fa-check"></i>&nbsp Have</li>
+                                <li><i class="fa fa-check"></i>&nbsp Plantning af planter</li>
+                                <li><i class="fa fa-check"></i>&nbsp Internet</li>
+                                <li><i class="fa fa-check"></i>&nbsp Bilpalle</li>
                             </ul>
                             <a href="#">order</a>
                         </div>
@@ -236,69 +218,10 @@
 <!--=============================================
     9.*Pricing_area  start
 ===============================================-->
-        <section class="romana_pricing_area section_padding_top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="section_title">
-                            <h2>our pricing</h2>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="romana_single_price text-center">
-                            <h3>basis</h3>
-                            <h4>29  €<span>/mo</span></h4>
-                            <ul>
-                                <li>Apartment Cleaning</li>
-                                <li>Building Cleaning</li>
-                                <li>Wooden Floor Cleaning</li>
-                            </ul>
-                            <a href="#">order</a>
-                        </div>
-
-                        <div class="romana_single_price price_current_item text-center">
-                            <h3>ekstra</h3>
-                            <h4>49 € <span>/mo</span></h4>
-                            <ul>
-                                <li>Apartment Cleaning</li>
-                                <li>Building Cleaning</li>
-                                <li>Wooden Floor Cleaning</li>
-                            </ul>
-                            <a href="#">order</a>
-                        </div>
-
-                        <div class="romana_single_price text-center" style="margin-top:40px; height: 463px;">
-                            <h3>eksklusiv</h3>
-                            <h4>69 € <span>/mo</span></h4>
-                            <ul>
-                                <li>Apartment Cleaning</li>
-                                <li>Building Cleaning</li>
-                                <li>Wooden Floor Cleaning</li>
-                            </ul>
-                            <a href="#">order</a>
-                        </div>
-
-                        <div class="romana_single_price text-center" style="margin-top:20px; height: 483px;">
-                            <h3>eksklusiv +</h3>
-                            <h4>119 € <span>/mo</span></h4>
-                            <ul>
-                                <li>Apartment Cleaning</li>
-                                <li>Building Cleaning</li>
-                                <li>Wooden Floor Cleaning</li>
-                            </ul>
-                            <a href="#">order</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 <!-- ==================================================
     BANNER
 =================================================== -->
-        <section class="romana_counter_area">
+        <!--<section class="romana_counter_area">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -319,7 +242,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>-->
 <!-- ==================================================
     3.*Service-Area Start
 =================================================== -->
@@ -335,14 +258,36 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="single_service text-center">
-                            <img src="images/icon2.png" alt="">
+                            <img src="images/icon1.png" alt="">
                             <h2>house cleaning</h2>
                             <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="single_service text-center">
-                            <img src="images/icon3.png" alt="">
+                            <img src="images/icon1.png" alt="">
+                            <h2>house cleaning</h2>
+                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                        </div>
+                    </div>
+                    
+                     <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon1.png" alt="">
+                            <h2>house cleaning</h2>
+                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon1.png" alt="">
+                            <h2>house cleaning</h2>
+                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon1.png" alt="">
                             <h2>house cleaning</h2>
                             <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
                         </div>
@@ -358,20 +303,21 @@
                 <div class="row">
                     <div class="col-md-5">
                         <div class="explore_img hidden-sm hidden-xs">
-                            <img src="images/explore-im.png" alt="">
+                            <img src="http://static.wixstatic.com/media/e634ef_f3bf3b4500144c55a73cdcc6aa4ec5f7.png_srz_144_171_85_22_0.50_1.20_0.00_png_srz" alt="" style="width:100%;">
                         </div>
                     </div>
                     <div class="col-md-7 col-xs-12">
                         <div class="row">
                             <div class="col-sm-6 col-xs-12">
                                 <div class="explore_text">
+                                    <h3>Vision</h3>
                                     <p>Duis autem vel eum iriure dolor hendrerit vulputate esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto augue duis dolore te feugait.</p>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-xs-12">
                                 <div class="explore_text explore_text_padding">
-                                    <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming. </p>
-                                    <a href="#" class="common_btn">explore</a>
+                                    <h3>Mission</h3>
+                                    <p>Duis autem vel eum iriure dolor hendrerit vulputate esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto augue duis dolore te feugait.</p>
                                 </div>
                             </div>
                         </div>
@@ -556,7 +502,7 @@
                         <!-- column end -->
                         <div class="col-md-2 col-md-offset-1 col-sm-3 col-xs-6">
                             <div class="widget footer_top_menu margin_top_tablet">
-                                <h2>iservices</h2>
+                                <h2>Services</h2>
                                 <ul>
                                     <li><a href="">Apartment Cleaning</a></li>
                                     <li><a href="">bulding Cleaning</a></li>
@@ -571,8 +517,8 @@
                         <div class="col-md-3 col-md-offset-1 col-sm-4 col-xs-12">
                             <div class="widget footer_top_menu margin_top_tablet single_footer">
                                 <ul class="address">
-                                    <li><span class="fa fa-map-marker"></span>123, Sisimpur West Indies</li>
-                                    <li> <span class="fa fa-envelope"></span><a href="#">crazycafe@gmail.com</a></li>
+                                    <li><span class="fa fa-map-marker"></span>Tetovo, Macedonia</li>
+                                    <li> <span class="fa fa-envelope"></span><a href="#">info@swan.mk</a></li>
                                     <li><span class="fa fa-phone"></span><a href="#">(000) 11 222 3333</a></li>
                                 </ul>
                                 <div class="subscrib">
@@ -583,11 +529,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- column end -->
                     </div>
-                    <!-- row end -->
                 </div>
-                <!-- container end -->
             </div>
 
             <div class="footer_bottom_area">
@@ -595,7 +538,7 @@
                     <div class="row">
                         <div class="col-sm-8 col-xs-12">
                             <div class="footer_bottom footer_top text-left">
-                                <p><span>Swan © 2017 | All Rights Reserved</span></p>
+                                <p><span>{{ config('app.name') }} © <?php echo date("Y"); ?> | All Rights Reserved</span></p>
                             </div>
                         </div>
                         <div class="col-sm-4 col-xs-12">
