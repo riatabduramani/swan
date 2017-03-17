@@ -838,6 +838,7 @@ label.mainsearch {
     transition: all 0.4s ease 0s;
     width: 104px;
     font-size: 12px;
+    box-shadow: black 0 0 7px -1px;
 }
 /* -------------------------------------------------
     13.***Blog_Area Start***

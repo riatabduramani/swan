@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,81 +30,18 @@
         <div class="preloader_spinner"></div>
     </div>
     <div class="home_page">
-<!-- ==========================================================
-    1.*header_area start
-============================================================ -->
-        <header class="romana_header">
-            <div class="hrader_top_area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-2 col-xs-12">
-                            <div class="logo">
-                                <a href="index.html"><img src="images/logo.png" alt="logo"></a>
-                            </div>
-                        </div>
-                        <div class="col-sm-7 col-md-offset-1">
-                            <div class="header_top_left">
-                                <ul>
-                                    <li><span class="fa fa-phone"></span>(000) 11 222 3333</li>
-                                    <li><span class="fa fa-envelope"></span>info@swan.mk</li>
-                                    <!--<li><span class="fa fa-map-marker"></span></li>-->
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-3 col-xs-12">
-                            <div class="header_top_right">
-                             @if (Auth::check())
-                                <a href="{{ url('/home') }}">Home</a>
-                            @else
-                                <a href="{{ url('/login') }}">Login</a> | 
-                                <a href="{{ url('/register') }}">Register</a>
-                            @endif
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="searchbox">
-                                <input type="text" id="serch" class="search-box" placeholder="Search">
-                                <label for="serch" class="fa fa-search mainsearch"></label>
-                                <i class="fa fa-close close-button"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="header_bottom_area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="mainmenu">
-                                <nav>
-                                    <ul>
-                                        <li class="active"><a href="index.html">home</a></li>
-                                        <li><a href="about.html">about us</a></li>
-                                        <li><a href="service.html">our services</a></li>
-                                        <li><a href="contact.html">contact us</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                        <!-- column End -->
-                    </div>
-                    <!-- row End -->
-                </div>
-                <!-- container End -->
-            </div>
-            <!-- Header_Bottom End -->
-        </header>
-        <!-- Header End -->
+
+    @include('frontend.header')
+
 <!-- ==================================================
-    2.*Hero-Area Start
+    PACKAGES
 =================================================== -->
-        <section class="romana_hero_area">
+    <section class="romana_hero_area">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
-                        <!--<div class="hero_slider">
+                        <!--DO NOT DELETE 
+                          <div class="hero_slider">
                             <div class="single_text single_text1">
                                 <h1></h1>
                                 <p></p>
@@ -123,21 +59,20 @@
                                 <p></p>
                                 <a href="#"></a>
                             </div>
-                        </div>-->
-                        
+                        </div>-->                   
         <section class="romana_pricing_area section_padding_top">
             <div class="container">
-                <div class="row">
+                <!--<div class="row">
                     <div class="col-xs-12">
                         <div class="section_title">
-                            <h2>our pricing</h2>
+                            <h2>Our Packages</h2>
                             <p></p>
                         </div>
                     </div>
-                </div>
-                <div class="row" style="margin-top: 50px;">
+                </div>-->
+                <div class="row">
                     <div class="col-sm-12">
-                        <div class="romana_single_price text-center">
+                        <div class="romana_single_price text-center" style="margin-top: 392px;">
                             <h3>basis</h3>
                             <h4>29  €<span>/mo</span></h4>
                             <ul>
@@ -147,10 +82,10 @@
                                 <li><i class="fa fa-check"></i>&nbsp Manedlig kontrol</li>
                                 <li><i class="fa fa-check"></i>&nbsp Fajlrapportering</li>
                             </ul>
-                            <a href="#">order</a>
+                            <a href="#">View more</a>
                         </div>
 
-                        <div class="romana_single_price price_current_item text-center">
+                        <div class="romana_single_price price_current_item text-center" style="margin-top: 335px;">
                             <h3>ekstra</h3>
                             <h4>49 € <span>/mo</span></h4>
                             <ul>
@@ -163,10 +98,10 @@
                                 <li><i class="fa fa-check"></i>&nbsp Vinduespolering</li>
                                 <li><i class="fa fa-check"></i>&nbsp Afdakning af mobler</li>
                             </ul>
-                            <a href="#">order</a>
+                            <a href="#">View more</a>
                         </div>
 
-                        <div class="romana_single_price text-center">
+                        <div class="romana_single_price text-center" style="margin-top: 186px;">
                             <h3>eksklusiv</h3>
                             <h4>69 € <span>/mo</span></h4>
                             <ul>
@@ -182,7 +117,7 @@
                                 <li><i class="fa fa-check"></i>&nbsp Indkob</li>
                                 <li><i class="fa fa-check"></i>&nbsp Have</li>
                             </ul>
-                            <a href="#">order</a>
+                            <a href="#">View more</a>
                         </div>
 
                         <div class="romana_single_price text-center">
@@ -204,7 +139,7 @@
                                 <li><i class="fa fa-check"></i>&nbsp Internet</li>
                                 <li><i class="fa fa-check"></i>&nbsp Bilpalle</li>
                             </ul>
-                            <a href="#">order</a>
+                            <a href="#">View more</a>
                         </div>
                     </div>
                 </div>
@@ -215,13 +150,12 @@
                 </div>
             </div>
         </section>
-<!--=============================================
-    9.*Pricing_area  start
-===============================================-->
+
 <!-- ==================================================
     BANNER
 =================================================== -->
-        <!--<section class="romana_counter_area">
+        <!--DO NOT DELETE 
+        <section class="romana_counter_area">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -244,7 +178,7 @@
             </div>
         </section>-->
 <!-- ==================================================
-    3.*Service-Area Start
+  SERVICES
 =================================================== -->
         <section class="romana_service_area">
             <div class="container">
@@ -296,7 +230,7 @@
             </div>
         </section>
 <!-- ==================================================
-    4.*Explore_Area Start
+   VISSION AND MISSION
 =================================================== -->
         <section class="romana_explore_area">
             <div class="container">
@@ -326,9 +260,10 @@
             </div>
         </section>
 <!-- ==================================================
-    5.*Team_area start
+   OUR TEAM
 =================================================== -->
-        <!--<section class="romana_team_area section_padding">
+        <!--DO NOT DELETE
+          <section class="romana_team_area section_padding">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -372,7 +307,7 @@
         </section>-->
 
 <!-- ==================================================
-    7.*Service_booking_area Start
+   CONTACT FORM
 =================================================== -->
         <section class="romana_service_booking_area section_padding_top">
             <div class="container">
@@ -424,7 +359,7 @@
         </section>
 
 <!-- ==================================================
-    11.*Contact_area start
+    BRANDS
 =================================================== -->
         <section class="romana_brand_area">
             <div class="container">
@@ -454,102 +389,11 @@
                             </div>
                         </div>
                     </div>
-                    <!-- column end-->
                 </div>
-                <!-- row end -->
             </div>
-            <!-- container end -->
         </section>
-<!-- ==================================================
-    12.*Footer_area start
-===================================================== -->
-        <footer class="romana_footer">
-            <div class="footer_top_area footer_top clearfix">
-                <div id="scrollTop">
-                    <a href="#" class="hvr-icon-bob"></a>
-                </div>
-                <div class="container">
-                    <div class="row ">
-                        <div class="col-sm-3 col-xs-12">
-                            <div class="widget widget_text">
-                                <div class="footer_logo">
-                                    <a href="index.html"><img src="images/footer_logo.png" alt="footer logo"></a>
-                                </div>
-                                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan</p>
-                                <div class="footer_social_icon">
-                                    <a href="#"><i class="icofont icofont-social-facebook"></i></a>
-                                    <a href="#"><i class="icofont icofont-social-twitter"></i></a>
-                                    <a href="#"><i class="icofont icofont-social-google-plus"></i></a>
-                                    <a href="#"><i class="icofont icofont-brand-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- column end -->
-                        <div class="col-sm-2 col-xs-6">
-                            <div class="widget footer_top_menu">
-                                <h2>Quick Link</h2>
-                                <ul>
-                                    <li><a href="">home</a></li>
-                                    <li><a href="">about us</a></li>
-                                    <li><a href="">our services</a></li>
-                                    <li><a href="">portfolio</a></li>
-                                    <li><a href="">our blog</a></li>
-                                    <li><a href="">shop</a></li>
-                                    <li><a href="">contact us</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- column end -->
-                        <div class="col-md-2 col-md-offset-1 col-sm-3 col-xs-6">
-                            <div class="widget footer_top_menu margin_top_tablet">
-                                <h2>Services</h2>
-                                <ul>
-                                    <li><a href="">Apartment Cleaning</a></li>
-                                    <li><a href="">bulding Cleaning</a></li>
-                                    <li><a href="">Wooden Floor Cleaning</a></li>
-                                    <li><a href="">glass Cleaning</a></li>
-                                    <li><a href="">office Cleaning</a></li>
-                                    <li><a href="">vehicle Cleaning</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- column end -->
-                        <div class="col-md-3 col-md-offset-1 col-sm-4 col-xs-12">
-                            <div class="widget footer_top_menu margin_top_tablet single_footer">
-                                <ul class="address">
-                                    <li><span class="fa fa-map-marker"></span>Tetovo, Macedonia</li>
-                                    <li> <span class="fa fa-envelope"></span><a href="#">info@swan.mk</a></li>
-                                    <li><span class="fa fa-phone"></span><a href="#">(000) 11 222 3333</a></li>
-                                </ul>
-                                <div class="subscrib">
-                                    <h3>subscribe our newsletter</h3>
-                                    <input type="text" name="email" placeholder="Your mail">
-                                    <input type="submit" name="submit" value="send">
-                                    <p>We don’t share your info with anyone</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="footer_bottom_area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-8 col-xs-12">
-                            <div class="footer_bottom footer_top text-left">
-                                <p><span>{{ config('app.name') }} © <?php echo date("Y"); ?> | All Rights Reserved</span></p>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 col-xs-12">
-                            <div class="footer_bottom footer_bottom_text text-right">
-                                <p><a href="#">Private Policy</a> | <a href="#">Terms & Conditions</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+       @include('frontend.footer')
 
         <script src="{{ asset('js/front/jquery-3.1.0.min.js') }}"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -560,7 +404,5 @@
         <script src="{{ asset('js/front/waypoints.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('js/front/active.js') }}"></script>
     </div>
-
 </body>
-
 </html>
