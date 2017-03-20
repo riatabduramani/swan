@@ -417,7 +417,7 @@ label.mainsearch {
     5.***Hero_Area Css Start***
 ------------------------------------------------- */
 .romana_hero_area{
-    background: rgba(0, 0, 0, 0) url("http://www.v3wall.com/wallpaper/1680_1050/1003/1680_1050_20100327123938157200.jpg") no-repeat scroll top center / cover ;
+    background: rgba(0, 0, 0, 0) url("../images/homebg.jpg") no-repeat scroll top center / cover ;
     position: relative;
     top: 0;
     width: 100%;
@@ -1036,7 +1036,7 @@ label.mainsearch {
     padding-top: 15px;
 }
 .footer_bottom span {
-  text-transform: uppercase;
+  text-transform: none;
 }
 .footer_bottom a{
     color: #9c9c9c;

@@ -24,7 +24,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-
 <body>
     <div id="preloader">
         <div class="preloader_spinner"></div>
@@ -85,7 +84,7 @@
                             <a href="#">View more</a>
                         </div>
 
-                        <div class="romana_single_price price_current_item text-center" style="margin-top: 335px;">
+                        <div class="romana_single_price price_current_item text-center" style="margin-top: 260px;">
                             <h3>ekstra</h3>
                             <h4>49 € <span>/mo</span></h4>
                             <ul>
