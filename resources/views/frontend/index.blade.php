@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Welcome to Swan</title>
+    <title>Welcome to {{ config('app.name') }}</title>
 
     <link href="{{ asset('images/fevicon.png') }}" rel="shortcut icon" type="image/png">
     <link href="{{ asset('css/front/animate.min.css') }}" rel="stylesheet" type="text/css">
@@ -75,70 +75,70 @@
                             <h3>basis</h3>
                             <h4>29  €<span>/mo</span></h4>
                             <ul>
-                                <li><i class="fa fa-check"></i>&nbsp Hovendregoring</li>
-                                <li><i class="fa fa-check"></i>&nbsp Klargoring</li>
-                                <li><i class="fa fa-check"></i>&nbsp 14 dags kontrol</li>
-                                <li><i class="fa fa-check"></i>&nbsp Manedlig kontrol</li>
-                                <li><i class="fa fa-check"></i>&nbsp Fajlrapportering</li>
+                                <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 1 time</li>
+                                <li><i class="fa fa-check"></i>&nbsp Preparation 1 time</li>
+                                <li><i class="fa fa-check"></i>&nbsp Control every 14 Days</li>
+                                <li><i class="fa fa-check"></i>&nbsp Monthly control </li>
+                                <li><i class="fa fa-check"></i>&nbsp Problem report</li>
                             </ul>
-                            <a href="#">View more</a>
+                            <a href="#">Read more</a>
                         </div>
 
                         <div class="romana_single_price price_current_item text-center" style="margin-top: 260px;">
                             <h3>ekstra</h3>
                             <h4>49 € <span>/mo</span></h4>
                             <ul>
-                                <li><i class="fa fa-check"></i>&nbsp Hovendregoring</li>
-                                <li><i class="fa fa-check"></i>&nbsp Klargoring</li>
-                                <li><i class="fa fa-check"></i>&nbsp 14 dags kontrol</li>
-                                <li><i class="fa fa-check"></i>&nbsp Manedlig kontrol</li>
-                                <li><i class="fa fa-check"></i>&nbsp Fajlrapportering</li>
-                                <li><i class="fa fa-check"></i>&nbsp Vinterpakke</li>
-                                <li><i class="fa fa-check"></i>&nbsp Vinduespolering</li>
-                                <li><i class="fa fa-check"></i>&nbsp Afdakning af mobler</li>
+                                <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 2 times</li>
+                                <li><i class="fa fa-check"></i>&nbsp Preparation 2 times</li>
+                                <li><i class="fa fa-check"></i>&nbsp Control every 14 Days</li>
+                                <li><i class="fa fa-check"></i>&nbsp Monthly control </li>
+                                <li><i class="fa fa-check"></i>&nbsp Problem report</li>
+                                <li><i class="fa fa-check"></i>&nbsp Winter package </li>
+                                <li><i class="fa fa-check"></i>&nbsp Window cleaning</li>
+                                <li><i class="fa fa-check"></i>&nbsp Covering of furnitures</li>
                             </ul>
-                            <a href="#">View more</a>
+                            <a href="#">Read more</a>
                         </div>
 
                         <div class="romana_single_price text-center" style="margin-top: 186px;">
                             <h3>eksklusiv</h3>
                             <h4>69 € <span>/mo</span></h4>
                             <ul>
-                                <li><i class="fa fa-check"></i>&nbsp Hovendregoring</li>
-                                <li><i class="fa fa-check"></i>&nbsp Klargoring</li>
-                                <li><i class="fa fa-check"></i>&nbsp 14 dags kontrol</li>
-                                <li><i class="fa fa-check"></i>&nbsp Manedlig kontrol</li>
-                                <li><i class="fa fa-check"></i>&nbsp Fajlrapportering</li>
-                                <li><i class="fa fa-check"></i>&nbsp Vinterpakke</li>
-                                <li><i class="fa fa-check"></i>&nbsp Vinduespolering</li>
-                                <li><i class="fa fa-check"></i>&nbsp Afdakning af mobler</li>
-                                <li><i class="fa fa-check"></i>&nbsp Betalinger af regninger</li>
-                                <li><i class="fa fa-check"></i>&nbsp Indkob</li>
-                                <li><i class="fa fa-check"></i>&nbsp Have</li>
+                                <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 2 times</li>
+                                <li><i class="fa fa-check"></i>&nbsp Preparation 2 times</li>
+                                <li><i class="fa fa-check"></i>&nbsp Control every 14 Daysl</li>
+                                <li><i class="fa fa-check"></i>&nbsp Monthly control </li>
+                                <li><i class="fa fa-check"></i>&nbsp Problem report</li>
+                                <li><i class="fa fa-check"></i>&nbsp Winter package </li>
+                                <li><i class="fa fa-check"></i>&nbsp Window cleaning</li>
+                                <li><i class="fa fa-check"></i>&nbsp Covering of furnitures</li>
+                                <li><i class="fa fa-check"></i>&nbsp Bill payment </li>
+                                <li><i class="fa fa-check"></i>&nbsp Buying groceries</li>
+                                <li><i class="fa fa-check"></i>&nbsp Maintenance of garden</li>
                             </ul>
-                            <a href="#">View more</a>
+                            <a href="#">Read more</a>
                         </div>
 
                         <div class="romana_single_price text-center">
                             <h3>eksklusiv +</h3>
                             <h4>119 € <span>/mo</span></h4>
                             <ul>
-                                <li><i class="fa fa-check"></i>&nbsp Hovendregoring</li>
-                                <li><i class="fa fa-check"></i>&nbsp Klargoring</li>
-                                <li><i class="fa fa-check"></i>&nbsp 14 dags kontrol</li>
-                                <li><i class="fa fa-check"></i>&nbsp Manedlig kontrol</li>
-                                <li><i class="fa fa-check"></i>&nbsp Fajlrapportering</li>
-                                <li><i class="fa fa-check"></i>&nbsp Vinterpakke</li>
-                                <li><i class="fa fa-check"></i>&nbsp Vinduespolering</li>
-                                <li><i class="fa fa-check"></i>&nbsp Afdakning af mobler</li>
-                                <li><i class="fa fa-check"></i>&nbsp Betalinger af regninger</li>
-                                <li><i class="fa fa-check"></i>&nbsp Indkob</li>
-                                <li><i class="fa fa-check"></i>&nbsp Have</li>
-                                <li><i class="fa fa-check"></i>&nbsp Plantning af planter</li>
-                                <li><i class="fa fa-check"></i>&nbsp Internet</li>
-                                <li><i class="fa fa-check"></i>&nbsp Bilpalle</li>
+                                <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 5 times</li>
+                                <li><i class="fa fa-check"></i>&nbsp Preparation 5 times</li>
+                                <li><i class="fa fa-check"></i>&nbsp Control every 14 Days</li>
+                                <li><i class="fa fa-check"></i>&nbsp Monthly control </li>
+                                <li><i class="fa fa-check"></i>&nbsp Problem report</li>
+                                <li><i class="fa fa-check"></i>&nbsp Winter package </li>
+                                <li><i class="fa fa-check"></i>&nbsp Window cleaning</li>
+                                <li><i class="fa fa-check"></i>&nbsp Covering of furnitures</li>
+                                <li><i class="fa fa-check"></i>&nbsp Bill payment </li>
+                                <li><i class="fa fa-check"></i>&nbsp Buying groceries</li>
+                                <li><i class="fa fa-check"></i>&nbsp Maintenance of garden</li>
+                                <li><i class="fa fa-check"></i>&nbsp Plant work</li>
+                                <li><i class="fa fa-check"></i>&nbsp Internet (Wi-Fi)</li>
+                                <li><i class="fa fa-check"></i>&nbsp Car package</li>
                             </ul>
-                            <a href="#">View more</a>
+                            <a href="#">Read more</a>
                         </div>
                     </div>
                 </div>

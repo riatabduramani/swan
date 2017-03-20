@@ -48,7 +48,7 @@
                                 <ul class="address">
                                     <li><span class="fa fa-map-marker"></span>Tetovo, Macedonia</li>
                                     <li> <span class="fa fa-envelope"></span><a href="#">info@swan.mk</a></li>
-                                    <li><span class="fa fa-phone"></span><a href="#">(000) 11 222 3333</a></li>
+                                    <li><span class="fa fa-phone"></span><a href="#">+389 (0) 70 123 456</a></li>
                                 </ul>
                                 <div class="subscrib">
                                     <h3>subscribe</h3>

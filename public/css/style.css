@@ -312,15 +312,16 @@ body {
 }
 .header_top_right {
     text-align: right;
-    border-left: 1px solid #cecece;
+    border-left: 2px solid #1893cc;
 }
 .header_top_right i {
     padding-right: 12px;
     cursor: pointer;
 }
 .header_top_right a {
-    color: #1c1c1c;
+    color: #1893cc;
     margin-right: 0px;
+    font-weight: bold;
 }
 .header_top_right i:last-child {
     padding-right: 0;
@@ -360,7 +361,7 @@ label.mainsearch {
 /* 4.2 Header_bottom Css Start */
 .mainmenu {
     float: left;
-    background: #12a3e6;
+    background: #1893cc;
     width: 100%;
     border-radius: 3px;
 }
@@ -417,13 +418,14 @@ label.mainsearch {
     5.***Hero_Area Css Start***
 ------------------------------------------------- */
 .romana_hero_area{
-    background: rgba(0, 0, 0, 0) url("../images/homebg.jpg") no-repeat scroll top center / cover ;
+    background: rgba(0, 0, 0, 0) url("../images/homebg2.jpg") no-repeat scroll top center / cover ;
     position: relative;
     top: 0;
     width: 100%;
     z-index: 1;
     height: auto;
     padding-bottom: 40px;
+    border-bottom: #1893cc solid 2px;
 }
 .single_text{
     padding-top: 275px;
@@ -516,7 +518,7 @@ label.mainsearch {
     7.***explore_area Css Start***
 ------------------------------------------------- */
 .romana_explore_area{
-    background: #14adf4;
+    background: #1893cc;
     margin-top: 110px;
     position: relative;
 }
@@ -812,7 +814,7 @@ label.mainsearch {
     background: transparent;
 }
 .price_current_item {
-    background: #14adf4 none repeat scroll 0 0;
+    background: #1893cc none repeat scroll 0 0;
     color: #ffffff;
     transform: scale(1, 1.1);
     box-shadow: black 0 0 16px -3px;
@@ -949,7 +951,7 @@ label.mainsearch {
     15.***footer_Area Start***
 -------------------------------------------------- */
 .romana_footer {
-    background:#13a3e6;
+    background:#1893cc;
     position: relative;
 }
 .footer_logo {
@@ -1028,8 +1030,9 @@ label.mainsearch {
 }
 /* 15.2 Footer_Bottom_Area*/
 .footer_bottom_area {
-  background: #ffffff none repeat scroll 0 0;
+  background: #067eb6 none repeat scroll 0 0;
     font-family: 'proxima_nova_rgregular';
+    border-top: white solid 1px;
 }
 .footer_bottom {
     padding-bottom: 8px;
@@ -1037,9 +1040,10 @@ label.mainsearch {
 }
 .footer_bottom span {
   text-transform: none;
+    color: white;
 }
 .footer_bottom a{
-    color: #9c9c9c;
+    color: white;
     font-family: 'proxima_nova_rgregular';
 }
 /* ------------------------------------------------

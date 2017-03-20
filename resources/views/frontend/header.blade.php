@@ -10,7 +10,7 @@
                         <div class="col-sm-7 col-md-offset-1">
                             <div class="header_top_left">
                                 <ul>
-                                    <li><span class="fa fa-phone"></span>(000) 11 222 3333</li>
+                                    <li><span class="fa fa-phone"></span>+389 (0) 70 123 4563</li>
                                     <li><span class="fa fa-envelope"></span>info@swan.mk</li>
                                     <!--<li><span class="fa fa-map-marker"></span></li>-->
                                 </ul>
@@ -21,13 +21,15 @@
                              @if (Auth::check())
                                 <a href="{{ url('/home') }}">Home</a>
                             @else
-                                <a href="{{ url('/login') }}">Login</a> | 
+                                <a href="{{ url('/login') }}"><i class="fa fa-user-circle-o"></i>
+
+  Login</a> | 
                                 <a href="{{ url('/register') }}">Register</a>
                             @endif
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <!--<div class="row">
                         <div class="col-xs-12">
                             <div class="searchbox">
                                 <input type="text" id="serch" class="search-box" placeholder="Search">
@@ -35,7 +37,7 @@
                                 <i class="fa fa-close close-button"></i>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
             <div class="header_bottom_area">
