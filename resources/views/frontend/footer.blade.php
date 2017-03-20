@@ -21,14 +21,11 @@
                         </div>
                         <div class="col-sm-2 col-xs-6">
                             <div class="widget footer_top_menu">
-                                <h2>Quick Link</h2>
+                                <h2>Menu</h2>
                                 <ul>
                                     <li><a href="">home</a></li>
                                     <li><a href="">about us</a></li>
                                     <li><a href="">our services</a></li>
-                                    <li><a href="">portfolio</a></li>
-                                    <li><a href="">our blog</a></li>
-                                    <li><a href="">shop</a></li>
                                     <li><a href="">contact us</a></li>
                                 </ul>
                             </div>
@@ -54,7 +51,7 @@
                                     <li><span class="fa fa-phone"></span><a href="#">(000) 11 222 3333</a></li>
                                 </ul>
                                 <div class="subscrib">
-                                    <h3>subscribe our newsletter</h3>
+                                    <h3>subscribe</h3>
                                     <input type="text" name="email" placeholder="Your mail">
                                     <input type="submit" name="submit" value="send">
                                     <p>We don’t share your info with anyone</p>
