@@ -30,7 +30,7 @@ class CountryCities extends Migration
             $table->timestamps();
         });
 
-        Schema::create('municipalities', function (Blueprint $table) {
+        Schema::create('district', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->integer('city_id')->unsigned();
@@ -41,16 +41,6 @@ class CountryCities extends Migration
             $table->timestamps();
         });
 
-        Schema::create('district', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->integer('municipality_id')->unsigned();
-
-            $table->foreign('municipality_id')->references('id')->on('municipalities')
-                ->onUpdate('cascade')->onDelete('cascade');
-
-            $table->timestamps();
-        });
     }
 
     /**
@@ -60,8 +50,7 @@ class CountryCities extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('villages');
-        Schema::dropIfExists('municipalities');
+        Schema::dropIfExists('district');
         Schema::dropIfExists('cities');
         Schema::dropIfExists('countries');
     }

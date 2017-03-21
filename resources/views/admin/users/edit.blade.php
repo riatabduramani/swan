@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Edit User
+                    Edit Employee
                      <div class="pull-right">
                         <a class="btn btn-primary btn-xs" href="{{ route('users.index') }}"> Back</a>
                     </div>
@@ -31,6 +31,13 @@
                             <div class="form-group">
                                 <strong>Name:</strong>
                                 {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Surname:</strong>
+                                {!! Form::text('surname', null, array('placeholder' => 'Surname','class' => 'form-control')) !!}
                             </div>
                         </div>
 
@@ -64,15 +71,15 @@
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>E-mail Confirmed:</strong>
-                                {!! Form::select('confirmed', array('1'=>'Yes', '0'=>'Not confirmed'),null, array('class' => 'form-control')) !!}
+                                <strong>Confirmed:</strong>
+                                {!! Form::select('confirmed', array('1'=>'Yes', '2'=>'Not confirmed'),null, array('class' => 'form-control')) !!}
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Status:</strong>
-                                {!! Form::select('is_active', array('1'=>'Active', '0'=>'Disabled'),null, array('class' => 'form-control')) !!}
+                                {!! Form::select('status', array('1'=>'Active', '2'=>'Disabled'),null, array('class' => 'form-control')) !!}
                             </div>
                         </div>
 

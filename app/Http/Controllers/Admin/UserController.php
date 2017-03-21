@@ -3,13 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\User;
 use App\Models\Role;
 use DB;
 use Hash;
 use Alert;
+use Auth;
 use Redirect;
+use Session;
 
 class UserController extends Controller
 {
@@ -20,10 +23,40 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {   
-        $data = User::orderBy('id','DESC')->paginate(25);
+    {
+        $userid = Auth::user()->id;
+        $keyword = $request->get('search');
+        $filterstatus = $request->get('is_active');
+        $perPage = 25;
+
         
-        //$data = Role::where('name', 'client')->first()->users()->paginate(25);
+        if (!empty($keyword)) {
+            $data = User::where('name', 'LIKE', "%$keyword%")
+                        ->orWhere('surname', 'LIKE', "%$keyword%")
+                        ->orWhere('email', 'LIKE', "%$keyword%")
+                        ->whereHas('roles', function($q)
+                        {
+                            $q->where('name', 'employee');
+                        })->paginate($perPage);
+
+        } elseif(!empty($filterstatus)) {
+
+            $data = User::where('status', '=', "$filterstatus")
+                        ->whereHas('roles', function($q)
+                        {
+                            $q->where('name', 'employee');
+                        })->paginate($perPage);
+
+        }  
+        else {
+             $data = User::whereHas('roles', function($q)
+                {
+                    $q->where('name', 'employee');
+                })->paginate($perPage);
+        }
+        
+
+        
 
         return view('admin.users.index',compact('data'))
         ->with('i', ($request->input('page', 1) - 1) * 5);
@@ -50,6 +83,7 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
+            'surname' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|same:confirm-password',
             'roles' => 'required'
@@ -114,11 +148,12 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
+            'surname' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
             'password' => 'same:confirm-password',
             'roles' => 'required',
             'confirmed' => 'required',
-            'is_active' => 'required'
+            'status' => 'required'
         ]);
 
         try {

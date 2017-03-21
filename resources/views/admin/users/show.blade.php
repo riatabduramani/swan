@@ -11,7 +11,7 @@
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Show User informations
+          Show Employee informations
         </a>
         <div class="pull-right">
             <a class="btn btn-primary btn-xs" href="{{ route('users.index') }}"> Back</a>

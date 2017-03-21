@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -19,6 +20,11 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+    <script type="text/javascript">
+    window.onload = function() {
+      document.getElementById("searchboxstatus").focus();
+    };
+</script>
 </head>
 <body>
     <div id="app">
@@ -55,7 +61,12 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                     @role('admin')
+                        <li><a href="/admin/dashboard">Dashboard</a></li>
+                        <li><a href="/admin/customer-status">Settings</a></li>
+                        <li><a href="/admin/users">Employees</a></li>
+                        <li><a href="/admin/packet">Packets</a></li>
+                    @endrole
                     </ul>
 
                     <!-- Right Side Of Navbar -->

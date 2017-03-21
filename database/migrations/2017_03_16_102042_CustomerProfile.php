@@ -30,10 +30,16 @@ class CustomerProfile extends Migration
             $table->integer('district_in_id')->unsigned();
             $table->integer('country_in_id')->unsigned();
 
+
             $table->string('emergencycontact');
             $table->string('emergencyphone');
 
+            $table->integer('created_by')->unsigned()->nullable();
+
             $table->foreign('user_id')->references('id')->on('users')
+                ->onUpdate('cascade')->onDelete('cascade');
+
+            $table->foreign('created_by')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
 
             $table->foreign('city_id')->references('id')->on('cities')
