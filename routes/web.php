@@ -17,4 +17,33 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+///Route::get('/home', 'HomeController@index');
+
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], function() {
+	Route::resource('/users','Admin\\UserController');
+	Route::resource('/roles','Admin\\RoleController');
+	Route::resource('/packet', 'Admin\\PacketsController');
+	Route::get('/dashboard', function () {
+	    return view('admin.home');
+	});
+	Route::resource('/customer-status', 'Admin\\CustomerStatusController');
+});
+
+Route::group(['prefix' => 'agent', 'middleware' => ['auth','role:agent']], function() {
+	
+	//Route::get('/dashboard', 'HomeController@index');
+	Route::get('/dashboard', function () {
+	    return view('admin.home');
+	});
+});
+
+Route::group(['prefix' => 'client', 'middleware' => ['auth','role:client']], function() {
+	
+	
+	Route::get('/dashboard', 'HomeController@index');
+	
+}); 
+
+//Route::resource('/roles','Admin\\RoleController');
+//Route::resource('admin/customer-status', 'Admin\\CustomerStatusController');

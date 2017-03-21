@@ -19,7 +19,9 @@
                         <div class="col-md-2 col-sm-3 col-xs-12">
                             <div class="header_top_right">
                              @if (Auth::check())
-                                <a href="{{ url('/home') }}">Home</a>
+                                @role('admin')
+                                <a href="{{ url('/admin/dashboard') }}">Dashboard</a>
+                                @endrole
                             @else
                                 <a href="{{ url('/login') }}"><i class="fa fa-user-circle-o"></i>
 
