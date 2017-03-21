@@ -20,12 +20,12 @@
                             <div class="header_top_right">
                              @if (Auth::check())
                                 @role('admin')
-                                <a href="{{ url('/admin/dashboard') }}">Dashboard</a>
+                                <a href="{{ url('/admin/dashboard') }}"><i class="fa fa-tachometer"></i> Dashboard</a>
                                 @endrole
                             @else
-                                <a href="{{ url('/login') }}"><i class="fa fa-user-circle-o"></i>
+                                <a href="{{ url('/login') }}"><i class="fa fa-user"></i>
 
-  Login</a> | 
+   &nbsp Login</a> | 
                                 <a href="{{ url('/register') }}">Register</a>
                             @endif
                             </div>
