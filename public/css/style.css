@@ -172,7 +172,11 @@ body {
     3.***Hover Effect Start***
 ------------------------------------------------- */
 .mainmenu nav > ul > li> a:hover, .romana_leave_comment_input input[type="submit"]:hover, .romana_contact_form form input[type="submit"]:hover{
-    background: #0888c2 none repeat scroll 0 0;
+    background: #6a9f38 none repeat scroll 0 0;
+    padding: 6px;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .mainmenu ul li ul.sub-menu li:hover a {
     color: #0888c2;
@@ -359,11 +363,13 @@ label.mainsearch {
     width: 8%;
 }
 /* 4.2 Header_bottom Css Start */
+
 .mainmenu {
     float: left;
     background: #1893cc;
     width: 100%;
     border-radius: 3px;
+    box-shadow: black 1px 3px 11px -5px;
 }
 .mainmenu nav > ul >li {
     display: inline-block;
@@ -381,7 +387,11 @@ label.mainsearch {
     text-transform: uppercase;
 }
 .mainmenu nav > ul >li.active>a{
-    background: #0888c2 none repeat scroll 0 0;
+    background: #1382b5 none repeat scroll 0 0;
+    border-radius: 8px;
+    padding: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 /* this code is for sub-menu */
 .mainmenu ul li ul.sub-menu {
@@ -435,7 +445,7 @@ label.mainsearch {
     height: 652px;
 }
 .single_text h1, .romana_page_text h1{
-    color: #161515;
+    color: #1893cc;
     font-size: 38px;
     text-transform: uppercase;
     line-height: 48px;
@@ -1170,7 +1180,7 @@ preloader {
 
 /* --------------------- 17.1- Inner_pages common css ----------------- */
 .romana_allPage_area{
-    background-image: url("../images/page-titlebg.jpg");
+    background-image: url("../images/homebg2.jpg");
     background-position: center center;
     background-size: cover;
     position: relative;
@@ -1634,12 +1644,17 @@ ul.isotop-nav > li + li::before {
 /* ---------------------- 17.11 - Contact Page ------------------------------ */
 .romana_contact_area{
     position: relative;
+    background-image: url('../images/contactbg.png');
 }
 .romana_contact_area::before {
-    background: #14adf4 none repeat scroll 0 0;
-    height: 56%;
+    background: #1893cc none repeat scroll 0 0;
+    height: 69%;
     right: 0;
     width: 50%;
+    box-shadow: black 7px 5px 16px -6px;
+    border-radius: 10px;
+    background-image: url('../images/contactinfobg.png');
+    background-size: cover;
 }
 .romana_contact_form label {
     color: #2a2a2a;
@@ -1661,6 +1676,7 @@ ul.isotop-nav > li + li::before {
     height: 30px;
     width: 100%;
     margin-bottom: 25px;
+    padding-left: 15px;
 }
 .romana_contact_form form textarea {
     -moz-border-bottom-colors: none;
@@ -1677,14 +1693,15 @@ ul.isotop-nav > li + li::before {
     resize: none;
     width: 100%;
     color: #979797;
+    padding-left: 15px;
 }
 .romana_contact_form form input[type="submit"]{
-    background: #14adf4 none repeat scroll 0 0;
+    background: #1893cc none repeat scroll 0 0;
     border-radius: 3px;
     color: #ffffff;
     height: 45px;
     text-transform: uppercase;
-    width: 120px;
+    width: 100%;
     margin-top: 48px;
     line-height: 45px;
 }
@@ -1700,11 +1717,12 @@ ul.isotop-nav > li + li::before {
     color:#fff;
 }
 .romana_contract_address ul.address li span {
-    color: #4ec7ff;
+    color: #ececec;
     padding-right: 20px;
 }
 .romana_contract_address .romana_socail_link {
-    margin-top: 50px;
+    margin-top: 45px;
+    margin-left: 25%;
 }
 .romana_contract_address .romana_socail_link a {
     color: #a3e2ff;

@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('frontend.index');
 });
 
+Route::get('contact', function () {
+    return view('frontend.pages.contact');
+});
+
 Auth::routes();
 
 ///Route::get('/home', 'HomeController@index');
@@ -44,6 +48,8 @@ Route::group(['prefix' => 'client', 'middleware' => ['auth','role:client']], fun
 	Route::get('/dashboard', 'HomeController@index');
 	
 }); 
+
+
 
 //Route::resource('/roles','Admin\\RoleController');
 //Route::resource('admin/customer-status', 'Admin\\CustomerStatusController');

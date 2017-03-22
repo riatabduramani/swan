@@ -4,7 +4,7 @@
                     <div class="row">
                         <div class="col-sm-2 col-xs-12">
                             <div class="logo">
-                                <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+                                <a href="http://swan.mk"><img src="images/logo.png" alt="logo"></a>
                             </div>
                         </div>
                         <div class="col-sm-7 col-md-offset-1">
@@ -49,10 +49,10 @@
                             <div class="mainmenu">
                                 <nav>
                                     <ul>
-                                        <li class="active"><a href="index.html">home</a></li>
+                                        <li class="active"><a href="http://swan.mk">home</a></li>
                                         <li><a href="about.html">about us</a></li>
                                         <li><a href="service.html">our services</a></li>
-                                        <li><a href="contact.html">contact us</a></li>
+                                        <li><a href="contact">contact us</a></li>
                                     </ul>
                                 </nav>
                             </div>
