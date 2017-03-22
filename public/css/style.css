@@ -129,7 +129,7 @@ body {
      border-radius: 3px;
 }
 .section_title h2:after{
-    background: #14adf4 none repeat scroll 0 0;
+    background: #1893cc none repeat scroll 0 0;
     bottom: 0;
     height: 4px;
     left: 0;
@@ -172,7 +172,7 @@ body {
     3.***Hover Effect Start***
 ------------------------------------------------- */
 .mainmenu nav > ul > li> a:hover, .romana_leave_comment_input input[type="submit"]:hover, .romana_contact_form form input[type="submit"]:hover{
-    background: #6a9f38 none repeat scroll 0 0;
+    background: #1382b5 none repeat scroll 0 0;
     padding: 6px;
     border-radius: 10px;
     padding-left: 20px;
@@ -1212,7 +1212,7 @@ preloader {
 }
 /* --------------------- 17.2-About Page css --------------------------- */
 .romana_client_area{
-    background: rgba(0, 0, 0, 0) url("../images/client-says.jpg") no-repeat scroll right center / 50% 100%;
+    /*background: rgba(0, 0, 0, 0) url("../images/client-says.jpg") no-repeat scroll right center / 50% 100%;*/
     color: #ffffff;
     position: relative;
     padding-top: 31px;
@@ -1220,12 +1220,14 @@ preloader {
     margin-top: 30px;
 }
 .romana_client_area::before {
-    background: #24b2f4 none repeat scroll 0 0;
+    background: #1893cc none repeat scroll 0 0;
     height: 100%;
     opacity: 0.93;
     right: 0;
     top: 0;
     width: 50%;
+    background-image: url('../images/contactinfobg.png');
+    background-size: contain;
 }
 .romana_client_area::after {
     border: 1px solid #14adf4;
@@ -1284,26 +1286,27 @@ preloader {
     margin-bottom: 65px;
 }
 .romana_clean_theme_area{
-    background: rgba(0, 0, 0, 0) url("../images/purses.jpg") no-repeat scroll center center / cover ;
-    color: #ffffff;
+    background: rgba(0, 0, 0, 0) url("../images/servicesbg.jpg") no-repeat scroll center center / cover ;
+    color: #050505;
     padding: 50px 0;
     position: relative;
     margin-top: 20px;
 }
 .romana_clean_theme_area:after{
-    background: #1caff4 none repeat scroll 0 0;
+    /*background: #1caff4 none repeat scroll 0 0;*/
     height: 100%;
     left: 0;
     opacity: 0.95;
     top: 0;
     width: 100%;
+    box-shadow: inset 0 0 16px -6px black;
 }
 .romana_clean_theme_text {
     position: relative;
     z-index: 9;
 }
 .romana_clean_theme_text h3, .romana_house_cleaning_text h2 {
-    color: #ffffff;
+    color: #939393;
     font-size: 22px;
     text-transform: uppercase;
     margin-bottom: 16px;

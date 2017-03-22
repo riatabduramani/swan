@@ -47,7 +47,7 @@
             </div>
     </section>
 <!-- ==================================================
-    3.*Error-Area Start 
+    CONTACT FORM
 =================================================== -->
         <section class="romana_contact_area section_padding">
             <div class="container ">
@@ -87,7 +87,7 @@
             </div>
         </section>
 <!-- ==================================================
-    4.*Map_area start
+    MAP LOCATION
 =================================================== -->
         <div class="romana_map_area">
             <div id="googleMap"></div>

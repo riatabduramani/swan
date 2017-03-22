@@ -19,10 +19,17 @@ Route::get('contact', function () {
     return view('frontend.pages.contact');
 });
 
+Route::get('about', function () {
+    return view('frontend.pages.about');
+});
+
+Route::get('services', function () {
+    return view('frontend.pages.services');
+});
+
 Auth::routes();
 
 ///Route::get('/home', 'HomeController@index');
-
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], function() {
 	Route::resource('/users','Admin\\UserController');

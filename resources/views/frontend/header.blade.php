@@ -50,8 +50,8 @@
                                 <nav>
                                     <ul>
                                         <li class="active"><a href="http://swan.mk">home</a></li>
-                                        <li><a href="about.html">about us</a></li>
-                                        <li><a href="service.html">our services</a></li>
+                                        <li><a href="about">about us</a></li>
+                                        <li><a href="services">our services</a></li>
                                         <li><a href="contact">contact us</a></li>
                                     </ul>
                                 </nav>
