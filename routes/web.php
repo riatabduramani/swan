@@ -39,6 +39,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], funct
 	    return view('admin.home');
 	});
 	Route::resource('/customer-status', 'Admin\\CustomerStatusController');
+	Route::resource('/service-items', 'Admin\\ServiceItemsController');
 });
 
 Route::group(['prefix' => 'agent', 'middleware' => ['auth','role:agent']], function() {

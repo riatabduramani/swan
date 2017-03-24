@@ -51,7 +51,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://swan.dev'),
 
     /*
     |--------------------------------------------------------------------------
@@ -78,6 +78,15 @@ return [
     */
 
     'locale' => 'en',
+
+    'locales' => ['en', 'sq'],
+
+    'language' => ['en'=>'', 'sq'=>'_sq'],
+    'languages' => ['en'=>'English', 'sq'=>'Shqip'],
+
+
+    /* CUSTOMIZED FOR SWAN */
+    'packettype' => ['1'=>'normal', '2'=>'popular', '3'=>'extended'],
 
     /*
     |--------------------------------------------------------------------------

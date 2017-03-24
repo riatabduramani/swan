@@ -20,11 +20,7 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
-    <script type="text/javascript">
-    window.onload = function() {
-      document.getElementById("searchboxstatus").focus();
-    };
-</script>
+   
 </head>
 <body>
     <div id="app">
@@ -66,6 +62,7 @@
                         <li><a href="/admin/customer-status">Settings</a></li>
                         <li><a href="/admin/users">Employees</a></li>
                         <li><a href="/admin/packet">Packets</a></li>
+                        <li><a href="/admin/service-items">Services</a></li>
                     @endrole
                     </ul>
 

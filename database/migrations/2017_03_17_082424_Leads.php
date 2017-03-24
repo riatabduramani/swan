@@ -47,7 +47,7 @@ class Leads extends Migration
             $table->string('district');
             $table->dateTime('contacted_at');
 
-            $table->integer('comment_id')->unsigned();
+            $table->integer('comment_id')->unsigned()->nullable();
 
             $table->integer('created_by')->unsigned();
             $table->integer('updated_by')->unsigned()->nullable();
