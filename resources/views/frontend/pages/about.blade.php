@@ -137,57 +137,48 @@
             </div>
         </section>
 <!-- ==================================================
-    8.*Team_area start
+    WHY US
 =================================================== -->
         <section class="romana_team_area section_padding">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="section_title">
-                            <h2>our staff</h2>
+                            <h2>Why Us?</h2>
                         </div>
                     </div>
-                    <!-- column end -->
                 </div>
-                <!-- row end -->
+
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="team_slider section_padding_top">
                             <div class="single_staff">
                                 <a href="#"><img src="images/img1.jpg" alt=""></a>
-                                <a href="#"><h3>merry han</h3></a>
-                                <h4>Cleaning Staff</h4>
+                                <a href="#"><h3>text here</h3></a>
                                 <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip.</p>
                             </div>
-                            <!-- single_staff end -->
+
                             <div class="single_staff">
                                 <a href="#"><img src="images/img2.jpg" alt=""></a>
-                                <a href="#"><h3>dan brown</h3></a>
-                                <h4>Cleaning Staff</h4>
+                                <a href="#"><h3>text here</h3></a>
                                 <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip.</p>
                             </div>
-                            <!-- single_staff end -->
+
                             <div class="single_staff">
                                 <a href="#"><img src="images/img3.jpg" alt=""></a>
-                                <a href="#"><h3>miky jones</h3></a>
-                                <h4>Cleaning Staff</h4>
+                                <a href="#"><h3>text here</h3></a>
                                 <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip.</p>
                             </div>
-                            <!-- single_staff end -->
+
                             <div class="single_staff">
                                 <a href="#"><img src="images/img4.jpg" alt=""></a>
-                                <a href="#"><h3>jenny dep</h3></a>
-                                <h4>Cleaning Staff</h4>
+                                <a href="#"><h3>text here</h3></a>
                                 <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip.</p>
                             </div>
-                            <!-- single_staff end -->
                         </div>
                     </div>
-                    <!-- column end -->
                 </div>
-                <!-- row end -->
             </div>
-            <!-- container end -->
         </section>
 
        @include('frontend.footer')

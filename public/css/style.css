@@ -101,7 +101,7 @@ body {
     padding: 96px 0px
 }
 .section_padding_top{
-     padding-top:20px;
+     padding-top:90px;
 }
 .section_padding_bottom{
    padding-bottom: 96px;
@@ -1230,7 +1230,7 @@ preloader {
     background-size: contain;
 }
 .romana_client_area::after {
-    border: 1px solid #14adf4;
+    /*border: 1px solid #14adf4;*/
     height: 100%;
     left: 0;
     top: 0;
