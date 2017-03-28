@@ -8,7 +8,7 @@
                         <div class="col-sm-3 col-xs-12">
                             <div class="widget widget_text">
                                 <div class="footer_logo">
-                                    <a href="index.html"><img src="images/footer_logo.png" alt="footer logo"></a>
+                                    <a href="index.html"><img src="images/swan-logow.png" alt="footer logo"></a>
                                 </div>
                                 <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan</p>
                                 <div class="footer_social_icon">

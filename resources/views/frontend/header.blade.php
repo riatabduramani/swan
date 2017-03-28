@@ -4,7 +4,7 @@
                     <div class="row">
                         <div class="col-sm-2 col-xs-12">
                             <div class="logo">
-                                <a href="http://swan.mk"><img src="images/logo.png" alt="logo"></a>
+                                <a href="http://swan.mk"><img src="images/swan-logob.png" alt="logo"></a>
                             </div>
                         </div>
                         <div class="col-sm-7 col-md-offset-1">
