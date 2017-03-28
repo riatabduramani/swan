@@ -64,6 +64,7 @@ h1,h2,h3,h4,h5,h6{
 }
 img {
     max-width: 100%;
+    height: 100%;
 }
 ol, ul{
     margin: 0px;
@@ -79,6 +80,12 @@ body {
     color:#a0a0a0;
     background: #fff;
 }
+
+.logo {
+    margin-top: -21px;
+    height: 60px;
+}
+
 .slicknav_menu{display:none;}
 .fix:after,
 .fix:before {
@@ -288,8 +295,8 @@ body {
     z-index: 2;
 }
 .romana_header::before {
-    background: rgba(0, 0, 0, 0) linear-gradient(#ffffff, rgba(255, 255, 255, 0.48)) repeat scroll 0 0;
-    box-shadow: 2px 0 20px #ffffff;
+    /*background: rgba(102, 97, 97, 0) linear-gradient(#97deff, rgba(255, 255, 255, 0.48)) repeat scroll 0 0;
+    box-shadow: 2px 0 20px #ffffff;*/
     content: "";
     height: 62%;
     position: absolute;
@@ -305,25 +312,25 @@ body {
     text-align: right;
 }
 .header_top_left ul li {
-    color: #545454;
+    color: white;
     display: inline-block;
     font-size: 14px;
     margin-left: 20px;
 }
 .header_top_left ul li span {
-    color: #1c1c1c;
+    color: white;
     padding-right: 10px;
 }
 .header_top_right {
     text-align: right;
-    border-left: 2px solid #1893cc;
+    border-left: 2px solid white;
 }
 .header_top_right i {
     padding-right: 12px;
     cursor: pointer;
 }
 .header_top_right a {
-    color: #1893cc;
+    color: white;
     margin-right: 0px;
     font-weight: bold;
 }
@@ -965,7 +972,9 @@ label.mainsearch {
     position: relative;
 }
 .footer_logo {
-    margin-bottom: 25px;
+    margin-bottom: 0px;
+    width: 33%;
+    margin-top: -35px;
 }
 /* 15.1 Footer_Top_Area*/
 .footer_top_area {
@@ -1228,6 +1237,7 @@ preloader {
     width: 50%;
     background-image: url('../images/contactinfobg.png');
     background-size: contain;
+    border-bottom: white 23px solid;
 }
 .romana_client_area::after {
     /*border: 1px solid #14adf4;*/
