@@ -53,7 +53,7 @@
         <section class="romana_service_area">
             <div class="container">
                 <div class="row">
-                    <h2 style="color:#0072bb;font-weight:bold;text-align: center;border-bottom: #0072bb solid 2px;box-shadow: black 0 8px 21px -13px;">Basis</h2><br>
+                    <h2 class="services-title">Basis</h2><br>
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon1.png" alt="">
@@ -121,7 +121,7 @@
                 </div>
 
                 <div class="row">
-                    <h2 style="color:#0072bb;font-weight:bold;text-align: center;border-bottom: #0072bb solid 2px;box-shadow: black 0 8px 21px -13px;">Ekstra</h2><br>
+                    <h2 class="services-title">Ekstra</h2><br>
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon1.png" alt="">
@@ -202,7 +202,7 @@
                 </div>
                 
                 <div class="row">
-                    <h2 style="color:#0072bb;font-weight:bold;text-align: center;border-bottom: #0072bb solid 2px;box-shadow: black 0 8px 21px -13px;">Eksklusiv</h2><br>
+                    <h2 class="services-title">Eksklusiv</h2><br>
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon1.png" alt="">
@@ -327,7 +327,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <h2 style="color:#0072bb;font-weight:bold;text-align: center;border-bottom: #0072bb solid 2px;box-shadow: black 0 8px 21px -13px;">Eksklusiv +</h2><br>
+                    <h2 class="services-title">Eksklusiv +</h2><br>
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon1.png" alt="">
