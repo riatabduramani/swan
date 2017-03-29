@@ -295,8 +295,8 @@ body {
     z-index: 2;
 }
 .romana_header::before {
-    /*background: rgba(102, 97, 97, 0) linear-gradient(#97deff, rgba(255, 255, 255, 0.48)) repeat scroll 0 0;
-    box-shadow: 2px 0 20px #ffffff;*/
+    background: rgba(102, 97, 97, 0) linear-gradient(#97deff, rgba(255, 255, 255, 0.48)) repeat scroll 0 0;
+    box-shadow: 2px 0 20px #ffffff;
     content: "";
     height: 62%;
     position: absolute;
@@ -310,27 +310,28 @@ body {
 }
 .header_top_left {
     text-align: right;
+    font-weight: bold;
 }
 .header_top_left ul li {
-    color: white;
+    color: #0072bb;
     display: inline-block;
     font-size: 14px;
     margin-left: 20px;
 }
 .header_top_left ul li span {
-    color: white;
+    color: #0072bb;
     padding-right: 10px;
 }
 .header_top_right {
     text-align: right;
-    border-left: 2px solid white;
+    border-left: 2px solid #0072bb;
 }
 .header_top_right i {
     padding-right: 12px;
     cursor: pointer;
 }
 .header_top_right a {
-    color: white;
+    color: #0072bb;
     margin-right: 0px;
     font-weight: bold;
 }
@@ -1221,7 +1222,7 @@ preloader {
 }
 /* --------------------- 17.2-About Page css --------------------------- */
 .romana_client_area{
-    /*background: rgba(0, 0, 0, 0) url("../images/client-says.jpg") no-repeat scroll right center / 50% 100%;*/
+    background: rgba(0, 0, 0, 0) url("../images/client-says.jpg") no-repeat scroll right center / 50% 100%;
     color: #ffffff;
     position: relative;
     padding-top: 31px;
