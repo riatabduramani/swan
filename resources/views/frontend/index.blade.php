@@ -313,7 +313,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="section_title">
-                            <h2>service booking</h2>
+                            <h2>Contact</h2>
                             <p>Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem. </p>
                         </div>
                     </div>

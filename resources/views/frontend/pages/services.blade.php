@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Services - {{ config('app.name') }}</title>
     
-    <link href="{{ asset('images/fevicon.png') }}" rel="shortcut icon" type="image/png">
+    <link href="{{ asset('images/swan-logob.png') }}" rel="shortcut icon" type="image/png">
     <link href="{{ asset('css/front/animate.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/front/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/front/hover-min.css') }}" rel="stylesheet" type="text/css">
@@ -53,27 +53,44 @@
         <section class="romana_service_area">
             <div class="container">
                 <div class="row">
+                    <h2 style="color:#0072bb;font-weight:bold;text-align: center;border-bottom: #0072bb solid 2px;box-shadow: black 0 8px 21px -13px;">Basis</h2><br>
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon1.png" alt="">
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                            <h2>1 stk. Hovedrengøring årligt</h2>
+                            <p>Efter kunden er rejst skal huset gøres hovedrent, som indbefatter følgende:
+	Værelserne – Støv af – Aftørre alle lodrette og vandrette flader – støvsug og vask af gulv
+	Badeværelserne – Rengør brusekabine /badekar, toiletkummen, håndvask, gulv og fliser
+	Gang – Afstøvning, støvsugning, aftørring af paneler og tilgængelige flader, vask af gulv
+	Køkken – Alle køkkenskabe aftørres udvendigt, køleskab, komfur, mikroovn, kogeplade, 	håndvasken rengøres . Gulvet støvsuges og vaskes.
+	Kælder m.m.
+ </p>
                         </div>
                     </div>
 
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon2.png" alt="">
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                            <h2>1 stk. Klargøring inden ankomst</h2>
+                            <p>Støver hele huset af <br>
+	Støvsuger og vasker gulv <br>
+	Fjerner overdækning af møbler<br>
+	Tænder køleskab<br>
+	Åbner op for vandet <br>
+	Udlufter <br>
+	Kontroller at vand og el virker 
+ </p>
                         </div>
                     </div>
 
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon3.png" alt="">
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                            <h2>14 dags kontrol </h2>
+                            <p>Dette bliver udført når kunden ikke er der<br>
+	Går hele huset igennem (alle værelser)<br>
+	Tager evt. spindelvæv
+</p>
                         </div>
                     </div>
                 </div>
@@ -82,52 +99,379 @@
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon4.png" alt="">
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                            <h2>Månedlig kontrol </h2>
+                            <p>Åbner alle vinduer i min 30 min <br>
+	Støver af mere grundigt <br>
+	Gennemgår huset for evt. fejl.<br>
+	Udfyld kontrolrapport<br>
+	Loft kontrol
+ </p>
                         </div>
                     </div>
 
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon5.png" alt="">
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                            <h2>Fejlrapportering</h2>
+                            <p>Hvis der bliver fundet fejl, bliver kunden kontaktet med et tilbud for at udbedre dem.
+ </p>
                         </div>
                     </div>
                     
-                    <div class="col-sm-4">
-                        <div class="single_service text-center">
-                            <img src="images/icon6.png" alt="">
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="row">
+                    <h2 style="color:#0072bb;font-weight:bold;text-align: center;border-bottom: #0072bb solid 2px;box-shadow: black 0 8px 21px -13px;">Ekstra</h2><br>
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon1.png" alt="">
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                            <h2>2 stk. Hovedrengøring årligt </h2>
+                            <p>Efter kunden er rejst skal huset gøres hovedrent, som indbefatter følgende:
+	Værelserne – Støv af – Aftørre alle lodrette og vandrette flader – støvsug og vask af gulv
+	Badeværelserne – Rengør brusekabine /badkar, toiletkummen, håndvask, gulv og fliser
+	Gang – Afstøvning, støvsugning, aftørring af paneler og tilgængelige flader, vask af gulv
+	Køkken – Alle køkkenskabe aftørres udvendigt, køleskab, komfur, mikroovn, kogeplade, 	håndvasken rengøres . Gulvet støvsuges og vaskes.
+	Kælder m.m.
+</p>
                         </div>
                     </div>
 
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon2.png" alt="">
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                            <h2>2 stk. Klargøring inden ankomst</h2>
+                            <p>Støver hele huset af 
+	Støvsuger og vasker gulv <br>
+	Fjerner overdækning af møbler<br>
+	Tænder køleskab<br>
+	Åbner op for vandet <br>
+	Udlufter <br>
+	Kontroller at vand og el virker 
+</p>
                         </div>
                     </div>
 
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon3.png" alt="">
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                            <h2>Månedlig kontrol </h2>
+                            <p>Åbner alle vinduer i min 30 min <br>
+	Støver af mere grundigt <br>
+	Gennemgår huset for evt. fejl.<br>
+	Udfyld kontrolrapport<br>
+	Loft kontrol
+</p>
                         </div>
                     </div>
+                </div>
+                
+                <div class="row"> 
+                      <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Fejlrapportering </h2>
+                            <p>Hvis der bliver fundet fejl, bliver kunden kontaktet med et tilbud for at udbedre dem.</p>
+                        </div>
+                      </div>
+                    
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Vinter pakkeløsning </h2>
+                            <p>Tænder for varmen om vinteren</p>
+                        </div>
+                    </div>
+                    
+                     <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Vindues pudsning</h2>
+                            <p>To gang årligt vil der bliver pudset vinduer, både indvendigt og udvendigt.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                     <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Afdækning af møbler</h2>
+                            <p>To gange om året, vil der blive dækket møbler af med plastik, vi fjerner også plastikken efterfølgende. </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <h2 style="color:#0072bb;font-weight:bold;text-align: center;border-bottom: #0072bb solid 2px;box-shadow: black 0 8px 21px -13px;">Eksklusiv</h2><br>
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon1.png" alt="">
+                            <h2>2 stk. Hovedrengøring årligt </h2>
+                            <p>Efter kunden er rejst skal huset gøres hovedrent, som indbefatter følgende:
+	Værelserne – Støv af – Aftørre alle lodrette og vandrette flader – støvsug og vask af gulv
+	Badeværelserne – Rengør brusekabine /badkar, toiletkummen, håndvask, gulv og fliser
+	Gang – Afstøvning, støvsugning, aftørring af paneler og tilgængelige flader, vask af gulv
+	Køkken – Alle køkkenskabe aftørres udvendigt, køleskab, komfur, mikroovn, kogeplade, 	håndvasken rengøres . Gulvet støvsuges og vaskes.
+	Kælder m.m.
+</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon2.png" alt="">
+                            <h2>2 stk. Klargøring inden ankomst</h2>
+                            <p>Støver hele huset af 
+	Støvsuger og vasker gulv <br>
+	Fjerner overdækning af møbler<br>
+	Tænder køleskab<br>
+	Åbner op for vandet <br>
+	Udlufter <br>
+	Kontroller at vand og el virker 
+</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Månedlig kontrol </h2>
+                            <p>Åbner alle vinduer i min 30 min <br>
+	Støver af mere grundigt <br>
+	Gennemgår huset for evt. fejl.<br>
+	Udfyld kontrolrapport<br>
+	Loft kontrol
+</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row"> 
+                      <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Fejlrapportering </h2>
+                            <p>Hvis der bliver fundet fejl, bliver kunden kontaktet med et tilbud for at udbedre dem.</p>
+                        </div>
+                      </div>
+                    
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Vinter pakkeløsning </h2>
+                            <p>Tænder for varmen om vinteren</p>
+                        </div>
+                    </div>
+                    
+                     <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Vindues pudsning</h2>
+                            <p>To gang årligt vil der bliver pudset vinduer, både indvendigt og udvendigt.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                     <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Afdækning af møbler</h2>
+                            <p>To gange om året, vil der blive dækket møbler af med plastik, vi fjerner også plastikken efterfølgende. </p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Betaler af regninger</h2>
+                            <p>Vi rapportere om at der er kommet nogle regninger, dernæst er det op til kunden om vi skal stå for administrationen og det betaler vi for da det indgår i prisen.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Handler for dig</h2>
+                            <p>Det er inkluderet i prisen at vi handler for dig før du ankommer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                     <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Have arbejde</h2>
+                            <p>Vander blomster <br>
+	Slår græs<br>
+	Fjerner ukrudt
+ </p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Oplysning om breve og regninger</h2>
+                            <p>Vi oplyser om forskellige breve, som ikke kommer fra kommunen. Det kunne eksempelvis være moskéen der skal betales osv.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Handler for dig</h2>
+                            <p>Det er inkluderet i prisen at vi handler for dig før du ankommer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <h2 style="color:#0072bb;font-weight:bold;text-align: center;border-bottom: #0072bb solid 2px;box-shadow: black 0 8px 21px -13px;">Eksklusiv +</h2><br>
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon1.png" alt="">
+                            <h2>2 stk. Hovedrengøring årligt </h2>
+                            <p>Efter kunden er rejst skal huset gøres hovedrent, som indbefatter følgende:
+	Værelserne – Støv af – Aftørre alle lodrette og vandrette flader – støvsug og vask af gulv
+	Badeværelserne – Rengør brusekabine /badkar, toiletkummen, håndvask, gulv og fliser
+	Gang – Afstøvning, støvsugning, aftørring af paneler og tilgængelige flader, vask af gulv
+	Køkken – Alle køkkenskabe aftørres udvendigt, køleskab, komfur, mikroovn, kogeplade, 	håndvasken rengøres . Gulvet støvsuges og vaskes.
+	Kælder m.m.
+</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon2.png" alt="">
+                            <h2>2 stk. Klargøring inden ankomst</h2>
+                            <p>Støver hele huset af 
+	Støvsuger og vasker gulv <br>
+	Fjerner overdækning af møbler<br>
+	Tænder køleskab<br>
+	Åbner op for vandet <br>
+	Udlufter <br>
+	Kontroller at vand og el virker 
+</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Månedlig kontrol </h2>
+                            <p>Åbner alle vinduer i min 30 min <br>
+	Støver af mere grundigt <br>
+	Gennemgår huset for evt. fejl.<br>
+	Udfyld kontrolrapport<br>
+	Loft kontrol
+</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row"> 
+                      <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Fejlrapportering </h2>
+                            <p>Hvis der bliver fundet fejl, bliver kunden kontaktet med et tilbud for at udbedre dem.</p>
+                        </div>
+                      </div>
+                    
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Vinter pakkeløsning </h2>
+                            <p>Tænder for varmen om vinteren</p>
+                        </div>
+                    </div>
+                    
+                     <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Vindues pudsning</h2>
+                            <p>To gang årligt vil der bliver pudset vinduer, både indvendigt og udvendigt.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                     <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Afdækning af møbler</h2>
+                            <p>To gange om året, vil der blive dækket møbler af med plastik, vi fjerner også plastikken efterfølgende. </p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Betaler af regninger</h2>
+                            <p>Vi rapportere om at der er kommet nogle regninger, dernæst er det op til kunden om vi skal stå for administrationen og det betaler vi for da det indgår i prisen.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Handler for dig</h2>
+                            <p>Det er inkluderet i prisen at vi handler for dig før du ankommer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                     <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Have arbejde</h2>
+                            <p>Vander blomster <br>
+	Slår græs<br>
+	Fjerner ukrudt
+ </p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Oplysning om breve og regninger</h2>
+                            <p>Vi oplyser om forskellige breve, som ikke kommer fra kommunen. Det kunne eksempelvis være moskéen der skal betales osv.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Internet</h2>
+                            <p>i hjemmet året rundt</p>
+                        </div>
+                   </div>            
+                </div>
+                    
+                <div class="row">
+                     <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Plantning af nye plantere</h2>
+                            <p>På hjemmesiden er der et katalog, hvor kunden kan vælge hvilke planter der skal plantes i deres have. Det er inkluderet i prisen at vi står for plantningen, men at man blot betaler ekstra for selveste planten/blomsten</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                            <img src="images/icon3.png" alt="">
+                            <h2>Bil pleje</h2>
+                            <p>	Tænder bilen<br>
+	Vasker bilen<br>
+	Melder om problemer
+</p>
+                        </div>
+                    </div>
+                               
                 </div>
             </div>
         </section>

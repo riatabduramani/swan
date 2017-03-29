@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>About - {{ config('app.name') }}</title>
     
-    <link href="{{ asset('images/swan-logo.png') }}" rel="shortcut icon" type="image/png">
+    <link href="{{ asset('images/swan-logob.png') }}" rel="shortcut icon" type="image/png">
     <link href="{{ asset('css/front/animate.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/front/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/front/hover-min.css') }}" rel="stylesheet" type="text/css">
@@ -157,7 +157,7 @@
                             <div class="single_staff">
                                 <!--<a href="#"><img src="images/img1.jpg" alt=""></a>-->
                                 <a href="#"><h3>Comprehensive</h3></a>
-                                <p>we are always for everything. Every need of your house and your garden, regardless of the type, is supplemented by our tireless team.</p>
+                                <p>We are always for everything. Every need of your house and your garden, regardless of the type, is supplemented by our tireless team.</p>
                             </div>
 
                             <div class="single_staff">

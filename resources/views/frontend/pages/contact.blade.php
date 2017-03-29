@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Contact - {{ config('app.name') }}</title>
     
-    <link href="{{ asset('images/fevicon.png') }}" rel="shortcut icon" type="image/png">
+    <link href="{{ asset('images/swan-logob.png') }}" rel="shortcut icon" type="image/png">
     <link href="{{ asset('css/front/animate.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/front/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/front/hover-min.css') }}" rel="stylesheet" type="text/css">
@@ -71,6 +71,7 @@
                     <div class="col-sm-6 col-md-5 responsive-bg col-xs-12 col-md-offset-2">
                         <div class="romana_contract_address">
                             <ul class="address">
+                                <li>Do not hesitate to contact us</li>
                                 <li><a href="#"><span class="fa fa-envelope"></span>info@swan.mk</a></li>
                                 <li><span class="fa fa-map-marker"></span>Tetovo, Macedonia</li>
                                 <li><a href="#"><span class="fa fa-phone"></span>+389 (0) 70 123 4563</a></li>
