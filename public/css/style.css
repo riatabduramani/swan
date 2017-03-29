@@ -1270,7 +1270,7 @@ preloader {
     height: 116px;
 }
 .romana_story_text {
-    margin-top: 200px;
+    margin-top: 90px;
 }
 .romana_story_text h2 {
     margin-bottom: 50px;
@@ -4264,3 +4264,14 @@ body.preloader_active {
     width: 142px;
     z-index: 2147483647;
 }
+.services-title {
+    color:#0072bb;
+    font-weight:bold;
+    text-align: center;
+    border-bottom: #0072bb solid 2px;
+    box-shadow: black 0 8px 21px -13px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+}
+
+
