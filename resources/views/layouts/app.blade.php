@@ -63,6 +63,8 @@
                         <li><a href="/admin/users">Employees</a></li>
                         <li><a href="/admin/packet">Packets</a></li>
                         <li><a href="/admin/service-items">Services</a></li>
+                        <li><a href="/admin/potential">Potential Customers</a></li>
+                        <li><a href="/admin/customer">Customers</a></li>
                     @endrole
                     </ul>
 

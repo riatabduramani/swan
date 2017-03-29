@@ -15,7 +15,9 @@ class Leads extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('description');
+            $table->text('body');
+            $table->integer('commentable_id');
+            $table->string('commentable_type');
             
             $table->integer('created_by')->unsigned();
             $table->integer('updated_by')->unsigned()->nullable();
@@ -41,23 +43,17 @@ class Leads extends Migration
             
             $table->string('name');
             $table->string('surname');
-            $table->integer('customer_status_id')->unsigned();
             $table->string('phone');
             $table->string('email');
             $table->string('district');
-            $table->dateTime('contacted_at');
-
-            $table->integer('comment_id')->unsigned()->nullable();
-
+            $table->integer('customer_status_id')->unsigned();
+            
             $table->integer('created_by')->unsigned();
             $table->integer('updated_by')->unsigned()->nullable();
 
             $table->foreign('customer_status_id')->references('id')->on('customer_statuses')
                 ->onUpdate('cascade')->onDelete('cascade');
                 
-            $table->foreign('comment_id')->references('id')->on('comments')
-                ->onUpdate('cascade')->onDelete('cascade');
-
             $table->foreign('created_by')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
 

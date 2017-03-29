@@ -30,7 +30,7 @@
                         {!! Form::open(['method' => 'GET', 'url' => '/admin/users', 'class' => 'navbar-form navbar-left', 'role' => 'search'])  !!}
                         <div class="input-group">
                                
-                            {!! Form::select('is_active', ['0'=>'All', '1' => 'Active', '2' => 'Disabled'],  null, ['class' => 'form-control', 'onchange'=>"this.form.submit()"]) !!}
+                            {!! Form::select('is_active', ['0'=>'All', '1' => 'Active', 'false' => 'Disabled'],  $filterstatus, ['class' => 'form-control', 'onchange'=>"this.form.submit()"]) !!}
                             <span class="input-group-btn">
                             </span>
                         </div>
@@ -40,7 +40,7 @@
 
 				<div class="table-responsive">
 
-				<table class="table table-striped table-hover">
+				<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<th>#</th>
 						<th>Name</th>

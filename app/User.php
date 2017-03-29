@@ -35,4 +35,19 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Role');
     }
+
+    public function potential()
+    {
+        return $this->hasMany('App\Models\Potential');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
+
+    public function customer()
+    {
+        return $this->hasOne('App\Models\Customer');
+    }
 }

@@ -19,6 +19,7 @@ class Invoice extends Migration
             $table->integer('invoice_nr');
             //invoice_type (packets, or custom service, shortcode (0 - defined, 1 - custom))
             $table->boolean('invoice_type')->default(0);
+            $table->integer('service_id');
             $table->boolean('invoice_date');
             $table->boolean('due_date');
             
@@ -29,7 +30,7 @@ class Invoice extends Migration
             $table->integer('customer_id')->unsigned();
             //payment_method (cash. online, bank)
             $table->boolean('payment_method');
-            //payment_status (paid/unpaid)
+            //payment_status (paid/unpaid/pending/declined)
             $table->boolean('payment_status');
             $table->decimal('total_sum');
 

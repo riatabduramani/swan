@@ -49,8 +49,8 @@
                             <div class="mainmenu">
                                 <nav>
                                     <ul>
-                                        <li class="active"><a href="http://swan.mk">home</a></li>
-                                        <li><a href="about">about us</a></li>
+                                        <li {{ (Request::is('/') ? 'class=active' : '') }}><a href="http://swan.dev">home</a></li>
+                                        <li {{ (Request::is('about') ? 'class=active' : '') }}><a href="about">about us</a></li>
                                         <li><a href="services">our services</a></li>
                                         <li><a href="contact">contact us</a></li>
                                     </ul>

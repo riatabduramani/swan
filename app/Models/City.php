@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CustomerStatus extends Model
+class City extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'customer_statuses';
+    protected $table = 'cities';
 
     /**
     * The database primary key value.
@@ -25,10 +25,15 @@ class CustomerStatus extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['name','country_id'];
 
-    public function potential()
+    public function country()
     {
-        return $this->hasMany('App\Models\Potential');
+        return $this->belongsTo('App\Models\Country','country_id');
+    }
+
+    public function district()
+    {
+        return $this->hasMany('App\Models\District');
     }
 }
