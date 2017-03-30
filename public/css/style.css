@@ -835,7 +835,7 @@ label.mainsearch {
     background: #1893cc none repeat scroll 0 0;
     color: #ffffff;
     transform: scale(1, 1.1);
-    box-shadow: black 0 0 16px -3px;
+    /*box-shadow: black 0 0 16px -3px;*/
 }
 .price_current_item h3, .price_current_item h4, .price_current_item ul li {
     color: #ffffff;

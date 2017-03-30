@@ -53,10 +53,7 @@
         <section class="romana_service_area">
             <div class="container">
                 <div class="row">
-<<<<<<< HEAD
-=======
                     <h2 class="services-title">Basis</h2><br>
->>>>>>> origin/master
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon1.png" alt="">
@@ -124,10 +121,7 @@
                 </div>
 
                 <div class="row">
-<<<<<<< HEAD
-=======
                     <h2 class="services-title">Ekstra</h2><br>
->>>>>>> origin/master
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon1.png" alt="">
@@ -208,10 +202,7 @@
                 </div>
                 
                 <div class="row">
-<<<<<<< HEAD
-=======
                     <h2 class="services-title">Eksklusiv</h2><br>
->>>>>>> origin/master
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon1.png" alt="">
@@ -336,10 +327,8 @@
                     </div>
                 </div>
                 <div class="row">
-<<<<<<< HEAD
-=======
                     <h2 class="services-title">Eksklusiv +</h2><br>
->>>>>>> origin/master
+
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon1.png" alt="">
