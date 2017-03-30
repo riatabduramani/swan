@@ -374,7 +374,7 @@ label.mainsearch {
 
 .mainmenu {
     float: left;
-    background: #1893cc;
+    background: #04699a;
     width: 100%;
     border-radius: 3px;
     box-shadow: black 1px 3px 11px -5px;
@@ -395,7 +395,7 @@ label.mainsearch {
     text-transform: uppercase;
 }
 .mainmenu nav > ul >li.active>a{
-    background: #1382b5 none repeat scroll 0 0;
+    background: #1d79a5 none repeat scroll 0 0;
     border-radius: 8px;
     padding: 6px;
     padding-left: 15px;
@@ -536,7 +536,7 @@ label.mainsearch {
     7.***explore_area Css Start***
 ------------------------------------------------- */
 .romana_explore_area{
-    background: #1893cc;
+    background: #04699a;
     margin-top: 110px;
     position: relative;
 }
@@ -619,7 +619,7 @@ label.mainsearch {
     color: #fff;
 }
 .romana_team_area .owl-next {
-    background: #14adf4 none repeat scroll 0 0;
+    background: #1d79a5 none repeat scroll 0 0;
     color: #fff;
 }
 .romana_team_area .owl-next:hover{
@@ -730,7 +730,7 @@ label.mainsearch {
     color:#bebebe;
 }
 .romana_booking_form input[type="submit"]{
-    background: #1893cc none repeat scroll 0 0;
+    background: #04699a none repeat scroll 0 0;
     color: #ffffff;
     height: 45px;
     line-height: 46px;
@@ -802,7 +802,7 @@ label.mainsearch {
     width: 95%;
 }
 .romana_single_price h4 {
-    color: #14adf4;
+    color: #04699a;
     line-height: normal;
     margin-bottom: 30px;
     margin-top: 26px;
@@ -832,7 +832,7 @@ label.mainsearch {
     background: transparent;
 }
 .price_current_item {
-    background: #1893cc none repeat scroll 0 0;
+    background: #04699a none repeat scroll 0 0;
     color: #ffffff;
     transform: scale(1, 1.1);
     /*box-shadow: black 0 0 16px -3px;*/
@@ -847,7 +847,7 @@ label.mainsearch {
     background: #4ec7ff;
 }
 .romana_single_price a {
-    background: #14adf4 none repeat scroll 0 0;
+    background: #1d79a5 none repeat scroll 0 0;
     border-radius: 50px;
     color: #ffffff;
     display: inline-block;
@@ -969,13 +969,13 @@ label.mainsearch {
     15.***footer_Area Start***
 -------------------------------------------------- */
 .romana_footer {
-    background:#1893cc;
+    background:#1d79a5;
     position: relative;
 }
 .footer_logo {
-    margin-bottom: 0px;
-    width: 33%;
-    margin-top: -35px;
+    margin-bottom: 22px;
+    width: 98%;
+    margin-top: -24px;
 }
 /* 15.1 Footer_Top_Area*/
 .footer_top_area {
@@ -1050,7 +1050,7 @@ label.mainsearch {
 }
 /* 15.2 Footer_Bottom_Area*/
 .footer_bottom_area {
-  background: #067eb6 none repeat scroll 0 0;
+  background: #04699a none repeat scroll 0 0;
     font-family: 'proxima_nova_rgregular';
     border-top: white solid 1px;
 }
@@ -1661,7 +1661,7 @@ ul.isotop-nav > li + li::before {
     background-image: url('../images/contactbg.png');
 }
 .romana_contact_area::before {
-    background: #1893cc none repeat scroll 0 0;
+    background: #1d79a5 none repeat scroll 0 0;
     height: 69%;
     right: 0;
     width: 50%;
@@ -1710,7 +1710,7 @@ ul.isotop-nav > li + li::before {
     padding-left: 15px;
 }
 .romana_contact_form form input[type="submit"]{
-    background: #1893cc none repeat scroll 0 0;
+    background: #1d79a5 none repeat scroll 0 0;
     border-radius: 3px;
     color: #ffffff;
     height: 45px;

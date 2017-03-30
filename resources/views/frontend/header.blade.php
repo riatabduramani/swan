@@ -2,9 +2,9 @@
             <div class="hrader_top_area">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-2 col-xs-12">
+                        <div class="col-sm-2 col-xs-12" style="width: 41.667%;">
                             <div class="logo">
-                                <a href="http://swan.mk"><img src="images/swan-logob.png" alt="logo"></a>
+                                <a href="http://swan.mk"><img src="images/swan-logoh.png" alt="logo"></a>
                             </div>
                         </div>
                         <div class="col-sm-7 col-md-offset-1">
