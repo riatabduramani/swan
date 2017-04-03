@@ -56,7 +56,7 @@
                     <!--<h2 class="services-title">Basis</h2><br>-->
                     <div class="col-sm-4">
                         <div class="single_service text-center">
-                            <img src="images/icon1.png" alt="">
+                            <!--<img src="images/icon5.png" alt="">-->
                             <h2>1 stk. Hovedrengøring årligt</h2>
                             <p>Efter kunden er rejst skal huset gøres hovedrent, som indbefatter følgende:
 	Værelserne – Støv af – Aftørre alle lodrette og vandrette flader – støvsug og vask af gulv
@@ -70,7 +70,7 @@
 
                     <div class="col-sm-4">
                         <div class="single_service text-center">
-                            <img src="images/icon2.png" alt="">
+                            <!--<img src="images/icon5.png" alt="">-->
                             <h2>1 stk. Klargøring inden ankomst</h2>
                             <p>Støver hele huset af <br>
 	Støvsuger og vasker gulv <br>
@@ -85,7 +85,7 @@
 
                     <div class="col-sm-4">
                         <div class="single_service text-center">
-                            <img src="images/icon3.png" alt="">
+                            <!--<img src="images/icon5.png" alt="">-->
                             <h2>14 dags kontrol </h2>
                             <p>Dette bliver udført når kunden ikke er der<br>
 	Går hele huset igennem (alle værelser)<br>
@@ -98,7 +98,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="single_service text-center">
-                            <img src="images/icon4.png" alt="">
+                            <!--<img src="images/icon5.png" alt="">-->
                             <h2>Månedlig kontrol </h2>
                             <p>Åbner alle vinduer i min 30 min <br>
 	Støver af mere grundigt <br>
@@ -111,7 +111,7 @@
 
                     <div class="col-sm-4">
                         <div class="single_service text-center">
-                            <img src="images/icon5.png" alt="">
+                            <!--<img src="images/icon5.png" alt="">-->
                             <h2>Fejlrapportering</h2>
                             <p>Hvis der bliver fundet fejl, bliver kunden kontaktet med et tilbud for at udbedre dem.
  </p>

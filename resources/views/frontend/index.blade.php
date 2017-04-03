@@ -184,21 +184,21 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="single_service text-center">
-                            <img src="images/icon1.png" alt="">
+                            <!--<img src="images/icon5.png" alt="">-->
                             <h2>house cleaning</h2>
                             <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="single_service text-center">
-                            <img src="images/icon1.png" alt="">
+                            <!--<img src="images/icon5.png" alt="">-->
                             <h2>house cleaning</h2>
                             <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="single_service text-center">
-                            <img src="images/icon1.png" alt="">
+                            <!--<img src="images/icon5.png" alt="">-->
                             <h2>house cleaning</h2>
                             <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
                         </div>
@@ -206,21 +206,21 @@
                     
                      <div class="col-sm-4">
                         <div class="single_service text-center">
-                            <img src="images/icon1.png" alt="">
+                           <!--<img src="images/icon5.png" alt="">-->
                             <h2>house cleaning</h2>
                             <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="single_service text-center">
-                            <img src="images/icon1.png" alt="">
+                           <!--<img src="images/icon5.png" alt="">-->
                             <h2>house cleaning</h2>
                             <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="single_service text-center">
-                            <img src="images/icon1.png" alt="">
+                           <!--<img src="images/icon5.png" alt="">-->
                             <h2>house cleaning</h2>
                             <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
                         </div>

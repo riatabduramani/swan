@@ -34,12 +34,12 @@
                             <div class="widget footer_top_menu margin_top_tablet">
                                 <h2>Services</h2>
                                 <ul>
-                                    <li><a href="">Apartment Cleaning</a></li>
-                                    <li><a href="">bulding Cleaning</a></li>
-                                    <li><a href="">Wooden Floor Cleaning</a></li>
-                                    <li><a href="">glass Cleaning</a></li>
-                                    <li><a href="">office Cleaning</a></li>
-                                    <li><a href="">vehicle Cleaning</a></li>
+                                    <li><a href="">House Cleaning</a></li>
+                                    <li><a href="">House Cleaning</a></li>
+                                    <li><a href="">House Cleaning</a></li>
+                                    <li><a href="">House Cleaning</a></li>
+                                    <li><a href="">House Cleaning</a></li>
+                                    <li><a href="">House Cleaning</a></li>
                                 </ul>
                             </div>
                         </div>
