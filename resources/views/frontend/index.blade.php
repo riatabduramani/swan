@@ -184,45 +184,101 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="single_service text-center">
-                            <!--<img src="images/icon5.png" alt="">-->
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                            <img src="images/service-logo.png" alt="" style="width: 15%;">
+                            <h2>Yeary general cleaning</h2>
+                            <p></p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="single_service text-center">
-                            <!--<img src="images/icon5.png" alt="">-->
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                            <img src="images/service-logo.png" alt="" style="width: 15%;">
+                            <h2>House preparation</h2><br>
+                            <p></p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="single_service text-center">
-                            <!--<img src="images/icon5.png" alt="">-->
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                            <img src="images/service-logo.png" alt="" style="width: 15%;">
+                            <h2>Control every 14 days</h2><br>
+                            <p></p>
                         </div>
                     </div>
                     
                      <div class="col-sm-4">
                         <div class="single_service text-center">
-                           <!--<img src="images/icon5.png" alt="">-->
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                           <img src="images/service-logo.png" alt="" style="width: 15%;">
+                            <h2>Monthly check</h2><br>
+                            <p></p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="single_service text-center">
-                           <!--<img src="images/icon5.png" alt="">-->
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                           <img src="images/service-logo.png" alt="" style="width: 15%;">
+                            <h2>Reporting of errors / defects</h2>
+                            <p></p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="single_service text-center">
-                           <!--<img src="images/icon5.png" alt="">-->
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                           <img src="images/service-logo.png" alt="" style="width: 15%;">
+                            <h2>Winter package</h2><br>
+                            <p></p>
+                        </div>
+                    </div>
+                     <div class="col-sm-4">
+                        <div class="single_service text-center">
+                           <img src="images/service-logo.png" alt="" style="width: 15%;">
+                            <h2>Window washing</h2><br>
+                            <p></p>
+                        </div>
+                    </div>
+                     <div class="col-sm-4">
+                        <div class="single_service text-center">
+                           <img src="images/service-logo.png" alt="" style="width: 15%;">
+                            <h2>Coverage of furnitures</h2><br>
+                            <p></p>
+                        </div>
+                    </div>
+                     <div class="col-sm-4">
+                        <div class="single_service text-center">
+                           <img src="images/service-logo.png" alt="" style="width: 15%;">
+                            <h2>Payoment of Invoices</h2><br>
+                            <p></p>
+                        </div>
+                    </div>
+                     <div class="col-sm-4">
+                        <div class="single_service text-center">
+                           <img src="images/service-logo.png" alt="" style="width: 15%;">
+                            <h2>Garden maintenance</h2><br>
+                            <p></p>
+                        </div>
+                    </div>
+                     <div class="col-sm-4">
+                        <div class="single_service text-center">
+                           <img src="images/service-logo.png" alt="" style="width: 15%;">
+                            <h2>Invoice information that do not come from the Municipality</h2>
+                            <p></p>
+                        </div>
+                    </div>
+                     <div class="col-sm-4">
+                        <div class="single_service text-center">
+                           <img src="images/service-logo.png" alt="" style="width: 15%;">
+                            <h2>Planting</h2><br><br>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                           <img src="images/service-logo.png" alt="" style="width: 15%;">
+                            <h2>Buying household items</h2>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="single_service text-center">
+                           <img src="images/service-logo.png" alt="" style="width: 15%;">
+                            <h2>Internet</h2>
+                            <p></p>
                         </div>
                     </div>
                 </div>
@@ -366,25 +422,25 @@
                     <div class="col-xs-12">
                         <div class="brand_crsl">
                             <div class="single_brand">
-                                <a href="#"><img src="images/brand-1.png" alt=""></a>
+                                <a href="#"><img src="images/karcherlogo.png" alt=""></a>
                             </div>
                             <div class="single_brand">
-                                <a href="#"><img src="images/brand-2.png" alt=""></a>
+                                <a href="#"><img src="images/cloroxlogo.png" alt=""></a>
                             </div>
                             <div class="single_brand">
-                                <a href="#"><img src="images/brand-3.png" alt=""></a>
+                                <a href="#"><img src="images/greenlogo.png" alt=""></a>
                             </div>
                             <div class="single_brand">
-                                <a href="#"><img src="images/brand-4.png" alt=""></a>
+                                <a href="#"><img src="images/karcherlogo.png" alt=""></a>
                             </div>
                             <div class="single_brand">
-                                <a href="#"><img src="images/brand-5.png" alt=""></a>
+                                <a href="#"><img src="images/greenlogo.png" alt=""></a>
                             </div>
                             <div class="single_brand">
-                                <a href="#"><img src="images/brand-6.png" alt=""></a>
+                                <a href="#"><img src="images/karcherlogo.png" alt=""></a>
                             </div>
                             <div class="single_brand">
-                                <a href="#"><img src="images/brand-4.png" alt=""></a>
+                                <a href="#"><img src="images/cloroxlogo.png" alt=""></a>
                             </div>
                         </div>
                     </div>

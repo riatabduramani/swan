@@ -101,6 +101,7 @@
 
         <script src="{{ asset('js/front/jquery-3.1.0.min.js') }}"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
         <script src="{{ asset('js/front/gmap.js') }}"></script>
         <script src="{{ asset('js/front/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/front/owl.carousel.min.js') }}"></script>

@@ -528,7 +528,7 @@ label.mainsearch {
 }
 .single_service h2 {
     color: #2a2a2a;
-    font-size: 18px;
+    font-size: 15px;
     margin-bottom: 14px;
     margin-top: 30px;
     text-transform: uppercase;
@@ -551,7 +551,7 @@ label.mainsearch {
   padding-left: 20px;
 }
 .explore_img {
-  bottom: -185px;
+  bottom: -270px;
   position: absolute;
   width: 45%;
   margin-left: 15%;
@@ -1223,7 +1223,7 @@ preloader {
 }
 /* --------------------- 17.2-About Page css --------------------------- */
 .romana_client_area{
-    background: rgba(0, 0, 0, 0) url("../images/client-says.jpg") no-repeat scroll right center / 50% 100%;
+    /*background: rgba(0, 0, 0, 0) url("../images/client-says.jpg") no-repeat scroll right center / 50% 100%;*/
     color: #ffffff;
     position: relative;
     padding-top: 31px;
@@ -1231,15 +1231,16 @@ preloader {
     margin-top: 30px;
 }
 .romana_client_area::before {
-    background: #1893cc none repeat scroll 0 0;
+    /*background: #1893cc none repeat scroll 0 0;*/
     height: 100%;
     opacity: 0.93;
     right: 0;
     top: 0;
     width: 50%;
-    background-image: url('../images/contactinfobg.png');
+    /*background-image: url('../images/contactinfobg.png');*/
+    background-image: url('../images/aboutwindow.jpg');
     background-size: contain;
-    border-bottom: white 23px solid;
+    /*border-bottom: white 23px solid;*/
 }
 .romana_client_area::after {
     /*border: 1px solid #14adf4;*/
@@ -1298,7 +1299,7 @@ preloader {
     margin-bottom: 65px;
 }
 .romana_clean_theme_area{
-    background: rgba(0, 0, 0, 0) url("../images/servicesbg.jpg") no-repeat scroll center center / cover ;
+    /*background: rgba(0, 0, 0, 0) url("../images/servicesbg.jpg") no-repeat scroll center center / cover ;*/
     color: #050505;
     padding: 50px 0;
     position: relative;
@@ -1752,10 +1753,10 @@ ul.isotop-nav > li + li::before {
   width: 133px;
 }
 .content_bg::after {
-    background: #2a2a2a none repeat scroll 0 0;
+    background: #1d79a5 none repeat scroll 0 0;
     border-radius: 3px;
-    color: #14adf4;
-    content: "we are here";
+    color: #ffffff;
+    content: "Our Office";
     font-size: 14px;
     height: 50px;
     left: 546%;
@@ -1769,7 +1770,7 @@ ul.isotop-nav > li + li::before {
     font-family: 'proxima_nova_rgregular';
 }
 .border {
-    border-color: #2a2a2a rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    border-color: #1d79a5 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
     border-style: solid;
     border-width: 11px 5px 12px;
     bottom: 112px;

@@ -19,7 +19,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-2 col-xs-6">
+                        <div class="col-sm-2 col-xs-6" style="padding-left: 7%;">
                             <div class="widget footer_top_menu">
                                 <h2>Menu</h2>
                                 <ul>
@@ -32,14 +32,12 @@
                         </div>
                         <div class="col-md-2 col-md-offset-1 col-sm-3 col-xs-6">
                             <div class="widget footer_top_menu margin_top_tablet">
-                                <h2>Services</h2>
+                                <h2>Packages</h2>
                                 <ul>
-                                    <li><a href="">House Cleaning</a></li>
-                                    <li><a href="">House Cleaning</a></li>
-                                    <li><a href="">House Cleaning</a></li>
-                                    <li><a href="">House Cleaning</a></li>
-                                    <li><a href="">House Cleaning</a></li>
-                                    <li><a href="">House Cleaning</a></li>
+                                    <li><a href="">Basis</a></li>
+                                    <li><a href="">Ekstra</a></li>
+                                    <li><a href="">Eksklusiv</a></li>
+                                    <li><a href="">Eksklusiv +</a></li>
                                 </ul>
                             </div>
                         </div>
