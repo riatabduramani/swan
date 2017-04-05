@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\HasModelTrait;
 
 class Customer extends Model
 {
+    use HasModelTrait;
     /**
      * The database table used by the model.
      *
@@ -67,6 +69,10 @@ class Customer extends Model
         return $this->belongsTo('App\Models\Country','country_id');
     }
 
+    public function invoice()
+    {
+        return $this->hasMany('App\Models\Invoice');
+    }
 }
 
 

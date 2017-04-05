@@ -58,7 +58,8 @@
                                 @foreach($customer as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->user->name }}</td>
+                                        <td>{{ $item->user->name }}
+                                        </td>
                                         <td>{{ $item->user->surname }}</td>
                                         <td>{{ $item->user->email }}</td>
                                         <td>{{ $item->phone_out }}</td>
@@ -89,6 +90,18 @@
                                                     </a>
                                                 </li>
                                                 <li>
+                                                <a>
+                                    
+                                                {!! Form::open(['route' => ['invoice_path']]) !!}
+                                                    {!! Form::hidden('customer_id', $item->user->id ) !!}
+                                                    {!! Form::hidden('invoice_type', 2 ) !!}
+                                                    {!! Form::button('<i class="fa fa-external-link" aria-hidden="true"></i>
+                                                        Custom Invoice', array('style' => 'border: none;background: none;padding: 0;', 'type'=>'submit')) !!}
+                                                    {!! Form::close() !!}
+
+                                                </a>
+                                                </li>
+                                                <li>
                                                     <a>
                                                     {!! Form::open([
                                                         'method'=>'DELETE',
@@ -110,6 +123,7 @@
 
                                         </td>
                                     </tr>
+
                                 @endforeach
                                 </tbody>
                             </table>

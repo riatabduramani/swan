@@ -82,6 +82,7 @@ class PotentialController extends Controller
         $lastinsertedid = $potentional->id;
 
         $topic = Potential::find($lastinsertedid);
+        if(isset($request->comment)){
 
         $topic->comments()->create([
             'body' => $request->comment,
@@ -89,6 +90,8 @@ class PotentialController extends Controller
             'commentable_type' => get_class($potentional),
             'created_by' => Auth::user()->id
         ]);
+
+        }
 
         Session::flash('flash_message', 'Potential customer added!');
 

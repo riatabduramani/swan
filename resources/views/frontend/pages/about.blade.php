@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>About - {{ config('app.name') }}</title>
     
-    <link href="{{ asset('images/fevicon.png') }}" rel="shortcut icon" type="image/png">
+    <link href="{{ asset('images/swan-logob.png') }}" rel="shortcut icon" type="image/png">
     <link href="{{ asset('css/front/animate.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/front/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/front/hover-min.css') }}" rel="stylesheet" type="text/css">
@@ -57,19 +57,15 @@
                             <img src="images/historymg.jpg" alt="">
                         </div>
                     </div>
-                    <!-- column End -->
                     <div class="col-md-6 col-md-offset-1 col-sm-6">
                         <div class="romana_story_text section_title">
                             <h2>Few words about us</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit </p>
-                            <p>praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
+                            <p>Cleanliness and care facility where you live or work is the greatest responsibility that may have the owner, therefore, aware of this gathering experience in one of the strongest states economically and developed, such as Denmark, have decided to bring the experience of quality work in our country. Swan, is the company that brings for you services such as: maintenance of houses, gardens and different buildings. The lack of similar companies conditioned us to establish this company, so that in our country, customers have the opportunity to serve with quality services. Care, commitment and responsibility are the features which characterize us, therefore, based on these points, we believe that our work for our clients, will ensure maximum success and will be uncompetive in the free market.</p>
+                            <p>Swan, starting in 2017, to allow you to have less worry for your home or building. We are the ones who care about every detail, taking away any possible concern around the house. It is clear that every house or industrial facility requires dedication and care, therefore, Swan brings machinery, working team with experience and the best methods for maintaining and cleaning your house and with this we can say that we offer you reliable service and professional.</p>
                         </div>
                     </div>
-                    <!-- column End -->
                 </div>
-                <!-- row End -->
             </div>
-            <!-- container End -->
         </section>
 <!-- ==================================================
     4.*Explore_Area Start 
@@ -81,11 +77,11 @@
                         <div class="romana_client_text hero_slider">
                             <div class="romana_single_client_text section_title">
                                 <h2>Our Vision</h2>
-                                <p>Duis autem vel eum iriure in putateesse molestie sequat, Hendrerit in vulputate vel illum dolore. </p>
+                                <p>Convinced on our uncompetitive professionalism that we bring, we tend to be on the top of the pyramid of similar companies in our domestic market. With sincere work and complete dedication, we will always work to be a symbol name of the care and maintenance of facilities.</p>
                             </div>
                             <div class="romana_single_client_text section_title">
-                                <h2>Our Missiony</h2>
-                                <p>Duis autem vel eum iriure in putateesse molestie sequat, Hendrerit in vulputate vel illum dolore. </p>
+                                <h2>Our Mission</h2>
+                                <p>We always work for customers and bring everything to them. Experience and innovation we bring to our country's market, are the strongest side in which we resist the competitors. Our sole aim is cleanliness, maintenance and the maximum liability for each object that we work for.</p>
                             </div>
                         </div>
                     </div>
@@ -137,57 +133,48 @@
             </div>
         </section>
 <!-- ==================================================
-    8.*Team_area start
+    WHY US
 =================================================== -->
         <section class="romana_team_area section_padding">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="section_title">
-                            <h2>our staff</h2>
+                            <h2>Why Us?</h2>
                         </div>
                     </div>
-                    <!-- column end -->
                 </div>
-                <!-- row end -->
+
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="team_slider section_padding_top">
                             <div class="single_staff">
-                                <a href="#"><img src="images/img1.jpg" alt=""></a>
-                                <a href="#"><h3>merry han</h3></a>
-                                <h4>Cleaning Staff</h4>
-                                <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip.</p>
+                                <!--<a href="#"><img src="images/img1.jpg" alt=""></a>-->
+                                <a href="#"><h3>Responsible</h3></a>
+                                <p>For any duty that is part of our services, we have the maximum responsibility.</p>
                             </div>
-                            <!-- single_staff end -->
+
                             <div class="single_staff">
-                                <a href="#"><img src="images/img2.jpg" alt=""></a>
-                                <a href="#"><h3>dan brown</h3></a>
-                                <h4>Cleaning Staff</h4>
-                                <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip.</p>
+                                <!--<a href="#"><img src="images/img1.jpg" alt=""></a>-->
+                                <a href="#"><h3>Comprehensive</h3></a>
+                                <p>We are always for everything. Every need of your house and your garden, regardless of the type, is supplemented by our tireless team.</p>
                             </div>
-                            <!-- single_staff end -->
+
                             <div class="single_staff">
-                                <a href="#"><img src="images/img3.jpg" alt=""></a>
-                                <a href="#"><h3>miky jones</h3></a>
-                                <h4>Cleaning Staff</h4>
-                                <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip.</p>
+                                <!--<a href="#"><img src="images/img1.jpg" alt=""></a>-->
+                                <a href="#"><h3>Experience</h3></a>
+                                <p>Successful work in Denmark and many years of experience alone is brought to you, to be always at your service.</p>
                             </div>
-                            <!-- single_staff end -->
+
                             <div class="single_staff">
-                                <a href="#"><img src="images/img4.jpg" alt=""></a>
-                                <a href="#"><h3>jenny dep</h3></a>
-                                <h4>Cleaning Staff</h4>
-                                <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip.</p>
+                                <!--<a href="#"><img src="images/img1.jpg" alt=""></a>-->
+                                <a href="#"><h3>Professional Team</h3></a>
+                                <p>Every employee in our company is professionalized in the work they he/she is doing. All we commit details, so that everything is perfect.</p>
                             </div>
-                            <!-- single_staff end -->
                         </div>
                     </div>
-                    <!-- column end -->
                 </div>
-                <!-- row end -->
             </div>
-            <!-- container end -->
         </section>
 
        @include('frontend.footer')

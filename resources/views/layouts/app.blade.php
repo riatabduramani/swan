@@ -20,9 +20,44 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
-   
+
+   <script type="text/javascript">
+        function enable() {
+                var e = document.getElementById("invoice_status");
+                var value = e.options[e.selectedIndex].value;
+                var text = e.options[e.selectedIndex].text;
+               
+                if(value==1) {
+                        document.getElementById('payment_method_opt').style.display = 'block';
+                        document.getElementById('due_date_opt').style.display = 'none';
+                    } else {
+                        document.getElementById('payment_method_opt').style.display = 'none';
+                        document.getElementById('due_date_opt').style.display = 'block';
+                        document.getElementById('duedate').disabled = true;
+                    }
+                }
+        </script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(window).load(function() {
+    $(".loader").fadeOut("slow");
+})
+</script>
+<style type="text/css">
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('/images/page-loader.gif') 50% 50% no-repeat rgb(249,249,249);
+    }
+</style>
+
 </head>
 <body>
+<!-- <div class="loader"></div> -->
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -105,5 +140,53 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+    <script type="text/javascript">
+        $("#packets").on('change', function(e) {
+                var packet_id = e.target.value;
+
+                $.get('/admin/product_prices?packet_id=' + packet_id, function(data) {
+                    //console.log(data);
+                    $('#price').empty();
+                    $('#total_price').empty();
+                    $.each(data, function(index, priceObj) {
+                        $('#price').append('<input type="text" value="'+priceObj.price+'&euro;/month"class="form-control text-right" disabled>');
+
+                        $('#total_price').append('<b>Total:</b> <input type="text" value="'+priceObj.price*12+'.00&euro;"class="form-control text-right">');
+
+                        $('#service_price').append('<input id="service_price" name="service_price" type="hidden" value="'+priceObj.price*12+'>');
+                        
+                        $.each(data, function(index, serviceObj) {
+                            $('#description').empty();
+                            for (var i = 0; i < serviceObj.service.length; i++) {
+                                $('#description').append(serviceObj.service[i].name+"\n");                        
+                            }
+                        });
+
+                    });
+                    
+                });
+
+                
+        });
+    </script>
+
+<script type="text/javascript">
+
+function deleteArticle(id) {
+    var ok = confirm("Are you sure to Delete?");
+    if(ok) {
+    $("#listinvoice").load(location.href+" #listinvoice>*","");
+    $.ajax({
+            url: '/admin/invoice/'+id,
+            data: { "_token": "{{ csrf_token() }}" },
+            type: 'DELETE',
+            success: function(result) {
+                    console.log(result);
+                }
+            });
+        }   
+    }
+</script>
 </body>
 </html>

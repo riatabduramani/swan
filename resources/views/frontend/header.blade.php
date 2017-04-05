@@ -2,9 +2,9 @@
             <div class="hrader_top_area">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-2 col-xs-12">
+                        <div class="col-sm-2 col-xs-12" style="width: 41.667%;">
                             <div class="logo">
-                                <a href="http://swan.mk"><img src="images/logo.png" alt="logo"></a>
+                                <a href="http://swan.mk"><img src="images/swan-logoh.png" alt="logo"></a>
                             </div>
                         </div>
                         <div class="col-sm-7 col-md-offset-1">
@@ -49,10 +49,10 @@
                             <div class="mainmenu">
                                 <nav>
                                     <ul>
-                                        <li {{ (Request::is('/') ? 'class=active' : '') }}><a href="http://swan.dev">home</a></li>
+                                        <li {{ (Request::is('/') ? 'class=active' : '') }}><a href="http://swan.mk">home</a></li>
                                         <li {{ (Request::is('about') ? 'class=active' : '') }}><a href="about">about us</a></li>
-                                        <li><a href="services">our services</a></li>
-                                        <li><a href="contact">contact us</a></li>
+                                        <li {{ (Request::is('services') ? 'class=active' : '') }}><a href="services">our services</a></li>
+                                        <li {{ (Request::is('contact') ? 'class=active' : '') }}><a href="contact">contact 
                                     </ul>
                                 </nav>
                             </div>

@@ -37,7 +37,12 @@ class CustomerProfile extends Migration
             $table->integer('created_by')->unsigned()->nullable();
             $table->integer('updated_by')->unsigned()->nullable();
 
+            $table->integer('packet_id')->unsigned()->nullable();
+
             $table->timestamps();
+
+            $table->foreign('packet_id')->references('id')->on('packets')
+                ->onUpdate('cascade')->onDelete('cascade');
 
             $table->foreign('user_id')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class Invoice extends Migration
 {
@@ -15,24 +16,25 @@ class Invoice extends Migration
     {
         Schema::create('invoice', function (Blueprint $table) {
             $table->increments('id');
-            
-            $table->integer('invoice_nr');
             //invoice_type (packets, or custom service, shortcode (0 - defined, 1 - custom))
             $table->boolean('invoice_type')->default(0);
             $table->integer('service_id');
-            $table->boolean('invoice_date');
-            $table->boolean('due_date');
+            $table->dateTime('invoice_date');
+            $table->date('due_date')->nullable();
             
             //the end date for the service
-            $table->boolean('end_date');
+            $table->dateTime('end_date')->nullable();
 
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->integer('customer_id')->unsigned();
             //payment_method (cash. online, bank)
-            $table->boolean('payment_method');
+            $table->integer('payment_method')->nullable();
             //payment_status (paid/unpaid/pending/declined)
-            $table->boolean('payment_status');
+            $table->integer('payment_status');
             $table->decimal('total_sum');
+
+            $table->dateTime('paid_at')->nullable();
+            $table->dateTime('declined_at')->nullable();
 
             $table->integer('created_by')->unsigned();
             $table->integer('updated_by')->unsigned()->nullable();
@@ -48,6 +50,9 @@ class Invoice extends Migration
 
             $table->timestamps();
          });
+
+    DB::update("ALTER TABLE invoice AUTO_INCREMENT = 1000;");
+
     }
 
     /**

@@ -64,6 +64,7 @@ h1,h2,h3,h4,h5,h6{
 }
 img {
     max-width: 100%;
+    height: 100%;
 }
 ol, ul{
     margin: 0px;
@@ -79,6 +80,12 @@ body {
     color:#a0a0a0;
     background: #fff;
 }
+
+.logo {
+    margin-top: -21px;
+    height: 60px;
+}
+
 .slicknav_menu{display:none;}
 .fix:after,
 .fix:before {
@@ -101,7 +108,7 @@ body {
     padding: 96px 0px
 }
 .section_padding_top{
-     padding-top:96px;
+     padding-top:90px;
 }
 .section_padding_bottom{
    padding-bottom: 96px;
@@ -288,7 +295,7 @@ body {
     z-index: 2;
 }
 .romana_header::before {
-    background: rgba(0, 0, 0, 0) linear-gradient(#ffffff, rgba(255, 255, 255, 0.48)) repeat scroll 0 0;
+    background: rgba(102, 97, 97, 0) linear-gradient(#97deff, rgba(255, 255, 255, 0.48)) repeat scroll 0 0;
     box-shadow: 2px 0 20px #ffffff;
     content: "";
     height: 62%;
@@ -303,27 +310,28 @@ body {
 }
 .header_top_left {
     text-align: right;
+    font-weight: bold;
 }
 .header_top_left ul li {
-    color: #545454;
+    color: #0072bb;
     display: inline-block;
     font-size: 14px;
     margin-left: 20px;
 }
 .header_top_left ul li span {
-    color: #1c1c1c;
+    color: #0072bb;
     padding-right: 10px;
 }
 .header_top_right {
     text-align: right;
-    border-left: 2px solid #1893cc;
+    border-left: 2px solid #0072bb;
 }
 .header_top_right i {
     padding-right: 12px;
     cursor: pointer;
 }
 .header_top_right a {
-    color: #1893cc;
+    color: #0072bb;
     margin-right: 0px;
     font-weight: bold;
 }
@@ -366,7 +374,7 @@ label.mainsearch {
 
 .mainmenu {
     float: left;
-    background: #1893cc;
+    background: #04699a;
     width: 100%;
     border-radius: 3px;
     box-shadow: black 1px 3px 11px -5px;
@@ -387,7 +395,7 @@ label.mainsearch {
     text-transform: uppercase;
 }
 .mainmenu nav > ul >li.active>a{
-    background: #1382b5 none repeat scroll 0 0;
+    background: #1d79a5 none repeat scroll 0 0;
     border-radius: 8px;
     padding: 6px;
     padding-left: 15px;
@@ -528,7 +536,7 @@ label.mainsearch {
     7.***explore_area Css Start***
 ------------------------------------------------- */
 .romana_explore_area{
-    background: #1893cc;
+    background: #04699a;
     margin-top: 110px;
     position: relative;
 }
@@ -611,7 +619,7 @@ label.mainsearch {
     color: #fff;
 }
 .romana_team_area .owl-next {
-    background: #14adf4 none repeat scroll 0 0;
+    background: #1d79a5 none repeat scroll 0 0;
     color: #fff;
 }
 .romana_team_area .owl-next:hover{
@@ -722,7 +730,7 @@ label.mainsearch {
     color:#bebebe;
 }
 .romana_booking_form input[type="submit"]{
-    background: #1893cc none repeat scroll 0 0;
+    background: #04699a none repeat scroll 0 0;
     color: #ffffff;
     height: 45px;
     line-height: 46px;
@@ -794,7 +802,7 @@ label.mainsearch {
     width: 95%;
 }
 .romana_single_price h4 {
-    color: #14adf4;
+    color: #04699a;
     line-height: normal;
     margin-bottom: 30px;
     margin-top: 26px;
@@ -824,10 +832,10 @@ label.mainsearch {
     background: transparent;
 }
 .price_current_item {
-    background: #1893cc none repeat scroll 0 0;
+    background: #04699a none repeat scroll 0 0;
     color: #ffffff;
     transform: scale(1, 1.1);
-    box-shadow: black 0 0 16px -3px;
+    /*box-shadow: black 0 0 16px -3px;*/
 }
 .price_current_item h3, .price_current_item h4, .price_current_item ul li {
     color: #ffffff;
@@ -839,7 +847,7 @@ label.mainsearch {
     background: #4ec7ff;
 }
 .romana_single_price a {
-    background: #14adf4 none repeat scroll 0 0;
+    background: #1d79a5 none repeat scroll 0 0;
     border-radius: 50px;
     color: #ffffff;
     display: inline-block;
@@ -961,11 +969,13 @@ label.mainsearch {
     15.***footer_Area Start***
 -------------------------------------------------- */
 .romana_footer {
-    background:#1893cc;
+    background:#1d79a5;
     position: relative;
 }
 .footer_logo {
-    margin-bottom: 25px;
+    margin-bottom: 22px;
+    width: 98%;
+    margin-top: -24px;
 }
 /* 15.1 Footer_Top_Area*/
 .footer_top_area {
@@ -1040,7 +1050,7 @@ label.mainsearch {
 }
 /* 15.2 Footer_Bottom_Area*/
 .footer_bottom_area {
-  background: #067eb6 none repeat scroll 0 0;
+  background: #04699a none repeat scroll 0 0;
     font-family: 'proxima_nova_rgregular';
     border-top: white solid 1px;
 }
@@ -1212,7 +1222,7 @@ preloader {
 }
 /* --------------------- 17.2-About Page css --------------------------- */
 .romana_client_area{
-    /*background: rgba(0, 0, 0, 0) url("../images/client-says.jpg") no-repeat scroll right center / 50% 100%;*/
+    background: rgba(0, 0, 0, 0) url("../images/client-says.jpg") no-repeat scroll right center / 50% 100%;
     color: #ffffff;
     position: relative;
     padding-top: 31px;
@@ -1228,9 +1238,10 @@ preloader {
     width: 50%;
     background-image: url('../images/contactinfobg.png');
     background-size: contain;
+    border-bottom: white 23px solid;
 }
 .romana_client_area::after {
-    border: 1px solid #14adf4;
+    /*border: 1px solid #14adf4;*/
     height: 100%;
     left: 0;
     top: 0;
@@ -1259,7 +1270,7 @@ preloader {
     height: 116px;
 }
 .romana_story_text {
-    margin-top: 200px;
+    margin-top: 90px;
 }
 .romana_story_text h2 {
     margin-bottom: 50px;
@@ -1650,7 +1661,7 @@ ul.isotop-nav > li + li::before {
     background-image: url('../images/contactbg.png');
 }
 .romana_contact_area::before {
-    background: #1893cc none repeat scroll 0 0;
+    background: #1d79a5 none repeat scroll 0 0;
     height: 69%;
     right: 0;
     width: 50%;
@@ -1699,7 +1710,7 @@ ul.isotop-nav > li + li::before {
     padding-left: 15px;
 }
 .romana_contact_form form input[type="submit"]{
-    background: #1893cc none repeat scroll 0 0;
+    background: #1d79a5 none repeat scroll 0 0;
     border-radius: 3px;
     color: #ffffff;
     height: 45px;
@@ -4253,3 +4264,14 @@ body.preloader_active {
     width: 142px;
     z-index: 2147483647;
 }
+.services-title {
+    color:#0072bb;
+    font-weight:bold;
+    text-align: center;
+    border-bottom: #0072bb solid 2px;
+    box-shadow: black 0 8px 21px -13px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+}
+
+

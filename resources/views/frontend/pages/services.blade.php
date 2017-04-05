@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Services - {{ config('app.name') }}</title>
     
-    <link href="{{ asset('images/fevicon.png') }}" rel="shortcut icon" type="image/png">
+    <link href="{{ asset('images/swan-logob.png') }}" rel="shortcut icon" type="image/png">
     <link href="{{ asset('css/front/animate.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/front/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/front/hover-min.css') }}" rel="stylesheet" type="text/css">
@@ -53,27 +53,44 @@
         <section class="romana_service_area">
             <div class="container">
                 <div class="row">
+                    <!--<h2 class="services-title">Basis</h2><br>-->
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon1.png" alt="">
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                            <h2>1 stk. Hovedrengøring årligt</h2>
+                            <p>Efter kunden er rejst skal huset gøres hovedrent, som indbefatter følgende:
+	Værelserne – Støv af – Aftørre alle lodrette og vandrette flader – støvsug og vask af gulv
+	Badeværelserne – Rengør brusekabine /badekar, toiletkummen, håndvask, gulv og fliser
+	Gang – Afstøvning, støvsugning, aftørring af paneler og tilgængelige flader, vask af gulv
+	Køkken – Alle køkkenskabe aftørres udvendigt, køleskab, komfur, mikroovn, kogeplade, 	håndvasken rengøres . Gulvet støvsuges og vaskes.
+	Kælder m.m.
+ </p>
                         </div>
                     </div>
 
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon2.png" alt="">
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                            <h2>1 stk. Klargøring inden ankomst</h2>
+                            <p>Støver hele huset af <br>
+	Støvsuger og vasker gulv <br>
+	Fjerner overdækning af møbler<br>
+	Tænder køleskab<br>
+	Åbner op for vandet <br>
+	Udlufter <br>
+	Kontroller at vand og el virker 
+ </p>
                         </div>
                     </div>
 
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon3.png" alt="">
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                            <h2>14 dags kontrol </h2>
+                            <p>Dette bliver udført når kunden ikke er der<br>
+	Går hele huset igennem (alle værelser)<br>
+	Tager evt. spindelvæv
+</p>
                         </div>
                     </div>
                 </div>
@@ -82,53 +99,28 @@
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon4.png" alt="">
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                            <h2>Månedlig kontrol </h2>
+                            <p>Åbner alle vinduer i min 30 min <br>
+	Støver af mere grundigt <br>
+	Gennemgår huset for evt. fejl.<br>
+	Udfyld kontrolrapport<br>
+	Loft kontrol
+ </p>
                         </div>
                     </div>
 
                     <div class="col-sm-4">
                         <div class="single_service text-center">
                             <img src="images/icon5.png" alt="">
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
+                            <h2>Fejlrapportering</h2>
+                            <p>Hvis der bliver fundet fejl, bliver kunden kontaktet med et tilbud for at udbedre dem.
+ </p>
                         </div>
                     </div>
                     
-                    <div class="col-sm-4">
-                        <div class="single_service text-center">
-                            <img src="images/icon6.png" alt="">
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
-                        </div>
-                    </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="single_service text-center">
-                            <img src="images/icon1.png" alt="">
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
-                        </div>
-                    </div>
 
-                    <div class="col-sm-4">
-                        <div class="single_service text-center">
-                            <img src="images/icon2.png" alt="">
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <div class="single_service text-center">
-                            <img src="images/icon3.png" alt="">
-                            <h2>house cleaning</h2>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip commodo consequat. </p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 <!-- ==================================================

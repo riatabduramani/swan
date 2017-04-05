@@ -8,6 +8,7 @@ use App\Models\Country;
 use App\Models\City;
 use App\Models\District;
 use App\Models\Customer;
+use App\Models\Invoice;
 use App\User;
 use Session;
 use Auth;
@@ -188,7 +189,8 @@ class CustomerController extends Controller
 
     public function show($id) {
 
-        $customer = Customer::with('cities','district')->findOrFail($id);
+        $customer = Customer::with('cities','district','invoice')->findOrFail($id);
+        //$invoices = Invoice::with('customer')->findOrFail();
 
         return view('admin.customer.show', compact('customer'));
     }

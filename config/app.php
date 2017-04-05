@@ -88,6 +88,8 @@ return [
     /* CUSTOMIZED FOR SWAN */
     'packettype' => ['1'=>'normal', '2'=>'popular', '3'=>'extended'],
 
+    'invoicestatus' => ['1'=>'paid', '2'=>'unpaid', '3'=>'declined'], 
+    'paymentmenthod' => ['1'=>'Cash', '2'=>'Online', '3'=>'Bank'],
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
@@ -174,6 +176,8 @@ return [
         Dimsav\Translatable\TranslatableServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+
 
         /*
          * Package Service Providers...
@@ -240,6 +244,8 @@ return [
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+
 
 
     ],

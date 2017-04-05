@@ -51,18 +51,16 @@
                                         <td>{{ $item->district }}</td>
                                         <td>{{ $item->status->name }}</td>
                                         <td>{{ $item->createdby->name }} {{ $item->createdby->surname }}</td>
-                                       
-                                        @if($item->createdby->id != $item->updatedby->id)
-                                         <td>
-                                            {{ $item->updatedby->name }} {{ $item->updatedby->surname }}
-                                        </td>
-                                        @else
-                                            <td class="text-center">
-                                                -
+                                            @if(isset($item->updatedby))
+                                             <td>
+                                                {{ $item->updatedby->name }} {{ $item->updatedby->surname }}
                                             </td>
-                                        @endif
+                                            @else
+                                                <td class="text-center">
+                                                    -
+                                                </td>
+                                            @endif
 
-                                        
                                         <td>
                                             <a href="{{ url('/admin/potential/' . $item->id) }}" title="View Potential"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/potential/' . $item->id . '/edit') }}" title="Edit Potential"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
