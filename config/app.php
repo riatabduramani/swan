@@ -51,7 +51,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://swan.dev'),
 
     /*
     |--------------------------------------------------------------------------
@@ -79,6 +79,17 @@ return [
 
     'locale' => 'en',
 
+    'locales' => ['en', 'sq'],
+
+    'language' => ['en'=>'', 'sq'=>'_sq'],
+    'languages' => ['en'=>'English', 'sq'=>'Shqip'],
+
+
+    /* CUSTOMIZED FOR SWAN */
+    'packettype' => ['1'=>'normal', '2'=>'popular', '3'=>'extended'],
+
+    'invoicestatus' => ['1'=>'paid', '2'=>'unpaid', '3'=>'declined'], 
+    'paymentmenthod' => ['1'=>'Cash', '2'=>'Online', '3'=>'Bank'],
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
@@ -165,6 +176,8 @@ return [
         Dimsav\Translatable\TranslatableServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+
 
         /*
          * Package Service Providers...
@@ -231,6 +244,8 @@ return [
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+
 
 
     ],

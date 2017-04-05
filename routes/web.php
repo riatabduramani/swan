@@ -39,6 +39,40 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], funct
 	    return view('admin.home');
 	});
 	Route::resource('/customer-status', 'Admin\\CustomerStatusController');
+	Route::resource('/customer', 'Admin\\CustomerController');
+	Route::resource('/service-items', 'Admin\\ServiceItemsController');
+	Route::resource('/potential', 'Admin\\PotentialController');
+	Route::resource('/invoice', 'Admin\\InvoiceController');
+
+	Route::get('/invoice/custominvoice/{id}', 'Admin\\InvoiceController@showcustominvoice');
+	//Route::post('/invoice/custominvoice/update', 'Admin\\InvoiceController@updatecustompaymentinvoice');
+
+	Route::post('/invoice/custominvoice/', [
+	'as' => 'invoice_path',
+	'uses' => 'Admin\\InvoiceController@displayForm'
+	]);
+
+
+	Route::post('/invoice/create', [
+	'as' => 'invoice_update',
+	'uses' => 'Admin\\InvoiceController@updatecustompaymentinvoice'
+	]);
+
+	Route::get('/invoice/{id}', [
+	'as' => 'delete_invoice',
+	'uses' => 'Admin\\InvoiceController@destroy'
+	]);
+
+
+	//PACKET INVOICE
+	Route::post('/invoice/packetinvoice/', [
+	'as' => 'invoice_packet_path',
+	'uses' => 'Admin\\InvoiceController@displayFormPacket'
+	]);
+
+	Route::get('product_prices', 'Admin\\InvoiceController@product_prices');
+	//END INVOICE PACKET	
+
 });
 
 Route::group(['prefix' => 'agent', 'middleware' => ['auth','role:agent']], function() {

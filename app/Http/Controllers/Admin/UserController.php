@@ -41,7 +41,7 @@ class UserController extends Controller
 
         } elseif(!empty($filterstatus)) {
 
-            $data = User::where('status', '=', "$filterstatus")
+            $data = User::where('status', $filterstatus)
                         ->whereHas('roles', function($q)
                         {
                             $q->where('name', 'employee');
@@ -58,7 +58,7 @@ class UserController extends Controller
 
         
 
-        return view('admin.users.index',compact('data'))
+        return view('admin.users.index',compact('data','filterstatus'))
         ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 

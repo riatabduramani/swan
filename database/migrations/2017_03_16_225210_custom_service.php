@@ -18,7 +18,7 @@ class CustomService extends Migration
             $table->string('name');
             $table->string('description');
             $table->integer('created_by')->unsigned();
-            $table->integer('updated_by')->unsigned();
+            $table->integer('updated_by')->unsigned()->nullable();
 
             $table->foreign('created_by')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');

@@ -6,8 +6,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Models\Packet;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Session;
+use DB;
 
 class PacketsController extends Controller
 {
@@ -22,7 +24,7 @@ class PacketsController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $packet = Packet::where('name', 'LIKE', "%$keyword%")
+            $packet = Packet::whereTranslationLike('name', "%$keyword%")
                 ->paginate($perPage);
         } else {
             $packet = Packet::paginate($perPage);
@@ -38,7 +40,11 @@ class PacketsController extends Controller
      */
     public function create()
     {
-        return view('admin.packet.create');
+        $services = Service::listsTranslations('name')->pluck('name', 'id');
+        
+        $listservice = array();
+
+        return view('admin.packet.create', compact('services', 'listservice'));
     }
 
     /**
@@ -54,13 +60,18 @@ class PacketsController extends Controller
         $requestData = new Packet();
         $requestData->price = $request->price;
         $requestData->options = $request->options;
-        $requestData->translateOrNew('en')->name = $request->name;
-        $requestData->translateOrNew('sq')->name = $request->name_sq;
 
+        foreach (config('app.language') as $locale => $suffix) {
+            $requestData->translateOrNew($locale)->name = $request->input("name{$suffix}");
+        }
+        
         $requestData->save();
 
-        
-        //Packet::create($requestData);
+        if($request->services) {
+            $id = $requestData->id;
+            $requestData = Packet::find($id);
+            $requestData->service()->attach($request->services);    
+        }
 
         Session::flash('flash_message', 'Packet added!');
 
@@ -90,9 +101,15 @@ class PacketsController extends Controller
      */
     public function edit($id)
     {
-        $packet = Packet::translated()->findOrFail($id);
+        $packet = Packet::findOrFail($id);
+       
+        $services = Service::listsTranslations('name')->pluck('name', 'id');
 
-        return view('admin.packet.edit', compact('packet'));
+        //$listservice = Service::with('packet')->pluck('id');
+
+        $listservice = $packet->service->pluck('id')->toArray();
+
+        return view('admin.packet.edit', compact('packet', 'services','listservice'));
     }
 
     /**
@@ -106,16 +123,22 @@ class PacketsController extends Controller
     public function update($id, Request $request)
     {
         
-        //$requestData = $request->all();
-        
-        $packet = Packet::findOrFail($id);
+        $requestData = Packet::findOrFail($id);
 
-        $requestData->price = $request->price;
-        $requestData->options = $request->options;
-        $requestData->translateOrNew('en')->name = $request->name;
-        $requestData->translateOrNew('sq')->name = $request->name_sq;
-        
-        $packet->update($requestData);
+        $requestData->price = $request->input('price');
+        $requestData->options = $request->input('options');
+
+        foreach (['en'=> '', 'sq' => '_sq'] as $locale => $suffix) {
+            $requestData->translateOrNew($locale)->name = $request->input("name{$suffix}");
+        }
+
+        $requestData->update();
+
+        if($request->services) {
+            $requestData->service()->sync($request->services);
+        } else {
+            $requestData->service()->detach($request->services);
+        }
 
         Session::flash('flash_message', 'Packet updated!');
 

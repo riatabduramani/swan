@@ -27,5 +27,8 @@ class CustomerStatus extends Model
      */
     protected $fillable = ['name'];
 
-    
+    public function potential()
+    {
+        return $this->hasMany('App\Models\Potential');
+    }
 }

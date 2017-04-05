@@ -52,7 +52,7 @@
                                         <li {{ (Request::is('/') ? 'class=active' : '') }}><a href="http://swan.mk">home</a></li>
                                         <li {{ (Request::is('about') ? 'class=active' : '') }}><a href="about">about us</a></li>
                                         <li {{ (Request::is('services') ? 'class=active' : '') }}><a href="services">our services</a></li>
-                                        <li {{ (Request::is('contact') ? 'class=active' : '') }}><a href="contact">contact us</a></li>
+                                        <li {{ (Request::is('contact') ? 'class=active' : '') }}><a href="contact">contact 
                                     </ul>
                                 </nav>
                             </div>

@@ -30,16 +30,19 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Name</th><th>Price</th><th>Options</th><th>Actions</th>
+                                        <th>ID</th><th>Name [EN]</th><th>Name [AL]</th><th>Price</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($packet as $item)
+                                @foreach($packet as $it=>$item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->name }}</td><td>{{ $item->price }}</td><td>{{ $item->options }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->translate('sq')->name }}</td>
+                                        <td>{{ $item->price }}</td>
+                                      
+
                                         <td>
-                                            <a href="{{ url('/admin/packet/' . $item->id) }}" title="View packet"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/packet/' . $item->id . '/edit') }}" title="Edit packet"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                                             {!! Form::open([
                                                 'method'=>'DELETE',
