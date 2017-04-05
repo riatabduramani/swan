@@ -252,7 +252,7 @@ Reporting if there is any defect to the car.
                 <div class="row" style="margin-top: -110px;">
                     <div class="col-sm-12">
                         <div class="romana_single_price text-center" style="margin-top: 392px;">
-                            <h3>basis</h3>
+                            <h3>standard</h3>
                             <h4>29  €<span>/mo</span></h4>
                             <ul>
                                 <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 1 time</li>

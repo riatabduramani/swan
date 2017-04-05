@@ -72,7 +72,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="romana_single_price text-center" style="margin-top: 392px;">
-                            <h3>basis</h3>
+                            <h3>standard</h3>
                             <h4>29  €<span>/mo</span></h4>
                             <ul>
                                 <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 1 time</li>
@@ -428,19 +428,28 @@
                                 <a href="#"><img src="images/cloroxlogo.png" alt=""></a>
                             </div>
                             <div class="single_brand">
-                                <a href="#"><img src="images/greenlogo.png" alt=""></a>
+                                <a href="#"><img src="images/logoabena.png" alt=""></a>
                             </div>
                             <div class="single_brand">
-                                <a href="#"><img src="images/karcherlogo.png" alt=""></a>
+                                <a href="#"><img src="images/logoajax.png" alt=""></a>
                             </div>
                             <div class="single_brand">
-                                <a href="#"><img src="images/greenlogo.png" alt=""></a>
+                                <a href="#"><img src="images/logodiversey.png" alt=""></a>
                             </div>
                             <div class="single_brand">
-                                <a href="#"><img src="images/karcherlogo.png" alt=""></a>
+                                <a href="#"><img src="images/logofiskars.png" alt=""></a>
                             </div>
                             <div class="single_brand">
-                                <a href="#"><img src="images/cloroxlogo.png" alt=""></a>
+                                <a href="#"><img src="images/logogreencare.png" alt=""></a>
+                            </div>
+                             <div class="single_brand">
+                                <a href="#"><img src="images/logonilfisk.png" alt=""></a>
+                            </div>
+                             <div class="single_brand">
+                                <a href="#"><img src="images/logotana.png" alt=""></a>
+                            </div>
+                             <div class="single_brand">
+                                <a href="#"><img src="images/logounger.png" alt=""></a>
                             </div>
                         </div>
                     </div>
