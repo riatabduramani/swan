@@ -262,13 +262,13 @@ body {
     position: relative;
 }
 .hvr-icon-hang::before {
-    content: "ïƒ­";
+    content: "Ã¯Æ’Â­";
     right: 160px;
     top: 0;
 }
 .hvr-icon-bob::before {
     color: #2a2a2a;
-    /*content: "ï…¶";*/
+    /*content: "Ã¯â€¦Â¶";*/
     font-family: FontAwesome;
     font-size: 11px;
     right: 11px;
@@ -821,7 +821,7 @@ label.mainsearch {
     position: relative;*/
 }
 .romana_single_price ul li::before {
-    background: #dfdfdf none repeat scroll 0 0;
+    /*background: #dfdfdf none repeat scroll 0 0;*/
     bottom: 0;
     height: 1px;
     left: 50%;
@@ -976,6 +976,9 @@ label.mainsearch {
     margin-bottom: 22px;
     width: 98%;
     margin-top: -24px;
+}
+.footer_logo img {
+    height: auto!important;
 }
 /* 15.1 Footer_Top_Area*/
 .footer_top_area {
@@ -1389,7 +1392,7 @@ preloader {
 }
 .romana_single_aside li a::before {
     color: #14adf4;
-    content: "ï…·";
+    content: "Ã¯â€¦Â·";
     font-family: fontawesome;
     height: 2px;
     position: absolute;
@@ -1918,7 +1921,7 @@ blockquote {
 }
 blockquote::before {
     color: #14adf4;
-    content: "ï„Ž";
+    content: "Ã¯â€žÅ½";
     font-family: fontawesome;
     font-size: 34px;
     left: 51px;

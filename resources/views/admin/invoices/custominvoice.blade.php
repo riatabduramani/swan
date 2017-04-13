@@ -89,7 +89,7 @@
              <div class="col-md-6">
                       <div class="form-group">
                         <div class="col-md-12" style="margin-top: 10px">
-                            {!! Form::hidden('invoice_type', $invoicetype ) !!}
+                            {!! Form::hidden('invoice_type', 2 ) !!}
                             {!! Form::hidden('customer_id', $user->customer->id ) !!}
                             {!! Form::submit(isset($submitButtonText) ? $submitButtonText : 'Create Invoice', ['class' => 'btn btn-primary']) !!}
                         </div>

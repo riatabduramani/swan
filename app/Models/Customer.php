@@ -49,6 +49,11 @@ class Customer extends Model
         return $this->belongsTo('App\User','user_id');
     }
 
+    public function comments()
+    {
+        return $this->morphMany('App\Models\Comment', 'commentable');
+    }
+
     public function cities(){
         return $this->belongsTo('App\Models\City','city_in_id');
     }

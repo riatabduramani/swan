@@ -36,28 +36,12 @@
                         document.getElementById('duedate').disabled = true;
                     }
                 }
-        </script>
+    </script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript">
-$(window).load(function() {
-    $(".loader").fadeOut("slow");
-})
-</script>
-<style type="text/css">
-    .loader {
-        position: fixed;
-        left: 0px;
-        top: 0px;
-        width: 100%;
-        height: 100%;
-        z-index: 9999;
-        background: url('/images/page-loader.gif') 50% 50% no-repeat rgb(249,249,249);
-    }
-</style>
 
 </head>
 <body>
-<!-- <div class="loader"></div> -->
+
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -138,11 +122,10 @@ $(window).load(function() {
         @yield('content')
     </div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-
-    <script type="text/javascript">
-        $("#packets").on('change', function(e) {
+ <!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
+<script type="text/javascript">
+   $("#packets").on('change', function(e) {
                 var packet_id = e.target.value;
 
                 $.get('/admin/product_prices?packet_id=' + packet_id, function(data) {
@@ -152,14 +135,14 @@ $(window).load(function() {
                     $.each(data, function(index, priceObj) {
                         $('#price').append('<input type="text" value="'+priceObj.price+'&euro;/month"class="form-control text-right" disabled>');
 
-                        $('#total_price').append('<b>Total:</b> <input type="text" value="'+priceObj.price*12+'.00&euro;"class="form-control text-right">');
+                        $('#total_price').append('<b>Total:</b> <input type="text" name="total_sum" value="'+priceObj.price*12+'.00" class="form-control text-right" required>');
 
-                        $('#service_price').append('<input id="service_price" name="service_price" type="hidden" value="'+priceObj.price*12+'>');
+                        $('#service_price').append('<input id="service_price" name="service_price" type="hidden" value="'+priceObj.price*12+'" required>');
                         
                         $.each(data, function(index, serviceObj) {
-                            $('#description').empty();
+                            $('#service_description').empty();
                             for (var i = 0; i < serviceObj.service.length; i++) {
-                                $('#description').append(serviceObj.service[i].name+"\n");                        
+                                $('#service_description').append(serviceObj.service[i].name+"\n");                        
                             }
                         });
 
@@ -169,24 +152,7 @@ $(window).load(function() {
 
                 
         });
-    </script>
-
-<script type="text/javascript">
-
-function deleteArticle(id) {
-    var ok = confirm("Are you sure to Delete?");
-    if(ok) {
-    $("#listinvoice").load(location.href+" #listinvoice>*","");
-    $.ajax({
-            url: '/admin/invoice/'+id,
-            data: { "_token": "{{ csrf_token() }}" },
-            type: 'DELETE',
-            success: function(result) {
-                    console.log(result);
-                }
-            });
-        }   
-    }
 </script>
+
 </body>
 </html>

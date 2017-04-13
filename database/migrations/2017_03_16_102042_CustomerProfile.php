@@ -13,6 +13,21 @@ class CustomerProfile extends Migration
      */
     public function up()
     {
+         Schema::create('packets', function (Blueprint $table) {
+            $table->increments('id');
+            $table->decimal('price');
+            $table->string('options');
+            $table->timestamps();
+         });
+
+         Schema::create('packet_translations', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('packet_id')->unsigned();
+            $table->string('name');
+            $table->string('locale')->index();
+            $table->unique(['packet_id','locale']);
+            $table->foreign('packet_id')->references('id')->on('packets')->onDelete('cascade');
+         });
 
         Schema::create('customer', function (Blueprint $table) {
             $table->increments('id');
@@ -69,5 +84,7 @@ class CustomerProfile extends Migration
     public function down()
     {
         Schema::dropIfExists('customer');
+        Schema::dropIfExists('packet_translations');
+        Schema::dropIfExists('packets');
     }
 }

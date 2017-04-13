@@ -30,12 +30,7 @@
                             </ul>
                     </div>
                     {!! Form::open(['url' => '/admin/invoice', 'class' => 'form-horizontal', 'files' => true]) !!}
-                        @if($invoicetype==2)
                             @include ('admin.invoices.custominvoice')
-                        @endif
-                        @if($invoicetype==1)
-                            @include ('admin.invoices.packetinvoice')
-                        @endif
                     {!! Form::close() !!}
                 </div>
                

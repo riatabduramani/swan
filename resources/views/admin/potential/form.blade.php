@@ -50,7 +50,7 @@
    <div class="col-md-12">
     <div class="panel panel-default">
         <div class="panel-heading">
-        <strong>Riat Abduramani</strong> <span class="text-muted">{{ $comment->created_at->format("d.m.y - H:i") }}</span>
+        <strong>{{ $comment->createdby->name }} {{ $comment->createdby->surname }}</strong> <span class="text-muted">{{ $comment->created_at->format("d.m.y - H:i") }}</span>
         </div>
         <div class="panel-body">
             {{ $comment->body }}

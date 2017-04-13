@@ -15,10 +15,14 @@ class Subscription extends Migration
     {
            Schema::create('subscription', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('invoice_id')->unsigned();
             $table->integer('customer_id')->unsigned();
             $table->integer('packet_id')->unsigned();
             $table->dateTime('start');
             $table->dateTime('end');
+
+             $table->foreign('invoice_id')->references('id')->on('invoice')
+                ->onUpdate('cascade')->onDelete('cascade');
 
             $table->foreign('packet_id')->references('id')->on('packets')
                 ->onUpdate('cascade')->onDelete('cascade');

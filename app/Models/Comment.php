@@ -8,7 +8,7 @@ class Comment extends Model
 {
 
     protected $table = 'comments';
-    protected $fillable = ['body','created_by'];
+    protected $fillable = ['body','created_by','commentable_id','commentable_type'];
 	/**
      * Get all of the owning commentable models.
      */

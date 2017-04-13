@@ -23,8 +23,10 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 </head>
 <body>
+
     <div id="preloader">
         <div class="preloader_spinner"></div>
     </div>
@@ -32,48 +34,18 @@
 
     @include('frontend.header')
 
-<!-- ==================================================
-    PACKAGES
-=================================================== -->
     <section class="romana_hero_area">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
-                        <!--DO NOT DELETE 
-                          <div class="hero_slider">
-                            <div class="single_text single_text1">
-                                <h1></h1>
-                                <p></p>
-                                <a href="#"></a>
-                            </div>
-
-                            <div class="single_text single_text2">
-                                <h1></h1>
-                                <p></p>
-                                <a href="#"></a>
-                            </div>
-
-                            <div class="single_text single_text3">
-                                <h1></h1>
-                                <p></p>
-                                <a href="#"></a>
-                            </div>
-                        </div>-->                   
+                                
         <section class="romana_pricing_area section_padding_top">
             <div class="container">
-                <!--<div class="row">
-                    <div class="col-xs-12">
-                        <div class="section_title">
-                            <h2>Our Packages</h2>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>-->
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="romana_single_price text-center" style="margin-top: 392px;">
                             <h3>basis</h3>
-                            <h4>29  €<span>/mo</span></h4>
+                            <h4>29€<span>/mo</span></h4>
                             <ul>
                                 <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 1 time</li>
                                 <li><i class="fa fa-check"></i>&nbsp Preparation 1 time</li>
@@ -86,7 +58,7 @@
 
                         <div class="romana_single_price price_current_item text-center" style="margin-top: 260px;">
                             <h3>ekstra</h3>
-                            <h4>49 € <span>/mo</span></h4>
+                            <h4>49<span>/mo</span></h4>
                             <ul>
                                 <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 2 times</li>
                                 <li><i class="fa fa-check"></i>&nbsp Preparation 2 times</li>
@@ -400,8 +372,32 @@
         <script src="{{ asset('js/front/owl.carousel.min.js') }}"></script>
         <script src="{{ asset('js/front/jquery.meanmenu.js') }}"></script>
         <script src="{{ asset('js/front/jquery.counterup.min.js') }}"></script>
-        <script src="{{ asset('js/front/waypoints.min.js') }}" type="text/javascript"></script>
+        <script type="text/javascript" src="{{ asset('js/front/waypoints.min.js') }}"></script>
         <script src="{{ asset('js/front/active.js') }}"></script>
+        <script>
+          var all_links = Array.from( document.querySelectorAll(".romana_hero_area a[href='contact']") )
+
+          // using the anonymous function of Array.prototype.forEach() rather
+          // than Arrow functions, given the work being done here:
+          .forEach(function(all_links){
+
+            // while the <a> element has a firstChild:
+            while(all_links.firstChild) {
+
+              // we access the parentNode of the <a> and
+              // use the insertBefore() method to insert
+              // the firstChild of the <a> before the <a>:
+              all_links.parentNode.insertBefore(all_links.firstChild, all_links);
+            }
+
+            // once the <a> is emptied of its content,
+            // we again access the parentNode and remove
+            // the <a> element itself:
+            all_links.parentNode.removeChild(all_links);
+
+            });
+        </script>
+
     </div>
 </body>
 </html>

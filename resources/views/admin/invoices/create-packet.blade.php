@@ -29,7 +29,9 @@
                               </li>
                             </ul>
                     </div>
-                      {!! Form::open(['url' => '/admin/invoice/packetinvoice', 'class' => 'form-horizontal', 'files' => true]) !!}
+              <!--{!! Form::open(['url' => '/admin/invoice/packetinvoice', 'class' => 'form-horizontal', 'files' => true]) !!} -->
+              {!! Form::open(array('method'=>'POST', 'id'=>'frmPacketInvoice', 'action'=>'Admin\\InvoiceController@storePacketInvoice', 'class' => 'form-horizontal')) !!}
+
                         <div class="col-md-8">
                              <div class="panel panel-default">
                                 <div class="panel-heading">
@@ -52,7 +54,7 @@
                                     </div>
                                     <div class="form-group {{ $errors->has('service_description') ? 'has-error' : ''}}">
                                         <div class="col-md-12" style="margin-top:10px">
-                                           <textarea id="description" class="form-control" placeholder="Service description"></textarea>
+                                           <textarea id="service_description" class="form-control" placeholder="Service description" required></textarea>
                                         </div>
                                     </div>
                                 </div>

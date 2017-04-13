@@ -60,13 +60,6 @@ class InvoiceController extends Controller
 		return view('admin.invoices.create');
     }
 
-    public function createpacketinvoice() {
-
-        //$packets = Packet::listsTranslations('name')->pluck('name', 'id', 'price');
-    	
-		return view('admin.invoices.create-packet');
-    }
-
     public function store(Request $request)
     {
    		
@@ -81,15 +74,15 @@ class InvoiceController extends Controller
     	$invoicetype = $request->invoice_type;
         $customerid = $request->customer_id;
     		
+
         $customservice = new CustomerServices();
-
-		$customservice->name = $request->service_title;
-		$customservice->description = $request->service_description;
-		$customservice->created_by = $userid;
-		$customservice->save();
-
-		$customid = $customservice->id;
-
+        $customservice->name = $request->service_title;
+        $customservice->description = $request->service_description;
+        $customservice->created_by = $userid;
+        $customservice->save();
+        $customid = $customservice->id;
+    
+  
         $invoice = new Invoice();
         
 		$invoice->invoice_type = $invoicetype;
@@ -105,19 +98,6 @@ class InvoiceController extends Controller
 		if($paystatus != 1) {
 			$duedate = Carbon::now();
 			$invoice->due_date = $duedate->addDays(8);
-		}
-		
-		//only if this is packet service
-		if($invoicetype == 1) {
-			$packetdate = Carbon::now();
-			$invoice->end_date = $packetdate->addYear(1);
-
-            $subscription = new Subscription();	
-            $subscription->customer_id = $customerid;
-            $subscription->packet_id = $request->packets;
-            $subscription->start = $packetdate;
-            $subscription->end = $packetdate->addYear(1);
-            $subscription->save();
 		}
 		
 		$invoice->description = $request->service_note;
@@ -170,7 +150,7 @@ class InvoiceController extends Controller
 
         $packets = Packet::listsTranslations('name')->pluck('name', 'id');
 
-        return view('admin.invoices.create', compact('customerid','user','duedate','packets'));   
+        return view('admin.invoices.create-packet', compact('customerid','user','duedate','packets'));   
        
     }
 
@@ -183,13 +163,75 @@ class InvoiceController extends Controller
 
 	public function destroy($id) {
 
-        //$invoice = Invoice::find($id);
-        //$userid = $invoice->user->id;
-
         Invoice::destroy($id);
 
-        Session::flash('flash_message', 'Customer deleted successfully!');
+        Session::flash('flash_message', 'Invoice deleted successfully!');
         
         //return redirect("/admin/customer/$userid");
     }
+
+    public function storePacketInvoice(Request $request)
+    {
+
+
+        $userid = Auth::user()->id;
+        $invoicetype = $request->invoice_type;
+        $customerid = $request->customer_id;
+        
+        $invoice = new Invoice();
+        $invoice->invoice_type = $invoicetype;
+        $invoice->invoice_date = Carbon::now();
+        
+        //this should be inserted into custom_service and get that id
+        //if is customer service insert customservice ID, if is packet then insert that packet id
+        $customid = $request->packets;
+        $invoice->service_id = $customid;
+
+        //if the status is not Paid then show duedate
+        $invoice->payment_status = $request->invoice_status;
+        $paystatus = $request->invoice_status;
+
+        if($paystatus != 1) {
+            $duedate = Carbon::now();
+            $invoice->due_date = $duedate->addDays(8);
+        }
+        
+       
+        $packetdate = Carbon::now();
+        $invoice->end_date = $packetdate->addYear(1);
+
+
+
+        
+        $invoice->description = $request->service_note;
+        $invoice->customer_id = $request->customer_id;
+        
+        $invoice->total_sum = $request->total_sum;
+        
+        //if status is Paid then it should insert this date
+        if($paystatus == 1) {
+            $invoice->paid_at =  Carbon::now();
+            $invoice->payment_method = $request->payment_method;
+        }
+        //the user who has created this custom service
+        $invoice->created_by = $userid;
+
+        $invoice->save();
+
+        $subscription = new Subscription();
+        $subscription->invoice_id = $invoice->id;
+        $subscription->customer_id = $customerid;
+        $subscription->packet_id = $request->packets;
+        $subscription->start = Carbon::now();
+        $subscription->end = Carbon::now()->addYear(1);
+        $subscription->save();
+
+        //dd($invoice);
+
+        Session::flash('flash_message', 'Invoice created successfully!');
+
+        return redirect("admin/customer/$customerid");
+
+    }
+
 }

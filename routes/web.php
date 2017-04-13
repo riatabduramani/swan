@@ -39,11 +39,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], funct
 	    return view('admin.home');
 	});
 	Route::resource('/customer-status', 'Admin\\CustomerStatusController');
-	Route::resource('/customer', 'Admin\\CustomerController');
 	Route::resource('/service-items', 'Admin\\ServiceItemsController');
 	Route::resource('/potential', 'Admin\\PotentialController');
 	Route::resource('/invoice', 'Admin\\InvoiceController');
 
+	
 	Route::get('/invoice/custominvoice/{id}', 'Admin\\InvoiceController@showcustominvoice');
 	//Route::post('/invoice/custominvoice/update', 'Admin\\InvoiceController@updatecustompaymentinvoice');
 
@@ -58,6 +58,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], funct
 	'uses' => 'Admin\\InvoiceController@updatecustompaymentinvoice'
 	]);
 
+
 	Route::get('/invoice/{id}', [
 	'as' => 'delete_invoice',
 	'uses' => 'Admin\\InvoiceController@destroy'
@@ -70,8 +71,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], funct
 	'uses' => 'Admin\\InvoiceController@displayFormPacket'
 	]);
 
+	Route::post('/invoice/packetinvoice/add','Admin\\InvoiceController@storePacketInvoice');
+
 	Route::get('product_prices', 'Admin\\InvoiceController@product_prices');
 	//END INVOICE PACKET	
+
+	Route::resource('/customer', 'Admin\\CustomerController');
+	Route::post('/customer/comment','Admin\\CustomerController@storecomment');
+	Route::get('/customer/comment/{id}', 'Admin\\CustomerController@deleteComment');
+	Route::get('/customer/invoice/{id}', 'Admin\\CustomerController@deleteInvoice');
 
 });
 

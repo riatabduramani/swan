@@ -37,7 +37,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Invoice view
                         <div class="pull-right">
-                        <a href="{{ url()->previous() }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/admin/customer/' . $invoice->customer->id) }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <a href="{{ url('/admin/invoices/' . $invoice->id . '/edit') }}" title="Edit invoice"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                         {!! Form::open([
                             'method'=>'DELETE',

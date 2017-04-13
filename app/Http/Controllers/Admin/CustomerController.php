@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Country;
 use App\Models\City;
+use App\Models\Comment;
 use App\Models\District;
 use App\Models\Customer;
 use App\Models\Invoice;
@@ -102,6 +103,15 @@ class CustomerController extends Controller
             $user->status = $request->status;
             $user->confirmed = $request->confirmed;
             $user->update();
+
+            if(isset($request->comment)){
+                $customer->comments()->create([
+                    'body' => $request->comment,
+                    'commentable_id' => $id,
+                    'commentable_type' => get_class($customer),
+                    'created_by' => Auth::user()->id
+                ]);
+            }
         }
 
         Session::flash('flash_message', 'Customer updated successfully!');
@@ -180,6 +190,20 @@ class CustomerController extends Controller
             $customer->created_by = $userid;
             $customer->save();
 
+
+            $lastinsertedid = $customer->id;
+
+            $customerlast = Customer::find($lastinsertedid);
+            if(isset($request->comment)){
+
+                $customerlast->comments()->create([
+                    'body' => $request->comment,
+                    'commentable_id' => $lastinsertedid,
+                    'commentable_type' => get_class($customer),
+                    'created_by' => Auth::user()->id
+                ]);
+            }
+
         }
         
         Session::flash('flash_message', 'Customer created successfully!');
@@ -203,6 +227,54 @@ class CustomerController extends Controller
 
         Session::flash('flash_message', 'Customer deleted successfully!');
         return redirect('admin/customer');
+    }
+/*
+    public function storecomment(Comment $comment, Request $request) {
+
+        if(!$request->ajax()) {
+            $id = $request->customer_id;
+
+                $customerlast = Customer::find($id);
+                $customerlast->comments()->create([
+                    'body' => $request->comment,
+                    'commentable_id' => $id,
+                    'commentable_type' => get_class($customerlast),
+                    'created_by' => Auth::user()->id
+                ]);
+        } else {
+            return redirect('admin/customer');
+        }
+
+    }
+*/
+
+
+    public function storecomment(Request $request)
+    {
+            
+            $comment = new Comment;
+            $id = $request->customer_id;
+            $comment->body     = $request->get('comment');
+            $comment->commentable_id = $id;
+            $comment->commentable_type = 'App\Models\Customer';
+            $comment->created_by = Auth::user()->id;
+            $comment->save();
+
+            Session::flash('flash_message', 'Your comment has been posted!');
+            return redirect()->back();
+            
+    }
+
+    public function deleteComment($id) {
+        Comment::destroy($id);
+        Session::flash('flash_message', 'Your comment has been deleted!');
+        return redirect()->back();
+    }
+
+    public function deleteInvoice($id) {
+        Invoice::destroy($id);
+        Session::flash('flash_message', 'Invoice has been deleted!');
+        return redirect()->back();
     }
 
 }

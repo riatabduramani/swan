@@ -2,6 +2,10 @@
 
 @section('content')
     <div class="container">
+    @if(Session::has('flash_message'))
+          <p class="alert alert-success">{{ Session::get('flash_message') }}</p>
+        @endif
+
         <div class="row">
             <div class="col-md-4">
                             <ul class="list-group">
@@ -32,9 +36,10 @@
                             </ul>
 
                             </div>
+
             <div class="col-md-8">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Customer informations
+                    <div class="panel-heading">CUSTOMER ADDRESS
                     
                      <div class="pull-right">
                         <a href="{{ url('/admin/customer') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
@@ -55,8 +60,6 @@
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            
-
                             <div class="col-md-12">
                             <div class="row">
                               <div class="col-md-6">
@@ -77,17 +80,36 @@
                               </address>
                               </div>
                             </div>
-                            <div class="row">
-                              <div class="col-md-12">
-                                <h4 class="pull-left">INVOICES</h4>
+                              
+                            </div>
+                         
+                        </div>
 
-                                    {!! Form::open(['route' => ['invoice_path']]) !!}
+                    </div>
+                </div>
+  
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">INVOICES
+                    <div class="pull-right">
+                       {!! Form::open(['route' => ['invoice_path']]) !!}
                                     {!! Form::hidden('customer_id', $customer->user->id ) !!}
                                     {!! Form::hidden('invoice_type', 2 ) !!}
                                     {!! Form::button('<i class="fa fa-plus" aria-hidden="true"></i>
- Custom Invoice', array('class' => 'btn btn-primary pull-right','type'=>'submit')) !!}
+ Custom Invoice', array('class' => 'btn btn-primary btn-xs','type'=>'submit')) !!}
                                     {!! Form::close() !!}
-
+                                    </div>
+<div class="pull-right" style="margin-right: 10px;">
+                      {!! Form::open(['route' => ['invoice_packet_path']]) !!}
+                                    {!! Form::hidden('customer_id', $customer->user->id ) !!}
+                                    {!! Form::hidden('invoice_type', 1 ) !!}
+                                    {!! Form::button('<i class="fa fa-plus" aria-hidden="true"></i>
+ Packet Invoice', array('class' => 'btn btn-primary btn-xs','type'=>'submit')) !!}
+                                    {!! Form::close() !!}
+                    </div>
+              </div>
+                 <div class="panel-body"> 
+                 @if(count($customer->invoice) > 0)             
                                 <table class="table table-bordered" id="listinvoice">
                                   <thead>
                                     <tr>
@@ -101,6 +123,7 @@
                                     </tr>
                                   </thead>
                                   <tbody>
+
                                   @foreach($customer->invoice as $invoice)
                                     <tr>
                                       <td>{{ $invoice->id }}</td>
@@ -119,24 +142,100 @@
                                           <i class="fa fa-search" aria-hidden="true"></i>
                                         </a>
                                       @endif
-                                      <button type ="button" class="btn btn-danger btn-xs" onclick="deleteArticle({{ $invoice->id }})" id="Reco"><i class="fa fa-trash-o" aria-hidden="true"></i></button>                              
+
+                                      {!! Form::open([
+                                        'method'=>'GET',
+                                        'url' => ['/admin/customer/invoice', $invoice->id],
+                                        'style' => 'display:inline'
+                                    ]) !!}
+                                        {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i>', array(
+                                                'type' => 'submit',
+                                                'class' => 'btn btn-danger btn-xs',
+                                                'onclick'=>'return confirm("Are you sure to delete the invoice #'.$invoice->id.'?")'
+                                        ))!!}
+                                    {!! Form::close() !!}    
+
                                       </td>
                                     </tr>
                                   @endforeach
                                     
                                    </tbody>
                                 </table>
-                              </div>
-                            </div>
-                              
-                            </div>
+                              @else
+                                There is no invoice yet
+                              @endif
+                 </div>
+              </div>
+
+              <!-- TO  DO LIST SECTION -->
+              <div class="panel panel-default">
+                <div class="panel-heading">TO DO LIST</div>
+                <div class="panel-body">   
+
+                </div>
+              </div><!--END TO DO LIST -->
+
+               <!-- COMMENTS -->
+              <div class="panel panel-default" id="comments">
+                <div class="panel-heading">ALL COMMENTS</div>
+                <div class="panel-body" style="background: #efefef;">   
+
+                @if(count($customer->comments) > 0)
+                @foreach ($customer->comments as $comment)
+                   <div class="col-md-12" id="comment-{{$comment->id}}">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                        <strong>{{ $comment->createdby->name }} {{ $comment->createdby->surname }}</strong> <span class="text-muted">{{ $comment->created_at->format("d.m.y - H:i") }}</span>
+                        <div class="pull-right">
                          
+                           {!! Form::open([
+                            'method'=>'GET',
+                            'url' => ['/admin/customer/comment', $comment->id],
+                            'style' => 'display:inline'
+                        ]) !!}
+                            {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i>', array(
+                                    'type' => 'submit',
+                                    'class' => 'btn btn-default btn-xs',
+                                    'onclick'=>'return confirm("Are you sure to delete the comment?")'
+                            ))!!}
+                        {!! Form::close() !!}
+                        </div>
+                        
+                        </div>
+                        <div class="panel-body">
+                            {{ $comment->body }}
+                        </div><!-- /panel-body -->
+                    </div><!-- /panel panel-default -->
+                </div><!-- /col-sm-5 -->
+                @endforeach
+                @else 
+                  <div class="col-md-12">
+            
+                        <div class="well">
+                           No comments yet...
                         </div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                  </div>
+                @endif
+          <div class="col-md-12">
+           {!! Form::open(array('method'=>'POST', 'id'=>'frmaddComment', 
+              'action'=>'Admin\\CustomerController@storecomment')) !!}
+              <div class="form-group">
 
+                  {!! Form::textarea('comment',null,['placeholder'=>'Add a comment...','class' => 'form-control',
+                  'rows'=>'2','required']) !!}
+                  {!! Form::hidden('customer_id', $customer->id ) !!}
+              </div>
+              <div class="form-group buttoncomment">
+                  {!! Form::submit('Comment',['class'=>'btn btn-primary','id'=>'btn-save']) !!}
+              </div>
+              {!! Form::close() !!}
+                </div>
+              </div>
+              </div><!--COMMENTS -->
+
+        </div>
+
+    </div>
 @endsection
+

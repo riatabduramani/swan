@@ -159,6 +159,19 @@
   </div>
 </div>
 
+<div class="panel panel-default">
+  <div class="panel-heading">Add comment:</div>
+    <div class="panel-body">
+        <div class="form-group {{ $errors->has('comment') ? 'has-error' : ''}}">
+
+            <div class="col-md-12">
+                {!! Form::textarea('comment', null, ['class' => 'form-control']) !!}
+                {!! $errors->first('comment', '<p class="help-block">:message</p>') !!}
+            </div>
+        </div>
+  </div>
+</div>
+
 <div class="form-group">
     <div class="col-md-offset-4 col-md-4">
         {!! Form::submit(isset($submitButtonText) ? $submitButtonText : 'Create', ['class' => 'btn btn-primary']) !!}
