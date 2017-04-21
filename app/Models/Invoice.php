@@ -51,4 +51,10 @@ class Invoice extends Model
     {
         return $this->belongsTo('App\Models\CustomerServices','service_id');
     }
+
+    public function packetservice()
+    {
+        return $this->belongsTo('App\Models\Packet','service_id');
+    }
+
 }

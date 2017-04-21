@@ -7,12 +7,12 @@
                 <div class="row">
                     <div class="col-md-4">
                         <ul class="list-group">
-                              <li class="list-group-item">
+                              <li class="list-group-item" style="background: #04699a;color: #fff;">
                               <h4 class="text-uppercase">
                                     {{ $user->name }} {{ $user->surname }}<br/>
                                 </h4>
                                 <p>
-                                     <small class="label label-default">{{ $user->created_at->format('d.m.Y') }}</small>
+                                     <small class="label label-success">{{ $user->created_at->format('d.m.Y') }}</small>
                                     &nbsp;{!! $user->showStatusOf($user) !!} {!! $user->showConfirmedOf($user) !!}
                                    
                                 </p>
@@ -22,24 +22,19 @@
                               </li>
                               <li class="list-group-item"><i class="fa fa-phone-square" aria-hidden="true"></i> {{ $user->customer->phone_in }}</li>
                               <li class="list-group-item"><i class="fa fa-phone-square" aria-hidden="true"></i> {{ $user->customer->phone_out }}</li>
-                              <li class="list-group-item">
-                                  <h4>
-                                     Packet: <span class="label label-primary">Exclusive</span>
-                                 </h4>
-                              </li>
                             </ul>
                     </div>
-              <!--{!! Form::open(['url' => '/admin/invoice/packetinvoice', 'class' => 'form-horizontal', 'files' => true]) !!} -->
+
               {!! Form::open(array('method'=>'POST', 'id'=>'frmPacketInvoice', 'action'=>'Admin\\InvoiceController@storePacketInvoice', 'class' => 'form-horizontal')) !!}
 
                         <div class="col-md-8">
                              <div class="panel panel-default">
-                                <div class="panel-heading">
+                                <div class="panel-heading" style="background: #04699a;color: #fff;">
                                     Create Invoice #
                                 </div>
                                 <div class="panel-body">
                               
-                                <div class="col-md-12">
+                                <div class="col-md-12" id="packetinvoice">
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <div class="col-md-12">

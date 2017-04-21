@@ -26,4 +26,13 @@ class Subscription extends Model
      * @var array
      */
     protected $fillable = ['customer_id', 'packet_id', 'start', 'end'];
+
+    public function customer(){
+        return $this->belongsTo('App\Models\Customer','customer_id');
+    }
+
+    public function packet(){
+        return $this->belongsTo('App\Models\Packet','packet_id');
+    }
+
 }

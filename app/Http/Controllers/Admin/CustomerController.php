@@ -7,19 +7,22 @@ use App\Http\Controllers\Controller;
 use App\Models\Country;
 use App\Models\City;
 use App\Models\Comment;
+use App\Models\Potential;
 use App\Models\District;
 use App\Models\Customer;
 use App\Models\Invoice;
+use App\Models\Subscription;
+use App\Models\Todolist;
 use App\User;
 use Session;
 use Auth;
+use Carbon\Carbon;
 use DB;
 use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
     
-
     public function index(Request $request) {
 
         $keyword = $request->get('search');
@@ -91,6 +94,7 @@ class CustomerController extends Controller
             $customer->phone_in = $request->phone_in;
             $customer->emergencycontact = $request->emergencycontact;
             $customer->emergencyphone = $request->emergencyphone;
+            $customer->created_by = Auth::user()->name.' '.Auth::user()->surname;
             $customer->updated_by = $userid;
             $customer->update();
 
@@ -108,8 +112,9 @@ class CustomerController extends Controller
                 $customer->comments()->create([
                     'body' => $request->comment,
                     'commentable_id' => $id,
+                    'commented_by' => Auth::user()->id,
                     'commentable_type' => get_class($customer),
-                    'created_by' => Auth::user()->id
+                    'created_by' => Auth::user()->name.' '.Auth::user()->surname,
                 ]);
             }
         }
@@ -171,7 +176,7 @@ class CustomerController extends Controller
             $user->save();
             $lastid = $user->id;
 
-            $user->attachRole(3, $lastid);
+            $user->attachRole(4, $lastid);
 
             $customer = new Customer();
             $customer->user_id = $lastid;
@@ -187,9 +192,8 @@ class CustomerController extends Controller
             $customer->phone_in = $request->phone_in;
             $customer->emergencycontact = $request->emergencycontact;
             $customer->emergencyphone = $request->emergencyphone;
-            $customer->created_by = $userid;
+            $customer->created_by = Auth::user()->name.' '.Auth::user()->surname;
             $customer->save();
-
 
             $lastinsertedid = $customer->id;
 
@@ -199,9 +203,34 @@ class CustomerController extends Controller
                 $customerlast->comments()->create([
                     'body' => $request->comment,
                     'commentable_id' => $lastinsertedid,
+                    'commented_by' => Auth::user()->id,
                     'commentable_type' => get_class($customer),
-                    'created_by' => Auth::user()->id
+                    'created_by' => Auth::user()->name.' '.Auth::user()->surname,
                 ]);
+            }
+
+            if(!empty($request->potential_id)) {
+                
+                Comment::where('commentable_id', $request->potential_id)
+                        ->where('commentable_type','App\Models\Potential')
+                        ->update(['commentable_id'=> $lastinsertedid, 'commentable_type' => get_class($customer)]);
+
+                Potential::destroy($request->potential_id);
+            /*
+                $comment = Comment::where('commentable_id', $request->potential_id)
+                        ->where('commentable_type','App\Models\Potential')->get();
+
+                foreach ($comment as $newcomment) {
+                    $addcomment = new Comment();
+
+                    $addcomment->body = $newcomment->body;
+                    $addcomment->commentable_id =  $lastinsertedid;
+                    $addcomment->commentable_type = 'App\Models\Customer';
+                    $addcomment->created_by = $newcomment->created_by;
+                    $addcomment->save();
+                }
+            */
+
             }
 
         }
@@ -214,9 +243,17 @@ class CustomerController extends Controller
     public function show($id) {
 
         $customer = Customer::with('cities','district','invoice')->findOrFail($id);
+        $chosenpacket = Subscription::with('customer')->where('customer_id', $id)->get()->last();
         //$invoices = Invoice::with('customer')->findOrFail();
+        //$users = User::pluck('name','id');
+        $tasks = Todolist::where('customer_id',$id)->where('datedone',null)->orderBy('duedate','asc')->get();
 
-        return view('admin.customer.show', compact('customer'));
+        $users = User::whereHas('roles', function($q)
+                        {
+                            $q->where('name', 'employee')->orWhere('name', 'admin');
+                        })->pluck('name','id');
+
+        return view('admin.customer.show', compact('customer','chosenpacket','users','tasks'));
     }
 
     public function destroy($id) {
@@ -228,25 +265,6 @@ class CustomerController extends Controller
         Session::flash('flash_message', 'Customer deleted successfully!');
         return redirect('admin/customer');
     }
-/*
-    public function storecomment(Comment $comment, Request $request) {
-
-        if(!$request->ajax()) {
-            $id = $request->customer_id;
-
-                $customerlast = Customer::find($id);
-                $customerlast->comments()->create([
-                    'body' => $request->comment,
-                    'commentable_id' => $id,
-                    'commentable_type' => get_class($customerlast),
-                    'created_by' => Auth::user()->id
-                ]);
-        } else {
-            return redirect('admin/customer');
-        }
-
-    }
-*/
 
 
     public function storecomment(Request $request)
@@ -256,8 +274,9 @@ class CustomerController extends Controller
             $id = $request->customer_id;
             $comment->body     = $request->get('comment');
             $comment->commentable_id = $id;
+            $comment->commented_by = Auth::user()->id;
             $comment->commentable_type = 'App\Models\Customer';
-            $comment->created_by = Auth::user()->id;
+            $comment->created_by = Auth::user()->name.' '.Auth::user()->surname;
             $comment->save();
 
             Session::flash('flash_message', 'Your comment has been posted!');
@@ -274,6 +293,50 @@ class CustomerController extends Controller
     public function deleteInvoice($id) {
         Invoice::destroy($id);
         Session::flash('flash_message', 'Invoice has been deleted!');
+        return redirect()->back();
+    }
+
+    public function createtask(Request $request)
+    {
+            $this->validate($request, [
+                'title' => 'required|min:3',
+                'description' => 'required|min:3',
+                'duedate' => 'required',
+            ]);
+
+            $todolist = new Todolist;
+            $todolist->title = $request->title;
+            $todolist->description = $request->description;
+            $todolist->customer_id = $request->customer_id;
+            
+            if(!empty($request->assign_to)) {
+                $todolist->user_id = $request->assign_to;    
+            } else {
+                $todolist->user_id = Auth::user()->id;    
+            }
+            
+            $todolist->created_by = Auth::user()->name.' '.Auth::user()->surname;
+            $todolist->duedate = $request->duedate;
+            $todolist->save();
+
+            Session::flash('flash_message', 'Your task has been added!');
+            return redirect()->back();          
+    }
+
+    public function deleteTask($id) {
+        Todolist::destroy($id);
+        Session::flash('flash_message', 'Your task has been deleted!');
+        return redirect()->back();
+    }
+
+    public function doneTask($id) {
+
+        $todolist = Todolist::findOrFail($id);
+        $todolist->datedone = Carbon::now();
+        $todolist->updated_by = Auth::user()->id;
+        $todolist->update();
+
+        Session::flash('flash_message', 'Your task has been marked as Done!');
         return redirect()->back();
     }
 

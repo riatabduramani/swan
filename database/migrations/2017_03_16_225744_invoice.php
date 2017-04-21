@@ -36,17 +36,15 @@ class Invoice extends Migration
             $table->dateTime('paid_at')->nullable();
             $table->dateTime('declined_at')->nullable();
 
-            $table->integer('created_by')->unsigned();
+            $table->string('created_by')->nullable();
+            
             $table->integer('updated_by')->unsigned()->nullable();
 
             $table->foreign('customer_id')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
 
-            $table->foreign('created_by')->references('id')->on('users')
-                ->onUpdate('cascade')->onDelete('cascade');
-
             $table->foreign('updated_by')->references('id')->on('users')
-                ->onUpdate('cascade')->onDelete('cascade');
+                ->onUpdate('cascade')->onDelete('set null');
 
             $table->timestamps();
          });

@@ -2,17 +2,21 @@
 
 @section('content')
     <div class="container">
+
+     @if(Session::has('flash_message'))
+          <p class="alert alert-success">{{ Session::get('flash_message') }}</p>
+        @endif
+        
         <div class="row">
-            @include('admin.sidebar')
-
-            <div class="col-md-9">
+            <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Create New Potential Customer</div>
+                    <div class="panel-heading" style="background: rgb(4, 105, 154); color: rgb(255, 255, 255);">Create New Potential Customer
+                    <div class="pull-right">
+                        <a href="{{ url('/admin/potential') }}" title="Cancel"><button class="btn btn-primary btn-xs"><i class="fa fa-times-circle" aria-hidden="true"></i> Cancel</button></a>
+                    </div>
+                    </div>
                     <div class="panel-body">
-                        <a href="{{ url('/admin/potential') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <br />
-                        <br />
-
+                        
                         @if ($errors->any())
                             <ul class="alert alert-danger">
                                 @foreach ($errors->all() as $error)

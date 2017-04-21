@@ -11,6 +11,7 @@ class DistrictTableSeeder extends Seeder
 		DB::table('district')->delete();
 
 		$district = array(
+			array('name'=>'Tetove','city_id'=> 1),
 			array('name'=>'Bozofci','city_id'=> 1),
 			array('name'=>'Brodeci','city_id'=> 1),
 			array('name'=>'Falishti','city_id'=> 1),

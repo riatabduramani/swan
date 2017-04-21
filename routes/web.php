@@ -31,9 +31,10 @@ Auth::routes();
 
 ///Route::get('/home', 'HomeController@index');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], function() {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmin|employee']], function() {
 	Route::resource('/users','Admin\\UserController');
 	Route::resource('/roles','Admin\\RoleController');
+	Route::resource('/permissions','Admin\\PermissionController');
 	Route::resource('/packet', 'Admin\\PacketsController');
 	Route::get('/dashboard', function () {
 	    return view('admin.home');
@@ -43,8 +44,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], funct
 	Route::resource('/potential', 'Admin\\PotentialController');
 	Route::resource('/invoice', 'Admin\\InvoiceController');
 
+	//Potential Customers
+	Route::resource('/potential', 'Admin\\PotentialController');
+	Route::get('/potential/tocustomer/{id}', 'Admin\\PotentialController@toCustomer');
+	Route::post('/potential/comment','Admin\\PotentialController@storecomment');
+	Route::get('/potential/comment/{id}', 'Admin\\PotentialController@deleteComment');
+
 	
 	Route::get('/invoice/custominvoice/{id}', 'Admin\\InvoiceController@showcustominvoice');
+	Route::get('/invoice/packetinvoice/{id}', 'Admin\\InvoiceController@showpacketinvoice');
 	//Route::post('/invoice/custominvoice/update', 'Admin\\InvoiceController@updatecustompaymentinvoice');
 
 	Route::post('/invoice/custominvoice/', [
@@ -53,9 +61,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], funct
 	]);
 
 
-	Route::post('/invoice/create', [
+	Route::post('/invoice/custominvoice/create', [
 	'as' => 'invoice_update',
 	'uses' => 'Admin\\InvoiceController@updatecustompaymentinvoice'
+	]);
+
+	Route::post('/invoice/packetinvoice/create', [
+	'as' => 'invoice_packet_update',
+	'uses' => 'Admin\\InvoiceController@updatepacketpaymentinvoice'
 	]);
 
 
@@ -63,7 +76,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], funct
 	'as' => 'delete_invoice',
 	'uses' => 'Admin\\InvoiceController@destroy'
 	]);
-
 
 	//PACKET INVOICE
 	Route::post('/invoice/packetinvoice/', [
@@ -81,6 +93,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], funct
 	Route::get('/customer/comment/{id}', 'Admin\\CustomerController@deleteComment');
 	Route::get('/customer/invoice/{id}', 'Admin\\CustomerController@deleteInvoice');
 
+	//Todolist
+	Route::post('/customer/todolist','Admin\\CustomerController@createtask');
+	Route::get('/customer/todolist/{id}', 'Admin\\CustomerController@deleteTask');
+	Route::get('/customer/todolist/done/{id}', 'Admin\\CustomerController@doneTask');
+
+	//Profile
+	Route::resource('/profile', 'Admin\\ProfileController');
 });
 
 Route::group(['prefix' => 'agent', 'middleware' => ['auth','role:agent']], function() {

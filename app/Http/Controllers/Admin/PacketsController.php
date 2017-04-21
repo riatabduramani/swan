@@ -30,7 +30,9 @@ class PacketsController extends Controller
             $packet = Packet::paginate($perPage);
         }
 
-        return view('admin.packet.index', compact('packet'));
+        $serviceitems = Service::paginate($perPage);
+
+        return view('admin.packet.index', compact('packet','serviceitems'));
     }
 
     /**

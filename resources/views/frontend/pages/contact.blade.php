@@ -49,7 +49,7 @@
 <!-- ==================================================
     CONTACT FORM
 =================================================== -->
-        <section class="romana_contact_area section_padding">
+        <section class="romana_contact_area section_padding" style="background-image:none;">
             <div class="container ">
                 <div class="row">
                     <div class="col-sm-6 col-xs-12 col-md-5">
@@ -101,6 +101,7 @@
 
         <script src="{{ asset('js/front/jquery-3.1.0.min.js') }}"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
         <script src="{{ asset('js/front/gmap.js') }}"></script>
         <script src="{{ asset('js/front/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/front/owl.carousel.min.js') }}"></script>

@@ -78,6 +78,17 @@ class Customer extends Model
     {
         return $this->hasMany('App\Models\Invoice');
     }
+
+    public function subscription()
+    {
+        return $this->hasMany('App\Models\Subscription');
+    }
+
+    public function todolist()
+    {
+        return $this->hasMany('App\Models\Todolist');
+    }
+    
 }
 
 

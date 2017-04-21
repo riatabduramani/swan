@@ -8,16 +8,14 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in Admin!
-                    @role('admin')
-                        <p>This is visible to users with the admin role. </p>
+
+                    @role(['admin','superadmin'])
+                        <p>This is visible to users with the admin|superadmin role. </p>
                     @endrole
 
-                    @role('agent')
-                        <p>This is visible to users with the agent role. </p>
+                    @role('employee')
+                        <p>This is visible to users with the employee role. </p>
                     @endrole
-
-
                     
                 </div>
             </div>

@@ -56,16 +56,11 @@
                     </button>
 
                     <!-- Branding Image -->
-                    @role('admin')
+                   
                     <a class="navbar-brand" href="{{ url('/admin/dashboard') }}">
                     {{ config('app.name', 'SWAN') }}
                     </a>
-                    @endrole
-                    @role('agent')
-                    <a class="navbar-brand" href="{{ url('/agent/dashboard') }}">
-                    {{ config('app.name', 'SWAN') }}
-                    </a>
-                    @endrole
+
                      @if (Auth::guest())
                         <a class="navbar-brand" href="{{ url('/login') }}">
                             {{ config('app.name', 'SWAN') }}
@@ -76,14 +71,27 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                     @role('admin')
-                        <li><a href="/admin/dashboard">Dashboard</a></li>
-                        <li><a href="/admin/customer-status">Settings</a></li>
-                        <li><a href="/admin/users">Employees</a></li>
-                        <li><a href="/admin/packet">Packets</a></li>
-                        <li><a href="/admin/service-items">Services</a></li>
-                        <li><a href="/admin/potential">Potential Customers</a></li>
-                        <li><a href="/admin/customer">Customers</a></li>
+                    @role(['admin','superadmin','employee'])
+                        <li {{{ (Request::is('admin/dashboard') ? 'class=active' : '') }}}>
+                            <a href="/admin/dashboard">Dashboard</a>
+                        </li>
+                    @endrole
+                    @role(['admin','superadmin'])
+                        <li><a href="/admin/roles">Roles & Permissions</a></li>
+                        <li {{{ (Request::is('admin/users') ? 'class=active' : '') }}}>
+                            <a href="/admin/users">Employees</a>
+                        </li>
+                        <li {{{ (Request::is('admin/packet*') ? 'class=active' : '') }}}>
+                            <a href="/admin/packet">Packets</a>
+                        </li>
+                    @endrole
+                    @role(['admin','superadmin','employee'])
+                        <li {{{ (Request::is('admin/potential*') ? 'class=active' : '') }}}>
+                            <a href="/admin/potential">Potential Customers</a>
+                        </li>
+                        <li {{{ (Request::is('admin/customer*') ? 'class=active' : '') }}}>
+                            <a href="/admin/customer">Actual Customers</a>
+                        </li>
                     @endrole
                     </ul>
 
@@ -100,6 +108,10 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    <li {{{ (Request::is('admin/profile') ? 'class=active' : '') }}}>
+                                        <a href="/admin/profile">My Profile</a>
+                                    </li>
+                                    <li role="separator" class="divider"></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -124,10 +136,11 @@
 
  <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
+
 <script type="text/javascript">
    $("#packets").on('change', function(e) {
                 var packet_id = e.target.value;
-
+                
                 $.get('/admin/product_prices?packet_id=' + packet_id, function(data) {
                     //console.log(data);
                     $('#price').empty();

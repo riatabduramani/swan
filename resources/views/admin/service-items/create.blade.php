@@ -3,16 +3,20 @@
 @section('content')
     <div class="container">
         <div class="row">
-            @include('admin.sidebar')
-
-            <div class="col-md-9">
+            <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Create New ServiceItem</div>
+                    <div class="panel-heading" style="background: rgb(4, 105, 154); color: rgb(255, 255, 255);">
+                    Create New Service Item
+                    <div class="pull-right">
+                    <a href="{{ url('/admin/packet') }}" title="Back">
+                        <button class="btn btn-primary btn-xs">
+                            <i aria-hidden="true" class="fa fa-times-circle"></i> Cancel
+                        </button>
+                    </a>
+                    </div>
+                    </div>
                     <div class="panel-body">
-                        <a href="{{ url('/admin/service-items') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <br />
-                        <br />
-
+                         
                         @if ($errors->any())
                             <ul class="alert alert-danger">
                                 @foreach ($errors->all() as $error)

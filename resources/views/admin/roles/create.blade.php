@@ -1,14 +1,14 @@
 @extends('layouts.app')
  
 @section('content')
-
+<div class="container">
 	<div class="row">
-	    <div class="col-lg-12 margin-tb">
+	    <div class="col-md-12">
 	        <div class="pull-left">
 	            <h2>Create New Role</h2>
 	        </div>
 	        <div class="pull-right">
-	            <a class="btn btn-primary" href="/admin/roles/"> Back</a>
+	            <a class="btn btn-primary btn-xs" href="/admin/roles/"><i aria-hidden="true" class="fa fa-times-circle"></i> Cancel</a>
 	        </div>
 	    </div>
 	</div>
@@ -66,5 +66,5 @@
 
 	</div>
 	{!! Form::close() !!}
-
+</div>
 @endsection

@@ -49,7 +49,7 @@ class CustomerProfile extends Migration
             $table->string('emergencycontact')->nullable();
             $table->string('emergencyphone')->nullable();
 
-            $table->integer('created_by')->unsigned()->nullable();
+            $table->string('created_by')->nullable();
             $table->integer('updated_by')->unsigned()->nullable();
 
             $table->integer('packet_id')->unsigned()->nullable();
@@ -60,9 +60,6 @@ class CustomerProfile extends Migration
                 ->onUpdate('cascade')->onDelete('cascade');
 
             $table->foreign('user_id')->references('id')->on('users')
-                ->onUpdate('cascade')->onDelete('cascade');
-
-            $table->foreign('created_by')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
 
             $table->foreign('updated_by')->references('id')->on('users')

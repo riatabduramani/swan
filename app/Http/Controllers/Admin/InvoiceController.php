@@ -29,9 +29,21 @@ class InvoiceController extends Controller
     public function showcustominvoice($id) {
     	
     	$invoice = Invoice::with('customservice')->find($id);
+        $customerid = $invoice->customer->id;
     	$datenow = Carbon::now();
+        $chosenpacket = Subscription::with('customer')->where('customer_id', $customerid)->get()->last();
         
-        return view('admin.invoices.show',compact('invoice','datenow'));
+        return view('admin.invoices.show',compact('invoice','datenow','chosenpacket'));
+    }
+
+    public function showpacketinvoice($id) {
+        
+        $invoice = Invoice::with('packetservice')->find($id);
+        $datenow = Carbon::now();
+        $customerid = $invoice->customer->id;
+        $chosenpacket = Subscription::with('customer')->where('customer_id', $customerid)->get()->last();
+        
+        return view('admin.invoices.showpacketinvoice',compact('invoice','datenow','chosenpacket'));
     }
     
 
@@ -47,12 +59,38 @@ class InvoiceController extends Controller
     	
 	    $update->payment_status = $request->invoice_status;
     	$update->payment_method = $request->payment_method;
+        if($request->notes) {
+            $update->description = $request->notes;
+        }
     	$update->updated_by = $updatedby;
     	$update->paid_at = Carbon::now();
     	$update->update();
-    	
 
     	return redirect("/admin/invoice/custominvoice/$invoiceid");
+    }
+
+    public function updatepacketpaymentinvoice(Request $request) {
+        $this->validate($request, [
+            'invoice_status' => 'required',
+        ]);
+
+        $invoiceid = $request->invoice_id;
+        $updatedby = Auth::user()->id;
+
+        $update = Invoice::find($invoiceid);
+        
+        $update->payment_status = $request->invoice_status;
+        $update->payment_method = $request->payment_method;
+
+        if($request->notes) {
+            $update->description = $request->notes;
+        }
+
+        $update->updated_by = $updatedby;
+        $update->paid_at = Carbon::now();
+        $update->update();
+
+        return redirect("/admin/invoice/packetinvoice/$invoiceid");
     }
 
     public function create() {
@@ -78,7 +116,7 @@ class InvoiceController extends Controller
         $customservice = new CustomerServices();
         $customservice->name = $request->service_title;
         $customservice->description = $request->service_description;
-        $customservice->created_by = $userid;
+        $customservice->created_by = Auth::user()->name.' '.Auth::user()->surname;
         $customservice->save();
         $customid = $customservice->id;
     
@@ -166,8 +204,7 @@ class InvoiceController extends Controller
         Invoice::destroy($id);
 
         Session::flash('flash_message', 'Invoice deleted successfully!');
-        
-        //return redirect("/admin/customer/$userid");
+        //return redirect("/admin/customer/$customerid");
     }
 
     public function storePacketInvoice(Request $request)

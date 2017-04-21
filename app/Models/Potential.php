@@ -47,4 +47,8 @@ class Potential extends Model
         return $this->belongsTo('App\User','updated_by');
     }
 
+    public function district(){
+        return $this->belongsTo('App\Models\District','district_id');
+    }
+
 }

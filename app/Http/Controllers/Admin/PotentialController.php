@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\Models\Potential;
 use App\Models\Comment;
+use App\Models\District;
+use App\Models\City;
+use App\Models\Country;
 use App\Models\CustomerStatus;
 use Illuminate\Http\Request;
 use Session;
@@ -21,7 +24,7 @@ class PotentialController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('search');
-        $perPage = 25;
+        $perPage = 20;
 
         if (!empty($keyword)) {
             $potential = Potential::where('name', 'LIKE', "%$keyword%")
@@ -35,10 +38,12 @@ class PotentialController extends Controller
 				
                 ->paginate($perPage);
         } else {
-            $potential = Potential::paginate($perPage);
+            $potential = Potential::paginate(10);
         }
         
-        return view('admin.potential.index', compact('potential'));
+        $customerstatus = CustomerStatus::paginate($perPage);
+
+        return view('admin.potential.index', compact('potential','customerstatus'));
     }
 
     /**
@@ -49,8 +54,9 @@ class PotentialController extends Controller
     public function create()
     {
         $customerstatus = CustomerStatus::pluck('name', 'id');
+        $district = District::pluck('name','id');
 
-        return view('admin.potential.create', compact('customerstatus'));
+        return view('admin.potential.create', compact('customerstatus','district'));
     }
 
     /**
@@ -74,9 +80,9 @@ class PotentialController extends Controller
         $potentional->surname = $request->surname;
         $potentional->phone = $request->phone;
         $potentional->email = $request->email;
-        $potentional->district = $request->district;
+        $potentional->district_id = $request->district;
         $potentional->customer_status_id = $request->customer_status_id;
-        $potentional->created_by = Auth::user()->id;
+        $potentional->created_by = Auth::user()->name.' '.Auth::user()->surname;
         $potentional->save();
 
         $lastinsertedid = $potentional->id;
@@ -84,11 +90,14 @@ class PotentialController extends Controller
         $topic = Potential::find($lastinsertedid);
         if(isset($request->comment)){
 
+        $createdby = Auth::user()->name.' '.Auth::user()->surname;
+
         $topic->comments()->create([
             'body' => $request->comment,
             'commentable_id' => $lastinsertedid,
+            'commented_by' => Auth::user()->id,
             'commentable_type' => get_class($potentional),
-            'created_by' => Auth::user()->id
+            'created_by' => $createdby,
         ]);
 
         }
@@ -109,8 +118,9 @@ class PotentialController extends Controller
     {
         $potential = Potential::findOrFail($id);
         $customerstatus = CustomerStatus::pluck('name', 'id');
+        $district = District::pluck('name','id');
 
-        return view('admin.potential.show', compact('potential', 'customerstatus'));
+        return view('admin.potential.show', compact('potential', 'customerstatus','district'));
     }
 
     /**
@@ -124,8 +134,9 @@ class PotentialController extends Controller
     {
         $potential = Potential::findOrFail($id);
         $customerstatus = CustomerStatus::pluck('name', 'id');
+        $district = District::pluck('name','id');
 
-        return view('admin.potential.edit', compact('potential', 'customerstatus'));
+        return view('admin.potential.edit', compact('potential', 'customerstatus','district'));
     }
 
     /**
@@ -152,7 +163,7 @@ class PotentialController extends Controller
         $potential->surname = $request->surname;
         $potential->phone = $request->phone;
         $potential->email = $request->email;
-        $potential->district = $request->district;
+        $potential->district_id = $request->district;
         $potential->customer_status_id = $request->customer_status_id;
         $potential->updated_by = Auth::user()->id;
 
@@ -162,8 +173,9 @@ class PotentialController extends Controller
             $potential->comments()->create([
                 'body' => $request->comment,
                 'commentable_id' => $id,
+                'commented_by' => Auth::user()->id,
                 'commentable_type' => get_class($potential),
-                'created_by' => Auth::user()->id
+                'created_by' => Auth::user()->name.' '.Auth::user()->surname,
             ]);
         }
 
@@ -187,4 +199,38 @@ class PotentialController extends Controller
 
         return redirect('admin/potential');
     }
+
+    public function toCustomer(Request $request, $id) {
+
+        $potential = Potential::findOrFail($id);
+        $customerstatus = CustomerStatus::pluck('name', 'id');
+        $district = District::pluck('name','id');
+        $city = City::pluck('name','id');
+        $country = Country::pluck('name','id');
+
+        return view('admin.customer.create', compact('potential', 'customerstatus','district','city','country')); 
+    }
+
+    public function storecomment(Request $request)
+    {
+            $comment = new Comment;
+            $id = $request->potential_id;
+            $comment->body     = $request->get('comment');
+            $comment->commentable_id = $id;
+            $comment->commented_by = Auth::user()->id;
+            $comment->commentable_type = 'App\Models\Potential';
+            $comment->created_by = Auth::user()->name.' '.Auth::user()->surname;
+            $comment->save();
+
+            Session::flash('flash_message', 'Your comment has been posted!');
+            return redirect()->back();
+            
+    }
+
+    public function deleteComment($id) {
+        Comment::destroy($id);
+        Session::flash('flash_message', 'Your comment has been deleted!');
+        return redirect()->back();
+    }
+
 }

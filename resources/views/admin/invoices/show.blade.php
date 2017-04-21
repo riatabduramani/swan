@@ -5,12 +5,12 @@
         <div class="row">
             <div class="col-md-4">
                             <ul class="list-group">
-                              <li class="list-group-item">
+                              <li class="list-group-item" style="background: #04699a;color: #fff;">
                               <h4 class="text-uppercase">
-                                    {{ $invoice->customer->user->name }} {{ $invoice->customer->user->surname }}
+                                  {{ $invoice->customer->user->name }} {{ $invoice->customer->user->surname }}
                                 </h4>
                                 <p>
-                                     <small class="label label-default">{{ $invoice->customer->user->created_at->format('d.m.Y') }}</small>
+                                     <small class="label label-success">{{ $invoice->customer->user->created_at->format('d.m.Y') }}</small>
                                     &nbsp;{!! $invoice->customer->user->showStatusOf($invoice->customer->user) !!} {!! $invoice->customer->user->showConfirmedOf($invoice->customer->user) !!}
                                 </p>
                             </li>
@@ -19,11 +19,7 @@
                               </li>
                               <li class="list-group-item"><i class="fa fa-phone-square" aria-hidden="true"></i> {{ $invoice->customer->phone_in }}</li>
                               <li class="list-group-item"><i class="fa fa-phone-square" aria-hidden="true"></i> {{ $invoice->customer->phone_out }}</li>
-                              <li class="list-group-item">
-                                  <h4>
-                                     Packet: <span class="label label-primary">Exclusive</span>
-                                 </h4>
-                              </li>
+
                               <li class="list-group-item">
                                  <i class="fa fa-plus-circle" aria-hidden="true"></i> <b>EMERGENCY CONTACT</b><br />
                                     &nbsp;&nbsp;&nbsp;&nbsp;Name: <b>{{ $invoice->customer->emergencycontact }}</b><br />
@@ -35,22 +31,10 @@
 
             <div class="col-md-8">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Invoice view
+                    <div class="panel-heading" style="background: #04699a;color: #fff;">Invoice view
                         <div class="pull-right">
-                        <a href="{{ url('/admin/customer/' . $invoice->customer->id) }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <a href="{{ url('/admin/invoices/' . $invoice->id . '/edit') }}" title="Edit invoice"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-                        {!! Form::open([
-                            'method'=>'DELETE',
-                            'url' => ['admin/invoice', $invoice->id],
-                            'style' => 'display:inline'
-                        ]) !!}
-                            {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
-                                    'type' => 'submit',
-                                    'class' => 'btn btn-danger btn-xs',
-                                    'title' => 'Delete invoice',
-                                    'onclick'=>'return confirm("Confirm delete?")'
-                            ))!!}
-                        {!! Form::close() !!}
+                            <a href="{{ url('/admin/customer/' . $invoice->customer->id) }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
+                            </a>
                         </div>
                     </div>
                     <div class="panel-body">
@@ -83,7 +67,6 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                       
                                         <td> {{ $invoice->customservice->name }} </td>
                                         <td> {{ $invoice->customservice->description }} </td>
                                         <td class="text-right"> {{ $invoice->total_sum }} </td>
@@ -96,15 +79,31 @@
                             </table>
                         </div>
                         <div class="row">
+                        @if($invoice->payment_status == 1)
                             <div class="col-md-6">
                                 <div class="well">
                                     <b>Notes:</b> <br />
-                                    {{ $invoice->description }}
+                                   
+                                   {{$invoice->description}}
+                                  
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                            @if($invoice->payment_status != 1)
+                        @endif
+                         @if($invoice->payment_status != 1)
                             {!! Form::open(['route' => ['invoice_update']]) !!}
+                           
+                            <div class="col-md-6">
+                                <div class="well">
+                                    <b>Notes:</b> <br />
+                                   
+                                    {!! Form::textarea('notes',(count($invoice->description)>0) ? $invoice->description : '',['placeholder'=>'Add a note...','class' => 'form-control',
+                  'rows'=>'2']) !!}
+                                  
+                                </div>
+                            </div>
+                      
+                            <div class="col-md-6">
+                           
                                 <div class="form-group {{ $errors->has('invoice_status') ? 'has-error' : ''}}">
                                     <div class="col-md-12">
                                     {!! Form::label('invoice_status', 'Invoice status:', ['class' => 'col-md-6 control-label']) !!}
@@ -130,7 +129,7 @@
  Update</button>
                                     </div>
                                 </div>
-                                {!! Form::close() !!}
+                                
                               @endif
                               
                                 
@@ -142,6 +141,7 @@
                              
                             </div>
                             @endif
+                            {!! Form::close() !!}
                         </div>
                     </div>
                 </div>

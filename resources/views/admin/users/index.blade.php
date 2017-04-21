@@ -6,10 +6,11 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <div class="panel-heading" style="background: rgb(4, 105, 154); color: rgb(255, 255, 255);">
                 	Employee Management
                 	 <div class="pull-right">
-	            		<a class="btn btn-success btn-xs" href="{{ route('users.create') }}"> Create New Employee</a>
+	            		<a class="btn btn-primary btn-xs" href="{{ route('users.create') }}">
+	            		<i class="fa fa-plus" aria-hidden="true"></i> Create New Employee</a>
 			        </div>
                 </div>
                 <div class="panel-body">
@@ -98,7 +99,7 @@
 				@endforeach
 			@else
 			<tr>
-				<td colspan="9" class="text-center">There is not registered any employee</td>
+				<td colspan="9" class="text-center">There is no registered user</td>
 			</tr>
 			
 			@endif

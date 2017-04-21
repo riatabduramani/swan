@@ -3,14 +3,15 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Edit customer #{{ $customer->id }}</div>
+                    <div class="panel-heading">Edit customer #{{ $customer->user->name }} {{ $customer->user->surname }}
+                        <div class="pull-right">
+                            <a href="{{ url('/admin/customer') }}" title="Back"><button class="btn btn-primary btn-xs"><i aria-hidden="true" class="fa fa-times-circle"></i> Cancel</button></a>
+                        </div>
+                    </div>
                     <div class="panel-body">
-                        <a href="{{ url('/admin/customer') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <br />
-                        <br />
-
+                       
                         @if ($errors->any())
                             <ul class="alert alert-danger">
                                 @foreach ($errors->all() as $error)

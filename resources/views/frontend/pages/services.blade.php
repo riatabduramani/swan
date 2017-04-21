@@ -54,70 +54,256 @@
             <div class="container">
                 <div class="row">
                     <!--<h2 class="services-title">Basis</h2><br>-->
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
                         <div class="single_service text-center">
-                            <img src="images/icon1.png" alt="">
-                            <h2>1 stk. Hovedrengøring årligt</h2>
-                            <p>Efter kunden er rejst skal huset gøres hovedrent, som indbefatter følgende:
-	Værelserne – Støv af – Aftørre alle lodrette og vandrette flader – støvsug og vask af gulv
-	Badeværelserne – Rengør brusekabine /badekar, toiletkummen, håndvask, gulv og fliser
-	Gang – Afstøvning, støvsugning, aftørring af paneler og tilgængelige flader, vask af gulv
-	Køkken – Alle køkkenskabe aftørres udvendigt, køleskab, komfur, mikroovn, kogeplade, 	håndvasken rengøres . Gulvet støvsuges og vaskes.
-	Kælder m.m.
- </p>
+                            <!--<img src="images/icon5.png" alt="">-->
+                            <h2 style="text-align:left;">General cleaning</h2>
+                            <ul>
+                            <li class="service-text">    
+                            <p>Bedroom – Dust cleaning – All floors of the house will be cleaned + ceiling – will be cleaned with vacuum cleaner and the floor will be cleaned with detergent;<br>
+Bathroom – General cleaning such as floor tiles, sink etc.;<br>
+Hallway – cleaning of dust with cloth and vacuum cleaner, sweeping around a wall in panels and things available to clean, will be cleaned with detergent;<br>
+Kitchen – all the shelves of the kitchen, refrigerator, electrical appliancies, sink etc., will be cleaned with cloth, and the floor will be cleaned with detergent;<br>
+Cellar - will be cleaned with vacuum cleaner and the floor will be cleaned with detergent.</p>
+                            </li>
+                            <li class="service-photo">    
+                               <img src="{{ asset('images/general-cleaning.png') }}" style="border-radius: 15px;"/>
+                            </li>    
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
                         <div class="single_service text-center">
-                            <img src="images/icon2.png" alt="">
-                            <h2>1 stk. Klargøring inden ankomst</h2>
-                            <p>Støver hele huset af <br>
-	Støvsuger og vasker gulv <br>
-	Fjerner overdækning af møbler<br>
-	Tænder køleskab<br>
-	Åbner op for vandet <br>
-	Udlufter <br>
-	Kontroller at vand og el virker 
- </p>
+                            <!--<img src="images/icon5.png" alt="">-->
+                            <h2 style="text-align:left;">Preparation of the house before the client arrives</h2>
+                            <ul>
+                            <li class="service-text"> 
+                            <p>It will be cleaned with vacuum cleaner and the floor will be cleaned with detergent;<br>
+	Preparation of furniture - covers removed;<br>
+	Refrigerator is turned on;<br>
+	Reactivation of the water system; <br>
+	Cooling air and opening the windows;<br>
+	Checking the functionality of water and electricity.</p>
+                            </li>
+                            <li class="service-photo">    
+                               <img src="{{ asset('images/client-arrives.png') }}" style="border-radius: 15px;"/>
+                            </li>   
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
                         <div class="single_service text-center">
-                            <img src="images/icon3.png" alt="">
-                            <h2>14 dags kontrol </h2>
-                            <p>Dette bliver udført når kunden ikke er der<br>
-	Går hele huset igennem (alle værelser)<br>
-	Tager evt. spindelvæv
-</p>
+                            <!--<img src="images/icon5.png" alt="">-->
+                            <h2 style="text-align:left;">Control every 14 days</h2>
+                            <ul>
+                            <li class="service-text"> 
+                            <p>This control will be made when the client is abroad<br>
+	Overall control where all the rooms, cellar and the ceiling will be checked<br>
+	Cleaning of the insects</p>
+                            </li> 
+                            <li class="service-photo">    
+                               <img src="{{ asset('images/control-week.png') }}" style="border-radius: 15px;"/>
+                            </li>   
+                            </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
                         <div class="single_service text-center">
-                            <img src="images/icon4.png" alt="">
-                            <h2>Månedlig kontrol </h2>
-                            <p>Åbner alle vinduer i min 30 min <br>
-	Støver af mere grundigt <br>
-	Gennemgår huset for evt. fejl.<br>
-	Udfyld kontrolrapport<br>
-	Loft kontrol
- </p>
+                            <!--<img src="images/icon5.png" alt="">-->
+                            <h2 style="text-align:left;">Monthly check</h2>
+                            <ul>
+                            <li class="service-text"> 
+                            <p>All wondows will be opened for about 30 minutes so the rooms are ventilated <br>
+	Will be cleaned with vacuum cleaner and the floor will be cleaned with detergent<br>
+	House control for any eventual defect<br>
+	Filling the control report<br>
+	Cheching the ceiling for any eventual defect.</p>
+                            </li>
+                            <li class="service-photo">    
+                               <img src="{{ asset('images/monthly-check.png') }}" style="border-radius: 15px;"/>
+                            </li>  
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
                         <div class="single_service text-center">
-                            <img src="images/icon5.png" alt="">
-                            <h2>Fejlrapportering</h2>
-                            <p>Hvis der bliver fundet fejl, bliver kunden kontaktet med et tilbud for at udbedre dem.
- </p>
+                            <!--<img src="images/icon5.png" alt="">-->
+                            <h2 style="text-align:left;">Reporting of errors / defects</h2>
+                            <ul>
+                            <li class="service-text">    
+                            <p>If any defect is detected, it will be reported to the office and then the office will report to the client and offering fault regulation before the defect grows, and all this for a special price. </p>
+                            </li>
+                             <li class="service-photo">    
+                               <img src="{{ asset('images/report-errors.png') }}" style="border-radius: 15px;"/>
+                            </li>  
+                            </ul>
                         </div>
                     </div>
                     
+                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
+                        <div class="single_service text-center">
+                            <!--<img src="images/icon5.png" alt="">-->
+                            <h2 style="text-align:left;">Winter package</h2>
+                            <ul> 
+                            <li class="service-text"> 
+                            <p>Switching the heating system of the house, if the client arrives in the winter<br>
+Switching off the water system<br>
+Adding antifreeze in the toilet<br>
+Cleaning of the snow</p>
+                            </li>
+                             <li class="service-photo">    
+                               <img src="{{ asset('images/winter-package.png') }}" style="border-radius: 15px;"/>
+                            </li>  
+                            </ul>
+                        </div>
+                    </div>            
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
+                        <div class="single_service text-center">
+                            <!--<img src="images/icon5.png" alt="">-->
+                            <h2 style="text-align:left;">Window washing</h2>
+                            <ul> 
+                            <li class="service-text">
+                            <p>Twice a year the windows will be cleaned inside and out with detergent</p>
+                            </li>
+                             <li class="service-photo">    
+                               <img src="{{ asset('images/window-washing.png') }}" style="border-radius: 15px;"/>
+                            </li>  
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
+                        <div class="single_service text-center">
+                            <!--<img src="images/icon5.png" alt="">-->
+                            <h2 style="text-align:left;">Coverage of furnitures</h2>
+                            <ul>
+                            <li class="service-text"> 
+                            <p>Twice a year the furnitures will be covered to be protected from the dust and they will be uncovered before the client arrives at home. </p>
+                            </li>
+                           <li class="service-photo">    
+                               <img src="{{ asset('images/furnitures.png') }}" style="border-radius: 15px;"/>
+                            </li>  
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
+                        <div class="single_service text-center">
+                            <!--<img src="images/icon5.png" alt="">-->
+                            <h2 style="text-align:left;">Payoment of Invoices</h2>
+                            <ul> 
+                            <li class="service-text"> 
+                            <p>We will report to client if the client receives any unpaid Invoice, then the client will decide if we have to process and pay the Invoice or not. Invoice administration is free but the Invoice is paid by the Client.</p>
+                            </li>
+                           <li class="service-photo">    
+                               <img src="{{ asset('images/payment-invoice.png') }}" style="border-radius: 15px;"/>
+                            </li>  
+                            </ul>
+                        </div>
+                    </div>            
+                </div>
+                
+                 <div class="row">
+                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
+                        <div class="single_service text-center">
+                            <!--<img src="images/icon5.png" alt="">-->
+                            <h2 style="text-align:left;">Garden maintenance</h2>
+                            <ul> 
+                            <li class="service-text"> 
+                            <p>Irrigation of flowers<br>
+Mowing pastures<br>
+Cleaning of garden road</p>
+                            </li>
+                           <li class="service-photo">    
+                               <img src="{{ asset('images/garden-maintenance.png') }}" style="border-radius: 15px;"/>
+                            </li>  
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
+                        <div class="single_service text-center">
+                            <!--<img src="images/icon5.png" alt="">-->
+                            <h2 style="text-align:left;">Invoice information that do not come from the Municipality</h2>
+                            <ul> 
+                            <li class="service-text">
+                            <p>We will inform the client for the invoices they receive such as: Invoices from Mosque or any other institution.<br>
+Administration of these documents will be done for free from SWAN.</p>
+                            </li>
+                              <li class="service-photo">    
+                               <img src="{{ asset('images/invoices.png') }}" style="border-radius: 15px;"/>
+                            </li>  
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
+                        <div class="single_service text-center">
+                            <!--<img src="images/icon5.png" alt="">-->
+                            <h2 style="text-align:left;">Planting</h2>
+                            <ul> 
+                            <li class="service-text"> 
+                            <p>In our web site, we have a plant catalog where the client can choose flowers that prefers in his garden.<br>
+In the price is included that we will sow the flowers but the client should buy the flowers</p>
+                            </li>
+                            <li class="service-photo">    
+                               <img src="{{ asset('images/planting.png') }}" style="border-radius: 15px;"/>
+                            </li> 
+                            </ul>
+                        </div>
+                    </div>            
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
+                        <div class="single_service text-center">
+                            <!--<img src="images/icon5.png" alt="">-->
+                            <h2 style="text-align:left;">Buying household articles</h2>
+                            <ul>
+                            <li class="service-text">
+                            <p>Client will receive a package with articles such as:<br>
+Bread, 
+Drinks, 
+Coffee, 
+Cheese
+etc.<br>
+With these articles the house will be supplied before the client arrives and all these articles will be free from SWAN Company
+</p>
+                            </li>
+                           <li class="service-photo">    
+                               <img src="{{ asset('images/grocery.png') }}" style="border-radius: 15px;"/>
+                            </li> 
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px; border-top: #04699a solid 5px;width:100%;">
+                        <div class="single_service text-center">
+                            <!--<img src="images/icon5.png" alt="">-->
+                            <h2 style="text-align:left;">Internet</h2>
+                            <ul>  
+                            <li class="service-text"> 
+                            <p>Full Internet where the entire house will be equiped with Internet (WIFI)<br>
+Vehicle control<br>
+Turn on the car<br>
+Washing the car<br>
+Reporting if there is any defect to the car.
+</p>
+                             <li class="service-photo">    
+                               <img src="{{ asset('images/internet.png') }}" style="border-radius: 15px;"/>
+                            </li> 
+                            </ul>
+                        </div>
+                    </div>          
                 </div>
 
 
@@ -126,13 +312,13 @@
 <!-- ==================================================
     BANNER
 =================================================== -->
-        <section class="romana_clean_theme_area">
+        <section class="romana_clean_theme_area" style="background: rgba(0, 0, 0, 0) url(../images/services-bg2.jpg) no-repeat scroll center center / cover;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-5 col-sm-8">
                         <div class="romana_clean_theme_text">
-                            <h3>Some text here</h3>
-                            <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros.</p>
+                            <h3></h3>
+                            <p></p>
                         </div>
                     </div>
                 </div>
@@ -151,10 +337,10 @@
                         </div>
                     </div>
                 </div>-->
-                <div class="row">
+                <div class="row" style="margin-top: -110px;">
                     <div class="col-sm-12">
                         <div class="romana_single_price text-center" style="margin-top: 392px;">
-                            <h3>basis</h3>
+                            <h3>standard</h3>
                             <h4>29  €<span>/mo</span></h4>
                             <ul>
                                 <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 1 time</li>
@@ -166,7 +352,8 @@
                             <a href="#">Order now</a>
                         </div>
 
-                        <div class="romana_single_price price_current_item text-center" style="margin-top: 260px;">
+                        <!--<div class="romana_single_price price_current_item text-center" style="margin-top: 260px;">-->
+                        <div class="romana_single_price text-center" style="margin-top:289px;">
                             <h3>ekstra</h3>
                             <h4>49 € <span>/mo</span></h4>
                             <ul>
@@ -203,7 +390,7 @@
 
                         <div class="romana_single_price text-center">
                             <h3>eksklusiv +</h3>
-                            <h4>119 € <span>/mo</span></h4>
+                            <h4><span>Negotiable</span></h4><br><br>
                             <ul>
                                 <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 5 times</li>
                                 <li><i class="fa fa-check"></i>&nbsp Preparation 5 times</li>
@@ -220,7 +407,7 @@
                                 <li><i class="fa fa-check"></i>&nbsp Internet (Wi-Fi)</li>
                                 <li><i class="fa fa-check"></i>&nbsp Car package</li>
                             </ul>
-                            <a href="#">Order now</a>
+                            <a href="#">Contact us</a>
                         </div>
                     </div>
                 </div>

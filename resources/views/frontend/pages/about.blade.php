@@ -54,7 +54,7 @@
                 <div class="row">
                     <div class="col-md-5 col-sm-6">
                         <div class="romana_story_img">
-                            <img src="images/historymg.jpg" alt="">
+                            <img src="images/swan3.png" alt="" style="margin-top:0px;">
                         </div>
                     </div>
                     <div class="col-md-6 col-md-offset-1 col-sm-6">
@@ -170,6 +170,12 @@
                                 <!--<a href="#"><img src="images/img1.jpg" alt=""></a>-->
                                 <a href="#"><h3>Professional Team</h3></a>
                                 <p>Every employee in our company is professionalized in the work they he/she is doing. All we commit details, so that everything is perfect.</p>
+                            </div>
+                            
+                            <div class="single_staff">
+                                <!--<a href="#"><img src="images/img1.jpg" alt=""></a>-->
+                                <a href="#"><h3>Safety</h3></a>
+                                <p>Swan Company was created on safety bases which always offers it to the Customers. Besides the usual services that the Swan Company offers to you, it is also known for the safety of the work it does. Complete safety for you and your house offers only the Swan Company.</p>
                             </div>
                         </div>
                     </div>

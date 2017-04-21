@@ -8,7 +8,7 @@
                 <div class="panel-heading">
                 	Edit Role
                 	 <div class="pull-right">
-			            <a class="btn btn-primary btn-xs" href="{{ route('roles.index') }}"> Back</a>
+			            <a class="btn btn-primary btn-xs" href="/admin/roles/"><i aria-hidden="true" class="fa fa-times-circle"></i> Cancel</a>
 			        </div>
                 </div>
                 <div class="panel-body">
@@ -26,10 +26,14 @@
 
 					{!! Form::model($role, ['method' => 'PATCH','route' => ['roles.update', $role->id]]) !!}
 					<div class="row">
-
 						<div class="col-xs-12 col-sm-12 col-md-12">
 				            <div class="form-group">
-				                <strong>Name:</strong>
+				                <strong>Name: </strong>{{ $role->name }}
+				            </div>
+				        </div>
+						<div class="col-xs-12 col-sm-12 col-md-12">
+				            <div class="form-group">
+				                <strong>Display name:</strong>
 				                {!! Form::text('display_name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
 				            </div>
 				        </div>
@@ -45,11 +49,15 @@
 				            <div class="form-group">
 				                <strong>Permission:</strong>
 				                <br/>
-				                @foreach($permission as $value)
-				                	<label>{{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, array('class' => 'name')) }}
-				                	{{ $value->display_name }}</label>
-				                	<br/>
-				                @endforeach
+
+								@foreach($permission as $ingd => $ing)
+					                <div class="col-md-3">
+					                    <label class="checkbox-inline">
+		                        {{ Form::checkbox('permission[]', $ingd, (in_array($ingd, $rolePermissions) ? true : null)) }}
+					             {{ $ing }}
+					                    </label>
+					                </div>
+					        @endforeach
 				            </div>
 				        </div>
 

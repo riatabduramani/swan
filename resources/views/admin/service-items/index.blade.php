@@ -5,7 +5,7 @@
         <div class="row">
             @include('admin.sidebar')
 
-            <div class="col-md-9">
+            <div class="col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">Serviceitems</div>
                     <div class="panel-body">
@@ -64,6 +64,10 @@
                     </div>
                 </div>
             </div>
+
+
+
+            
         </div>
     </div>
 @endsection

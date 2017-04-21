@@ -15,4 +15,9 @@ class Packet extends Model
         return $this->belongsToMany('App\Models\Service','packet_service');
     }
 
+    public function subscription()
+    {
+        return $this->hasMany('App\Models\Subscription');
+    }
+
 }

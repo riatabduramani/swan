@@ -68,7 +68,7 @@ class ServiceItemsController extends Controller
 
         Session::flash('flash_message', 'ServiceItem added!');
 
-        return redirect('admin/service-items');
+        return redirect('admin/packet');
     }
 
     /**
@@ -124,7 +124,7 @@ class ServiceItemsController extends Controller
 
         Session::flash('flash_message', 'ServiceItem updated!');
 
-        return redirect('admin/service-items');
+        return redirect('admin/packet');
     }
 
     /**
@@ -140,6 +140,6 @@ class ServiceItemsController extends Controller
 
         Session::flash('flash_message', 'ServiceItem deleted!');
 
-        return redirect('admin/service-items');
+        return redirect('admin/packet');
     }
 }

@@ -16,17 +16,20 @@ class Leads extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->text('body');
-            $table->integer('commentable_id');
-            $table->string('commentable_type');
+            $table->integer('commentable_id')->nullable();
+            $table->string('commentable_type')->nullable();
             
-            $table->integer('created_by')->unsigned();
+            $table->string('created_by')->nullable();
+
+            $table->integer('commented_by')->unsigned()->nullable();
+
+            $table->foreign('commented_by')->references('id')->on('users')
+                ->onUpdate('cascade')->onDelete('cascade')->onDelete('set null');
+
             $table->integer('updated_by')->unsigned()->nullable();
 
-            $table->foreign('created_by')->references('id')->on('users')
-                ->onUpdate('cascade')->onDelete('cascade');
-
             $table->foreign('updated_by')->references('id')->on('users')
-                ->onUpdate('cascade')->onDelete('cascade');
+                ->onUpdate('cascade')->onDelete('cascade')->onDelete('set null');
 
             $table->timestamps();
         });
@@ -45,21 +48,20 @@ class Leads extends Migration
             $table->string('surname');
             $table->string('phone');
             $table->string('email');
-            $table->string('district');
             $table->integer('customer_status_id')->unsigned();
+            $table->integer('district_id')->unsigned()->nullable();
             
-            $table->integer('created_by')->unsigned();
+            $table->string('created_by')->nullable();
             $table->integer('updated_by')->unsigned()->nullable();
 
             $table->foreign('customer_status_id')->references('id')->on('customer_statuses')
-                ->onUpdate('cascade')->onDelete('cascade');
-                
-            $table->foreign('created_by')->references('id')->on('users')
-                ->onUpdate('cascade')->onDelete('cascade');
+                ->onUpdate('cascade')->onDelete('no action');
+
+            $table->foreign('district_id')->references('id')->on('district')
+                ->onUpdate('cascade')->onDelete('set null');
 
             $table->foreign('updated_by')->references('id')->on('users')
-                ->onUpdate('cascade')->onDelete('cascade');
-
+                ->onUpdate('cascade')->onDelete('set null');
 
             $table->timestamps();
         });

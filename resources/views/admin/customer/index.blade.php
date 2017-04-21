@@ -7,11 +7,17 @@
 
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Customer</div>
-                    <div class="panel-body">
-                        <a href="{{ url('/admin/customer/create') }}" class="btn btn-success btn-sm" title="Add New customer">
+                    <div class="panel-heading" style="background: rgb(4, 105, 154); color: rgb(255, 255, 255);">
+                        Customers
+                    @permission('create-customer')
+                    <div class="pull-right">
+                        <a href="{{ url('/admin/customer/create') }}" class="btn btn-primary btn-xs" title="Add New customer">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
+                    </div>
+                    @endpermission
+                    </div>
+                    <div class="panel-body">
 
                         {!! Form::open(['method' => 'GET', 'url' => '/admin/customer', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}
                         <div class="input-group">
@@ -40,7 +46,7 @@
                         <br/>
                      
                         <div class="">
-                            <table class="table table-bordered">
+                            <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -55,6 +61,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @if(count($customer) > 0)
                                 @foreach($customer as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
@@ -65,13 +72,7 @@
                                         <td>{{ $item->phone_out }}</td>
                                         <td>{!! $item->user->showStatusOf($item->user) !!}</td>
                                         <td>{!! $item->user->showConfirmedOf($item->user) !!}</td>
-                                        <td>
-                                            @if($item->created_by != null)
-                                            {{ $item->createdby->name }} {{ $item->createdby->surname }}
-                                            @else
-                                            Null
-                                            @endif
-                                        </td>
+                                        <td>{{ $item->created_by}}</td>
                                         <td>
 
                                         <div class="btn-group">
@@ -79,19 +80,24 @@
                                                 Options <span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu dropdown-menu-right">
+                                                @permission('view-customer')
+
                                                 <li>
                                                     <a href="{{ url('/admin/customer/' . $item->id) }}" title="View customer">
                                                         <i class="fa fa-search"></i> View
                                                     </a>
                                                 </li>
+                                                @endpermission
+                                                @permission('edit-customer')
                                                 <li>
                                                     <a href="{{ url('/admin/customer/' . $item->id . '/edit') }}" title="Edit customer">
                                                         <i class="fa fa-edit"></i> Edit
                                                     </a>
                                                 </li>
+                                                @endpermission
+                                                @permission('create-custominvoice')
                                                 <li>
                                                 <a>
-                                    
                                                 {!! Form::open(['route' => ['invoice_path']]) !!}
                                                     {!! Form::hidden('customer_id', $item->user->id ) !!}
                                                     {!! Form::hidden('invoice_type', 2 ) !!}
@@ -101,6 +107,21 @@
 
                                                 </a>
                                                 </li>
+                                                @endpermission
+                                                @permission('create-packetinvoice')
+                                                <li>
+                                                <a>
+                                                {!! Form::open(['route' => ['invoice_packet_path']]) !!}
+                                                    {!! Form::hidden('customer_id', $item->user->id ) !!}
+                                                    {!! Form::hidden('invoice_type', 2 ) !!}
+                                                    {!! Form::button('<i class="fa fa-external-link" aria-hidden="true"></i>
+                                                        Packet Invoice', array('style' => 'border: none;background: none;padding: 0;', 'type'=>'submit')) !!}
+                                                    {!! Form::close() !!}
+
+                                                </a>
+                                                </li>
+                                                @endpermission
+                                                @permission('delete-customer')
                                                 <li>
                                                     <a>
                                                     {!! Form::open([
@@ -118,6 +139,7 @@
                                                     {!! Form::close() !!}
                                                     </a>
                                                 </li>
+                                                @endpermission
                                             </ul>
                                         </div>
 
@@ -125,6 +147,11 @@
                                     </tr>
 
                                 @endforeach
+                                @else
+                                    <tr>
+                                        <td colspan="9" class="text-center">No actual customers</td>
+                                    </tr>
+                                @endif
                                 </tbody>
                             </table>
                             <div class="pagination-wrapper"> {!! $customer->appends(['search' => Request::get('search')])->render() !!} </div>

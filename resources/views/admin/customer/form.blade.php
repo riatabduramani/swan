@@ -1,25 +1,43 @@
 <div class="panel panel-default">
-  <div class="panel-heading">Customer basic contact:</div>
+  <div class="panel-heading" style="background: rgb(4, 105, 154); color: rgb(255, 255, 255);">Customer basic contact:</div>
   <div class="panel-body">
         <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
             {!! Form::label('name', 'First Name:', ['class' => 'col-md-4 control-label']) !!}
             <div class="col-md-6">
-                {!! Form::text('name', (isset($customer) ? $customer->user->name : null), ['class' => 'form-control']) !!}
-                {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
+                @if(isset($potential))
+                    {!! Form::text('name', $potential->name, ['class' => 'form-control']) !!}
+                    {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
+                @else
+                    {!! Form::text('name', isset($customer) ? $customer->user->name : null, ['class' => 'form-control']) !!}
+                    {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
+                @endif
+                
             </div>
         </div>
         <div class="form-group {{ $errors->has('surname') ? 'has-error' : ''}}">
             {!! Form::label('surname', 'Last Name:', ['class' => 'col-md-4 control-label']) !!}
             <div class="col-md-6">
-                {!! Form::text('surname', (isset($customer) ? $customer->user->surname : null), ['class' => 'form-control']) !!}
-                {!! $errors->first('surname', '<p class="help-block">:message</p>') !!}
+                @if(isset($potential))
+                    {!! Form::text('surname', $potential->surname, ['class' => 'form-control']) !!}
+                    {!! $errors->first('surname', '<p class="help-block">:message</p>') !!}
+                @else
+                    {!! Form::text('surname', (isset($customer) ? $customer->user->surname : null), ['class' => 'form-control']) !!}
+                    {!! $errors->first('surname', '<p class="help-block">:message</p>') !!}
+                @endif
+                
             </div>
         </div>
         <div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
             {!! Form::label('email', 'E-mail:', ['class' => 'col-md-4 control-label']) !!}
             <div class="col-md-6">
-                {!! Form::text('email', (isset($customer) ? $customer->user->email : null), ['class' => 'form-control']) !!}
-                {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
+                 @if(isset($potential))
+                    {!! Form::text('email', $potential->email, ['class' => 'form-control']) !!}
+                    {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
+                 @else
+                    {!! Form::text('email', (isset($customer) ? $customer->user->email : null), ['class' => 'form-control']) !!}
+                    {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
+                 @endif
+                
             </div>
         </div>
     </div>
@@ -28,7 +46,7 @@
 <div class="row">
         <div class="col-md-6">
                <div class="panel panel-default">
-              <div class="panel-heading">Homeland contact:</div>
+              <div class="panel-heading" style="background: rgb(4, 105, 154); color: rgb(255, 255, 255);">Homeland contact:</div>
                 <div class="panel-body">
                     <div class="form-group {{ $errors->has('address_in') ? 'has-error' : ''}}">
                     {!! Form::label('address_in', 'Address:', ['class' => 'col-md-3 control-label']) !!}
@@ -40,7 +58,7 @@
                      <div class="form-group {{ $errors->has('district_in_id') ? 'has-error' : ''}}">
                     {!! Form::label('district_in_id', 'Place:', ['class' => 'col-md-3 control-label']) !!}
                         <div class="col-md-9">
-                            {!! Form::select('district_in_id', $district, null, ['placeholder'=>'Select district/place...','class' => 'form-control required']) !!}
+                            {!! Form::select('district_in_id', $district, isset($potential) ? $potential->district_id : null, ['placeholder'=>'Select district/place...','class' => 'form-control required']) !!}
                             {!! $errors->first('district_in_id', '<p class="help-block">:message</p>') !!}
                         </div>
                     </div>
@@ -61,7 +79,7 @@
                     <div class="form-group {{ $errors->has('phone_in') ? 'has-error' : ''}}">
                     {!! Form::label('phone_in', 'Phone:', ['class' => 'col-md-3 control-label']) !!}
                         <div class="col-md-9">
-                            {!! Form::text('phone_in', null, ['class' => 'form-control']) !!}
+                            {!! Form::text('phone_in', isset($potential) ? $potential->phone : null, ['class' => 'form-control']) !!}
                             {!! $errors->first('phone_in', '<p class="help-block">:message</p>') !!}
                         </div>
                     </div>
@@ -70,7 +88,7 @@
         </div>
         <div class="col-md-6">
             <div class="panel panel-default">
-              <div class="panel-heading">Outside homeland:</div>
+              <div class="panel-heading" style="background: rgb(4, 105, 154); color: rgb(255, 255, 255);">Outside homeland:</div>
                 <div class="panel-body">
 
                     <div class="form-group {{ $errors->has('address_out') ? 'has-error' : ''}}">
@@ -118,7 +136,7 @@
 
 
 <div class="panel panel-default">
-  <div class="panel-heading">Emergency contact:</div>
+  <div class="panel-heading" style="background: rgb(4, 105, 154); color: rgb(255, 255, 255);">Emergency contact:</div>
     <div class="panel-body">
         <div class="form-group {{ $errors->has('emergencycontact') ? 'has-error' : ''}}">
             {!! Form::label('emergencycontact', 'Name & Last Name:', ['class' => 'col-md-4 control-label']) !!}
@@ -138,7 +156,7 @@
 </div>
 
 <div class="panel panel-default">
-  <div class="panel-heading">Active & Confirmation:</div>
+  <div class="panel-heading" style="background: rgb(4, 105, 154); color: rgb(255, 255, 255);">Active & Confirmation:</div>
     <div class="panel-body">
 
 
@@ -174,6 +192,9 @@
 
 <div class="form-group">
     <div class="col-md-offset-4 col-md-4">
+        @if(isset($potential))
+        {!! Form::hidden('potential_id', $potential->id, ['class' => 'form-control']) !!}
+        @endif
         {!! Form::submit(isset($submitButtonText) ? $submitButtonText : 'Create', ['class' => 'btn btn-primary']) !!}
     </div>
 </div>
