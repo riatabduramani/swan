@@ -87,6 +87,8 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+    width: 50%;
+    background: transparent;
 }
 .owl-carousel.owl-loaded {
   display: block;

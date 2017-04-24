@@ -19,14 +19,13 @@
                         <div class="col-md-2 col-sm-3 col-xs-12">
                             <div class="header_top_right">
                              @if (Auth::check())
-                                @role('admin')
+                                @role(['admin','superadmin','employee'])
                                 <a href="{{ url('/admin/dashboard') }}"><i class="fa fa-tachometer"></i> Dashboard</a>
                                 @endrole
                             @else
-                                <a href="{{ url('/login') }}"><i class="fa fa-user"></i>
-
-   &nbsp Login</a> | 
-                                <a href="{{ url('/register') }}">Register</a>
+            <a href="{{ url('/login') }}"><i class="fa fa-user"></i>&nbsp Login</a> | 
+            <!--<a href=""><i class="fa fa-user"></i>&nbsp Login</a> | -->
+            <a href="{{ url('/register') }}">Register</a>
                             @endif
                             </div>
                         </div>

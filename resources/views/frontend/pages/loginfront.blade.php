@@ -35,78 +35,67 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
+                        <div class="romana_page_text">
+                            <h1>contact us</h1>
+                            <ol class="breadcrumb">
+                                <li><a href="http://swan.mk">Home</a><span></span></li>
+                                <li class="active"><a href="#">contact us</a></li>
+                            </ol>
+                        </div>
                     </div>
                 </div>
             </div>
     </section>
 <!-- ==================================================
-    LOGIN FORM
+    CONTACT FORM
 =================================================== -->
-<div class="container" style="margin-top: 5%;padding-bottom: 5%;">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
+        <section class="romana_contact_area section_padding" style="background-image:none;">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12 col-md-5">
+                        <div class="romana_contact_form">
+                            <form action="#">
+                                <label for="contact_name">Full name</label>
+                                <input type="text" name="contact_name" id="contact_name" placeholder="Full name here..">
+                                <label for="contact_email">Email Address</label>
+                                <input type="text" name="contact_email" id="contact_email" placeholder="Email here..">
+                                <label for="contact_phone">Phone number</label>
+                                <input type="text" name="contact_name" id="contact_phone" placeholder="Phone number here..">
+                                <label for="contact_message">Message</label>
+                                <textarea rows="4" placeholder="Your message here.." id="contact_message"></textarea>
+                                <input type="submit" class="send-now" name="contact_Send" value="send">
+                            </form>
+                        </div>
+                    </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+                    <div class="col-sm-6 col-md-5 responsive-bg col-xs-12 col-md-offset-2">
+                        <div class="romana_contract_address">
+                            <ul class="address">
+                                <li>Do not hesitate to contact us</li>
+                                <li><a href="#"><span class="fa fa-envelope"></span>info@swan.mk</a></li>
+                                <li><span class="fa fa-map-marker"></span>Tetovo, Macedonia</li>
+                                <li><a href="#"><span class="fa fa-phone"></span>+389 (0) 70 123 4563</a></li>
+                            </ul>
+                            <div class="romana_socail_link">
+                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="#" class="fa fa-twitter"></a>
+                                <a href="#" class="fa fa-google"></a>
+                                <a href="#" class="fa fa-linkedin"></a>
                             </div>
                         </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
+        </section>
+<!-- ==================================================
+    MAP LOCATION
+=================================================== -->
+        <div class="romana_map_area">
+            <div id="googleMap"></div>
+            <div class="content_bg">
+                <div class="border"></div>
+            </div>
         </div>
-    </div>
-</div>
-
 
        @include('frontend.footer')
 

@@ -188,21 +188,21 @@
                 <div class="row">
                     <div class="col-sm-4s">
                         <div class="single_service text-center">
-                            <img src="{{ asset('images/general-cleaning.png') }}" alt="" style="width:55%; border-radius: 10%; border: #04699a 3px solid;margin-top: 6%;">
+                            <img src="{{ asset('images/general-cleaning.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
                             <h2>Yeary general cleaning</h2>
                             <p></p>
                         </div>
                     </div>
                     <div class="col-sm-4s">
                         <div class="single_service text-center">
-                            <img src="{{ asset('images/client-arrives.png') }}" alt="" style="width:55%; border-radius: 10%; border: #04699a 3px solid;margin-top: 6%;">
+                            <img src="{{ asset('images/client-arrives.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
                             <h2>House preparation</h2><br>
                             <p></p>
                         </div>
                     </div>
                     <div class="col-sm-4s">
                         <div class="single_service text-center">
-                             <img src="{{ asset('images/control-week.png') }}" alt="" style="width:55%; border-radius: 10%; border: #04699a 3px solid;margin-top: 6%;">
+                             <img src="{{ asset('images/control-week.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
                             <h2>Control every 14 days</h2><br>
                             <p></p>
                         </div>
@@ -210,77 +210,77 @@
                     
                      <div class="col-sm-4s">
                         <div class="single_service text-center">
-                           <img src="{{ asset('images/monthly-check.png') }}" alt="" style="width:55%; border-radius: 10%; border: #04699a 3px solid;margin-top: 6%;">
+                           <img src="{{ asset('images/monthly-check.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
                             <h2>Monthly check</h2><br>
                             <p></p>
                         </div>
                     </div>
                     <div class="col-sm-4s">
                         <div class="single_service text-center">
-                           <img src="{{ asset('images/report-errors.png') }}" alt="" style="width:55%; border-radius: 10%; border: #04699a 3px solid;margin-top: 6%;">
+                           <img src="{{ asset('images/report-errors.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
                             <h2>Reporting of errors / defects</h2>
                             <p></p>
                         </div>
                     </div>
                     <div class="col-sm-4s">
                         <div class="single_service text-center">
-                            <img src="{{ asset('images/winter-package.png') }}" alt="" style="width:55%; border-radius: 10%; border: #04699a 3px solid;margin-top: 6%;">
+                            <img src="{{ asset('images/winter-package.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
                             <h2>Winter package</h2><br>
                             <p></p>
                         </div>
                     </div>
                      <div class="col-sm-4s">
                         <div class="single_service text-center">
-                           <img src="{{ asset('images/window-washing.png') }}" alt="" style="width:55%; border-radius: 10%; border: #04699a 3px solid;margin-top: 6%;">
+                           <img src="{{ asset('images/window-washing.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
                             <h2>Window washing</h2><br>
                             <p></p>
                         </div>
                     </div>
                      <div class="col-sm-4s">
                         <div class="single_service text-center">
-                            <img src="{{ asset('images/furnitures.png') }}" alt="" style="width:55%; border-radius: 10%; border: #04699a 3px solid;margin-top: 6%;">
+                            <img src="{{ asset('images/furnitures.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
                             <h2>Coverage of furnitures</h2><br>
                             <p></p>
                         </div>
                     </div>
                      <div class="col-sm-4s">
                         <div class="single_service text-center">
-                           <img src="{{ asset('images/payment-invoice.png') }}" alt="" style="width:55%; border-radius: 10%; border: #04699a 3px solid;margin-top: 6%;">
+                           <img src="{{ asset('images/payment-invoice.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
                             <h2>Payoment of Invoices</h2><br>
                             <p></p>
                         </div>
                     </div>
                      <div class="col-sm-4s">
                         <div class="single_service text-center">
-                            <img src="{{ asset('images/garden-maintenance.png') }}" alt="" style="width:55%; border-radius: 10%; border: #04699a 3px solid;margin-top: 6%;">
+                            <img src="{{ asset('images/garden-maintenance.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
                             <h2>Garden maintenance</h2><br>
                             <p></p>
                         </div>
                     </div>
                      <div class="col-sm-4s">
                         <div class="single_service text-center">
-                           <img src="{{ asset('images/invoices.png') }}" alt="" style="width:55%; border-radius: 10%; border: #04699a 3px solid;margin-top: 6%;">
+                           <img src="{{ asset('images/invoices.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
                             <h2>Invoice information that do not come from the Municipality</h2>
                             <p></p>
                         </div>
                     </div>
                      <div class="col-sm-4s">
                         <div class="single_service text-center">
-                            <img src="{{ asset('images/planting.png') }}" alt="" style="width:55%; border-radius: 10%; border: #04699a 3px solid;margin-top: 6%;">
+                            <img src="{{ asset('images/planting.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
                             <h2>Planting</h2><br><br>
                             <p></p>
                         </div>
                     </div>
                     <div class="col-sm-4s">
                         <div class="single_service text-center">
-                            <img src="{{ asset('images/grocery.png') }}" alt="" style="width:55%; border-radius: 10%; border: #04699a 3px solid;margin-top: 6%;">
+                            <img src="{{ asset('images/grocery.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
                             <h2>Buying household items</h2>
                             <p></p>
                         </div>
                     </div>
                     <div class="col-sm-4s">
                         <div class="single_service text-center">
-                           <img src="{{ asset('images/internet.png') }}" alt="" style="width:55%; border-radius: 10%; border: #04699a 3px solid;margin-top: 6%;">
+                           <img src="{{ asset('images/internet.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
                             <h2>Internet</h2>
                             <p></p>
                         </div>
