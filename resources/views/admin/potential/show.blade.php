@@ -15,7 +15,10 @@
                     <div class="pull-right">
 
                          <a href="{{ url('/admin/potential') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        @permission('edit-potential-customer')
                         <a href="{{ url('/admin/potential/' . $potential->id . '/edit') }}" title="Edit Potential"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                        @endpermission
+                        @permission('delete-potential-customer')
                         {!! Form::open([
                             'method'=>'DELETE',
                             'url' => ['admin/potential', $potential->id],
@@ -28,18 +31,18 @@
                                     'onclick'=>'return confirm("Confirm delete?")'
                             ))!!}
                         {!! Form::close() !!}
-
-                      
+                        @endpermission                      
                     </div>
                     </div>
                     <div class="panel-body">
+                        @permission('transfer-potential-to-customer')
                           <a href="/admin/potential/tocustomer/{{ $potential->id }}" class="btn btn-primary">
                           <i class="fa fa-exchange" aria-hidden="true"></i> Transfer to customer
                         </a>
-                       
                         <br/>
                         <br/>
-
+                        @endpermission
+                        
                         <div class="table-responsive">
                             <table class="table table-bordered table-condensed table-striped">
                                 <thead>

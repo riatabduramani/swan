@@ -163,14 +163,14 @@
         <div class="form-group {{ $errors->has('confirmed') ? 'has-error' : ''}}">
             {!! Form::label('confirmed', 'Confirmed:', ['class' => 'col-md-4 control-label']) !!}
             <div class="col-md-2">
-                {!! Form::select('confirmed', ['1' => 'Yes', '0' => 'No'], (isset($customer) ? $customer->user->status : null), [ 'placeholder' => 'Select...','class' => 'form-control required']) !!}
+                {!! Form::select('confirmed', ['1' => 'Yes', '0' => 'No'], (isset($customer) ? $customer->user->confirmed : null), [ 'placeholder' => 'Select...','class' => 'form-control required']) !!}
                 {!! $errors->first('confirmed', '<p class="help-block">:message</p>') !!}
             </div>
         </div>
         <div class="form-group {{ $errors->has('status') ? 'has-error' : ''}}">
             {!! Form::label('status', 'Allow login:', ['class' => 'col-md-4 control-label']) !!}
             <div class="col-md-2">
-                {!! Form::select('status', ['1' => 'Yes', '0' => 'No'], (isset($customer) ? $customer->user->confirmed : null), ['placeholder' => 'Select...','class' => 'form-control required']) !!}
+                {!! Form::select('status', ['1' => 'Yes', '0' => 'No'], (isset($customer) ? $customer->user->status : null), ['placeholder' => 'Select...','class' => 'form-control required']) !!}
                 {!! $errors->first('status', '<p class="help-block">:message</p>') !!}
             </div>
         </div>

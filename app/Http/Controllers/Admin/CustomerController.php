@@ -13,12 +13,15 @@ use App\Models\Customer;
 use App\Models\Invoice;
 use App\Models\Subscription;
 use App\Models\Todolist;
+use App\Models\Document;
+use File;
 use App\User;
 use Session;
 use Auth;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class CustomerController extends Controller
 {
@@ -246,14 +249,15 @@ class CustomerController extends Controller
         $chosenpacket = Subscription::with('customer')->where('customer_id', $id)->get()->last();
         //$invoices = Invoice::with('customer')->findOrFail();
         //$users = User::pluck('name','id');
-        $tasks = Todolist::where('customer_id',$id)->where('datedone',null)->orderBy('duedate','asc')->get();
+        $tasks = Todolist::where('customer_id',$id)->whereNull('datedone')->orderBy('duedate','asc')->get();
+        $tasksdone = Todolist::where('customer_id',$id)->whereNotNull('datedone')->orderBy('duedate','asc')->get();
 
         $users = User::whereHas('roles', function($q)
                         {
                             $q->where('name', 'employee')->orWhere('name', 'admin');
                         })->pluck('name','id');
 
-        return view('admin.customer.show', compact('customer','chosenpacket','users','tasks'));
+        return view('admin.customer.show', compact('customer','chosenpacket','users','tasks','tasksdone'));
     }
 
     public function destroy($id) {
@@ -310,12 +314,12 @@ class CustomerController extends Controller
             $todolist->customer_id = $request->customer_id;
             
             if(!empty($request->assign_to)) {
-                $todolist->user_id = $request->assign_to;    
+                $todolist->assigned_to = $request->assign_to;    
             } else {
-                $todolist->user_id = Auth::user()->id;    
+                $todolist->assigned_to = Auth::user()->id;
             }
             
-            $todolist->created_by = Auth::user()->name.' '.Auth::user()->surname;
+            $todolist->created_by = Auth::user()->id;
             $todolist->duedate = $request->duedate;
             $todolist->save();
 
@@ -340,7 +344,56 @@ class CustomerController extends Controller
         return redirect()->back();
     }
 
+    public function allowlogin(Request $request) {
+        $id = $request->id;
+        $user = User::findOrFail($id);
+        $user->status = !$user->status;
+        $user->save();
+
+        Session::flash('flash_message', 'Done!');
+        return redirect()->back();
+    }
+
+    public function attachdocument(Request $request)
+    {
+            
+            $this->validate($request, [
+                'attach' => 'required|max:5000|mimes:pdf,jpeg,png,doc,docx,excel',
+            ]);
+            
+            $customerid = $request->customer_id;
+
+            $attach = new Document;
+
+            $attach->extension = $request->file('attach')->getClientOriginalExtension();
+            
+            $fileName = $request->file('attach')->getClientOriginalName();
+            $renamed = rand(100, 1000).'-'.Carbon::now()->format('d-m-Y').'-'.$fileName;
+            
+            $request->file('attach')->move(
+                base_path() . '/public/uploads/documents', $renamed
+            );
+
+            $attach->name = $fileName;
+            $attach->description = $request->description;
+            $attach->renamed = $renamed;
+            $attach->created_by = Auth::user()->id;
+            $attach->save();
+
+            $attach->customer()->attach($customerid);
+
+            Session::flash('flash_message', "Document $fileName Attached successfully!");
+            return redirect()->back();
+    }
+
+    public function deleteDocument($id) {
+            $document = Document::findOrFail($id);
+            //unlink('/public/uploads/documents/'.$document->renamed);
+            File::delete('uploads/documents/' . "$document->renamed");
+            $document->delete();
+
+            Session::flash('flash_message', 'Your document has been deleted!');
+            return redirect()->back();
+    }
+
 }
-
-
-

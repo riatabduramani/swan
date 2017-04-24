@@ -133,7 +133,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         //$roles = Role::pluck('display_name','id');
-        $roles = Role::where('id','!=', 3)->pluck('display_name','id');
+        $roles = Role::where('id','<>', 4)->where('id','<>', 1)->orderBy('id','desc')->pluck('display_name','id');
         $userRole = $user->roles->pluck('id','id')->toArray();
 
         return view('admin.users.edit',compact('user','roles','userRole'));

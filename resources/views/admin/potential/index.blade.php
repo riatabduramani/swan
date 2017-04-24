@@ -7,11 +7,13 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background: rgb(4, 105, 154); color: rgb(255, 255, 255);">
                     Potential Customers
+                    @permission('create-potential-customer')
                     <div class="pull-right">
                         <a href="{{ url('/admin/potential/create') }}" class="btn btn-primary btn-xs" title="Add New Potential">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
                     </div>
+                    @endpermission
                     </div>
                     <div class="panel-body">
                      <div class="col-md-12">
@@ -68,8 +70,13 @@
                                             @endif
 
                                         <td>
+                                        @permission('view-potential-customer')
                                             <a href="{{ url('/admin/potential/' . $item->id) }}" title="View Potential"><button class="btn btn-default btn-xs"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
+                                        @endpermission
+                                        @permission('edit-potential-customer')
                                             <a href="{{ url('/admin/potential/' . $item->id . '/edit') }}" title="Edit Potential"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+                                        @endpermission
+                                        @permission('delete-potential-customer')
                                             {!! Form::open([
                                                 'method'=>'DELETE',
                                                 'url' => ['/admin/potential', $item->id],
@@ -82,6 +89,7 @@
                                                         'onclick'=>'return confirm("Confirm delete?")'
                                                 )) !!}
                                             {!! Form::close() !!}
+                                        @endpermission
                                         </td>
                                     </tr>
                                 @endforeach
@@ -98,7 +106,7 @@
                     </div>
                 </div>
             </div>
-@role(['admin','superadmin'])
+@permission('manage-statuses')
 <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background: rgb(4, 105, 154); color: rgb(255, 255, 255);">
@@ -110,20 +118,6 @@
                     </div>
                     </div>
                     <div class="panel-body">
-                    <!--
-                    <div class="col-md-12">
-                        {!! Form::open(['method' => 'GET', 'url' => '/admin/customer-status', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="searchboxstatus" name="search" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </button>
-                            </span>
-                        </div>
-                        {!! Form::close() !!}
-                    </div>
-                    -->
                     <div class="col-md-12">
                         
                         <div class="table-responsive">
@@ -164,8 +158,7 @@
                     </div>
                 </div>
             </div>
-@endrole
-
+            @endpermission
         </div>
     </div>
 @endsection

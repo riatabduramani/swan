@@ -16,16 +16,22 @@ class ToDoList extends Migration
           Schema::create('todolist', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('description');
-            $table->integer('user_id')->unsigned();
-            $table->integer('customer_id')->unsigned();
-            $table->string('created_by')->nullable();
+            $table->text('description');
+
+            $table->integer('assigned_to')->unsigned()->nullable();
+
+            $table->integer('customer_id')->unsigned()->nullable();
+            $table->integer('created_by')->unsigned()->nullable();
+
             $table->integer('updated_by')->unsigned()->nullable();
             $table->dateTime('duedate');
             $table->dateTime('datedone')->nullable();
 
-            $table->foreign('user_id')->references('id')->on('users')
+            $table->foreign('created_by')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
+
+            $table->foreign('assigned_to')->references('id')->on('users')
+                ->onUpdate('cascade')->onDelete('set null');
 
             $table->foreign('customer_id')->references('id')->on('customer')
                 ->onUpdate('cascade')->onDelete('cascade');

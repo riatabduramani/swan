@@ -23,10 +23,11 @@
                                 @endforeach
                             </ul>
                         @endif
-
+                        @permission('transfer-potential-to-customer')
                         <a href="/admin/potential/tocustomer/{{ $potential->id }}" class="btn btn-primary">
                           <i class="fa fa-exchange" aria-hidden="true"></i> Transfer to customer
                         </a>
+                        @endpermission
 
                         {!! Form::model($potential, [
                             'method' => 'PATCH',

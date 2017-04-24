@@ -89,6 +89,10 @@ class Customer extends Model
         return $this->hasMany('App\Models\Todolist');
     }
     
+    public function document()
+    {
+        return $this->belongsToMany('App\Models\Document');
+    }
 }
 
 

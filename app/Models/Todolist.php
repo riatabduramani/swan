@@ -40,7 +40,12 @@ class Todolist extends Model
 
     public function assignedto()
     {
-        return $this->belongsTo('App\User','user_id');
+        return $this->belongsTo('App\User','assigned_to');
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo('App\Models\Customer','customer_id');
     }
 
     public function createdby()

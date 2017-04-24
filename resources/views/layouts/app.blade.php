@@ -13,7 +13,6 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
-
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
@@ -56,10 +55,11 @@
                     </button>
 
                     <!-- Branding Image -->
-                   
-                    <a class="navbar-brand" href="{{ url('/admin/dashboard') }}">
-                    {{ config('app.name', 'SWAN') }}
-                    </a>
+                   @if (Auth::user())
+                        <a class="navbar-brand" href="{{ url('/admin/dashboard') }}">
+                        {{ config('app.name', 'SWAN') }}
+                        </a>
+                    @endif
 
                      @if (Auth::guest())
                         <a class="navbar-brand" href="{{ url('/login') }}">
@@ -76,9 +76,11 @@
                             <a href="/admin/dashboard">Dashboard</a>
                         </li>
                     @endrole
+                    @role('superadmin')
+                        <li {{{ (Request::is('admin/roles*') ? 'class=active' : '') }}}><a href="/admin/roles">Roles & Permissions</a></li>
+                    @endrole
                     @role(['admin','superadmin'])
-                        <li><a href="/admin/roles">Roles & Permissions</a></li>
-                        <li {{{ (Request::is('admin/users') ? 'class=active' : '') }}}>
+                         <li {{{ (Request::is('admin/users*') ? 'class=active' : '') }}}>
                             <a href="/admin/users">Employees</a>
                         </li>
                         <li {{{ (Request::is('admin/packet*') ? 'class=active' : '') }}}>
@@ -91,6 +93,9 @@
                         </li>
                         <li {{{ (Request::is('admin/customer*') ? 'class=active' : '') }}}>
                             <a href="/admin/customer">Actual Customers</a>
+                        </li>
+                        <li {{{ (Request::is('admin/tasks*') ? 'class=active' : '') }}}>
+                            <a href="/admin/tasks">Tasks</a>
                         </li>
                     @endrole
                     </ul>
@@ -134,6 +139,26 @@
         @yield('content')
     </div>
 
+    <script>
+        $(document).ready(function(){
+            $('.allowlogin').on('change', function(event){
+                id = $(this).data('id');
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ URL::route('allowLogin') }}",
+                    data: {
+                        '_token': $('input[name=_token]').val(),
+                        'id': id
+                    },
+                    success: function(data) {
+                        //alert('OK works!');
+                        location.reload();
+                    },
+                });
+            });
+        });
+    </script>
+
  <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
 
@@ -166,6 +191,7 @@
                 
         });
 </script>
+
 
 </body>
 </html>

@@ -92,6 +92,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 	Route::post('/customer/comment','Admin\\CustomerController@storecomment');
 	Route::get('/customer/comment/{id}', 'Admin\\CustomerController@deleteComment');
 	Route::get('/customer/invoice/{id}', 'Admin\\CustomerController@deleteInvoice');
+	//Route::get('/customer/allowlogin/{id}', 'Admin\\CustomerController@allowlogin');
+	Route::post('/customer/allowlogin', array('as' => 'allowLogin', 'uses' => 'Admin\\CustomerController@allowlogin'));
+	Route::post('/customer/attachdoc', array('as' => 'attach', 'uses' => 'Admin\\CustomerController@attachdocument'));
+	Route::delete('/customer/attachdoc/{id}', 'Admin\\CustomerController@deleteDocument');
+	//Route::post('/customer/attachdoc','Admin\\CustomerController@attachdocument');
 
 	//Todolist
 	Route::post('/customer/todolist','Admin\\CustomerController@createtask');
@@ -100,6 +105,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 
 	//Profile
 	Route::resource('/profile', 'Admin\\ProfileController');
+
+	//Tasks
+	Route::resource('/tasks', 'Admin\\TodolistController');
+	Route::post('/tasks','Admin\\TodolistController@createtask');
+	Route::get('/tasks/done/{id}', 'Admin\\TodolistController@doneTask');
+
 });
 
 Route::group(['prefix' => 'agent', 'middleware' => ['auth','role:agent']], function() {

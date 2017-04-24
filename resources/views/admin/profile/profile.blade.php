@@ -57,6 +57,13 @@
                             </div>
 
                         </div>
+                          <div class="col-xs-12 col-sm-12 col-md-6">
+                            <div class="form-group">
+                                
+                                {!! Form::text('phone', null, array('placeholder' => 'Phone','class' => 'form-control')) !!}
+                            </div>
+
+                        </div>
                         </div>
                         <div class="col-md-12" style="margin-top: 10px;">
                         <div class="col-xs-12 col-sm-12 col-md-5">

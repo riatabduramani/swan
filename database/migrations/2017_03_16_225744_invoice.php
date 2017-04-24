@@ -25,7 +25,7 @@ class Invoice extends Migration
             //the end date for the service
             $table->dateTime('end_date')->nullable();
 
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->integer('customer_id')->unsigned();
             //payment_method (cash. online, bank)
             $table->integer('payment_method')->nullable();

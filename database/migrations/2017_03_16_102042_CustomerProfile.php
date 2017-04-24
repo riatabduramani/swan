@@ -35,12 +35,12 @@ class CustomerProfile extends Migration
             $table->string('phone_out');
             $table->string('phone_in');
             
-            $table->string('address_out');
+            $table->text('address_out');
             $table->integer('postal_out');
             $table->string('city');
             $table->integer('country_id')->unsigned();
 
-            $table->string('address_in');
+            $table->text('address_in');
             $table->integer('city_in_id')->unsigned();
             $table->integer('district_in_id')->unsigned();
             $table->integer('country_in_id')->unsigned();
