@@ -31,34 +31,33 @@ class UserController extends Controller
 
         
         if (!empty($keyword)) {
-            $data = User::where('name', 'LIKE', "%$keyword%")
+            $data = User::where('id', '<>', $userid)
+                        ->where('name', 'LIKE', "%$keyword%")
                         ->orWhere('surname', 'LIKE', "%$keyword%")
                         ->orWhere('email', 'LIKE', "%$keyword%")
                         ->whereHas('roles', function($q)
                         {
-                            $q->where('name', 'employee');
+                            $q->where('name', 'employee')->orWhere('name', 'admin');
                         })->paginate($perPage);
 
         } elseif(!empty($filterstatus)) {
 
-            $data = User::where('status', '=', "$filterstatus")
+            $data = User::where('id', '<>', $userid)
+                        ->where('status', $filterstatus)
                         ->whereHas('roles', function($q)
                         {
-                            $q->where('name', 'employee');
+                            $q->where('name', 'employee')->orWhere('name', 'admin');
                         })->paginate($perPage);
 
         }  
         else {
-             $data = User::whereHas('roles', function($q)
-                {
-                    $q->where('name', 'employee');
-                })->paginate($perPage);
+             $data = User::where('id', '<>', $userid)->whereHas('roles', function($q)
+                        {
+                            $q->where('name', 'employee')->orWhere('name', 'admin');
+                        })->paginate($perPage);
         }
         
-
-        
-
-        return view('admin.users.index',compact('data'))
+        return view('admin.users.index',compact('data','filterstatus'))
         ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
@@ -69,7 +68,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::pluck('display_name','id');
+        $roles = Role::where('id','<>', 4)->where('id','<>', 1)->orderBy('id','desc')->pluck('display_name','id');
         return view('admin.users.create',compact('roles'));
     }
 
@@ -93,9 +92,11 @@ class UserController extends Controller
         $input['password'] = Hash::make($input['password']);
 
         $user = User::create($input);
+        $user->attachRole($request->input('roles'));
+        /*
         foreach ($request->input('roles') as $key => $value) {
             $user->attachRole($value);
-        }
+        }*/
 
          return redirect('admin/users/')
                         ->with('success','User created successfully');
@@ -131,7 +132,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        $roles = Role::pluck('display_name','id');
+        //$roles = Role::pluck('display_name','id');
+        $roles = Role::where('id','<>', 4)->where('id','<>', 1)->orderBy('id','desc')->pluck('display_name','id');
         $userRole = $user->roles->pluck('id','id')->toArray();
 
         return view('admin.users.edit',compact('user','roles','userRole'));
@@ -167,10 +169,12 @@ class UserController extends Controller
                 $user = User::find($id);
                 $user->update($input);
                 DB::table('role_user')->where('user_id',$id)->delete();
-                
+                /*
                 foreach ($request->input('roles') as $key => $value) {
                     $user->attachRole($value);
-                }
+                }*/
+
+                $user->attachRole($request->input('roles'));
 
                 return redirect('admin/users/')
                                 ->with('success','User updated successfully');

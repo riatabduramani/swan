@@ -15,6 +15,13 @@ class RolesTableSeeder extends Seeder
          DB::table('roles')->delete();
          
          DB::table('roles')->insert(array(
+            array(
+                'name' => 'superadmin',
+                'display_name' => 'Super Admin',
+                'description' => 'Super Admin',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+                ),
              array(
                 'name' => 'admin',
                 'display_name' => 'Admin',
@@ -36,6 +43,6 @@ class RolesTableSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
                 ),
-          ));
+          ));    
     }
 }

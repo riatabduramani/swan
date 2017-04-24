@@ -2,9 +2,9 @@
             <div class="hrader_top_area">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-2 col-xs-12">
+                        <div class="col-sm-2 col-xs-12" style="width: 41.667%;">
                             <div class="logo">
-                                <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+                                <a href="http://swan.mk"><img src="images/swan-logoh.png" alt="logo"></a>
                             </div>
                         </div>
                         <div class="col-sm-7 col-md-offset-1">
@@ -19,14 +19,13 @@
                         <div class="col-md-2 col-sm-3 col-xs-12">
                             <div class="header_top_right">
                              @if (Auth::check())
-                                @role('admin')
-                                <a href="{{ url('/admin/dashboard') }}">Dashboard</a>
+                                @role(['admin','superadmin','employee'])
+                                <a href="{{ url('/admin/dashboard') }}"><i class="fa fa-tachometer"></i> Dashboard</a>
                                 @endrole
                             @else
-                                <a href="{{ url('/login') }}"><i class="fa fa-user-circle-o"></i>
-
-  Login</a> | 
-                                <a href="{{ url('/register') }}">Register</a>
+            <a href="{{ url('/login') }}"><i class="fa fa-user"></i>&nbsp Login</a> | 
+            <!--<a href=""><i class="fa fa-user"></i>&nbsp Login</a> | -->
+            <a href="{{ url('/register') }}">Register</a>
                             @endif
                             </div>
                         </div>
@@ -49,10 +48,10 @@
                             <div class="mainmenu">
                                 <nav>
                                     <ul>
-                                        <li class="active"><a href="index.html">home</a></li>
-                                        <li><a href="about.html">about us</a></li>
-                                        <li><a href="service.html">our services</a></li>
-                                        <li><a href="contact.html">contact us</a></li>
+                                        <li {{ (Request::is('/') ? 'class=active' : '') }}><a href="http://swan.mk">home</a></li>
+                                        <li {{ (Request::is('about') ? 'class=active' : '') }}><a href="about">about us</a></li>
+                                        <li {{ (Request::is('services') ? 'class=active' : '') }}><a href="services">our services</a></li>
+                                        <li {{ (Request::is('contact') ? 'class=active' : '') }}><a href="contact">contact 
                                     </ul>
                                 </nav>
                             </div>

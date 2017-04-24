@@ -1,35 +1,55 @@
 
-@foreach (['en'=>'','sq'=>'_sq'] as $lang => $suffix)
+@foreach (config('app.language') as $lang => $suffix)
 
 <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
-    {!! Form::label("name$suffix", 'Name'.$suffix, ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label("name$suffix", 'Name ['.$lang.']', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        @if(isset($packet))
-        {!! Form::text('name'.$suffix, $packet->{"name:$lang"}, ['class' => 'form-control']) !!}
-        @else
-        {!! Form::text('name'.$suffix, null, ['class' => 'form-control']) !!}
-        @endif
+      
+        {!! Form::text('name'.$suffix, (isset($packet) ? $packet->{"name:$lang"} : null), ['class' => 'form-control', 'required']) !!}
+       
         {!! $errors->first('name'.$suffix, '<p class="help-block">:message</p>') !!}
     </div>
  
 </div>
  @endforeach
+
 <div class="form-group {{ $errors->has('price') ? 'has-error' : ''}}">
     {!! Form::label('price', 'Price', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::number('price', null, ['class' => 'form-control']) !!}
+        <div class="input-group">
+        {!! Form::number('price', null, ['class' => 'form-control text-right', 'required', 'min'=>'0']) !!}
+        <div class="input-group-addon">&euro;</div>
         {!! $errors->first('price', '<p class="help-block">:message</p>') !!}
+        </div>
     </div>
 </div><div class="form-group {{ $errors->has('options') ? 'has-error' : ''}}">
     {!! Form::label('options', 'Options', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::select('options', ['normal', 'popular', 'extended'], null, ['class' => 'form-control']) !!}
+        {!! Form::select('options', config('app.packettype'), null, ['class' => 'form-control']) !!}
         {!! $errors->first('options', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 
+<div class="well">
+<h4>Select <span class="label label-warning">Services</span></h4>
+
+   <div class="form-group">
+        @foreach($services as $ingd => $ing)
+                <div class="col-md-3">
+                    <label class="checkbox-inline">
+                        {{ Form::checkbox('services[]', $ingd, (in_array($ingd, $listservice) ? true : null)) }}  
+                        {{ $ing }}
+                    </label>
+                </div>
+        @endforeach
+    </div>
+</div>
+
+
+
 <div class="form-group">
-    <div class="col-md-offset-4 col-md-4">
+    <div class="col-md-offset-5 col-md-4">
         {!! Form::submit(isset($submitButtonText) ? $submitButtonText : 'Create', ['class' => 'btn btn-primary']) !!}
     </div>
 </div>
+

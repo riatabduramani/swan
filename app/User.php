@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'surname', 'email', 'password', 'status', 'confirmed',
+        'name', 'surname', 'email', 'phone', 'password', 'status', 'confirmed',
     ];
 
     /**
@@ -34,5 +34,20 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany('App\Models\Role');
+    }
+
+    public function potential()
+    {
+        return $this->hasMany('App\Models\Potential');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
+
+    public function customer()
+    {
+        return $this->hasOne('App\Models\Customer');
     }
 }

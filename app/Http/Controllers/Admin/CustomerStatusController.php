@@ -56,9 +56,9 @@ class CustomerStatusController extends Controller
         
         CustomerStatus::create($requestData);
 
-        Session::flash('flash_message', 'CustomerStatus added!');
+        Session::flash('flash_message', 'Customer Status added successfully!');
 
-        return redirect('admin/customer-status');
+        return redirect('admin/potential');
     }
 
 
@@ -92,9 +92,9 @@ class CustomerStatusController extends Controller
         $customerstatus = CustomerStatus::findOrFail($id);
         $customerstatus->update($requestData);
 
-        Session::flash('flash_message', 'CustomerStatus updated!');
+        Session::flash('flash_message', 'CustomerStatus updated successfully!');
 
-        return redirect('admin/customer-status');
+        return redirect('admin/potential');
     }
 
     /**
@@ -108,8 +108,8 @@ class CustomerStatusController extends Controller
     {
         CustomerStatus::destroy($id);
 
-        Session::flash('flash_message', 'CustomerStatus deleted!');
+        Session::flash('flash_message', 'Customer Status deleted successfully!');
 
-        return redirect('admin/customer-status');
+        return redirect('admin/potential');
     }
 }

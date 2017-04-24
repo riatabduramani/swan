@@ -1,14 +1,14 @@
-var myCenter = new google.maps.LatLng(41.0348764, -74.6635257);
+var myCenter = new google.maps.LatLng(42.094429, 21.072779);
 
 function initialize() {
     var mapProp = {
         center: myCenter,
         scrollwheel: false,
-        zoom: 12,
-        zoomControl: false,
-        mapTypeControl: false,
+        zoom: 16,
+        zoomControl: true,
+        mapTypeControl: true,
         streetViewControl: false,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapTypeId: google.maps.MapTypeId.HYBRID,
         styles: [{
             "featureType": "landscape",
             "stylers": [{

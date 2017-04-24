@@ -13,6 +13,21 @@ class CustomerProfile extends Migration
      */
     public function up()
     {
+         Schema::create('packets', function (Blueprint $table) {
+            $table->increments('id');
+            $table->decimal('price');
+            $table->string('options');
+            $table->timestamps();
+         });
+
+         Schema::create('packet_translations', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('packet_id')->unsigned();
+            $table->string('name');
+            $table->string('locale')->index();
+            $table->unique(['packet_id','locale']);
+            $table->foreign('packet_id')->references('id')->on('packets')->onDelete('cascade');
+         });
 
         Schema::create('customer', function (Blueprint $table) {
             $table->increments('id');
@@ -20,29 +35,37 @@ class CustomerProfile extends Migration
             $table->string('phone_out');
             $table->string('phone_in');
             
-            $table->string('address_out');
+            $table->text('address_out');
             $table->integer('postal_out');
-            $table->integer('city_id')->unsigned();
+            $table->string('city');
             $table->integer('country_id')->unsigned();
 
-            $table->string('address_in');
+            $table->text('address_in');
             $table->integer('city_in_id')->unsigned();
             $table->integer('district_in_id')->unsigned();
             $table->integer('country_in_id')->unsigned();
 
 
-            $table->string('emergencycontact');
-            $table->string('emergencyphone');
+            $table->string('emergencycontact')->nullable();
+            $table->string('emergencyphone')->nullable();
 
-            $table->integer('created_by')->unsigned()->nullable();
+            $table->string('created_by')->nullable();
+            $table->integer('updated_by')->unsigned()->nullable();
+
+            $table->integer('packet_id')->unsigned()->nullable();
+
+            $table->timestamps();
+
+            $table->foreign('packet_id')->references('id')->on('packets')
+                ->onUpdate('cascade')->onDelete('cascade');
 
             $table->foreign('user_id')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
 
-            $table->foreign('created_by')->references('id')->on('users')
+            $table->foreign('updated_by')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
 
-            $table->foreign('city_id')->references('id')->on('cities')
+            $table->foreign('city_in_id')->references('id')->on('cities')
                 ->onUpdate('cascade')->onDelete('cascade');
 
             $table->foreign('country_id')->references('id')->on('countries')
@@ -58,5 +81,7 @@ class CustomerProfile extends Migration
     public function down()
     {
         Schema::dropIfExists('customer');
+        Schema::dropIfExists('packet_translations');
+        Schema::dropIfExists('packets');
     }
 }
