@@ -36,9 +36,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 	Route::resource('/roles','Admin\\RoleController');
 	Route::resource('/permissions','Admin\\PermissionController');
 	Route::resource('/packet', 'Admin\\PacketsController');
+	/*
 	Route::get('/dashboard', function () {
 	    return view('admin.dashboard');
 	});
+	*/
+	Route::resource('/dashboard','Admin\\DashboardController');
 	Route::resource('/customer-status', 'Admin\\CustomerStatusController');
 	Route::resource('/service-items', 'Admin\\ServiceItemsController');
 	Route::resource('/potential', 'Admin\\PotentialController');

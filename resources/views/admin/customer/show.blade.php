@@ -90,6 +90,7 @@
                   </div>
                   <div class="panel-body">
                     <ul class="list-group">
+                    @if(count($customer->document) > 0)
                     @foreach($customer->document as $document)
                     <li class="list-group-item">
                      <div class="pull-right">
@@ -122,7 +123,9 @@
                       <small><b>Created by:</b> {{ $document->createdby->name }} {{ $document->createdby->surname }}</small>
                     </li>
                     @endforeach
-                       
+                    @else
+                    No documents attached
+                      @endif
                     </ul>
                   </div>
                 </div>

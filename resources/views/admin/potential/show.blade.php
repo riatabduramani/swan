@@ -71,7 +71,7 @@
 <h4>Comments</h4><hr />
 @if(count($potential->comments) > 0)
     @foreach ($potential->comments as $comment)
-       <div class="col-sm-12">
+       <div class="col-sm-12" id="comment-{{ $comment->id }}">
         <div class="panel panel-default">
             <div class="panel-heading" style="background: rgb(245, 245, 245);">
             <strong>{{ $comment->created_by}}</strong> <small class="text-muted label label-success">{{ $comment->created_at->format("d.m.y - H:i") }}</small>  <small class="label label-default">{{ $comment->created_at->diffForHumans()}}</small>
