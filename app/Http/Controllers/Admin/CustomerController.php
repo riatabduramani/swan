@@ -378,6 +378,7 @@ class CustomerController extends Controller
             $attach->description = $request->description;
             $attach->renamed = $renamed;
             $attach->created_by = Auth::user()->id;
+            $attach->type = $request->type;
             $attach->save();
 
             $attach->customer()->attach($customerid);

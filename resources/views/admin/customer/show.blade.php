@@ -74,6 +74,16 @@
                     </div>
                     <div class="form-group">
                       <div class="col-md-12">
+                        <label>
+                        {!! Form::radio('type', 1, true) !!} To Swan
+                        </label>
+                        <label>
+                        {!! Form::radio('type', 2, false) !!} To customer
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-12">
                         {!! Form::hidden('customer_id', $customer->id ) !!}
                           <button type="submit" id="btnUpload" class="btn btn-primary btn-sm">
                           <i class="fa fa-upload" aria-hidden="true"></i> Upload</button>
@@ -86,12 +96,13 @@
               @permission('view-documents')
                <div class="panel panel-default">
                   <div class="panel-heading"  style="background: #04699a;color: #fff;">
-                    <i class="fa fa-file-text-o" aria-hidden="true"></i> Documents
+                    <i class="fa fa-file-text-o" aria-hidden="true"></i> Documents for Swan
                   </div>
                   <div class="panel-body">
                     <ul class="list-group">
                     @if(count($customer->document) > 0)
                     @foreach($customer->document as $document)
+                    @if($document->type == 1)
                     <li class="list-group-item">
                      <div class="pull-right">
                         <a href="/public/uploads/documents/{{ $document->renamed }}" target="_blank" class="btn btn-primary btn-xs">
@@ -122,6 +133,57 @@
                       @endif
                       <small><b>Created by:</b> {{ $document->createdby->name }} {{ $document->createdby->surname }}</small>
                     </li>
+                    @endif
+                    @endforeach
+                    @else
+                    No documents attached
+                      @endif
+                    </ul>
+                  </div>
+                </div>
+                @endpermission
+                
+              @permission('view-documents')
+               <div class="panel panel-default">
+                  <div class="panel-heading"  style="background: #04699a;color: #fff;">
+                    <i class="fa fa-file-text-o" aria-hidden="true"></i> Documents for customer
+                  </div>
+                  <div class="panel-body">
+                    <ul class="list-group">
+                    @if(count($customer->document) > 0)
+                    @foreach($customer->document as $document)
+                     @if($document->type == 2)
+                    <li class="list-group-item">
+                     <div class="pull-right">
+                        <a href="/public/uploads/documents/{{ $document->renamed }}" target="_blank" class="btn btn-primary btn-xs">
+                          <i class="fa fa-download" aria-hidden="true"></i>
+                        </a>
+
+                        @if(($document->createdby->id == Auth::user()->id) || Auth::user()->hasRole(['admin','superadmin']))
+                        {!! Form::open([
+                            'method'=>'DELETE',
+                            'url' => ['admin/customer/attachdoc', $document->id],
+                        ]) !!}
+                            {!! Form::button('<i class="fa fa-trash" aria-hidden="true"></i>', array(
+                                    'type' => 'submit',
+                                    'class' => 'btn btn-danger btn-xs',
+                                    'title' => 'Delete document',
+                                    'onclick'=>'return confirm("Confirm to delete the document?")'
+                            ))!!}
+                        {!! Form::close() !!}
+                        @endif
+
+                      </div>
+                      <a href="/public/uploads/documents/{{ $document->renamed }}" target="_blank">
+                          <h4 class="list-group-item-heading">{{ $document->name }}</h4>
+                      </a>
+
+                      @if($document->description)
+                        <small><b>Description:</b> {{ $document->description }}</small><br />
+                      @endif
+                      <small><b>Created by:</b> {{ $document->createdby->name }} {{ $document->createdby->surname }}</small>
+                    </li>
+                    @endif
                     @endforeach
                     @else
                     No documents attached

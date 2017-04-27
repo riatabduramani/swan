@@ -19,6 +19,7 @@ class CustomerDocuments extends Migration
             $table->text('description')->nullable();
             $table->string('renamed');
             $table->string('extension');
+            $table->integer('type');
             $table->integer('created_by')->unsigned()->nullable();
 
              $table->foreign('created_by')->references('id')->on('users')

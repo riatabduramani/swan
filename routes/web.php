@@ -32,61 +32,63 @@ Auth::routes();
 ///Route::get('/home', 'HomeController@index');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmin|employee']], function() {
-	Route::resource('/users','Admin\\UserController');
-	Route::resource('/roles','Admin\\RoleController');
-	Route::resource('/permissions','Admin\\PermissionController');
-	Route::resource('/packet', 'Admin\\PacketsController');
-	/*
-	Route::get('/dashboard', function () {
-	    return view('admin.dashboard');
-	});
-	*/
+
+	Route::resource('/users','Admin\\UserController',['middleware'=>['role:superadmin,admin']]);
+	Route::resource('/roles','Admin\\RoleController',['middleware'=>['role:superadmin']]);
+	Route::resource('/permissions','Admin\\PermissionController',['middleware'=>['role:superadmin']]);
+	Route::resource('/packet', 'Admin\\PacketsController',['middleware'=>['permission:manage-packet']]);
+
 	Route::resource('/dashboard','Admin\\DashboardController');
-	Route::resource('/customer-status', 'Admin\\CustomerStatusController');
-	Route::resource('/service-items', 'Admin\\ServiceItemsController');
-	Route::resource('/potential', 'Admin\\PotentialController');
-	Route::resource('/invoice', 'Admin\\InvoiceController');
+	Route::resource('/customer-status', 'Admin\\CustomerStatusController',['middleware'=>['permission:manage-statuses']]);
+	Route::resource('/service-items', 'Admin\\ServiceItemsController',['middleware'=>['permission:manage-packet']]);
+	Route::resource('/potential', 'Admin\\PotentialController',['middleware'=>['permission:manage-potential-customer']]);
+	Route::resource('/invoice', 'Admin\\InvoiceController',['middleware'=>['permission:view-listedinvoices']]);
 
 	//Potential Customers
-	Route::resource('/potential', 'Admin\\PotentialController');
-	Route::get('/potential/tocustomer/{id}', 'Admin\\PotentialController@toCustomer');
-	Route::post('/potential/comment','Admin\\PotentialController@storecomment');
-	Route::get('/potential/comment/{id}', 'Admin\\PotentialController@deleteComment');
+	Route::resource('/potential', 'Admin\\PotentialController',['middleware'=>['permission:manage-potential-customer']]);
+	Route::get('/potential/tocustomer/{id}', 'Admin\\PotentialController@toCustomer',['middleware'=>['permission:manage-potential-customer']]);
+	Route::post('/potential/comment','Admin\\PotentialController@storecomment',['middleware'=>['permission:manage-potential-customer']]);
+	Route::get('/potential/comment/{id}', 'Admin\\PotentialController@deleteComment',['middleware'=>['permission:manage-potential-customer']]);
 
 	
-	Route::get('/invoice/custominvoice/{id}', 'Admin\\InvoiceController@showcustominvoice');
-	Route::get('/invoice/packetinvoice/{id}', 'Admin\\InvoiceController@showpacketinvoice');
+	Route::get('/invoice/custominvoice/{id}', 'Admin\\InvoiceController@showcustominvoice',['middleware'=>['permission:view-listedinvoices']]);
+	Route::get('/invoice/packetinvoice/{id}', 'Admin\\InvoiceController@showpacketinvoice',['middleware'=>['permission:view-listedinvoices']]);
 	//Route::post('/invoice/custominvoice/update', 'Admin\\InvoiceController@updatecustompaymentinvoice');
 
 	Route::post('/invoice/custominvoice/', [
 	'as' => 'invoice_path',
-	'uses' => 'Admin\\InvoiceController@displayForm'
+	'uses' => 'Admin\\InvoiceController@displayForm',
+	'middleware'=>['permission:view-listedinvoices']
 	]);
 
 
 	Route::post('/invoice/custominvoice/create', [
 	'as' => 'invoice_update',
-	'uses' => 'Admin\\InvoiceController@updatecustompaymentinvoice'
+	'uses' => 'Admin\\InvoiceController@updatecustompaymentinvoice',
+	'middleware'=>['permission:view-listedinvoices']
 	]);
 
 	Route::post('/invoice/packetinvoice/create', [
 	'as' => 'invoice_packet_update',
-	'uses' => 'Admin\\InvoiceController@updatepacketpaymentinvoice'
+	'uses' => 'Admin\\InvoiceController@updatepacketpaymentinvoice',
+	'middleware'=>['permission:view-listedinvoices']
 	]);
 
 
 	Route::get('/invoice/{id}', [
 	'as' => 'delete_invoice',
-	'uses' => 'Admin\\InvoiceController@destroy'
+	'uses' => 'Admin\\InvoiceController@destroy',
+	'middleware'=>['permission:view-listedinvoices']
 	]);
 
 	//PACKET INVOICE
 	Route::post('/invoice/packetinvoice/', [
 	'as' => 'invoice_packet_path',
-	'uses' => 'Admin\\InvoiceController@displayFormPacket'
+	'uses' => 'Admin\\InvoiceController@displayFormPacket',
+	'middleware'=>['permission:view-listedinvoices']
 	]);
 
-	Route::post('/invoice/packetinvoice/add','Admin\\InvoiceController@storePacketInvoice');
+	Route::post('/invoice/packetinvoice/add','Admin\\InvoiceController@storePacketInvoice',['middleware'=>['permission:view-listedinvoices']]);
 
 	Route::get('product_prices', 'Admin\\InvoiceController@product_prices');
 	//END INVOICE PACKET	
@@ -116,17 +118,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 
 });
 
-Route::group(['prefix' => 'agent', 'middleware' => ['auth','role:agent']], function() {
-	
-	//Route::get('/dashboard', 'HomeController@index');
-	Route::get('/dashboard', function () {
-	    return view('admin.home');
-	});
-});
 
 Route::group(['prefix' => 'client', 'middleware' => ['auth','role:client']], function() {
-	
-	
 	Route::get('/dashboard', 'HomeController@index');
 	
 }); 

@@ -88,9 +88,11 @@
                         </li>
                     @endrole
                     @role(['admin','superadmin','employee'])
+                        @permission('manage-potential-customer')
                         <li {{{ (Request::is('admin/potential*') ? 'class=active' : '') }}}>
                             <a href="/admin/potential">Potential Customers</a>
                         </li>
+                        @endpermission
                         <li {{{ (Request::is('admin/customer*') ? 'class=active' : '') }}}>
                             <a href="/admin/customer">Actual Customers</a>
                         </li>

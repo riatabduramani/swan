@@ -47,7 +47,14 @@ class PermissionsTableSeed extends Seeder
              array(
                 'name' => 'create-potential-customer',
                 'display_name' => 'Edit Potential Customer',
-                'description' => 'Edit Customer',
+                'description' => 'Edit Potential Customer',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+                ),
+             array(
+                'name' => 'manage-potential-customer',
+                'display_name' => 'Manage Potential Customer',
+                'description' => 'Manage Potential Customer',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
                 ),
@@ -61,14 +68,14 @@ class PermissionsTableSeed extends Seeder
              array(
                 'name' => 'view-potential-customer',
                 'display_name' => 'View Potential Customer',
-                'description' => 'View Customer',
+                'description' => 'View Potential Customer',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
                 ),
              array(
                 'name' => 'delete-potential-customer',
                 'display_name' => 'Delete Potential Customer',
-                'description' => 'Delete Customer',
+                'description' => 'Delete Potential Customer',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
                 ),
@@ -251,7 +258,11 @@ class PermissionsTableSeed extends Seeder
             array(
                 'permission_id' => 21,
                 'role_id' => 1,
-            ),            
+            ),
+            array(
+                'permission_id' => 21,
+                'role_id' => 1,
+            ),           
         ));
     }
  }
