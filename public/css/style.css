@@ -180,7 +180,7 @@ body {
     3.***Hover Effect Start***
 ------------------------------------------------- */
 .mainmenu nav > ul > li> a:hover, .romana_leave_comment_input input[type="submit"]:hover, .romana_contact_form form input[type="submit"]:hover{
-    background: #1382b5 none repeat scroll 0 0;
+    background: #176b94 none repeat scroll 0 0;
     padding: 6px;
     border-radius: 10px;
     padding-left: 20px;
@@ -325,8 +325,8 @@ body {
 }
 .header_top_right {
     text-align: right;
-    border-left: 2px solid #0072bb;
-    background-color: #04699a;
+    border-left: 2px solid #0a587f;
+    background-color: #0a587f;
     border-radius: 10px;
     padding-right: 24px;
     color: white;
@@ -382,7 +382,7 @@ label.mainsearch {
 
 .mainmenu {
     float: left;
-    background: #04699a;
+    background: #0a587f;
     width: 100%;
     border-radius: 3px;
     box-shadow: black 1px 3px 11px -5px;
@@ -403,7 +403,7 @@ label.mainsearch {
     text-transform: uppercase;
 }
 .mainmenu nav > ul >li.active>a{
-    background: #0C76AA none repeat scroll 0 0;
+    background: #176b94 none repeat scroll 0 0;
     border-radius: 8px;
     padding: 6px;
     padding-left: 15px;
@@ -461,7 +461,7 @@ label.mainsearch {
     height: 652px;
 }
 .single_text h1, .romana_page_text h1{
-    color: #1893cc;
+    color: #0a587f;
     font-size: 38px;
     text-transform: uppercase;
     line-height: 48px;
@@ -544,7 +544,7 @@ label.mainsearch {
     7.***explore_area Css Start***
 ------------------------------------------------- */
 .romana_explore_area{
-    background: #04699a;
+    background: #0a587f;
     margin-top: 110px;
     position: relative;
 }
@@ -793,7 +793,7 @@ label.mainsearch {
     transition: all 0.4s ease 0s;
     float: left;
     width: 23.5%;
-    margin-top: 82px;
+    margin-top: 11%;
     margin-right: 15px;
     border-radius: 10px;
     border: #9cd2e0 solid 2px;
@@ -820,7 +820,7 @@ label.mainsearch {
     width: 95%;
 }
 .romana_single_price h4 {
-    color: #04699a;
+    color: #04699a !important;
     line-height: normal;
     margin-bottom: 30px;
     margin-top: 26px;
@@ -988,8 +988,9 @@ label.mainsearch {
     15.***footer_Area Start***
 -------------------------------------------------- */
 .romana_footer {
-    background:#1d79a5;
+    background: #0a587f;
     position: relative;
+    border-top: white 1px solid;
 }
 .footer_logo {
     margin-bottom: 22px;
@@ -1358,7 +1359,7 @@ preloader {
     z-index: 9;
 }
 .service_page .romana_pricing_area{
-    margin-bottom: 25px;
+    padding-bottom: 25px;
 }
 /* ---------------------- 17.4- Single-Service Page css ------------------------- */
 .romana_house_cleaning_text{
@@ -1681,7 +1682,7 @@ ul.isotop-nav > li + li::before {
     background-image: url('../images/contactbg.png');
 }
 .romana_contact_area::before {
-    background: #1d79a5 none repeat scroll 0 0;
+    background: #0a587f none repeat scroll 0 0;
     height: 69%;
     right: 0;
     width: 50%;
@@ -1730,7 +1731,7 @@ ul.isotop-nav > li + li::before {
     padding-left: 15px;
 }
 .romana_contact_form form input[type="submit"]{
-    background: #1d79a5 none repeat scroll 0 0;
+    background: #0a587f none repeat scroll 0 0;
     border-radius: 3px;
     color: #ffffff;
     height: 45px;
@@ -1771,7 +1772,7 @@ ul.isotop-nav > li + li::before {
   width: 133px;
 }
 .content_bg::after {
-    background: #1d79a5 none repeat scroll 0 0;
+    background: #0a587f none repeat scroll 0 0;
     border-radius: 3px;
     color: #ffffff;
     content: "Our Office";
@@ -1786,6 +1787,7 @@ ul.isotop-nav > li + li::before {
     width: 133px;
     z-index: 9;
     font-family: 'proxima_nova_rgregular';
+    border: white 1px solid;
 }
 .border {
     border-color: #1d79a5 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
@@ -3075,8 +3077,39 @@ div#slider-3::after{
 *   Resolation 970px
 ================================================================== */
 
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 767px) and (max-width: 999px) {
 /* ======================== Index-1 ============================== */
+    
+    .romana_single_price {
+        width: 47.5% !important;
+    }
+    #box-standard {
+        margin-top: 29% !important;
+    }
+    #box-standard-home {
+        margin-top: 19.1% !important;
+    }
+    #box-eksklusiv {
+        margin-top: 11% !important;
+    }
+    #box-eksklusiv-home {
+        margin-top: 11% !important;
+    }
+    .col-sm-4s{
+        width: 49.333333% !important;
+    }
+    .romana_contract_address .romana_socail_link {
+        margin-top: 0%;
+    }
+    .col-sm-4 .service-text {
+        width: 100% !important;
+    }
+    .col-sm-4 .service-photo {
+        padding-top: 30px !important;
+        margin-left: 30% !important;
+    }
+    
+    
 .header_top_left {
     text-align: left;
 }
@@ -3094,7 +3127,8 @@ div#slider-3::after{
     top: 84px;
 }
 .romana_hero_area {
-    height: 670px;
+    /*height: 670px;*/
+    height: auto;
 }
 .single_text {
     font-size: 17px;
@@ -3130,7 +3164,7 @@ div#slider-3::after{
     padding-right: 36px;
 } 
 .romana_team_area .owl-nav {
-    top: -53px;
+    top: -11px;
 }    
 .team_slider.section_padding_top.owl-carousel.owl-theme.owl-responsive-768.owl-loaded {
     padding-top: 50px;
@@ -3263,6 +3297,7 @@ div#slider-3::after{
 }
 .romana_contact_area::before {
     height: 58%;
+    background-repeat: no-repeat;
 }
 .romana_contact_form form input, .romana_contact_form form textarea {
     width: 90%;
@@ -3415,12 +3450,104 @@ span.change_qty.plus.cursor_hover.fa.fa-angle-up {
 *   Resolation 0 to 768px
 ================================================ */
 
+@media only screen and (min-width: 767px) and (max-width: 1000px) {
+    
+}
+
+
+@media only screen and (min-width: 1001px) and (max-width: 1200px) {
+   
+    .romana_single_price {
+        width: 23% !important;
+        
+    }
+    #box-eksklusiv {
+        margin-top: 22% !important;
+     }
+    #box-eksklusiv-home {
+        margin-top: 17% !important;
+     }
+    #box-ekstra {
+        margin-top: 33% !important;
+     }
+    #box-ekstra-home {
+        margin-top: 25% !important;
+     }
+    #box-standard {
+        margin-top: 44% !important;
+    }
+    #box-standard-home {
+        margin-top: 39% !important;
+    }
+    .col-md-2 {
+        width: 21.667% !important;
+    }
+    .col-md-offset-1 {
+        margin-left: 2.333333% !important;
+    }
+    .romana_contact_area::before {
+        background-repeat: no-repeat !important;
+    }
+}
+
 @media only screen and (max-width: 767px) {
+    
+    .row .col-sm-4s {
+        height: auto;
+    }
+    div.tab {
+        max-width: 99% !important;
+    }
+    .tabcontent .leftside {
+        width: 100% !important;
+        float: left !important;
+        margin-left: 0% !important;
+    }
+    .tabcontent .rightside {
+        width: 100% !important;
+        float: left !important;
+        margin-left: 0% !important;
+        padding-bottom: 40px !important;
+    }
+    .romana_team_area .owl-next {
+        margin-left: 74% !important;
+    }
+    .romana_team_area .owl-carousel .owl-item img {
+        padding-left: 0px !important;
+    }
+    .col-sm-4 .service-photo {
+        margin-left: 0px !important;
+        padding-bottom: 30px !important;
+        width: 100% !important;
+        float:none !important;
+    }   
+    .col-sm-4 .service-text {
+        width: 100% !important;
+        float: left !important;
+    }
+    #services-list {
+        margin: 0px !important;
+    }
+    .romana_contact_area::before {
+        background-repeat: no-repeat !important;
+    }
+    .romana_contract_address .romana_socail_link {
+        margin-left: 12% !important;
+    }
+    
+    #logo-box {
+        width: 94% !important;
+        margin-top: 10px;
+    }
+    
+    
+    
+    
 .mean-container .mean-bar {
-    background: #14adf4 none repeat scroll 0 0;
+    background: #04699a none repeat scroll 0 0;
 }
 .mean-container .mean-nav {
-  background: #14adf4 none repeat scroll 0 0;
+  background: #04699a none repeat scroll 0 0;
   float: left;
   margin-top: 44px;
   width: 100%;
@@ -3632,7 +3759,7 @@ label.mainsearch {
     text-align: center;
 }
 .footer_bottom.footer_top.text-left {
-    margin-bottom: -15px;
+    margin-bottom: 0px;
 }
 .blog_btn {
     margin-top: -10px;
@@ -3655,7 +3782,7 @@ label.mainsearch {
     margin-top: -42px;
 }
 .header_top_right {
-    margin-top: 23px;
+    margin-top: 25%;
 }
 .index-2 .single_text h1 {
     font-size: 23px;
@@ -3806,7 +3933,7 @@ label.mainsearch {
 }
 .service_page .single_service{
     margin-bottom: 40px;
-    padding: opx 20px;
+    padding: 0px 20px;
 }
 .service_page .single_service h2 {
     font-size: 16px;
@@ -4169,7 +4296,12 @@ ul.nav.product-nav.nav-tabs li a {
 *   For Wide Mobile
 *   Resolation 480px to 768px
 ==========================================*/
-@media only screen and (min-width: 480px) and (max-width: 767px) {
+@media only screen and (min-width: 480px) and (max-width: 766px) {
+    
+    
+ 
+    
+    
 .searchbox {
     width: 94%;
 }
@@ -4301,7 +4433,7 @@ body.preloader_active {
 
 
 
-
+/* ADDED */ 
 .col-sm-4 .service-text {
     width: 71%;
     float: left;
@@ -4331,7 +4463,7 @@ div.tab button {
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 14px 16px;
+    padding: 14px 10px;
     transition: 0.3s;
     color: #04699a;
     font-weight: bold;
@@ -4373,7 +4505,7 @@ div.tab button.active {
 }
 
 .row .col-sm-4s {
-     height: 200px;  
+     height: auto;  
 }
 .row .col-sm-4s:hover {
     background-color: #fbfbfb;
@@ -4386,5 +4518,120 @@ div.tab button.active {
     background-color: #fbfbfb;
     box-shadow: black 0px 0px 35px -11px;
 }*/
+
+
+.header-standard {
+    background-image: url(../images/standard.png);
+    padding-top: 20px;
+    margin-top: -41px;
+}
+.header-ekstra {
+    color:#303d41 !important;
+    border-bottom: #858888 1px solid; 
+    background-image: url(../images/ekstra.png);
+    padding-top: 20px;
+    margin-top: -41px;
+}
+.header-eksklusiv {
+    background-image: url(../images/eksklusiv.png);
+    padding-top: 20px;
+    margin-top: -41px; 
+}
+.header-eksklusivp {
+    background-image: url(../images/eksklusivp.png);
+    padding-top: 20px;
+    margin-top: -41px;
+}
+
+.col-sm-12 {
+    padding-top: 0px; 
+    padding-bottom: 50px;
+}
+
+
+#box-standard {
+    margin-top: 38%;
+}
+#box-standard-home {
+    margin-top: 34.1%;
+}
+#box-ekstra {
+    margin-top: 29%;
+}
+#box-ekstra-home {
+    margin-top: 22.5%;
+}
+#box-eksklusiv {
+    margin-top: 20%;
+}
+#box-eksklusiv-home {
+    margin-top: 16%;
+}
+
+.offer-rows {
+    text-align: left;
+    padding-left: 13%;
+}
+
+
+.col-sm-4s img {
+    width:55%; 
+    border-radius: 15px; 
+    border: #04699a 3px solid;
+    margin-top: 6%;
+}
+
+#vision-text {
+    border-right: white 1px solid;
+    margin-top: 10px;
+    padding-right: 30px;
+}
+#mission-text {
+    margin-top: 10px;
+}
+
+
+.help-text {
+    text-align: center;
+    color: #04699a;
+    font-weight: bold;
+    margin-top: 0px;
+    padding-bottom: 60px;
+}
+.tablinks {
+    width: 33%;
+}
+
+.leftside h2 {
+    padding-bottom: 70px;
+}
+.section_title h2 {
+    color: #0a587f;
+    font-weight:bold;
+    padding-bottom: 10px;
+}
+
+
+#services-list {
+    background-color: rgba(243, 243, 243, 0.67);
+    border-radius: 10px;
+    margin: 8px;
+    border-top: #04699a solid 5px;
+    width:100%;
+}
+
+#logo-box {
+    width: 41.667%;
+}
+
+
+
+
+
+
+
+
+
+
 
 

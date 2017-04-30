@@ -38,43 +38,15 @@
     <section class="romana_hero_area">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-6">
-                        <!--DO NOT DELETE 
-                          <div class="hero_slider">
-                            <div class="single_text single_text1">
-                                <h1></h1>
-                                <p></p>
-                                <a href="#"></a>
-                            </div>
-
-                            <div class="single_text single_text2">
-                                <h1></h1>
-                                <p></p>
-                                <a href="#"></a>
-                            </div>
-
-                            <div class="single_text single_text3">
-                                <h1></h1>
-                                <p></p>
-                                <a href="#"></a>
-                            </div>
-                        </div>-->                   
+                    <div class="col-xs-12 col-sm-6">             
         <section class="romana_pricing_area section_padding_top">
             <div class="container">
-                <!--<div class="row">
-                    <div class="col-xs-12">
-                        <div class="section_title">
-                            <h2>Our Packages</h2>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>-->
                 <div class="row">
-                    <div class="col-sm-12" style="padding-top: 50px; padding-bottom: 50px;">
-                        <div class="romana_single_price text-center" style="margin-top: 392px;">
-                            <h3 style="background-image: url(images/standard.png);padding-top: 20px;margin-top: -41px;">standard</h3>
+                    <div class="col-sm-12">
+                        <div class="romana_single_price text-center" id="box-standard-home">
+                            <h3 class="header-standard">standard</h3>
                             <h4>29  €<span>/mo</span></h4>
-                            <ul>
+                            <ul class="offer-rows">
                                 <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 1 time</li>
                                 <li><i class="fa fa-check"></i>&nbsp Preparation 1 time</li>
                                 <li><i class="fa fa-check"></i>&nbsp Control every 14 Days</li>
@@ -84,10 +56,10 @@
                             <a href="#">Read more</a>
                         </div>
 
-                        <div class="romana_single_price price_current_item text-center" style="margin-top: 260px;">
-                            <h3 style="color:#303d41;border-bottom: #858888 1px solid; background-image: url(images/ekstra.png);padding-top: 20px;margin-top: -41px;">ekstra</h3>
-                            <h4 style="color: #04699a;">49 € <span>/mo</span></h4>
-                            <ul>
+                        <div class="romana_single_price price_current_item text-center" id="box-ekstra-home">
+                            <h3 class="header-ekstra">ekstra</h3>
+                            <h4>49 € <span>/mo</span></h4>
+                            <ul class="offer-rows">
                                 <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 2 times</li>
                                 <li><i class="fa fa-check"></i>&nbsp Preparation 2 times</li>
                                 <li><i class="fa fa-check"></i>&nbsp Control every 14 Days</li>
@@ -100,12 +72,10 @@
                             <a href="#">Read more</a>
                         </div>
 
-                        <div class="romana_single_price text-center" style="margin-top: 186px;">
-                            <h3 style="    background-image: url(images/eksklusiv.png);
-    padding-top: 20px;
-    margin-top: -41px;">eksklusiv</h3>
+                        <div class="romana_single_price text-center" id="box-eksklusiv-home">
+                            <h3 class="header-eksklusiv">eksklusiv</h3>
                             <h4>69 € <span>/mo</span></h4>
-                            <ul>
+                            <ul class="offer-rows">
                                 <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 2 times</li>
                                 <li><i class="fa fa-check"></i>&nbsp Preparation 2 times</li>
                                 <li><i class="fa fa-check"></i>&nbsp Control every 14 Daysl</li>
@@ -122,11 +92,9 @@
                         </div>
 
                         <div class="romana_single_price text-center">
-                            <h3 style="    background-image: url(images/eksklusivp.png);
-    padding-top: 20px;
-    margin-top: -41px;">eksklusiv +</h3>
+                            <h3 class="header-eksklusivp">eksklusiv +</h3>
                             <h4><span>Negotiable</span></h4>
-                            <ul style="line-height: 28px;">
+                            <ul class="offer-rows">
                                 <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 5 times</li>
                                 <li><i class="fa fa-check"></i>&nbsp Preparation 5 times</li>
                                 <li><i class="fa fa-check"></i>&nbsp Control every 14 Days</li>
@@ -188,21 +156,21 @@
                 <div class="row">
                     <div class="col-sm-4s">
                         <div class="single_service text-center">
-                            <img src="{{ asset('images/general-cleaning.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
+                            <img src="{{ asset('images/general-cleaning.png') }}" alt="">
                             <h2>Yeary general cleaning</h2>
                             <p></p>
                         </div>
                     </div>
                     <div class="col-sm-4s">
                         <div class="single_service text-center">
-                            <img src="{{ asset('images/client-arrives.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
+                            <img src="{{ asset('images/client-arrives.png') }}" alt="">
                             <h2>House preparation</h2><br>
                             <p></p>
                         </div>
                     </div>
                     <div class="col-sm-4s">
                         <div class="single_service text-center">
-                             <img src="{{ asset('images/control-week.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
+                             <img src="{{ asset('images/control-week.png') }}" alt="">
                             <h2>Control every 14 days</h2><br>
                             <p></p>
                         </div>
@@ -210,77 +178,77 @@
                     
                      <div class="col-sm-4s">
                         <div class="single_service text-center">
-                           <img src="{{ asset('images/monthly-check.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
+                           <img src="{{ asset('images/monthly-check.png') }}" alt="">
                             <h2>Monthly check</h2><br>
                             <p></p>
                         </div>
                     </div>
                     <div class="col-sm-4s">
                         <div class="single_service text-center">
-                           <img src="{{ asset('images/report-errors.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
+                           <img src="{{ asset('images/report-errors.png') }}" alt="">
                             <h2>Reporting of errors / defects</h2>
                             <p></p>
                         </div>
                     </div>
                     <div class="col-sm-4s">
                         <div class="single_service text-center">
-                            <img src="{{ asset('images/winter-package.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
+                            <img src="{{ asset('images/winter-package.png') }}" alt="">
                             <h2>Winter package</h2><br>
                             <p></p>
                         </div>
                     </div>
                      <div class="col-sm-4s">
                         <div class="single_service text-center">
-                           <img src="{{ asset('images/window-washing.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
+                           <img src="{{ asset('images/window-washing.png') }}" alt="">
                             <h2>Window washing</h2><br>
                             <p></p>
                         </div>
                     </div>
                      <div class="col-sm-4s">
                         <div class="single_service text-center">
-                            <img src="{{ asset('images/furnitures.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
+                            <img src="{{ asset('images/furnitures.png') }}" alt="">
                             <h2>Coverage of furnitures</h2><br>
                             <p></p>
                         </div>
                     </div>
                      <div class="col-sm-4s">
                         <div class="single_service text-center">
-                           <img src="{{ asset('images/payment-invoice.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
+                           <img src="{{ asset('images/payment-invoice.png') }}" alt="">
                             <h2>Payoment of Invoices</h2><br>
                             <p></p>
                         </div>
                     </div>
                      <div class="col-sm-4s">
                         <div class="single_service text-center">
-                            <img src="{{ asset('images/garden-maintenance.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
+                            <img src="{{ asset('images/garden-maintenance.png') }}" alt="">
                             <h2>Garden maintenance</h2><br>
                             <p></p>
                         </div>
                     </div>
                      <div class="col-sm-4s">
                         <div class="single_service text-center">
-                           <img src="{{ asset('images/invoices.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
+                           <img src="{{ asset('images/invoices.png') }}" alt="">
                             <h2>Invoice information that do not come from the Municipality</h2>
                             <p></p>
                         </div>
                     </div>
                      <div class="col-sm-4s">
                         <div class="single_service text-center">
-                            <img src="{{ asset('images/planting.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
-                            <h2>Planting</h2><br><br>
+                            <img src="{{ asset('images/planting.png') }}" alt="">
+                            <h2>Planting</h2><br>
                             <p></p>
                         </div>
                     </div>
                     <div class="col-sm-4s">
                         <div class="single_service text-center">
-                            <img src="{{ asset('images/grocery.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
+                            <img src="{{ asset('images/grocery.png') }}" alt="">
                             <h2>Buying household items</h2>
                             <p></p>
                         </div>
                     </div>
                     <div class="col-sm-4s">
                         <div class="single_service text-center">
-                           <img src="{{ asset('images/internet.png') }}" alt="" style="width:55%; border-radius: 15px; border: #04699a 3px solid;margin-top: 6%;">
+                           <img src="{{ asset('images/internet.png') }}" alt="">
                             <h2>Internet</h2>
                             <p></p>
                         </div>
@@ -296,19 +264,18 @@
                 <div class="row">
                     <div class="col-md-5">
                         <div class="explore_img hidden-sm hidden-xs">
-                            <!--<img src="http://static.wixstatic.com/media/e634ef_f3bf3b4500144c55a73cdcc6aa4ec5f7.png_srz_144_171_85_22_0.50_1.20_0.00_png_srz" alt="" style="width:100%;">-->
-                                 <img src="images/swan2.png" alt="" style="width:100%;">
+                             <img src="images/swan2.png" alt="" style="width:100%;">
                         </div>
                     </div>
                     <div class="col-md-7 col-xs-12">
                         <div class="row">
-                            <div class="col-sm-6 col-xs-12" style="border-right: white 1px solid;margin-top: 10px;padding-right: 30px;">
+                            <div class="col-sm-6 col-xs-12" id="vision-text">
                                 <div class="explore_text">
                                     <h3>Vision</h3>
                                     <p>Convinced on our uncompetitive professionalism that we bring, we tend to be on the top of the pyramid of similar companies in our domestic market. With sincere work and complete dedication, we will always work to be a symbol name of the care and maintenance of facilities.</p>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-xs-12" style="margin-top: 10px;">
+                            <div class="col-sm-6 col-xs-12" id="mission-text">
                                 <div class="explore_text explore_text_padding">
                                     <h3>Mission</h3>
                                     <p>We always work for customers and bring everything to them. Experience and innovation we bring to our country's market, are the strongest side in which we resist the competitors. Our sole aim is cleanliness, maintenance and the maximum liability for each object that we work for.</p>
@@ -319,52 +286,6 @@
                 </div>
             </div>
         </section>
-<!-- ==================================================
-   OUR TEAM
-=================================================== -->
-        <!--DO NOT DELETE
-          <section class="romana_team_area section_padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="section_title">
-                            <h2></h2>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="team_slider section_padding_top">
-                            <div class="single_staff">
-                                <a href="#"><img src="images/img1.jpg" alt=""></a>
-                                <a href="#"><h3></h3></a>
-                                <h4></h4>
-                                <p></p>
-                            </div>
-                            <div class="single_staff">
-                                <a href="#"><img src="images/img2.jpg" alt=""></a>
-                                <a href="#"><h3></h3></a>
-                                <h4></h4>
-                                <p></p>
-                            </div>
-                            <div class="single_staff">
-                                <a href="#"><img src="images/img3.jpg" alt=""></a>
-                                <a href="#"><h3></h3></a>
-                                <h4></h4>
-                                <p></p>
-                            </div>
-                            <div class="single_staff">
-                                <a href="#"><img src="images/img4.jpg" alt=""></a>
-                                <a href="#"><h3></h3></a>
-                                <h4></h4>
-                                <p></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>-->
 
 <!-- ==================================================
    CONTACT FORM
@@ -372,14 +293,14 @@
  
  <section class="romana_service_booking_area section_padding_top">
      <div class="container">
-         <h2 style="text-align: center;color: #04699a;font-weight: bold;margin-top: 0px;padding-bottom: 60px;">Need more help?</h2>
+         <h2 class="help-text">Need more help?</h2>
      </div>
 </section>
         
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'needhelp')" style="width: 33%;"><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp;&nbsp; Write us</button>
-  <button class="tablinks" onclick="openCity(event, 'callus')" style="width: 33%;"><i class="fa fa-phone" aria-hidden="true"></i> &nbsp;&nbsp; Call us</button>
-  <button class="tablinks" onclick="openCity(event, 'findus')" style="width: 33%;"><i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;&nbsp; Find us</button>
+  <button class="tablinks" onclick="openCity(event, 'needhelp')"><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp;&nbsp; Write us</button>
+  <button class="tablinks" onclick="openCity(event, 'callus')"><i class="fa fa-phone" aria-hidden="true"></i> &nbsp;&nbsp; Call us</button>
+  <button class="tablinks" onclick="openCity(event, 'findus')"><i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;&nbsp; Find us</button>
 </div>
 
 <div id="needhelp" class="tabcontent">
@@ -437,18 +358,18 @@
  <section class="romana_service_booking_area section_padding_top">
   <div class="container">
       <div class="leftside">
-                        <div class="section_title">
-                           <h2 style="color:#04699a;font-weight:bold;padding-bottom: 10px;">Mobile Phone</h2>
-                        </div>
-         <p>Urgent Calls!</p>
-         <h2 style="padding-bottom: 70px;">+389 (0) 70 123 456</h2>
+            <div class="section_title">
+                <h2>Mobile Phone</h2>
+            </div>
+            <p>Urgent Calls!</p>
+            <h2>+389 (0) 70 123 456</h2>
       </div>
       <div class="rightside">
-        <div class="section_title">
-                           <h2 style="color:#04699a;font-weight:bold;padding-bottom: 10px;">Office</h2>
-                        </div>
-      <p>Monday - Friday ( 09:00 - 17:00 )</p>
-      <h2 style="padding-bottom: 70px;">+389 (0) 70 123 456</h2>
+           <div class="section_title">
+                <h2>Office</h2>
+           </div>
+           <p>Monday - Friday ( 09:00 - 17:00 )</p>
+           <h2>+389 (0) 70 123 456</h2>
       </div>
  </div>
  </section>

@@ -48,15 +48,13 @@
             </div>
     </section>
 <!-- ==================================================
-    3.*Service-Area Start 
+   SERVICES
 =================================================== -->
         <section class="romana_service_area">
             <div class="container">
                 <div class="row">
-                    <!--<h2 class="services-title">Basis</h2><br>-->
-                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
+                    <div class="col-sm-4" id="services-list">
                         <div class="single_service text-center">
-                            <!--<img src="images/icon5.png" alt="">-->
                             <h2 style="text-align:left;">General cleaning</h2>
                             <ul>
                             <li class="service-text">    
@@ -73,9 +71,8 @@ Cellar - will be cleaned with vacuum cleaner and the floor will be cleaned with 
                         </div>
                     </div>
 
-                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
+                    <div class="col-sm-4" id="services-list">
                         <div class="single_service text-center">
-                            <!--<img src="images/icon5.png" alt="">-->
                             <h2 style="text-align:left;">Preparation of the house before the client arrives</h2>
                             <ul>
                             <li class="service-text"> 
@@ -93,9 +90,8 @@ Cellar - will be cleaned with vacuum cleaner and the floor will be cleaned with 
                         </div>
                     </div>
 
-                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
-                        <div class="single_service text-center">
-                            <!--<img src="images/icon5.png" alt="">-->
+                    <div class="col-sm-4" id="services-list">
+                         <div class="single_service text-center">
                             <h2 style="text-align:left;">Control every 14 days</h2>
                             <ul>
                             <li class="service-text"> 
@@ -111,10 +107,10 @@ Cellar - will be cleaned with vacuum cleaner and the floor will be cleaned with 
                     </div>
                 </div>
 
+
                 <div class="row">
-                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
+                    <div class="col-sm-4" id="services-list">
                         <div class="single_service text-center">
-                            <!--<img src="images/icon5.png" alt="">-->
                             <h2 style="text-align:left;">Monthly check</h2>
                             <ul>
                             <li class="service-text"> 
@@ -131,9 +127,8 @@ Cellar - will be cleaned with vacuum cleaner and the floor will be cleaned with 
                         </div>
                     </div>
 
-                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
+                    <div class="col-sm-4" id="services-list">
                         <div class="single_service text-center">
-                            <!--<img src="images/icon5.png" alt="">-->
                             <h2 style="text-align:left;">Reporting of errors / defects</h2>
                             <ul>
                             <li class="service-text">    
@@ -146,9 +141,8 @@ Cellar - will be cleaned with vacuum cleaner and the floor will be cleaned with 
                         </div>
                     </div>
                     
-                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
+                    <div class="col-sm-4" id="services-list">
                         <div class="single_service text-center">
-                            <!--<img src="images/icon5.png" alt="">-->
                             <h2 style="text-align:left;">Winter package</h2>
                             <ul> 
                             <li class="service-text"> 
@@ -166,9 +160,8 @@ Cleaning of the snow</p>
                 </div>
                 
                 <div class="row">
-                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
+                    <div class="col-sm-4" id="services-list">
                         <div class="single_service text-center">
-                            <!--<img src="images/icon5.png" alt="">-->
                             <h2 style="text-align:left;">Window washing</h2>
                             <ul> 
                             <li class="service-text">
@@ -181,9 +174,8 @@ Cleaning of the snow</p>
                         </div>
                     </div>
 
-                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
+                    <div class="col-sm-4" id="services-list">
                         <div class="single_service text-center">
-                            <!--<img src="images/icon5.png" alt="">-->
                             <h2 style="text-align:left;">Coverage of furnitures</h2>
                             <ul>
                             <li class="service-text"> 
@@ -196,9 +188,8 @@ Cleaning of the snow</p>
                         </div>
                     </div>
                     
-                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
+                    <div class="col-sm-4" id="services-list">
                         <div class="single_service text-center">
-                            <!--<img src="images/icon5.png" alt="">-->
                             <h2 style="text-align:left;">Payoment of Invoices</h2>
                             <ul> 
                             <li class="service-text"> 
@@ -213,9 +204,8 @@ Cleaning of the snow</p>
                 </div>
                 
                  <div class="row">
-                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
+                    <div class="col-sm-4" id="services-list">
                         <div class="single_service text-center">
-                            <!--<img src="images/icon5.png" alt="">-->
                             <h2 style="text-align:left;">Garden maintenance</h2>
                             <ul> 
                             <li class="service-text"> 
@@ -230,9 +220,8 @@ Cleaning of garden road</p>
                         </div>
                     </div>
 
-                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
+                    <div class="col-sm-4" id="services-list">
                         <div class="single_service text-center">
-                            <!--<img src="images/icon5.png" alt="">-->
                             <h2 style="text-align:left;">Invoice information that do not come from the Municipality</h2>
                             <ul> 
                             <li class="service-text">
@@ -246,9 +235,8 @@ Administration of these documents will be done for free from SWAN.</p>
                         </div>
                     </div>
                     
-                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
+                    <div class="col-sm-4" id="services-list">
                         <div class="single_service text-center">
-                            <!--<img src="images/icon5.png" alt="">-->
                             <h2 style="text-align:left;">Planting</h2>
                             <ul> 
                             <li class="service-text"> 
@@ -264,9 +252,8 @@ In the price is included that we will sow the flowers but the client should buy 
                 </div>
                 
                 <div class="row">
-                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px;border-top: #04699a solid 5px;width:100%;">
+                    <div class="col-sm-4" id="services-list">
                         <div class="single_service text-center">
-                            <!--<img src="images/icon5.png" alt="">-->
                             <h2 style="text-align:left;">Buying household articles</h2>
                             <ul>
                             <li class="service-text">
@@ -286,9 +273,8 @@ With these articles the house will be supplied before the client arrives and all
                         </div>
                     </div>
 
-                    <div class="col-sm-4" style="background-color: rgba(243, 243, 243, 0.67); border-radius: 10px;margin: 8px; border-top: #04699a solid 5px;width:100%;">
+                    <div class="col-sm-4" id="services-list">
                         <div class="single_service text-center">
-                            <!--<img src="images/icon5.png" alt="">-->
                             <h2 style="text-align:left;">Internet</h2>
                             <ul>  
                             <li class="service-text"> 
@@ -306,13 +292,12 @@ Reporting if there is any defect to the car.
                     </div>          
                 </div>
 
-
             </div>
         </section>
 <!-- ==================================================
     BANNER
 =================================================== -->
-        <section class="romana_clean_theme_area" style="background: rgba(0, 0, 0, 0) url(../images/services-bg2.jpg) no-repeat scroll center center / cover;">
+        <section class="romana_clean_theme_area" style="background: rgba(0, 0, 0, 0) url(../images/homebg2.jpg) no-repeat scroll center center / cover;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-5 col-sm-8">
@@ -339,10 +324,10 @@ Reporting if there is any defect to the car.
                 </div>-->
                 <div class="row" style="margin-top: -110px;">
                     <div class="col-sm-12">
-                        <div class="romana_single_price text-center" style="margin-top: 392px;">
-                            <h3>standard</h3>
+                        <div class="romana_single_price text-center" id="box-standard">
+                            <h3 class="header-standard">standard</h3>
                             <h4>29  €<span>/mo</span></h4>
-                            <ul>
+                            <ul style="text-align: left;padding-left: 13%;">
                                 <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 1 time</li>
                                 <li><i class="fa fa-check"></i>&nbsp Preparation 1 time</li>
                                 <li><i class="fa fa-check"></i>&nbsp Control every 14 Days</li>
@@ -353,10 +338,10 @@ Reporting if there is any defect to the car.
                         </div>
 
                         <!--<div class="romana_single_price price_current_item text-center" style="margin-top: 260px;">-->
-                        <div class="romana_single_price text-center" style="margin-top:289px;">
-                            <h3>ekstra</h3>
+                        <div class="romana_single_price text-center" id="box-ekstra">
+                            <h3 class="header-ekstra">ekstra</h3>
                             <h4>49 € <span>/mo</span></h4>
-                            <ul>
+                            <ul style="text-align: left;padding-left: 13%;">
                                 <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 2 times</li>
                                 <li><i class="fa fa-check"></i>&nbsp Preparation 2 times</li>
                                 <li><i class="fa fa-check"></i>&nbsp Control every 14 Days</li>
@@ -369,10 +354,10 @@ Reporting if there is any defect to the car.
                             <a href="#">Order now</a>
                         </div>
 
-                        <div class="romana_single_price text-center" style="margin-top: 186px;">
-                            <h3>eksklusiv</h3>
+                        <div class="romana_single_price text-center" id="box-eksklusiv">
+                            <h3 class="header-eksklusiv">eksklusiv</h3>
                             <h4>69 € <span>/mo</span></h4>
-                            <ul>
+                            <ul style="text-align: left;padding-left: 13%;">
                                 <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 2 times</li>
                                 <li><i class="fa fa-check"></i>&nbsp Preparation 2 times</li>
                                 <li><i class="fa fa-check"></i>&nbsp Control every 14 Daysl</li>
@@ -389,9 +374,9 @@ Reporting if there is any defect to the car.
                         </div>
 
                         <div class="romana_single_price text-center">
-                            <h3>eksklusiv +</h3>
+                            <h3 class="header-eksklusivp">eksklusiv +</h3>
                             <h4><span>Negotiable</span></h4><br><br>
-                            <ul>
+                            <ul style="text-align: left;padding-left: 13%;">
                                 <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 5 times</li>
                                 <li><i class="fa fa-check"></i>&nbsp Preparation 5 times</li>
                                 <li><i class="fa fa-check"></i>&nbsp Control every 14 Days</li>

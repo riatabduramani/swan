@@ -1,8 +1,8 @@
         <header class="romana_header">
             <div class="hrader_top_area">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-sm-2 col-xs-12" style="width: 41.667%;">
+                    <div class="row" id="header-box">
+                        <div class="col-sm-2 col-xs-12" id="logo-box">
                             <div class="logo">
                                 <a href="http://swan.mk"><img src="images/swan-logoh.png" alt="logo"></a>
                             </div>
@@ -51,7 +51,7 @@
                                         <li {{ (Request::is('/') ? 'class=active' : '') }}><a href="http://swan.mk">home</a></li>
                                         <li {{ (Request::is('about') ? 'class=active' : '') }}><a href="about">about us</a></li>
                                         <li {{ (Request::is('services') ? 'class=active' : '') }}><a href="services">our services</a></li>
-                                        <li {{ (Request::is('contact') ? 'class=active' : '') }}><a href="contact">contact 
+                                        <li {{ (Request::is('contact') ? 'class=active' : '') }}><a href="contact">contact</a></li>
                                     </ul>
                                 </nav>
                             </div>
