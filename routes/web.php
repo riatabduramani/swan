@@ -27,6 +27,8 @@ Route::get('services', function () {
     return view('frontend.pages.services');
 });
 
+
+
 Auth::routes();
 
 ///Route::get('/home', 'HomeController@index');
@@ -115,7 +117,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 	Route::resource('/tasks', 'Admin\\TodolistController');
 	Route::post('/tasks','Admin\\TodolistController@createtask');
 	Route::get('/tasks/done/{id}', 'Admin\\TodolistController@doneTask');
-
 });
 
 

@@ -17,7 +17,7 @@ class ToDoList extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('description');
-
+            $table->integer('repeat')->nullable();
             $table->integer('assigned_to')->unsigned()->nullable();
 
             $table->integer('customer_id')->unsigned()->nullable();

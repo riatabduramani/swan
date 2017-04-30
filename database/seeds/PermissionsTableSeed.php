@@ -260,7 +260,7 @@ class PermissionsTableSeed extends Seeder
                 'role_id' => 1,
             ),
             array(
-                'permission_id' => 21,
+                'permission_id' => 22,
                 'role_id' => 1,
             ),           
         ));

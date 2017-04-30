@@ -38,13 +38,20 @@
                             </div>
                           </div>
                           @role(['admin','superadmin'])
-                           <div class="col-md-6">
+                           <div class="col-md-4">
                             <div class="form-group">
-                            {!! Form::label('assign_to', 'Assign to:', ['class' => 'control-label']) !!}
+                              {!! Form::label('assign_to', 'Assign to:', ['class' => 'control-label']) !!}
                               {!! Form::select('assign_to',$users, null,['class' => 'form-control']) !!}
                             </div>
                           </div>
                           @endrole
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              {!! Form::label('repeat', 'Repeat every:', ['class' => 'control-label']) !!}
+                              {!! Form::select('repeat',array_combine(range(1,30),range(1,30)), null,['placeholder'=>'days...','class' => 'form-control']) !!}
+                              <p class="help-block">days</p>
+                            </div>
+                          </div>
                            <div class="col-md-12">
                           <div class="form-group">
                               
@@ -130,14 +137,29 @@
                                   'url' => ['/admin/tasks/done', $todolist->id],
                                   'style' => 'display:inline'
                               ]) !!}
-                                  {!! Form::button('<i class="fa fa-check" aria-hidden="true"></i> Mark as Done!', array(
+                                  {!! Form::button('<i class="fa fa-check" aria-hidden="true"></i>', array(
                                           'type' => 'submit',
                                           'class' => 'btn btn-success btn-xs',
                                           'onclick'=>'return confirm("Are you sure to mark it as Done?")'
                                   ))!!}
                                   
                               {!! Form::close() !!}
-
+                              
+                              @if($todolist->repeat != null)
+                              {!! Form::open([
+                                    'method'=>'GET',
+                                    'url' => ['/admin/tasks/done', $todolist->id],
+                                    'style' => 'display:inline'
+                                ]) !!}
+                                    {{ Form::hidden('norepeat', 'secret') }}
+                                    {!! Form::button('<i class="fa fa-check" aria-hidden="true"></i> ! <i class="fa fa-repeat" aria-hidden="true"></i>', array(
+                                            'type' => 'submit',
+                                            'class' => 'btn btn-warning btn-xs',
+                                            'onclick'=>'return confirm("Are you sure to mark it as Done and stop Repeating?")'
+                                    ))!!}
+                                {!! Form::close() !!}
+                              @endif
+                              
                               {!! Form::open([
                                   'method'=>'DELETE',
                                   'url' => ['/admin/tasks', $todolist->id],
@@ -165,7 +187,7 @@
                                             'class' => 'btn btn-success btn-xs',
                                             'onclick'=>'return confirm("Are you sure to mark it as Done?")'
                                     ))!!}
-                                {!! Form::close() !!}
+                                
                               @if($todolist->created_by == Auth::user()->id)
                                 {!! Form::open([
                                     'method'=>'GET',

@@ -63,6 +63,9 @@ trait HasModelTrait
             case $record->payment_method == 3:
                 return '<label class="label label-success" aria-hidden="true">Bank</label>';
                 break;
+            case $record->payment_method == NULL:
+                return ' - ';
+                break;
             default:
                return ' - ';
         }

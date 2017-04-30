@@ -341,49 +341,36 @@
                      <div class="panel panel-default">
                         <div class="panel-heading">
                            <strong>{{ $todolist->title }}</strong>
-                           @role(['admin','superadmin'])
-                           <div class="pull-right">
-                           {!! Form::open([
-                                  'method'=>'GET',
-                                  'url' => ['/admin/customer/todolist/done', $todolist->id],
-                                  'style' => 'display:inline'
-                              ]) !!}
-                                  {!! Form::button('<i class="fa fa-check" aria-hidden="true"></i> Mark as Done!', array(
-                                          'type' => 'submit',
-                                          'class' => 'btn btn-success btn-xs',
-                                          'onclick'=>'return confirm("Are you sure to mark it as Done?")'
-                                  ))!!}
-                                  
-                              {!! Form::close() !!}
 
-                              {!! Form::open([
-                                  'method'=>'GET',
-                                  'url' => ['/admin/customer/todolist', $todolist->id],
-                                  'style' => 'display:inline'
-                              ]) !!}
-                                  {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i>', array(
-                                          'type' => 'submit',
-                                          'class' => 'btn btn-danger btn-xs',
-                                          'onclick'=>'return confirm("Are you sure to delete the task?")'
-                                  ))!!}
-                              {!! Form::close() !!}
-                           </div>
-                           @endrole
-
-                           @role('employee')
-                           @if($todolist->assigned_to == Auth::user()->id)
+                           @if($todolist->assigned_to == Auth::user()->id || Auth::user()->hasRole(['admin','superadmin']))
                              <div class="pull-right">
-                             {!! Form::open([
+                                {!! Form::open([
                                     'method'=>'GET',
                                     'url' => ['/admin/customer/todolist/done', $todolist->id],
                                     'style' => 'display:inline'
                                 ]) !!}
-                                    {!! Form::button('<i class="fa fa-check" aria-hidden="true"></i> Mark as Done!', array(
+                                    {!! Form::button('<i class="fa fa-check" aria-hidden="true"></i>', array(
                                             'type' => 'submit',
                                             'class' => 'btn btn-success btn-xs',
                                             'onclick'=>'return confirm("Are you sure to mark it as Done?")'
                                     ))!!}
                                 {!! Form::close() !!}
+
+                                @if($todolist->repeat != null)
+                                 {!! Form::open([
+                                    'method'=>'GET',
+                                    'url' => ['/admin/customer/todolist/done', $todolist->id],
+                                    'style' => 'display:inline'
+                                ]) !!}
+                                    {{ Form::hidden('norepeat', 'secret') }}
+                                    {!! Form::button('<i class="fa fa-check" aria-hidden="true"></i> ! <i class="fa fa-repeat" aria-hidden="true"></i>', array(
+                                            'type' => 'submit',
+                                            'class' => 'btn btn-warning btn-xs',
+                                            'onclick'=>'return confirm("Are you sure to mark it as Done and stop Repeating?")'
+                                    ))!!}
+                                {!! Form::close() !!}
+                                @endif
+
                               @if($todolist->created_by == Auth::user()->id)
                                 {!! Form::open([
                                     'method'=>'GET',
@@ -399,7 +386,6 @@
                                @endif
                              </div>
                              @endif
-                           @endrole
 
 
                         </div>
@@ -471,6 +457,13 @@
                             </div>
                           </div>
                           @endrole
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              {!! Form::label('repeat', 'Repeat every:', ['class' => 'control-label']) !!}
+                              {!! Form::select('repeat',array_combine(range(1,30),range(1,30)), null,['placeholder'=>'select...','class' => 'form-control']) !!}
+                              <p class="help-block">days</p>
+                            </div>
+                          </div>
                            <div class="col-md-12">
                           <div class="form-group">
                               {!! Form::hidden('customer_id', $customer->id ) !!}

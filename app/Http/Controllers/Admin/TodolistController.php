@@ -32,6 +32,7 @@ class TodolistController extends Controller
                             $q->where('name', 'employee')->orWhere('name', 'admin');
                         })->pluck('name','id');
 
+
         return view('admin.tasks.index', compact('users','tasks','tasksdone'));
     }
 
@@ -55,6 +56,11 @@ class TodolistController extends Controller
             
             $todolist->created_by = Auth::user()->id;
             $todolist->duedate = $request->duedate;
+
+            if(!empty($request->repeat)) {
+                $todolist->repeat = $request->repeat;
+            }
+
             $todolist->save();
 
             Session::flash('flash_message', 'Your task has been added!');
@@ -67,14 +73,20 @@ class TodolistController extends Controller
         return redirect()->back();
     }
 
-    public function doneTask($id) {
+    public function doneTask(Request $request, $id) {
 
         $todolist = Todolist::findOrFail($id);
         $todolist->datedone = Carbon::now();
         $todolist->updated_by = Auth::user()->id;
+
+        if(!empty($request->norepeat)) {
+           $todolist->repeat = null;
+        }
+
         $todolist->update();
 
         Session::flash('flash_message', 'Your task has been marked as Done!');
         return redirect()->back();
     }
+
 }

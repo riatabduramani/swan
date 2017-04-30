@@ -58,10 +58,19 @@ class InvoiceController extends Controller
     	$update = Invoice::find($invoiceid);
     	
 	    $update->payment_status = $request->invoice_status;
-    	$update->payment_method = $request->payment_method;
+    	
+
         if($request->notes) {
             $update->description = $request->notes;
         }
+
+        if($request->invoice_status == 3) {
+            $update->payment_method = NULL;
+        } else {
+            $update->payment_method = $request->payment_method;
+        }
+        
+
     	$update->updated_by = $updatedby;
     	$update->paid_at = Carbon::now();
     	$update->update();
@@ -80,10 +89,16 @@ class InvoiceController extends Controller
         $update = Invoice::find($invoiceid);
         
         $update->payment_status = $request->invoice_status;
-        $update->payment_method = $request->payment_method;
+        //$update->payment_method = $request->payment_method;
 
         if($request->notes) {
             $update->description = $request->notes;
+        }
+
+         if($request->invoice_status == 3) {
+            $update->payment_method = NULL;
+        } else {
+            $update->payment_method = $request->payment_method;
         }
 
         $update->updated_by = $updatedby;
@@ -133,9 +148,11 @@ class InvoiceController extends Controller
 		//if the status is not Paid then show duedate
 		$invoice->payment_status = $request->invoice_status;
 		$paystatus = $request->invoice_status;
+
 		if($paystatus != 1) {
-			$duedate = Carbon::now();
-			$invoice->due_date = $duedate->addDays(8);
+            if(!empty($request->duedate)) {
+                $invoice->due_date = $request->duedate;
+            }
 		}
 		
 		$invoice->description = $request->service_note;
@@ -148,6 +165,7 @@ class InvoiceController extends Controller
 			$invoice->paid_at =  Carbon::now();
 			$invoice->payment_method = $request->payment_method;
 		}
+
 		//the user who has created this custom service
 		$invoice->created_by = $userid;
 
@@ -229,8 +247,9 @@ class InvoiceController extends Controller
         $paystatus = $request->invoice_status;
 
         if($paystatus != 1) {
-            $duedate = Carbon::now();
-            $invoice->due_date = $duedate->addDays(8);
+            if(!empty($request->duedate)) {
+                $invoice->due_date = $request->duedate;
+            }
         }
         
        
@@ -249,6 +268,10 @@ class InvoiceController extends Controller
         if($paystatus == 1) {
             $invoice->paid_at =  Carbon::now();
             $invoice->payment_method = $request->payment_method;
+        }
+
+        if($paystatus == 3) {
+            $invoice->payment_method = NULL;
         }
         //the user who has created this custom service
         $invoice->created_by = $userid;

@@ -318,6 +318,10 @@ class CustomerController extends Controller
             } else {
                 $todolist->assigned_to = Auth::user()->id;
             }
+
+            if(!empty($request->repeat)) {
+                $todolist->repeat = $request->repeat;
+            }
             
             $todolist->created_by = Auth::user()->id;
             $todolist->duedate = $request->duedate;
@@ -333,11 +337,16 @@ class CustomerController extends Controller
         return redirect()->back();
     }
 
-    public function doneTask($id) {
+    public function doneTask(Request $request, $id) {
 
         $todolist = Todolist::findOrFail($id);
         $todolist->datedone = Carbon::now();
         $todolist->updated_by = Auth::user()->id;
+
+        if(!empty($request->norepeat)) {
+           $todolist->repeat = null;
+        }
+
         $todolist->update();
 
         Session::flash('flash_message', 'Your task has been marked as Done!');

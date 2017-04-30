@@ -103,12 +103,12 @@
                                                     </div>
                                                     </div>
                                                 </div>
+
                                                  <div class="form-group" id="due_date_opt" style="display:none">
                                                      <div class="col-md-12">
-                                                     {!! Form::label('duedate', 'Due date:', ['class' => 'col-md-6 control-label']) !!}
-                                                     
-                                                        <div class="col-md-6">
-                                                             {!! Form::text('duedate', $duedate->format('d.m.Y'), ['class' => 'form-control text-center']) !!}
+                                                     {!! Form::label('duedate', 'Due date:', ['class' => 'col-md-4 control-label']) !!}
+                                                        <div class="col-md-8">
+                                                             {!! Form::date('duedate', \Carbon\Carbon::today()->addDays(8), ['class' => 'form-control text-center']) !!}
                                                         </div>
                                                      </div>
                                                     

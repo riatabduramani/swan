@@ -32,7 +32,7 @@
                     } else {
                         document.getElementById('payment_method_opt').style.display = 'none';
                         document.getElementById('due_date_opt').style.display = 'block';
-                        document.getElementById('duedate').disabled = true;
+                        //document.getElementById('duedate').disabled = true;
                     }
                 }
     </script>
