@@ -41,9 +41,14 @@ class InvoiceController extends Controller
         $invoice = Invoice::with('packetservice')->find($id);
         $datenow = Carbon::now();
         $customerid = $invoice->customer->id;
-        $chosenpacket = Subscription::with('customer')->where('customer_id', $customerid)->get()->last();
+        $chosenpacket = Subscription::with('customer')
+                                    ->where('customer_id', $customerid)
+                                    ->where('end','>=', Carbon::now())
+                                    ->get()->first();
+
+        $chosenpacketnext = Subscription::with('customer')->where('customer_id', $customerid)->get()->last();
         
-        return view('admin.invoices.showpacketinvoice',compact('invoice','datenow','chosenpacket'));
+        return view('admin.invoices.showpacketinvoice',compact('invoice','datenow','chosenpacket','chosenpacketnext'));
     }
     
 
@@ -66,6 +71,7 @@ class InvoiceController extends Controller
 
         if($request->invoice_status == 3) {
             $update->payment_method = NULL;
+            $update->declined_at = Carbon::now();
         } else {
             $update->payment_method = $request->payment_method;
         }
@@ -256,9 +262,6 @@ class InvoiceController extends Controller
         $packetdate = Carbon::now();
         $invoice->end_date = $packetdate->addYear(1);
 
-
-
-        
         $invoice->description = $request->service_note;
         $invoice->customer_id = $request->customer_id;
         
@@ -278,15 +281,25 @@ class InvoiceController extends Controller
 
         $invoice->save();
 
-        $subscription = new Subscription();
-        $subscription->invoice_id = $invoice->id;
-        $subscription->customer_id = $customerid;
-        $subscription->packet_id = $request->packets;
-        $subscription->start = Carbon::now();
-        $subscription->end = Carbon::now()->addYear(1);
-        $subscription->save();
+        $chosenpacket = Subscription::with('customer')->where('customer_id', $customerid)->get()->last();
 
-        //dd($invoice);
+        if(count($chosenpacket) > 0) {
+            $subscription = new Subscription();
+            $subscription->invoice_id = $invoice->id;
+            $subscription->customer_id = $customerid;
+            $subscription->packet_id = $request->packets;
+            $subscription->start = Carbon::parse($chosenpacket->end);
+            $subscription->end = Carbon::parse($chosenpacket->end)->addYear(1);
+            $subscription->save();
+        } else {
+            $subscription = new Subscription();
+            $subscription->invoice_id = $invoice->id;
+            $subscription->customer_id = $customerid;
+            $subscription->packet_id = $request->packets;
+            $subscription->start = Carbon::now();
+            $subscription->end = Carbon::now()->addYear(1);
+            $subscription->save();
+        }
 
         Session::flash('flash_message', 'Invoice created successfully!');
 

@@ -35,6 +35,22 @@
                                      Packet: 
                                      @if(isset($chosenpacket))
                                      <span class="label label-primary">{{ $chosenpacket->packet->name }}</span>
+                                     <br />
+                                     <small>(
+                                     {{ date('d.m.Y',strtotime($chosenpacket->start)) }} -
+                                     {{ date('d.m.Y',strtotime($chosenpacket->end)) }}
+                                     )</small>
+                                     @foreach($chosenpacketnextpacket as $chosenpacketnext)
+                                       @if(isset($chosenpacketnext) && ($chosenpacketnext->invoice_id != $chosenpacket->invoice_id))
+                                       <br /><br />
+                                        <small>Next packet: <b>{{ $chosenpacketnext->packet->name }}</b></small>
+                                        <br />
+                                         <small>(
+                                         {{ date('d.m.Y',strtotime($chosenpacketnext->start)) }} -
+                                         {{ date('d.m.Y',strtotime($chosenpacketnext->end)) }}
+                                         )</small>
+                                       @endif
+                                      @endforeach
                                      @else
                                      <span class="label label-warning">NO CHOSEN PACKET</span>
                                      @endif
@@ -196,8 +212,9 @@
 
             <div class="col-md-8">
                 <div class="panel panel-default">
-                    <div class="panel-heading"  style="background: #04699a;color: #fff;">CUSTOMER ADDRESS
-                    
+                    <div class="panel-heading"  style="background: #04699a;color: #fff;">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      CUSTOMER ADDRESS
                      <div class="pull-right">
                         <a href="{{ url('/admin/customer') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
 
@@ -352,6 +369,7 @@
                                     {!! Form::button('<i class="fa fa-check" aria-hidden="true"></i>', array(
                                             'type' => 'submit',
                                             'class' => 'btn btn-success btn-xs',
+                                            'title' => 'Mark as DONE!',
                                             'onclick'=>'return confirm("Are you sure to mark it as Done?")'
                                     ))!!}
                                 {!! Form::close() !!}
@@ -366,6 +384,7 @@
                                     {!! Form::button('<i class="fa fa-check" aria-hidden="true"></i> ! <i class="fa fa-repeat" aria-hidden="true"></i>', array(
                                             'type' => 'submit',
                                             'class' => 'btn btn-warning btn-xs',
+                                            'title' => 'Mark as DONE and do not Repeat this task!',
                                             'onclick'=>'return confirm("Are you sure to mark it as Done and stop Repeating?")'
                                     ))!!}
                                 {!! Form::close() !!}

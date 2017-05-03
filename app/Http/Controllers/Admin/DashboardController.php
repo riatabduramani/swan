@@ -39,6 +39,11 @@ class DashboardController extends Controller
 
         $comments = Comment::where('commented_by', Auth::user()->id)->take(5)->get();
 
-    	return view('admin.dashboard', compact('customers','tasks','invoices','comments'));
+        $customerexpirepacket = Subscription::with('customer')
+                                                ->whereBetween('end', array(Carbon::now(), Carbon::now()->subDays(50)))
+                                                ->get();
+
+
+    	return view('admin.dashboard', compact('customers','tasks','invoices','comments','customerexpirepacket'));
     }
 }

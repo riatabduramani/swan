@@ -246,7 +246,16 @@ class CustomerController extends Controller
     public function show($id) {
 
         $customer = Customer::with('cities','district','invoice')->findOrFail($id);
-        $chosenpacket = Subscription::with('customer')->where('customer_id', $id)->get()->last();
+        //$chosenpacket = Subscription::with('customer')->where('customer_id', $id)->get()->last();
+        $chosenpacket = Subscription::with('customer')
+                                    ->where('customer_id', $id)
+                                    ->where('end','>=', Carbon::now())
+                                    ->get()->first();
+
+        $chosenpacketnextpacket = Subscription::with('customer')
+                                                ->where('customer_id', $id)
+                                                ->where('end','>=', Carbon::now())
+                                                ->get();
         //$invoices = Invoice::with('customer')->findOrFail();
         //$users = User::pluck('name','id');
         $tasks = Todolist::where('customer_id',$id)->whereNull('datedone')->orderBy('duedate','asc')->get();
@@ -257,7 +266,7 @@ class CustomerController extends Controller
                             $q->where('name', 'employee')->orWhere('name', 'admin');
                         })->pluck('name','id');
 
-        return view('admin.customer.show', compact('customer','chosenpacket','users','tasks','tasksdone'));
+        return view('admin.customer.show', compact('customer','chosenpacket','chosenpacketnextpacket','users','tasks','tasksdone'));
     }
 
     public function destroy($id) {

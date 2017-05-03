@@ -140,6 +140,7 @@
                                   {!! Form::button('<i class="fa fa-check" aria-hidden="true"></i>', array(
                                           'type' => 'submit',
                                           'class' => 'btn btn-success btn-xs',
+                                          'title' => 'Mark as Done!',
                                           'onclick'=>'return confirm("Are you sure to mark it as Done?")'
                                   ))!!}
                                   
@@ -154,6 +155,7 @@
                                     {{ Form::hidden('norepeat', 'secret') }}
                                     {!! Form::button('<i class="fa fa-check" aria-hidden="true"></i> ! <i class="fa fa-repeat" aria-hidden="true"></i>', array(
                                             'type' => 'submit',
+                                            'title' => 'Mark as DONE and do not Repeat this task!',
                                             'class' => 'btn btn-warning btn-xs',
                                             'onclick'=>'return confirm("Are you sure to mark it as Done and stop Repeating?")'
                                     ))!!}

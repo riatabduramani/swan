@@ -27,8 +27,6 @@ Route::get('services', function () {
     return view('frontend.pages.services');
 });
 
-
-
 Auth::routes();
 
 ///Route::get('/home', 'HomeController@index');
@@ -76,7 +74,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 	'middleware'=>['permission:view-listedinvoices']
 	]);
 
-
 	Route::get('/invoice/{id}', [
 	'as' => 'delete_invoice',
 	'uses' => 'Admin\\InvoiceController@destroy',
@@ -93,7 +90,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 	Route::post('/invoice/packetinvoice/add','Admin\\InvoiceController@storePacketInvoice',['middleware'=>['permission:view-listedinvoices']]);
 
 	Route::get('product_prices', 'Admin\\InvoiceController@product_prices');
-	//END INVOICE PACKET	
+	//END INVOICE PACKET
 
 	Route::resource('/customer', 'Admin\\CustomerController');
 	Route::post('/customer/comment','Admin\\CustomerController@storecomment');
@@ -119,13 +116,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 	Route::get('/tasks/done/{id}', 'Admin\\TodolistController@doneTask');
 });
 
-
 Route::group(['prefix' => 'client', 'middleware' => ['auth','role:client']], function() {
 	Route::get('/dashboard', 'HomeController@index');
 	
 }); 
-
-
 
 //Route::resource('/roles','Admin\\RoleController');
 //Route::resource('admin/customer-status', 'Admin\\CustomerStatusController');
