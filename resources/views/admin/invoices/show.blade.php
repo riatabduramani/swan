@@ -117,13 +117,25 @@
                                     <div class="col-md-12" style=" margin-top: 10px;">
                                     {!! Form::label('payment_method', 'Payment method:', ['class' => 'col-md-6 control-label']) !!}
                                     <div class="col-md-6">
-                                        {!! Form::select('payment_method', config('app.paymentmenthod'), null, ['class' => 'form-control']) !!}
+                                        {!! Form::select('payment_method', config('app.paymentmenthod'), null, ['class' => 'form-control','onchange'=>"enableApplyCredits()"]) !!}
                                         {!! $errors->first('payment_method', '<p class="help-block">:message</p>') !!}
                                     </div>
                                     </div>
                                 </div>
+
+                                  <div id="apply_credits" style="display:none" class="form-group {{ $errors->has('apply_credit') ? 'has-error' : ''}}">
+                                    <div class="col-md-12" style="margin-top: 10px">
+                                    {!! Form::label('apply_credit', 'Apply credit:', ['class' => 'col-md-6 control-label']) !!}
+                                    <div class="col-md-6">
+                                        {!! Form::select('apply_credit', $credits, null, ['class' => 'form-control','placeholder'=>'Choose amount...']) !!}
+                                        {!! $errors->first('apply_credit', '<p class="help-block">:message</p>') !!}
+                                    </div>
+                                    </div>
+                                </div>
+
                                 <div class="form-group update">
                                   {!! Form::hidden('invoice_id', $invoice->id ) !!}
+                                  {!! Form::hidden('service_price', $invoice->total_sum ) !!}
                                     <div class="col-md-12 text-right" style="margin-top: 10px;padding-right: 31px;">
                                         <button class="btn btn-primary" type="submit"><i class="fa fa-pencil-square" aria-hidden="true"></i>
  Update</button>

@@ -339,6 +339,108 @@
                  </div>
               </div>
 @endpermission
+
+@permission('view-listedinvoices')
+                <div class="panel panel-default">
+                    <div class="panel-heading"  style="background: #04699a;color: #fff;">
+                    <i class="fa fa-usd" aria-hidden="true"></i>
+                        CREDITS
+                      <div class="pull-right">
+                        <b>Credit Balance:</b> {{ $credit }} &euro;
+                      </div>
+              </div>
+                 <div class="panel-body">
+                 <div class="row" id="credits">
+                 <div class="col-md-12">
+                 
+                  {!! Form::open([
+                      'route' => 'credits.store'
+                  ]) !!}
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                              {!! Form::textarea('notes',null,['placeholder'=>'Notes','class' => 'form-control','required','rows'=>'1']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                           <div class="input-group">
+                                {!! Form::text('amount',null,['placeholder'=>"0.00",'class' => 'form-control text-right','required','min'=>'0']) !!} 
+                              <div class="input-group-addon">&euro;</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                          <div class="form-group">
+                              {!! Form::hidden('customer_id', $customer->id ) !!}
+                              {!! Form::submit('Add credit',['class'=>'btn btn-primary','id'=>'btn-save']) !!}
+                          </div>
+                        </div>
+
+                  {!! Form::close() !!}
+                </div>
+                </div>
+
+                 @if(count($customer->credits) > 0)             
+                                <table class="table table-bordered" id="listinvoice">
+                                  <thead>
+                                    <tr>
+                                      <th>ID.</th> 
+                                      <th>Notes</th>
+                                      <th>Amount</th>
+                                      <th>Balance</th>
+                                      <th>Credit date</th>
+                                      <th>Actions</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+
+                                  @foreach($customer->credits as $credit)
+                                    <tr>
+                                      <td>{{ $credit->id }}</td>
+                                      <td>{{ $credit->notes }}</td>
+                                      <td>{{ $credit->amount }}</td>
+                                      <td 
+                                      @if($credit->balance < 0) 
+                                        style="color:red" 
+                                      @elseif($credit->balance == 0)
+                                        style="color:#ecc00c"
+                                      @elseif($credit->balance > 0)
+                                        style="color:green"
+                                      @endif
+                                      > 
+
+                                      {{ $credit->balance }}</td>
+                                      <td>{{ date('d.m.Y', strtotime($credit->created_at)) }}</td>
+                                      <td>
+
+                                      {!! Form::open([
+                                          'method'=>'DELETE',
+                                          'url' => ['/admin/credits', $credit->id],
+                                          'style' => 'display:inline'
+                                      ]) !!}
+                                          {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i>', array(
+                                                  'type' => 'submit',
+                                                  'class' => 'btn btn-danger btn-xs',
+                                                  'onclick'=>'return confirm("Are you sure to delete the credit?")'
+                                          ))!!}
+                                      {!! Form::close() !!}
+
+                                       <a href="{{ route('credits.edit', $credit->id) }}" class="btn btn-primary btn-xs">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                       </a>
+
+                                    </td>
+                                    </tr>
+                                  @endforeach
+                                    
+                                   </tbody>
+                                </table>
+                              @else
+                                No credits added!
+                              @endif
+                 </div>
+              </div>
+@endpermission
               <!-- TO  DO LIST SECTION -->
               <div class="panel panel-default">
                 <div class="panel-heading" style="background: #04699a;color: #fff;">
@@ -483,7 +585,7 @@
                               <p class="help-block">days</p>
                             </div>
                           </div>
-                           <div class="col-md-12">
+                          <div class="col-md-12">
                           <div class="form-group">
                               {!! Form::hidden('customer_id', $customer->id ) !!}
                               {!! Form::submit('Create Task',['class'=>'btn btn-primary','id'=>'btn-save']) !!}

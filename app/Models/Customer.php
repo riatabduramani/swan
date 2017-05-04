@@ -93,6 +93,11 @@ class Customer extends Model
     {
         return $this->belongsToMany('App\Models\Document');
     }
+
+    public function credits()
+    {
+        return $this->hasMany('App\Models\Credits');
+    }
 }
 
 

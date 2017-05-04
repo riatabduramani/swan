@@ -14,6 +14,7 @@ use App\Models\Invoice;
 use App\Models\Subscription;
 use App\Models\Todolist;
 use App\Models\Document;
+use App\Models\Credits;
 use File;
 use App\User;
 use Session;
@@ -266,7 +267,9 @@ class CustomerController extends Controller
                             $q->where('name', 'employee')->orWhere('name', 'admin');
                         })->pluck('name','id');
 
-        return view('admin.customer.show', compact('customer','chosenpacket','chosenpacketnextpacket','users','tasks','tasksdone'));
+        $credit = Credits::with('customer')->where('customer_id', $id)->sum('balance');
+
+        return view('admin.customer.show', compact('customer','chosenpacket','chosenpacketnextpacket','users','tasks','tasksdone','credit'));
     }
 
     public function destroy($id) {

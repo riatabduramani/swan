@@ -7,15 +7,21 @@
             <div class="panel panel-default">
                     <div class="panel-heading" style="background: rgb(4, 105, 154); color: rgb(255, 255, 255);">
                     <i class="fa fa-users" aria-hidden="true"></i> Number of clients</div>
-                    <div class="panel-body text-center" style="height:250px;overflow-y:auto;">
+                    <div class="panel-body text-center" style="height:130px;overflow-y:auto;">
                         <a href="/admin/customer" style="text-decoration: none">
-                            <h1><b>@if($customers) {{ $customers }} @else 0 @endif</b></h1>
-                            <h3>active customers</h3>
+                            <h2><b>@if($customers) {{ $customers }} @else 0 @endif</b></h2>
+                            <h4>active customers</h4>
                         </a>
-                        @foreach($customerexpirepacket as $expire)
-                            {{ $expire->customer->name }}
-                        @endforeach
+                        
                     </div>
+                    <ul class="panel-body list-group" style="height:120px;overflow-y:auto;">
+                        @foreach($expiry as $expire)
+                        <a href="/admin/customer/{{$expire->customer_id}}" class="list-group-item">
+                            <i class="fa fa-exclamation" aria-hidden="true" style="color: red"></i>
+ <b>Packet:</b> {{ $expire->packet->name }} <small>{{ date('d.m.Y', strtotime($expire->end)) }}</small> | <b>Customer:</b> {{ $expire->customer->user->name }} {{ $expire->customer->user->surname }}
+                        </a>
+                        @endforeach
+                    </ul>
             </div>
         </div>
         <div class="col-md-6">

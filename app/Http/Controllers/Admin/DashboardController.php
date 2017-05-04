@@ -37,13 +37,14 @@ class DashboardController extends Controller
 
     	$invoices = Invoice::with('customer')->where('payment_status', 2)->get();
 
-        $comments = Comment::where('commented_by', Auth::user()->id)->take(5)->get();
+        $comments = Comment::where('commented_by', Auth::user()->id)->orderBy('id', 'DESC')->take(5)->get();
 
-        $customerexpirepacket = Subscription::with('customer')
-                                                ->whereBetween('end', array(Carbon::now(), Carbon::now()->subDays(50)))
-                                                ->get();
+        $expiry = Subscription::with('customer')
+                                ->select('*')
+                                ->whereRaw('end >= DATE(now())')
+                                ->whereRaw('end <= DATE_ADD(DATE(now()), INTERVAL 30 DAY)')
+                                ->get();
 
-
-    	return view('admin.dashboard', compact('customers','tasks','invoices','comments','customerexpirepacket'));
+    	return view('admin.dashboard', compact('customers','tasks','invoices','comments','expiry'));
     }
 }

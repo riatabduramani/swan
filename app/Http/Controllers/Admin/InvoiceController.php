@@ -8,6 +8,7 @@ use App\Models\CustomerServices;
 use App\Models\Invoice;
 use App\Models\Customer;
 use App\Models\Packet;
+use App\Models\Credits;
 use App\Models\Subscription;
 use App\User;
 use Illuminate\Support\Facades\Input;
@@ -32,8 +33,12 @@ class InvoiceController extends Controller
         $customerid = $invoice->customer->id;
     	$datenow = Carbon::now();
         $chosenpacket = Subscription::with('customer')->where('customer_id', $customerid)->get()->last();
+        $credits = Credits::with('customer')->where('customer_id',$customerid)
+                                    ->where('balance','!=', 0)
+                                    ->where('balance','>',0)
+                                    ->pluck('balance','id');
         
-        return view('admin.invoices.show',compact('invoice','datenow','chosenpacket'));
+        return view('admin.invoices.show',compact('invoice','datenow','chosenpacket','credits'));
     }
 
     public function showpacketinvoice($id) {
@@ -47,8 +52,12 @@ class InvoiceController extends Controller
                                     ->get()->first();
 
         $chosenpacketnext = Subscription::with('customer')->where('customer_id', $customerid)->get()->last();
+        $credits = Credits::with('customer')->where('customer_id',$user->customer->id)
+                                    ->where('balance','!=', 0)
+                                    ->where('balance','>',0)
+                                    ->pluck('balance','id');
         
-        return view('admin.invoices.showpacketinvoice',compact('invoice','datenow','chosenpacket','chosenpacketnext'));
+        return view('admin.invoices.showpacketinvoice',compact('invoice','datenow','chosenpacket','chosenpacketnext','credits'));
     }
     
 
@@ -76,6 +85,11 @@ class InvoiceController extends Controller
             $update->payment_method = $request->payment_method;
         }
         
+        if(!empty($request->apply_credit)) {
+            $credit = Credits::find($request->apply_credit);
+            $credit->balance = $credit->balance - $request->service_price;
+            $credit->save();
+        } 
 
     	$update->updated_by = $updatedby;
     	$update->paid_at = Carbon::now();
@@ -106,6 +120,12 @@ class InvoiceController extends Controller
         } else {
             $update->payment_method = $request->payment_method;
         }
+
+        if(!empty($request->apply_credit)) {
+            $credit = Credits::find($request->apply_credit);
+            $credit->balance = $credit->balance - $request->total_sum;
+            $credit->save();
+        } 
 
         $update->updated_by = $updatedby;
         $update->paid_at = Carbon::now();
@@ -163,8 +183,17 @@ class InvoiceController extends Controller
 		
 		$invoice->description = $request->service_note;
 		$invoice->customer_id = $request->customer_id;
+
+        if(!empty($request->apply_credit)) {
+            $credit = Credits::find($request->apply_credit);
+            $credit->balance = $credit->balance - $request->service_price;
+            $credit->save();
+            $invoice->total_sum = $request->service_price;
+        } 
+        else {
+            $invoice->total_sum = $request->service_price;
+        }
 		
-		$invoice->total_sum = $request->service_price;
 		
 		//if status is Paid then it should insert this date
 		if($paystatus == 1) {
@@ -197,7 +226,12 @@ class InvoiceController extends Controller
 
         $packets = Packet::listsTranslations('name')->pluck('name', 'id');
 
-	    return view('admin.invoices.create', compact('customerid','user','duedate','invoicetype','packets'));	
+        $credits = Credits::with('customer')->where('customer_id',$user->customer->id)
+                                    ->where('balance','!=', 0)
+                                    ->where('balance','>',0)
+                                    ->pluck('balance','id');
+
+	    return view('admin.invoices.create', compact('customerid','user','duedate','invoicetype','packets','credits'));	
 	   
 	}
 
@@ -212,7 +246,12 @@ class InvoiceController extends Controller
 
         $packets = Packet::listsTranslations('name')->pluck('name', 'id');
 
-        return view('admin.invoices.create-packet', compact('customerid','user','duedate','packets'));   
+        $credits = Credits::with('customer')->where('customer_id',$user->customer->id)
+                                            ->where('balance','!=', 0)
+                                            ->where('balance','>', 0)
+                                            ->pluck('balance','id');
+
+        return view('admin.invoices.create-packet', compact('customerid','user','duedate','packets','credits'));   
        
     }
 
@@ -265,7 +304,16 @@ class InvoiceController extends Controller
         $invoice->description = $request->service_note;
         $invoice->customer_id = $request->customer_id;
         
-        $invoice->total_sum = $request->total_sum;
+        if(!empty($request->apply_credit)) {
+            $credit = Credits::find($request->apply_credit);
+            $credit->balance = $credit->balance - $request->total_sum;
+            $credit->save();
+            $invoice->total_sum = $request->total_sum;
+        } 
+        else {
+            $invoice->total_sum = $request->total_sum;
+        }
+        
         
         //if status is Paid then it should insert this date
         if($paystatus == 1) {

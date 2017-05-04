@@ -35,6 +35,20 @@
                         //document.getElementById('duedate').disabled = true;
                     }
                 }
+
+        function enableApplyCredits() {
+                var e = document.getElementById("payment_method");
+                var value = e.options[e.selectedIndex].value;
+                var text = e.options[e.selectedIndex].text;
+               
+                if(value==4) {
+                        document.getElementById('apply_credits').style.display = 'block';
+                        $("#apply_credit").attr('required', ''); 
+                    } else {
+                        document.getElementById('apply_credits').style.display = 'none';
+                        $("#apply_credit").removeAttr('required');
+                    }
+                }
     </script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 

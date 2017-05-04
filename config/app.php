@@ -89,7 +89,7 @@ return [
     'packettype' => ['1'=>'normal', '2'=>'popular', '3'=>'extended'],
 
     'invoicestatus' => ['1'=>'paid', '2'=>'unpaid', '3'=>'declined'], 
-    'paymentmenthod' => ['1'=>'Cash', '2'=>'Online', '3'=>'Bank'],
+    'paymentmenthod' => ['1'=>'Cash', '2'=>'Online', '3'=>'Bank', '4'=>'Apply credit'],
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale

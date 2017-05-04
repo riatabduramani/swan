@@ -61,7 +61,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 	'middleware'=>['permission:view-listedinvoices']
 	]);
 
-
 	Route::post('/invoice/custominvoice/create', [
 	'as' => 'invoice_update',
 	'uses' => 'Admin\\InvoiceController@updatecustompaymentinvoice',
@@ -101,6 +100,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 	Route::post('/customer/attachdoc', array('as' => 'attach', 'uses' => 'Admin\\CustomerController@attachdocument'));
 	Route::delete('/customer/attachdoc/{id}', 'Admin\\CustomerController@deleteDocument');
 	//Route::post('/customer/attachdoc','Admin\\CustomerController@attachdocument');
+
+	//Apply credits
+	Route::post('/customer/credits', array('as' => 'addCredit', 'uses' => 'Admin\\CustomerController@addcredit'));
+	Route::delete('/customer/credits/{id}', 'Admin\\CustomerController@deletecredit');
+	Route::post('/customer/credits/edit', array('as' => 'updateCredit', 'uses' => 'Admin\\CustomerController@updatecredit'));
+
+	Route::resource('/credits', 'Admin\\CreditsController');
 
 	//Todolist
 	Route::post('/customer/todolist','Admin\\CustomerController@createtask');

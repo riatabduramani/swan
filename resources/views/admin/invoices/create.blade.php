@@ -95,11 +95,22 @@
                         <div class="col-md-12">
                         {!! Form::label('payment_method', 'Payment method:', ['class' => 'col-md-6 control-label']) !!}
                         <div class="col-md-6">
-                            {!! Form::select('payment_method', config('app.paymentmenthod'), null, ['class' => 'form-control']) !!}
+                            {!! Form::select('payment_method', config('app.paymentmenthod'), null, ['class' => 'form-control','onchange'=>"enableApplyCredits()"]) !!}
                             {!! $errors->first('payment_method', '<p class="help-block">:message</p>') !!}
                         </div>
                         </div>
                     </div>
+
+                     <div id="apply_credits" style="display:none" class="form-group {{ $errors->has('apply_credit') ? 'has-error' : ''}}">
+                        <div class="col-md-12">
+                        {!! Form::label('apply_credit', 'Apply credit:', ['class' => 'col-md-6 control-label']) !!}
+                        <div class="col-md-6">
+                            {!! Form::select('apply_credit', $credits, null, ['class' => 'form-control','placeholder'=>'Choose amount...']) !!}
+                            {!! $errors->first('apply_credit', '<p class="help-block">:message</p>') !!}
+                        </div>
+                        </div>
+                    </div>
+                    
                      <div class="form-group" id="due_date_opt" style="display:none">
                          
                          <div class="col-md-12">
