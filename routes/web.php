@@ -91,25 +91,20 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 	Route::get('product_prices', 'Admin\\InvoiceController@product_prices');
 	//END INVOICE PACKET
 
-	Route::resource('/customer', 'Admin\\CustomerController');
-	Route::post('/customer/comment','Admin\\CustomerController@storecomment');
+	Route::resource('/customer', 'Admin\\CustomerController',['middleware'=>['permission:view-customer,delete-customer,create-customer']]);
+	Route::post('/customer/comment','Admin\\CustomerController@storecomment',['middleware'=>['permission:create-comment']]);
 	Route::get('/customer/comment/{id}', 'Admin\\CustomerController@deleteComment');
-	Route::get('/customer/invoice/{id}', 'Admin\\CustomerController@deleteInvoice');
-	//Route::get('/customer/allowlogin/{id}', 'Admin\\CustomerController@allowlogin');
+	Route::get('/customer/invoice/{id}', 'Admin\\CustomerController@deleteInvoice',['middleware'=>['permission:delete-invoice']]);
+
 	Route::post('/customer/allowlogin', array('as' => 'allowLogin', 'uses' => 'Admin\\CustomerController@allowlogin'));
-	Route::post('/customer/attachdoc', array('as' => 'attach', 'uses' => 'Admin\\CustomerController@attachdocument'));
+	Route::post('/customer/attachdoc', array('as' => 'attach', 'uses' => 'Admin\\CustomerController@attachdocument',['middleware'=>['permission:upload-documents']]));
 	Route::delete('/customer/attachdoc/{id}', 'Admin\\CustomerController@deleteDocument');
-	//Route::post('/customer/attachdoc','Admin\\CustomerController@attachdocument');
 
 	//Apply credits
-	Route::post('/customer/credits', array('as' => 'addCredit', 'uses' => 'Admin\\CustomerController@addcredit'));
-	Route::delete('/customer/credits/{id}', 'Admin\\CustomerController@deletecredit');
-	Route::post('/customer/credits/edit', array('as' => 'updateCredit', 'uses' => 'Admin\\CustomerController@updatecredit'));
-
-	Route::resource('/credits', 'Admin\\CreditsController');
+	Route::resource('/credits', 'Admin\\CreditsController',['middleware'=>['permission:manage-credits']]);
 
 	//Todolist
-	Route::post('/customer/todolist','Admin\\CustomerController@createtask');
+	Route::post('/customer/todolist','Admin\\CustomerController@createtask',['middleware'=>['permission:create-task']]);
 	Route::get('/customer/todolist/{id}', 'Admin\\CustomerController@deleteTask');
 	Route::get('/customer/todolist/done/{id}', 'Admin\\CustomerController@doneTask');
 
@@ -118,7 +113,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 
 	//Tasks
 	Route::resource('/tasks', 'Admin\\TodolistController');
-	Route::post('/tasks','Admin\\TodolistController@createtask');
+	Route::post('/tasks','Admin\\TodolistController@createtask',['middleware'=>['permission:create-task']]);
 	Route::get('/tasks/done/{id}', 'Admin\\TodolistController@doneTask');
 });
 

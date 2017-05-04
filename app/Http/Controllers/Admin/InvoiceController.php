@@ -16,6 +16,9 @@ use Carbon\Carbon;
 use Session;
 use Auth;
 
+use App\Order;
+use App\Mail\InvoiceGenerated;
+use Illuminate\Support\Facades\Mail;
 
 class InvoiceController extends Controller
 {
@@ -52,7 +55,7 @@ class InvoiceController extends Controller
                                     ->get()->first();
 
         $chosenpacketnext = Subscription::with('customer')->where('customer_id', $customerid)->get()->last();
-        $credits = Credits::with('customer')->where('customer_id',$user->customer->id)
+        $credits = Credits::with('customer')->where('customer_id',$customerid)
                                     ->where('balance','!=', 0)
                                     ->where('balance','>',0)
                                     ->pluck('balance','id');
@@ -207,6 +210,8 @@ class InvoiceController extends Controller
 		$invoice->save();
 
 		//dd($invoice);
+
+        Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
 
         Session::flash('flash_message', 'Invoice created successfully!');
 

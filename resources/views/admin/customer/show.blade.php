@@ -340,7 +340,7 @@
               </div>
 @endpermission
 
-@permission('view-listedinvoices')
+@permission('manage-credits')
                 <div class="panel panel-default">
                     <div class="panel-heading"  style="background: #04699a;color: #fff;">
                     <i class="fa fa-usd" aria-hidden="true"></i>
@@ -364,7 +364,7 @@
                         </div>
                         <div class="col-md-4">
                            <div class="input-group">
-                                {!! Form::text('amount',null,['placeholder'=>"0.00",'class' => 'form-control text-right','required','min'=>'0']) !!} 
+                                {!! Form::text('amount',null,['placeholder'=>"0.00",'class' => 'form-control text-right','required','min'=>'0','pattern'=>'^\d+(?:\.\d{0,2})']) !!} 
                               <div class="input-group-addon">&euro;</div>
                             </div>
                         </div>

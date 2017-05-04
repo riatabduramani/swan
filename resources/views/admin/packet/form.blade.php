@@ -17,7 +17,7 @@
     {!! Form::label('price', 'Price', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         <div class="input-group">
-        {!! Form::number('price', null, ['class' => 'form-control text-right', 'required', 'min'=>'0']) !!}
+        {!! Form::text('price', null, ['class' => 'form-control text-right', 'required', 'placeholder'=>'0.00', 'min'=>'0','pattern'=>'^\d+(?:\.\d{0,2})']) !!}
         <div class="input-group-addon">&euro;</div>
         {!! $errors->first('price', '<p class="help-block">:message</p>') !!}
         </div>

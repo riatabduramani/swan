@@ -8,12 +8,17 @@
                     <div class="panel-heading" style="background: rgb(4, 105, 154); color: rgb(255, 255, 255);">
                     <i class="fa fa-users" aria-hidden="true"></i> Number of clients</div>
                     <div class="panel-body text-center" style="height:130px;overflow-y:auto;">
+                        @permission('view-customer')
                         <a href="/admin/customer" style="text-decoration: none">
+                        @endpermission
                             <h2><b>@if($customers) {{ $customers }} @else 0 @endif</b></h2>
                             <h4>active customers</h4>
+                        @permission('view-customer')
                         </a>
-                        
+                        @endpermission
                     </div>
+                    @permission('view-customer')
+                    @if(!empty($expiry))
                     <ul class="panel-body list-group" style="height:120px;overflow-y:auto;">
                         @foreach($expiry as $expire)
                         <a href="/admin/customer/{{$expire->customer_id}}" class="list-group-item">
@@ -22,6 +27,8 @@
                         </a>
                         @endforeach
                     </ul>
+                    @endif
+                    @endpermission
             </div>
         </div>
         <div class="col-md-6">

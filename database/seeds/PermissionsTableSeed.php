@@ -170,6 +170,13 @@ class PermissionsTableSeed extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
                 ),
+                array(
+                'name' => 'manage-credits',
+                'display_name' => 'Manage credits',
+                'description' => 'Can Add/Edit/Delete customer credits',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+                ),
           ));
 
 
@@ -262,7 +269,11 @@ class PermissionsTableSeed extends Seeder
             array(
                 'permission_id' => 22,
                 'role_id' => 1,
-            ),           
+            ),
+            array(
+                'permission_id' => 23,
+                'role_id' => 1,
+            ),          
         ));
     }
  }

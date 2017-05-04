@@ -189,9 +189,9 @@
                     $.each(data, function(index, priceObj) {
                         $('#price').append('<input type="text" value="'+priceObj.price+'&euro;/month"class="form-control text-right" disabled>');
 
-                        $('#total_price').append('<b>Total:</b> <input type="text" name="total_sum" value="'+priceObj.price*12+'.00" class="form-control text-right" required>');
+                        $('#total_price').append('<b>Total:</b> <input type="text" name="total_sum" value="'+priceObj.price*12+'.00" class="form-control text-right" placeholder="0.00" pattern="^\d+(?:\.\d{0,2})" required>');
 
-                        $('#service_price').append('<input id="service_price" name="service_price" type="hidden" value="'+priceObj.price*12+'" required>');
+                        $('#service_price').append('<input id="service_price" name="service_price" type="hidden" value="'+priceObj.price*12+'" placeholder="0.00" pattern="^\d+(?:\.\d{0,2})" required>');
                         
                         $.each(data, function(index, serviceObj) {
                             $('#service_description').empty();
