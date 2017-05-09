@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'info@swan.mk'),
+        'address' => env('MAIL_FROM_ADDRESS', 'web@seeu.edu.mk'),
         'name' => env('MAIL_FROM_NAME', 'SWAN System'),
     ],
 
