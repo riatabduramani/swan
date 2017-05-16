@@ -30,7 +30,11 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->translate('sq')->name }}</td>
-                                        <td>{{ $item->price }} €</td>
+                                        <td>
+                                        @if($item->price)
+                                            <del style="color: red">{{ $item->price }}€</del> / 
+                                        @endif
+                                        {{ $item->new_price }}€</td>
                                         <td>
                                             <a href="{{ url('/admin/packet/' . $item->id . '/edit') }}" title="Edit packet"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
                                             {!! Form::open([

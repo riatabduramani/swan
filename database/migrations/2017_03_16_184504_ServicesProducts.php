@@ -15,6 +15,7 @@ class ServicesProducts extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('image')->nullable();
             $table->timestamps();
          });
 

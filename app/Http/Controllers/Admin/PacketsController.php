@@ -128,6 +128,7 @@ class PacketsController extends Controller
         $requestData = Packet::findOrFail($id);
 
         $requestData->price = $request->input('price');
+        $requestData->new_price = $request->input('new_price');
         $requestData->options = $request->input('options');
 
         foreach (['en'=> '', 'sq' => '_sq'] as $locale => $suffix) {

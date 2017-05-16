@@ -14,15 +14,26 @@
  @endforeach
 
 <div class="form-group {{ $errors->has('price') ? 'has-error' : ''}}">
-    {!! Form::label('price', 'Price', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('price', 'Old Price', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         <div class="input-group">
-        {!! Form::text('price', null, ['class' => 'form-control text-right', 'required', 'placeholder'=>'0.00', 'min'=>'0','pattern'=>'^\d+(?:\.\d{0,2})']) !!}
+        {!! Form::text('price', null, ['class' => 'form-control text-right', 'placeholder'=>'0.00', 'min'=>'0','pattern'=>'^\d+(?:\.\d{0,2})']) !!}
         <div class="input-group-addon">&euro;</div>
         {!! $errors->first('price', '<p class="help-block">:message</p>') !!}
         </div>
     </div>
-</div><div class="form-group {{ $errors->has('options') ? 'has-error' : ''}}">
+</div>
+<div class="form-group {{ $errors->has('price') ? 'has-error' : ''}}">
+    {!! Form::label('price', 'New Price', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        <div class="input-group">
+        {!! Form::text('new_price', null, ['class' => 'form-control text-right', 'required', 'placeholder'=>'0.00', 'min'=>'0','pattern'=>'^\d+(?:\.\d{0,2})']) !!}
+        <div class="input-group-addon">&euro;</div>
+        {!! $errors->first('price', '<p class="help-block">:message</p>') !!}
+        </div>
+    </div>
+</div>
+<div class="form-group {{ $errors->has('options') ? 'has-error' : ''}}">
     {!! Form::label('options', 'Options', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::select('options', config('app.packettype'), null, ['class' => 'form-control']) !!}

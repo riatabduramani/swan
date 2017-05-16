@@ -61,10 +61,16 @@
                                         </div>
                                         <div class="form-group {{ $errors->has('service_price') ? 'has-error' : ''}}">
                                                 <div class="col-md-12">
-                                                    {!! Form::text('service_price', null, ['class' => 'form-control text-right','placeholder'=>'Price','min'=>'0', "placeholder"=>"0.00", "pattern"=>"^\d+(?:\.\d{0,2})", 'required']) !!}
+                                                    <div class="input-group">
+                                                 {!! Form::text('service_price', null, ['class' => 'form-control text-right','placeholder'=>'Price','min'=>'0', "placeholder"=>"0.00", "pattern"=>"^\d+(?:\.\d{0,2})", 'required']) !!}
                                                     {!! $errors->first('service_price', '<p class="help-block">:message</p>') !!}
+                                                    <div class="input-group-addon">€</div>
                                                 </div>
                                             </div>
+                                            </div>
+
+
+
                                     </div>
                                     </div><!-- END COL-MD-12-->
 

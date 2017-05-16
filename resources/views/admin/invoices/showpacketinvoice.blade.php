@@ -93,11 +93,11 @@
                                             @endforeach
                                         </ul>
                                         </td>
-                                        <td class="text-right"> {{ $invoice->total_sum }} </td>
+                                        <td class="text-right"> {{ $invoice->total_sum }}&euro; </td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="text-right" style="border-bottom: 1px solid #fff;border-left: 1px solid #fff;"><b>Total:</b></td>
-                                        <td class="text-right"><b>{{ $invoice->total_sum }}</b></td>
+                                        <td class="text-right"><b>{{ $invoice->total_sum }}&euro;</b></td>
                                     </tr>
                                 </tbody>
                             </table>

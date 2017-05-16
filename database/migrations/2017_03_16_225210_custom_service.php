@@ -16,7 +16,7 @@ class CustomService extends Migration
         Schema::create('custom_service', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('description');
+            $table->text('description');
             $table->string('created_by')->nullable();
             $table->integer('updated_by')->unsigned()->nullable();
 

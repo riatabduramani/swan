@@ -19,6 +19,17 @@
 </div>
 @endforeach
 
+@if(isset($serviceitem))
+    <div class="col-md-4">
+        <a href="/public/uploads/services/{{ $serviceitem->image }}" class="thumbnail" target="_blank">
+            <img src="/public/uploads/services/{{ $serviceitem->image }}" />
+        </a>
+    </div>
+@endif
+
+<div class="col-md-12">
+    <input type="file" id="attach" placeholder="Attach" name="attach" class=""/>
+</div>
 <div class="form-group">
     <div class="col-md-offset-5 col-md-6">
         {!! Form::submit(isset($submitButtonText) ? $submitButtonText : 'Create', ['class' => 'btn btn-primary']) !!}

@@ -8,7 +8,7 @@ class Packet extends Model
 {
     use \Dimsav\Translatable\Translatable;
     public $translatedAttributes = ['name'];
-    protected $fillable = ['price', 'options'];
+    protected $fillable = ['price','new_price', 'options'];
 
     public function service()
     {

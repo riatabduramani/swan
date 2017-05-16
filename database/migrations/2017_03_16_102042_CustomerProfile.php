@@ -15,7 +15,8 @@ class CustomerProfile extends Migration
     {
          Schema::create('packets', function (Blueprint $table) {
             $table->increments('id');
-            $table->decimal('price');
+            $table->decimal('price')->nullable();
+            $table->decimal('new_price');
             $table->string('options');
             $table->timestamps();
          });
