@@ -23,7 +23,7 @@
                                 <a href="{{ url('/admin/dashboard') }}"><i class="fa fa-tachometer"></i> Dashboard</a>
                                 @endrole
                                 @role(['client'])
-                                <a href="{{ url('/panel') }}"><i class="fa fa-tachometer"></i> Client Panel</a>
+                                <a href="{{ url('/panel') }}"><i class="fa fa-tachometer"></i> Client Dashboard</a>
                                 @endrole
                             @else
             <a href="{{ url('/login') }}"><i class="fa fa-user"></i>&nbsp Login</a> | 
