@@ -61,6 +61,7 @@ class PacketsController extends Controller
 
         $requestData = new Packet();
         $requestData->price = $request->price;
+        $requestData->new_price = $request->new_price;
         $requestData->options = $request->options;
 
         foreach (config('app.language') as $locale => $suffix) {

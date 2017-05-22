@@ -30,7 +30,7 @@ class LoginController extends Controller
 
         } elseif (auth()->user()->hasRole('client')) {
             
-            return '/client/dashboard';
+            return '/panel';
 
         } else {
 

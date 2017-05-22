@@ -4,7 +4,7 @@
                     <div class="row" id="header-box">
                         <div class="col-sm-2 col-xs-12" id="logo-box">
                             <div class="logo">
-                                <a href="http://swan.mk"><img src="images/swan-logoh.png" alt="logo"></a>
+                                <a href="http://swan.mk"><img src="/images/swan-logoh.png" alt="logo"></a>
                             </div>
                         </div>
                         <div class="col-sm-7 col-md-offset-1">
@@ -21,6 +21,9 @@
                              @if (Auth::check())
                                 @role(['admin','superadmin','employee'])
                                 <a href="{{ url('/admin/dashboard') }}"><i class="fa fa-tachometer"></i> Dashboard</a>
+                                @endrole
+                                @role(['client'])
+                                <a href="{{ url('/panel') }}"><i class="fa fa-tachometer"></i> Client Panel</a>
                                 @endrole
                             @else
             <a href="{{ url('/login') }}"><i class="fa fa-user"></i>&nbsp Login</a> | 

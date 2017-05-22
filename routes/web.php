@@ -27,8 +27,18 @@ Route::get('services', function () {
     return view('frontend.pages.services');
 });
 
+
+//Route::put('panel/profile/{id}','Client\\ClientController@profileupdate');
+
 Auth::routes();
 
+Route::group(['prefix' => 'panel', 'middleware' => ['auth', 'role:client']], function() {
+	
+  Route::resource('/profile', 'Client\\ProfileController');
+  Route::resource('/invoices', 'Client\\InvoicesController');
+  Route::resource('/', 'Client\\ClientController');
+	
+});
 ///Route::get('/home', 'HomeController@index');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmin|employee']], function() {
@@ -110,6 +120,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 
 	//Profile
 	Route::resource('/profile', 'Admin\\ProfileController');
+
+	//Settings
+	Route::resource('/settings', 'Admin\\SettingsController');
 
 	//Tasks
 	Route::resource('/tasks', 'Admin\\TodolistController');

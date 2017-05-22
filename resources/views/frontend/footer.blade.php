@@ -10,7 +10,7 @@
                         <div class="col-sm-3 col-xs-12">
                             <div class="widget widget_text">
                                 <div class="footer_logo">
-                                    <a href="index.html"><img src="images/swan-logohw.png" alt="footer logo"></a>
+                                    <a href="index.html"><img src="/images/swan-logohw.png" alt="footer logo"></a>
                                 </div>
                                 <p>Cleanliness and care facility where you live or work is the greatest responsibility that may have the owner, therefore, aware of this gathering experience in one of the strongest states economically and developed, such as Denmark...</p>
                                 <div class="footer_social_icon">

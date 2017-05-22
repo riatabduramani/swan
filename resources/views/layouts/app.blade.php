@@ -91,6 +91,9 @@
                         </li>
                     @endrole
                     @role('superadmin')
+                        <li {{{ (Request::is('admin/settings*') ? 'class=active' : '') }}}><a href="/admin/settings">Settings</a></li>
+                    @endrole
+                    @role('superadmin')
                         <li {{{ (Request::is('admin/roles*') ? 'class=active' : '') }}}><a href="/admin/roles">Roles & Permissions</a></li>
                     @endrole
                     @role(['admin','superadmin'])
@@ -189,7 +192,7 @@
                     $.each(data, function(index, priceObj) {
                         $('#price').append('<div class="input-group"><input type="text" value="'+priceObj.price+'" class="form-control text-right" disabled><div class="input-group-addon">€/month</div></div>');
 
-                        $('#total_price').append('<b>Total:</b> <div class="input-group"><input type="text" name="total_sum" value="'+priceObj.price*12+'.00" class="form-control text-right" placeholder="0.00" pattern="^\d+(?:\.\d{0,2})" required><div class="input-group-addon">€</div></div>');
+                        $('#total_price').append('<b>Total:</b> <div class="input-group"><input type="text" name="total_sum" value="'+priceObj.price*12+'.00" class="form-control text-right" placeholder="0.00" required><div class="input-group-addon">€</div></div>');
 
                         $('#service_price').append('<input id="service_price" name="service_price" type="hidden" value="'+priceObj.price*12+'" placeholder="0.00" pattern="^\d+(?:\.\d{0,2})" required>');
                         
