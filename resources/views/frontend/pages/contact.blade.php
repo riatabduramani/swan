@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Contact - {{ config('app.name') }}</title>
+    <title>@lang('front.contact') - {{ $settings->company_name }}</title>
     
     <link href="{{ asset('images/swan-logob.png') }}" rel="shortcut icon" type="image/png">
     <link href="{{ asset('css/front/animate.min.css') }}" rel="stylesheet" type="text/css">
@@ -36,13 +36,14 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="romana_page_text">
-                            <h1>contact us</h1>
+                            <h1>@lang('front.contact')</h1>
                             <ol class="breadcrumb">
-                                <li><a href="http://swan.mk">Home</a><span></span></li>
-                                <li class="active"><a href="#">contact us</a></li>
+                                <li><a href="{{ env('APP_URL') }}/{{ App::getLocale() }}">@lang('front.home')</a><span></span></li>
+                                <li class="active"><a href="{{ env('APP_URL') }}/{{ App::getLocale() }}/contact">@lang('front.contact')</a></li>
                             </ol>
                         </div>
                     </div>
+                    
                 </div>
             </div>
     </section>

@@ -74,17 +74,39 @@ class SettingsController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'company_name' => 'required',
-            'address_sq' => 'required',
-            'address_en' => 'required',
             'email' => 'required',
             'phone' => 'required',
         ]);
 
         try {
-                $input = $request->all();
+
                 $settings = Settings::find($id);
-                $settings->update($input);
+                $settings->company_logo = $request->company_logo;
+                $settings->company_keywords = $request->company_keywords;
+                $settings->mob = $request->mob;
+                $settings->mob1 = $request->mob1;
+                $settings->phone = $request->phone;
+                $settings->phone1 = $request->phone1;
+                $settings->fax = $request->fax;
+                $settings->email = $request->email;
+                $settings->email1 = $request->email1;
+                $settings->facebook = $request->facebook;
+                $settings->youtube = $request->youtube;
+                $settings->linkedin = $request->linkedin;
+                $settings->googleplus = $request->googleplus;
+                $settings->instagram = $request->instagram;
+                $settings->currency = $request->currency;
+                $settings->googleanalytics = $request->googleanalytics;
+                $settings->googlemap = $request->googlemap;
+
+                foreach (config('app.language') as $locale => $suffix) {
+                    $settings->translateOrNew($locale)->company_name = $request->input("company_name{$suffix}");
+                    $settings->translateOrNew($locale)->company_slogan = $request->input("company_slogan{$suffix}");
+                    $settings->translateOrNew($locale)->company_shortdescription = $request->input("company_shortdescription{$suffix}");
+                    $settings->translateOrNew($locale)->address = nl2br($request->input("address{$suffix}"));
+                }
+
+                $settings->update();
                 
                 return redirect('admin/settings/')
                                 ->with('flash_message','Settings updated successfully.');

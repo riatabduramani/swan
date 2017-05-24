@@ -263,13 +263,13 @@ body {
     position: relative;
 }
 .hvr-icon-hang::before {
-    content: "ïƒ­";
+    content: "Ã¯Æ’Â­";
     right: 160px;
     top: 0;
 }
 .hvr-icon-bob::before {
     color: #2a2a2a;
-    /*content: "ï…¶";*/
+    /*content: "Ã¯â€¦Â¶";*/
     font-family: FontAwesome;
     font-size: 11px;
     right: 11px;
@@ -328,7 +328,7 @@ body {
     border-left: 2px solid #0a587f;
     background-color: #0a587f;
     border-radius: 10px;
-    padding-right: 24px;
+    padding-right: 21px;
     color: white;
     padding-left: 12px;
     padding-bottom: 3px;
@@ -1410,7 +1410,7 @@ preloader {
 }
 .romana_single_aside li a::before {
     color: #14adf4;
-    content: "ï…·";
+    content: "Ã¯â€¦Â·";
     font-family: fontawesome;
     height: 2px;
     position: absolute;
@@ -1940,7 +1940,7 @@ blockquote {
 }
 blockquote::before {
     color: #14adf4;
-    content: "ï„Ž";
+    content: "Ã¯â€žÅ½";
     font-family: fontawesome;
     font-size: 34px;
     left: 51px;

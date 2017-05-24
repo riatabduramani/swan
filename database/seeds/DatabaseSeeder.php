@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DistrictTableSeeder::class);
         $this->call(PermissionsTableSeed::class);
         $this->call(SettingsTableSeeder::class);
+        $this->call(PagesTableSeeder::class);
     }
 }

@@ -21,6 +21,9 @@ return [
     'monthly' => 'mo',
     'vision' => 'Vision',
     'mission' => 'Mission',
+    'clientdashboard' => 'Client Dashboard',
+    'register' => 'Register',
+    'dashboard' => 'Dashboard',
 
     //contact
     'morehelp' => 'Need more help?',
@@ -49,4 +52,11 @@ return [
     'subscribe' => 'Subscribe',
     'copyright' => 'All Rights Reserved',
     'dontshareinfo' => 'We don’t share your info with anyone.',
+
+    //about
+    'ourmission' => 'Our mission',
+    'ourvision' => 'Our vision',
+    'whyus' => 'Why us!',
+    'fewwordsabout' => 'Few words about us',
+
 ];

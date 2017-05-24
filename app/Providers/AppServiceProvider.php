@@ -4,6 +4,12 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Settings;
+use App\Models\Packet;
+use App\Models\Pages;
+use App\Models\Whyus;
+use Illuminate\Support\Facades\View;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,6 +21,20 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        if (!$this->app->runningInConsole()) {
+            $settings = Settings::translated()->first();
+            View::share('settings', $settings);
+
+            $packets = Packet::translated()->get();
+            View::share('packets', $packets);
+
+            $why = Whyus::translated()->get();
+            View::share('why', $why);
+
+            $pages = Pages::translated()->first();
+            View::share('pages', $pages);
+        }
     }
 
     /**

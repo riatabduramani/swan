@@ -92,6 +92,7 @@
                     @endrole
                     @role('superadmin')
                         <li {{{ (Request::is('admin/settings*') ? 'class=active' : '') }}}><a href="/admin/settings">Settings</a></li>
+                        <li {{{ (Request::is('admin/pages*') ? 'class=active' : '') }}}><a href="/admin/pages">Pages</a></li>
                     @endrole
                     @role('superadmin')
                         <li {{{ (Request::is('admin/roles*') ? 'class=active' : '') }}}><a href="/admin/roles">Roles & Permissions</a></li>

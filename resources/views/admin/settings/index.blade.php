@@ -43,42 +43,36 @@
                           <div class="tab-content" style="margin-top: 10px;">
                             <div role="tabpanel" class="tab-pane active" id="company">
                                 <div class="row">
+                                @foreach (config('app.language') as $lang => $suffix)
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>Company name:</label>
-                                        {!! Form::text('company_name', null, array('placeholder' => 'enter the company name','class' => 'form-control')) !!}
+                                        <label>Company name [{{ $lang }}]:</label>
+                                        {!! Form::text('company_name'.$suffix, (isset($settings) ? $settings->{"company_name:$lang"} : null), array('placeholder' => 'enter the company name '.$lang,'class' => 'form-control')) !!}
                                     </div>
                                 </div>
-                               
+                                @endforeach
                                 </div>
                                 <div class="row">
-                               
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Company Slogan [sq]:</label>
-                                        {!! Form::text('company_slogan_sq', null, array('placeholder' => 'enter the company slogan in albanian','class' => 'form-control')) !!}
+
+                                @foreach (config('app.language') as $lang => $suffix)
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Company Slogan [{{ $lang }}]:</label>
+                                            {!! Form::text('company_slogan'.$suffix, (isset($settings) ? $settings->{"company_slogan:$lang"} : null), array('placeholder' => 'enter the company slogan in '.$lang,'class' => 'form-control')) !!}
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Company Slogan [en]:</label>
-                                        {!! Form::text('company_slogan_en', null, array('placeholder' => 'enter the company slogan in english','class' => 'form-control')) !!}
-                                    </div>
-                                </div>
+                                 @endforeach
                                 </div>
                                 <div class="row">
+
+                                @foreach (config('app.language') as $lang => $suffix)
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>Address [sq]:</label>
-                                        {!! Form::textarea('address_sq', null, array('placeholder' => 'enter the address in albanian language','class' => 'form-control','rows'=>3)) !!}
+                                        <label>Address [{{ $lang }}]:</label>
+                                        {!! Form::textarea('address'.$suffix, (isset($settings) ? strip_tags($settings->{"address:$lang"}) : null), array('placeholder' => 'enter the address '.$lang ,'class' => 'form-control','rows'=>3)) !!}
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Address [en]:</label>
-                                        {!! Form::textarea('address_en', null, array('placeholder' => 'enter the address in english language','class' => 'form-control','rows'=>3)) !!}
-                                    </div>
-                                </div>
+                                @endforeach
                                 </div>
                                 
                             </div>
@@ -194,12 +188,14 @@
                                             {!! Form::textarea('company_keywords', null, array('placeholder' => 'enter keywords by comma separated','class' => 'form-control','rows'=>3)) !!}
                                         </div>
                                     </div>
-                                     <div class="col-md-4">
+                                    @foreach (config('app.language') as $lang => $suffix)
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <label>Meta description:</label>
-                                            {!! Form::textarea('company_shortdescription', null, array('placeholder' => 'enter meta description','class' => 'form-control','maxlength'=>"160")) !!}
+                                            <label>Meta description [{{ $lang }}]:</label>
+                                            {!! Form::textarea('company_shortdescription'.$suffix, (isset($settings) ? $settings->{"company_shortdescription:$lang"} : null), array('placeholder' => 'enter meta description '.$lang,'class' => 'form-control','maxlength'=>"160")) !!}
                                         </div>
                                     </div>
+                                    @endforeach
                                 </div>
                             </div>
                           </div>

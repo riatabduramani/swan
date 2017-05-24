@@ -15,14 +15,7 @@ class SettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('company_name');
-            $table->string('company_slogan_sq')->nullable();
-            $table->string('company_slogan_en')->nullable();
             $table->string('company_logo')->nullable();
-            $table->text('company_shortdescription')->nullable();
-            $table->text('company_keywords')->nullable();
-            $table->text('address_sq');
-            $table->text('address_en');
             $table->string('mob')->nullable();
             $table->string('mob1')->nullable();
             $table->string('phone');
@@ -38,9 +31,22 @@ class SettingsTable extends Migration
             $table->string('currency')->nullable();
             $table->text('googleanalytics')->nullable();
             $table->text('googlemap')->nullable();
+            $table->text('company_keywords')->nullable();
 
             $table->timestamps();
         });
+
+        Schema::create('settings_translations', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('settings_id')->unsigned();
+            $table->string('company_name')->nullable();
+            $table->string('company_slogan')->nullable();
+            $table->text('company_shortdescription')->nullable();
+            $table->text('address')->nullable();
+            $table->string('locale')->index();
+            $table->unique(['settings_id','locale']);
+            $table->foreign('settings_id')->references('id')->on('settings')->onDelete('cascade');
+         });
     }
 
     /**
@@ -50,6 +56,7 @@ class SettingsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('settings_translations');
         Schema::dropIfExists('settings');
     }
 }

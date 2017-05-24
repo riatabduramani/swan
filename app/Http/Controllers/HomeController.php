@@ -14,6 +14,7 @@ use App\Models\Document;
 use App\Models\Credits;
 use App\Models\Service;
 use App\Models\Packet;
+use App\Models\Settings;
 use File;
 use App\User;
 use Session;
@@ -42,8 +43,18 @@ class HomeController extends Controller
     public function index()
     {
         $services = Service::translated()->get();
-        $packets = Packet::translated()->get();
 
-        return view('frontend.index', compact('services','packets'));
+        return view('frontend.index', compact('services'));
+    }
+
+    public function services() {
+        $services = Service::translated()->get();
+        return view('frontend.pages.services', compact('services'));
+    }
+
+    public function footer() {
+        $packets = Packet::translated()->get();
+        //$settings = Settings::translated()->first();
+        return view('frontend.footer', compact('packets'));
     }
 }

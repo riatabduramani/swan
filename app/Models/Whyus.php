@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Settings extends Model
+class Whyus extends Model
 {
-	/**
+    /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'settings';
+    protected $table = 'whyus';
 
     /**
     * The database primary key value.
@@ -20,12 +20,12 @@ class Settings extends Model
     */
     protected $primaryKey = 'id';
 
-    use \Dimsav\Translatable\Translatable;
-    public $translatedAttributes = [
-    						'company_name',
-							'company_slogan',
-							'company_shortdescription',
-							'address',
-							];
+    /**
+     * Attributes that should be mass-assignable.
+     *
+     * @var array
+     */
 
+    use \Dimsav\Translatable\Translatable;
+    public $translatedAttributes = ['title', 'description'];
 }

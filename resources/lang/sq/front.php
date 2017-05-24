@@ -21,6 +21,9 @@ return [
     'monthly' => 'mujore',
     'vision' => 'Vizioni',
     'mission' => 'Misioni',
+    'clientdashboard' => 'Paneli Klientit',
+    'register' => 'Regjistrohu',
+    'dashboard' => 'Paneli',
 
     //contact
     'morehelp' => 'Ju duhet ndihmë?',
@@ -49,4 +52,10 @@ return [
     'subscribe' => 'Abonohu',
     'copyright' => 'Të gjitha të drejtat e rezervuara',
     'dontshareinfo' => 'Ne nuk i shpërndajmë të dhënat tuaja.',
+
+    //about
+    'ourmission' => 'Misioni ynë',
+    'ourvision' => 'Vizioni ynë',
+    'whyus' => 'Përse ne!',
+    'fewwordsabout' => 'Disa fjalë për ne',
 ];

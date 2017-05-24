@@ -10,14 +10,15 @@
                         <div class="col-sm-3 col-xs-12">
                             <div class="widget widget_text">
                                 <div class="footer_logo">
-                                    <a href="index.html"><img src="/images/swan-logohw.png" alt="footer logo"></a>
+                                    <a href="{{ env('APP_URL') }}/{{App::getLocale()}}"><img src="/images/swan-logohw.png" alt="footer logo"></a>
                                 </div>
-                                <p>Cleanliness and care facility where you live or work is the greatest responsibility that may have the owner, therefore, aware of this gathering experience in one of the strongest states economically and developed, such as Denmark...</p>
+                                <p>{{ $settings->company_shortdescription }}</p>
                                 <div class="footer_social_icon">
-                                    <a href="#"><i class="icofont icofont-social-facebook" style="font-size: 30px;"></i></a>
-                                    <a href="#"><i class="icofont icofont-social-twitter" style="font-size: 30px;"></i></a>
-                                    <a href="#"><i class="icofont icofont-social-instagram" style="font-size: 30px;"></i></a>
-                                    <a href="#"><i class="icofont icofont-brand-linkedin" style="font-size: 30px;"></i></a>
+
+                        <a href="{{ $settings->facebook }}"><i class="icofont icofont-social-facebook" style="font-size: 30px;"></i></a>
+                        <a href="{{ $settings->twitter }}"><i class="icofont icofont-social-twitter" style="font-size: 30px;"></i></a>
+                        <a href="{{ $settings->instagram }}"><i class="icofont icofont-social-instagram" style="font-size: 30px;"></i></a>
+                        <a href="{{ $settings->linkedin }}"><i class="icofont icofont-brand-linkedin" style="font-size: 30px;"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -25,10 +26,10 @@
                             <div class="widget footer_top_menu">
                                 <h2>Menu</h2>
                                 <ul>
-                                    <li><a href="">home</a></li>
-                                    <li><a href="">about us</a></li>
-                                    <li><a href="">our services</a></li>
-                                    <li><a href="">contact us</a></li>
+                                    <li><a href="/{{App::getLocale()}}/">@lang('front.home')</a></li>
+                                    <li><a href="/{{App::getLocale()}}/about">@lang('front.about')</a></li>
+                                    <li><a href="/{{App::getLocale()}}/services">@lang('front.services')</a></li>
+                                    <li><a href="/{{App::getLocale()}}/contact">@lang('front.contact')</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -36,19 +37,20 @@
                             <div class="widget footer_top_menu margin_top_tablet">
                                 <h2>@lang('front.packages')</h2>
                                 <ul>
-                                    <li><a href="">Basis</a></li>
-                                    <li><a href="">Ekstra</a></li>
-                                    <li><a href="">Eksklusiv</a></li>
-                                    <li><a href="">Eksklusiv +</a></li>
+                                    @foreach($packets as $packet)
+                                        <li><a href="">{{ $packet->name }}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
                         <div class="col-md-3 col-md-offset-1 col-sm-4 col-xs-12">
                             <div class="widget footer_top_menu margin_top_tablet single_footer">
                                 <ul class="address">
-                                    <li><span class="fa fa-map-marker"></span>Tetovo, Macedonia</li>
-                                    <li> <span class="fa fa-envelope"></span><a href="#">info@swan.mk</a></li>
-                                    <li><span class="fa fa-phone"></span><a href="#">+389 (0) 70 123 456</a></li>
+                                    <li><span class="fa fa-map-marker"></span>
+                                        {!! $settings->address !!}
+                                    </li>
+                                    <li> <span class="fa fa-envelope"></span><a href="mailt:{{ $settings->email }}">{{ $settings->email }}</a></li>
+                                    <li><span class="fa fa-phone"></span>{{ $settings->phone }}</li>
                                 </ul>
                                 <div class="subscrib">
                                     <h3>@lang('front.subscribe')</h3>
@@ -67,7 +69,7 @@
                     <div class="row">
                         <div class="col-sm-8 col-xs-12">
                             <div class="footer_bottom footer_top text-left">
-                                <p><span>{{ config('app.name') }} © <?php echo date("Y"); ?> | @lang('front.copyright')</span></p>
+                                <p><span>{{ $settings->company_name }} &copy; <?php echo date("Y"); ?> | @lang('front.copyright')</span></p>
                             </div>
                         </div>
                         <!--<div class="col-sm-4 col-xs-12">

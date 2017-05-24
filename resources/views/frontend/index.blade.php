@@ -150,13 +150,13 @@
                             <div class="col-sm-6 col-xs-12" id="vision-text">
                                 <div class="explore_text">
                                     <h3>@lang('front.vision')</h3>
-                                    <p>Convinced on our uncompetitive professionalism that we bring, we tend to be on the top of the pyramid of similar companies in our domestic market. With sincere work and complete dedication, we will always work to be a symbol name of the care and maintenance of facilities.</p>
+                                    <p>{{ $pages->vision }}</p>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-xs-12" id="mission-text">
                                 <div class="explore_text explore_text_padding">
                                     <h3>@lang('front.mission')</h3>
-                                    <p>We always work for customers and bring everything to them. Experience and innovation we bring to our country's market, are the strongest side in which we resist the competitors. Our sole aim is cleanliness, maintenance and the maximum liability for each object that we work for.</p>
+                                    <p>{{ $pages->mission }}</p>
                                 </div>
                             </div>
                         </div>

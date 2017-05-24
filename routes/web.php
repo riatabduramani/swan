@@ -61,15 +61,9 @@ Route::group(['prefix' => $language], function()
 	    return view('frontend.pages.about');
 	});
 
-	Route::get('services', function () {
-	    return view('frontend.pages.services');
-	});
+	Route::get('services','HomeController@services');
+
 });
-
-
-
-
-//Route::put('panel/profile/{id}','Client\\ClientController@profileupdate');
 
 Auth::routes();
 
@@ -85,6 +79,7 @@ Route::group(['prefix' => 'panel', 'middleware' => ['auth', 'role:client']], fun
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmin|employee']], function() {
 
 	Route::resource('/users','Admin\\UserController',['middleware'=>['role:superadmin,admin']]);
+	Route::resource('/whyus','Admin\\WhyUsController',['middleware'=>['role:superadmin,admin']]);
 	Route::resource('/roles','Admin\\RoleController',['middleware'=>['role:superadmin']]);
 	Route::resource('/permissions','Admin\\PermissionController',['middleware'=>['role:superadmin']]);
 	Route::resource('/packet', 'Admin\\PacketsController',['middleware'=>['permission:manage-packet']]);
@@ -165,16 +160,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 	//Settings
 	Route::resource('/settings', 'Admin\\SettingsController');
 
+	//Pages
+	Route::resource('/pages', 'Admin\\PagesController');
+
 	//Tasks
 	Route::resource('/tasks', 'Admin\\TodolistController');
 	Route::post('/tasks','Admin\\TodolistController@createtask',['middleware'=>['permission:create-task']]);
 	Route::get('/tasks/done/{id}', 'Admin\\TodolistController@doneTask');
 });
-
-Route::group(['prefix' => 'client', 'middleware' => ['auth','role:client']], function() {
-	Route::get('/dashboard', 'HomeController@index');
-	
-}); 
-
-//Route::resource('/roles','Admin\\RoleController');
-//Route::resource('admin/customer-status', 'Admin\\CustomerStatusController');
