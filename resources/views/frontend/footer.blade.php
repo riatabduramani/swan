@@ -34,7 +34,7 @@
                         </div>
                         <div class="col-md-2 col-md-offset-1 col-sm-3 col-xs-6">
                             <div class="widget footer_top_menu margin_top_tablet">
-                                <h2>Packages</h2>
+                                <h2>@lang('front.packages')</h2>
                                 <ul>
                                     <li><a href="">Basis</a></li>
                                     <li><a href="">Ekstra</a></li>
@@ -51,10 +51,10 @@
                                     <li><span class="fa fa-phone"></span><a href="#">+389 (0) 70 123 456</a></li>
                                 </ul>
                                 <div class="subscrib">
-                                    <h3>subscribe</h3>
-                                    <input type="text" name="email" placeholder="Your mail">
-                                    <input type="submit" name="submit" value="send">
-                                    <p>We don’t share your info with anyone</p>
+                                    <h3>@lang('front.subscribe')</h3>
+                                    <input type="text" name="email" placeholder="E-mail">
+                                    <input type="submit" name="submit" value="@lang('front.send')">
+                                    <p>@lang('front.dontshareinfo')</p>
                                 </div>
                             </div>
                         </div>
@@ -67,7 +67,7 @@
                     <div class="row">
                         <div class="col-sm-8 col-xs-12">
                             <div class="footer_bottom footer_top text-left">
-                                <p><span>{{ config('app.name') }} © <?php echo date("Y"); ?> | All Rights Reserved</span></p>
+                                <p><span>{{ config('app.name') }} © <?php echo date("Y"); ?> | @lang('front.copyright')</span></p>
                             </div>
                         </div>
                         <!--<div class="col-sm-4 col-xs-12">

@@ -43,75 +43,38 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="romana_single_price text-center" id="box-standard-home">
-                            <h3 class="header-standard">standard</h3>
-                            <h4>29  €<span>/mo</span></h4>
-                            <ul class="offer-rows">
-                                <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 1 time</li>
-                                <li><i class="fa fa-check"></i>&nbsp Preparation 1 time</li>
-                                <li><i class="fa fa-check"></i>&nbsp Control every 14 Days</li>
-                                <li><i class="fa fa-check"></i>&nbsp Monthly control </li>
-                                <li><i class="fa fa-check"></i>&nbsp Problem report</li>
-                            </ul>
-                            <a href="#">Read more</a>
-                        </div>
+                        <?php 
+                            $ids = [
+                                'box-standard-home',
+                                'box-ekstra-home',
+                                'box-eksklusiv-home',
+                                'box-exlusive'
+                            ];
 
-                        <div class="romana_single_price price_current_item text-center" id="box-ekstra-home">
-                            <h3 class="header-ekstra">ekstra</h3>
-                            <h4>49 € <span>/mo</span></h4>
-                            <ul class="offer-rows">
-                                <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 2 times</li>
-                                <li><i class="fa fa-check"></i>&nbsp Preparation 2 times</li>
-                                <li><i class="fa fa-check"></i>&nbsp Control every 14 Days</li>
-                                <li><i class="fa fa-check"></i>&nbsp Monthly control </li>
-                                <li><i class="fa fa-check"></i>&nbsp Problem report</li>
-                                <li><i class="fa fa-check"></i>&nbsp Winter package </li>
-                                <li><i class="fa fa-check"></i>&nbsp Window cleaning</li>
-                                <li><i class="fa fa-check"></i>&nbsp Covering of furnitures</li>
-                            </ul>
-                            <a href="#">Read more</a>
-                        </div>
+                            $headers = [
+                                'header-standard',
+                                'header-ekstra',
+                                'header-eksklusiv',
+                                'header-eksklusivp'
+                            ];
 
-                        <div class="romana_single_price text-center" id="box-eksklusiv-home">
-                            <h3 class="header-eksklusiv">eksklusiv</h3>
-                            <h4>69 € <span>/mo</span></h4>
-                            <ul class="offer-rows">
-                                <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 2 times</li>
-                                <li><i class="fa fa-check"></i>&nbsp Preparation 2 times</li>
-                                <li><i class="fa fa-check"></i>&nbsp Control every 14 Daysl</li>
-                                <li><i class="fa fa-check"></i>&nbsp Monthly control </li>
-                                <li><i class="fa fa-check"></i>&nbsp Problem report</li>
-                                <li><i class="fa fa-check"></i>&nbsp Winter package </li>
-                                <li><i class="fa fa-check"></i>&nbsp Window cleaning</li>
-                                <li><i class="fa fa-check"></i>&nbsp Covering of furnitures</li>
-                                <li><i class="fa fa-check"></i>&nbsp Bill payment </li>
-                                <li><i class="fa fa-check"></i>&nbsp Buying groceries</li>
-                                <li><i class="fa fa-check"></i>&nbsp Maintenance of garden</li>
-                            </ul>
-                            <a href="#">Read more</a>
-                        </div>
+                            $i = 0;
+                        ?>
+                        @foreach($packets as $packet)
 
-                        <div class="romana_single_price text-center">
-                            <h3 class="header-eksklusivp">eksklusiv +</h3>
-                            <h4><span>Negotiable</span></h4>
+                            <div class="romana_single_price @if($headers[$i] == 'header-ekstra') price_current_item @endif text-center" id="{{ $ids[$i] }}">
+                            <h3 class="{{ $headers[$i] }}">{{ $packet->name }}</h3>
+                            <h4>{{ floatval($packet->new_price) }}€<span>/@lang('front.monthly')</span></h4>
                             <ul class="offer-rows">
-                                <li><i class="fa fa-check"></i>&nbsp Thorough cleaning 5 times</li>
-                                <li><i class="fa fa-check"></i>&nbsp Preparation 5 times</li>
-                                <li><i class="fa fa-check"></i>&nbsp Control every 14 Days</li>
-                                <li><i class="fa fa-check"></i>&nbsp Monthly control </li>
-                                <li><i class="fa fa-check"></i>&nbsp Problem report</li>
-                                <li><i class="fa fa-check"></i>&nbsp Winter package </li>
-                                <li><i class="fa fa-check"></i>&nbsp Window cleaning</li>
-                                <li><i class="fa fa-check"></i>&nbsp Covering of furnitures</li>
-                                <li><i class="fa fa-check"></i>&nbsp Bill payment </li>
-                                <li><i class="fa fa-check"></i>&nbsp Buying groceries</li>
-                                <li><i class="fa fa-check"></i>&nbsp Maintenance of garden</li>
-                                <li><i class="fa fa-check"></i>&nbsp Plant work</li>
-                                <li><i class="fa fa-check"></i>&nbsp Internet (Wi-Fi)</li>
-                                <li><i class="fa fa-check"></i>&nbsp Car package</li>
+                                @foreach($packet->service as $service)
+                                    <li><i class="fa fa-check"></i>&nbsp {{ $service->name }}</li>
+                                @endforeach
                             </ul>
-                            <a href="#">Read more</a>
+                            <a href="{{App::getLocale()}}/services">@lang('front.readmore')</a>
                         </div>
+                        <?php $i++; ?>
+                        @endforeach
+
                     </div>
                 </div>
             </div>
@@ -154,105 +117,18 @@
         <section class="romana_service_area">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-4s">
-                        <div class="single_service text-center">
-                            <img src="{{ asset('images/general-cleaning.png') }}" alt="">
-                            <h2>Yeary general cleaning</h2>
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="col-sm-4s">
-                        <div class="single_service text-center">
-                            <img src="{{ asset('images/client-arrives.png') }}" alt="">
-                            <h2>House preparation</h2><br>
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="col-sm-4s">
-                        <div class="single_service text-center">
-                             <img src="{{ asset('images/control-week.png') }}" alt="">
-                            <h2>Control every 14 days</h2><br>
-                            <p></p>
-                        </div>
-                    </div>
+                
+                @foreach($services as $service)
                     
-                     <div class="col-sm-4s">
-                        <div class="single_service text-center">
-                           <img src="{{ asset('images/monthly-check.png') }}" alt="">
-                            <h2>Monthly check</h2><br>
-                            <p></p>
-                        </div>
-                    </div>
                     <div class="col-sm-4s">
                         <div class="single_service text-center">
-                           <img src="{{ asset('images/report-errors.png') }}" alt="">
-                            <h2>Reporting of errors / defects</h2>
+                            <img src="/uploads/services/{{ $service->image }}" alt="">
+                            <h2>{{ $service->name }}</h2>
                             <p></p>
                         </div>
                     </div>
-                    <div class="col-sm-4s">
-                        <div class="single_service text-center">
-                            <img src="{{ asset('images/winter-package.png') }}" alt="">
-                            <h2>Winter package</h2><br>
-                            <p></p>
-                        </div>
-                    </div>
-                     <div class="col-sm-4s">
-                        <div class="single_service text-center">
-                           <img src="{{ asset('images/window-washing.png') }}" alt="">
-                            <h2>Window washing</h2><br>
-                            <p></p>
-                        </div>
-                    </div>
-                     <div class="col-sm-4s">
-                        <div class="single_service text-center">
-                            <img src="{{ asset('images/furnitures.png') }}" alt="">
-                            <h2>Coverage of furnitures</h2><br>
-                            <p></p>
-                        </div>
-                    </div>
-                     <div class="col-sm-4s">
-                        <div class="single_service text-center">
-                           <img src="{{ asset('images/payment-invoice.png') }}" alt="">
-                            <h2>Payoment of Invoices</h2><br>
-                            <p></p>
-                        </div>
-                    </div>
-                     <div class="col-sm-4s">
-                        <div class="single_service text-center">
-                            <img src="{{ asset('images/garden-maintenance.png') }}" alt="">
-                            <h2>Garden maintenance</h2><br>
-                            <p></p>
-                        </div>
-                    </div>
-                     <div class="col-sm-4s">
-                        <div class="single_service text-center">
-                           <img src="{{ asset('images/invoices.png') }}" alt="">
-                            <h2>Invoice information that do not come from the Municipality</h2>
-                            <p></p>
-                        </div>
-                    </div>
-                     <div class="col-sm-4s">
-                        <div class="single_service text-center">
-                            <img src="{{ asset('images/planting.png') }}" alt="">
-                            <h2>Planting</h2><br>
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="col-sm-4s">
-                        <div class="single_service text-center">
-                            <img src="{{ asset('images/grocery.png') }}" alt="">
-                            <h2>Buying household items</h2>
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="col-sm-4s">
-                        <div class="single_service text-center">
-                           <img src="{{ asset('images/internet.png') }}" alt="">
-                            <h2>Internet</h2>
-                            <p></p>
-                        </div>
-                    </div>
+
+                @endforeach
                 </div>
             </div>
         </section>
@@ -271,13 +147,13 @@
                         <div class="row">
                             <div class="col-sm-6 col-xs-12" id="vision-text">
                                 <div class="explore_text">
-                                    <h3>Vision</h3>
+                                    <h3>@lang('front.vision')</h3>
                                     <p>Convinced on our uncompetitive professionalism that we bring, we tend to be on the top of the pyramid of similar companies in our domestic market. With sincere work and complete dedication, we will always work to be a symbol name of the care and maintenance of facilities.</p>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-xs-12" id="mission-text">
                                 <div class="explore_text explore_text_padding">
-                                    <h3>Mission</h3>
+                                    <h3>@lang('front.mission')</h3>
                                     <p>We always work for customers and bring everything to them. Experience and innovation we bring to our country's market, are the strongest side in which we resist the competitors. Our sole aim is cleanliness, maintenance and the maximum liability for each object that we work for.</p>
                                 </div>
                             </div>
@@ -293,14 +169,14 @@
  
  <section class="romana_service_booking_area section_padding_top">
      <div class="container">
-         <h2 class="help-text">Need more help?</h2>
+         <h2 class="help-text">@lang('front.morehelp')</h2>
      </div>
 </section>
         
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'needhelp')"><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp;&nbsp; Write us</button>
-  <button class="tablinks" onclick="openCity(event, 'callus')"><i class="fa fa-phone" aria-hidden="true"></i> &nbsp;&nbsp; Call us</button>
-  <button class="tablinks" onclick="openCity(event, 'findus')"><i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;&nbsp; Find us</button>
+  <button class="tablinks" onclick="openCity(event, 'needhelp')"><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp;&nbsp; @lang('front.writeus')</button>
+  <button class="tablinks" onclick="openCity(event, 'callus')"><i class="fa fa-phone" aria-hidden="true"></i> &nbsp;&nbsp; @lang('front.callus')</button>
+  <button class="tablinks" onclick="openCity(event, 'findus')"><i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;&nbsp; @lang('front.findus')</button>
 </div>
 
 <div id="needhelp" class="tabcontent">
@@ -309,7 +185,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="section_title">
-                            <h2>Write us</h2>
+                            <h2>@lang('front.writeus')</h2>
                             <p></p>
                         </div>
                     </div>
@@ -320,27 +196,27 @@
                             <form action="#">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <label for="name">Name*</label>
+                                        <label for="name">@lang('front.name')*</label>
                                         <br>
-                                        <input type="text" name="name" placeholder="Enter your name here" id="name">
-                                        <label for="Phone">Phone*</label>
-                                        <input type="text" name="Phone" placeholder="Enter phone no name here" id="Phone">
+                                        <input type="text" name="name" placeholder="@lang('front.entername')" id="name">
+                                        <label for="Phone">@lang('front.phone')*</label>
+                                        <input type="text" name="Phone" placeholder="@lang('front.phone')" id="Phone">
                                         <br>
                                     </div>
                                     <div class="col-sm-6">
                                         <label for="email">E-mail*</label>
                                         <br>
-                                        <input type="text" name="email" placeholder="Enter your E-mail here" id="email">
-                                        <label for="Date">Address*</label>
+                                        <input type="text" name="email" placeholder="@lang('front.enteremail')" id="email">
+                                        <label for="Date">@lang('front.address')*</label>
                                         <br>
-                                        <input type="text" name="address" placeholder="Enter your address here" id="address">
+                                        <input type="text" name="address" placeholder="@lang('front.enteraddress')" id="address">
                                     </div>
                                     <div class="col-xs-12">
-                                        <label for="Message">Message*</label>
+                                        <label for="Message">@lang('front.message')*</label>
                                         <br>
-                                        <textarea rows="4" placeholder="Your message here" name="message" id="Message"></textarea>
+                                        <textarea rows="4" placeholder="@lang('front.entermessage')" name="message" id="Message"></textarea>
                                         <br>
-                                        <input type="submit" value="send">
+                                        <input type="submit" value="@lang('front.send')">
                                     </div>
                                 </div>
                             </form>
@@ -359,16 +235,16 @@
   <div class="container">
       <div class="leftside">
             <div class="section_title">
-                <h2>Mobile Phone</h2>
+                <h2>@lang('front.mobile')</h2>
             </div>
-            <p>Urgent Calls!</p>
+            <p>@lang('front.urgentcalls')</p>
             <h2>+389 (0) 70 123 456</h2>
       </div>
       <div class="rightside">
            <div class="section_title">
-                <h2>Office</h2>
+                <h2>@lang('front.office')</h2>
            </div>
-           <p>Monday - Friday ( 09:00 - 17:00 )</p>
+           <p>@lang('front.workdays') ( 09:00 - 17:00 )</p>
            <h2>+389 (0) 70 123 456</h2>
       </div>
  </div>
@@ -379,18 +255,6 @@
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1442.9213453971747!2d21.07165264549887!3d42.094434957994906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDA1JzQwLjAiTiAyMcKwMDQnMjEuOCJF!5e1!3m2!1smk!2smk!4v1491590997859" style="width:100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
 </div>
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-       
-
 <!-- ==================================================
     BRANDS
 =================================================== -->

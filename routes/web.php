@@ -10,22 +10,63 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('frontend.index');
 });
+*/
 
-Route::get('contact', function () {
-    return view('frontend.pages.contact');
+/** ------------------------------------------
+ *  Language defaults
+ *  ------------------------------------------
+ */
+$language = Config::get('app.locale');
+$languages = Config::get('app.locales');
+
+
+/** ------------------------------------------
+ *  Check in the URL, then HTTP_ACCEPT_LANGUAGE
+ *  ------------------------------------------
+ */
+$routeLanguage = Request::segment(1);
+if(in_array($routeLanguage, $languages)) {
+    $language = $routeLanguage;
+} else {
+ 	$routeLanguage = substr(Request::instance()->server->get('HTTP_ACCEPT_LANGUAGE'), 0, 2);
+	if(in_array($routeLanguage, $languages)) {
+	    $language = $routeLanguage;
+	}
+}
+
+/** ------------------------------------------
+ *  Set current language, redirect home
+ *  ------------------------------------------
+ */
+Config::set('app.locale', $language);
+App::setLocale($language);
+
+Route::get('/', function() {
+    return Redirect::to(App::getLocale());
 });
 
-Route::get('about', function () {
-    return view('frontend.pages.about');
+Route::group(['prefix' => $language], function()
+{
+	Route::resource('/', 'HomeController');
+
+	Route::get('contact', function () {
+	    return view('frontend.pages.contact');
+	});
+
+	Route::get('about', function () {
+	    return view('frontend.pages.about');
+	});
+
+	Route::get('services', function () {
+	    return view('frontend.pages.services');
+	});
 });
 
-Route::get('services', function () {
-    return view('frontend.pages.services');
-});
+
 
 
 //Route::put('panel/profile/{id}','Client\\ClientController@profileupdate');

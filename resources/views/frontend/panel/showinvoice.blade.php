@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Contact - {{ config('app.name') }}</title>
+    <title>Show invoice - {{ config('app.name') }}</title>
     
     <link href="{{ asset('images/swan-logob.png') }}" rel="shortcut icon" type="image/png">
     <link href="{{ asset('css/front/animate.min.css') }}" rel="stylesheet" type="text/css">
@@ -68,7 +68,7 @@
                             @endif
                             
                         </div>
-                         
+                        
                         <table class="table table-bordered" style="margin-top: 10px;">
                             <thead style="background: #f5f5f5;">
                                 <tr>
@@ -78,14 +78,28 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            @if($invoice->invoice_type == 2)
                                 <tr>
                                     <td>{{ $invoice->customservice->name }}</td>
                                     <td>{{ $invoice->customservice->description }}</td>
                                     <td>{{ $invoice->total_sum }}</td>
                                 </tr>
+                            @else
+                                <tr>
+                                    <td>{{ $invoice->packetservice->name }}</td>
+                                    <td>
+                                        <ul>
+                                            @foreach($invoice->packetservice->service as $ingr) 
+                                            <li>- {{ $ingr->name }} </li>
+                                            @endforeach
+                                        </ul>
+                                    </td>
+                                    <td>{{ $invoice->packetservice->new_price }}&euro;/monthly</td>
+                                </tr>
+                            @endif
                                 <tr>
                                     <td colspan="2" class="text-right"><b>Total:</b></td>
-                                    <td style="background: #f5f5f5;"><b>{{ $invoice->total_sum }}</b></td>
+                                    <td style="background: #f5f5f5;"><b>{{ $invoice->total_sum }}&euro;/year</b></td>
                                 </tr>
                             </tbody>
                         </table>

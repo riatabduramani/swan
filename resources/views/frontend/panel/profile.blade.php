@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Client Panel - {{ config('app.name') }}</title>
+    <title>My profile - {{ config('app.name') }}</title>
     
     <link href="{{ asset('images/swan-logob.png') }}" rel="shortcut icon" type="image/png">
     <link href="{{ asset('css/front/animate.min.css') }}" rel="stylesheet" type="text/css">

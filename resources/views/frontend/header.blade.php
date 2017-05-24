@@ -1,10 +1,23 @@
+        <div class="languages">
+                @foreach (Config::get('app.languages') as $lang => $name)
+                    @if ($lang == App::getLocale())
+                        <li class="active"><span lang="{{ $lang }}">{{ $name }}</span></li>
+                    @else
+                        <?php
+                            $url = URL::to($lang);
+                            $url = str_replace(App::getLocale(), $lang, env('APP_URL').'/'.$lang.'/'.Request::segment(2));
+                        ?>
+                        <li class="inactive"><a lang="{{ $lang }}" href="{{ $url }}">{{ $name }}</a></li>
+                    @endif
+                @endforeach
+        </div>
         <header class="romana_header">
             <div class="hrader_top_area">
                 <div class="container">
                     <div class="row" id="header-box">
                         <div class="col-sm-2 col-xs-12" id="logo-box">
                             <div class="logo">
-                                <a href="http://swan.mk"><img src="/images/swan-logoh.png" alt="logo"></a>
+                                <a href="{{ env('APP_URL') }}"><img src="/images/swan-logoh.png" alt="logo"></a>
                             </div>
                         </div>
                         <div class="col-sm-7 col-md-offset-1">
@@ -51,10 +64,10 @@
                             <div class="mainmenu">
                                 <nav>
                                     <ul>
-                                        <li {{ (Request::is('/') ? 'class=active' : '') }}><a href="http://swan.mk">home</a></li>
-                                        <li {{ (Request::is('about') ? 'class=active' : '') }}><a href="about">about us</a></li>
-                                        <li {{ (Request::is('services') ? 'class=active' : '') }}><a href="services">our services</a></li>
-                                        <li {{ (Request::is('contact') ? 'class=active' : '') }}><a href="contact">contact</a></li>
+                                        <li {{ (Request::is('/') ? 'class=active' : '') }}><a href="{{ env('APP_URL') }}/{{App::getLocale()}}">@lang('front.home')</a></li>
+                                        <li {{ (Request::is('about') ? 'class=active' : '') }}><a href="/{{App::getLocale()}}/about">@lang('front.about')</a></li>
+                                        <li {{ (Request::is('services') ? 'class=active' : '') }}><a href="/{{App::getLocale()}}/services">@lang('front.services')</a></li>
+                                        <li {{ (Request::is('contact') ? 'class=active' : '') }}><a href="/{{App::getLocale()}}/contact">@lang('front.contact')</a></li>
                                     </ul>
                                 </nav>
                             </div>
