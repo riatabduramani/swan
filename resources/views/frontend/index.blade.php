@@ -62,9 +62,11 @@
                         ?>
                         @foreach($packets as $packet)
 
-                            <div class="romana_single_price @if($headers[$i] == 'header-ekstra') price_current_item @endif text-center" id="{{ $ids[$i] }}">
+                        <div class="romana_single_price @if($headers[$i] == 'header-ekstra') price_current_item @endif text-center" id="{{ $ids[$i] }}">
                             <h3 class="{{ $headers[$i] }}">{{ $packet->name }}</h3>
+                            @if($packet->options != 3)
                             <h4>{{ floatval($packet->new_price) }}€<span>/@lang('front.monthly')</span></h4>
+                            @endif
                             <ul class="offer-rows">
                                 @foreach($packet->service as $service)
                                     <li><i class="fa fa-check"></i>&nbsp {{ $service->name }}</li>
