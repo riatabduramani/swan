@@ -20,7 +20,7 @@
                                         @else
                                             <?php
                                                 $url = URL::to($lang);
-                                                $url = str_replace(App::getLocale(), $lang, env('APP_URL').'/'.$lang.'/'.Request::segment(2).'/'.Request::segment(3));
+                                                $url = str_replace(App::getLocale(), $lang, env('APP_URL').'/'.$lang.'/'.Request::segment(2).'/'.Request::segment(3).'/'.Request::segment(4));
                                             ?>
                                             <li class="inactive"><a lang="{{ $lang }}" href="{{ $url }}">{{ $name }}</a></li>
                                         @endif

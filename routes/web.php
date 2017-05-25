@@ -65,17 +65,18 @@ Route::group(['prefix' => $language], function()
 
 	Route::get('services','HomeController@services');
 
-//});
+	Route::get('services','HomeController@services');
 
+	Route::group(['prefix' => 'panel', 'middleware' => ['auth', 'role:client']], function() {
+		
+	  Route::resource('/profile', 'Client\\ProfileController');
+	  Route::get('/docs','Client\\ClientController@documents');
+	  Route::resource('/invoices', 'Client\\InvoicesController');
+	  Route::resource('/password', 'Client\\PasswordController');
+	  Route::resource('/', 'Client\\ClientController');
+		
+	});
 
-
-//Route::group(['prefix' => 'panel', 'middleware' => ['auth', 'role:client']], function() {
-	
-  Route::resource('/panel/profile', 'Client\\ProfileController');
-  Route::resource('/panel/invoices', 'Client\\InvoicesController');
-  Route::resource('/panel/password', 'Client\\PasswordController');
-  Route::resource('/panel', 'Client\\ClientController');
-	
 });
 ///Route::get('/home', 'HomeController@index');
 

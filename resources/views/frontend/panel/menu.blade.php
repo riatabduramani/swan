@@ -1,5 +1,8 @@
 <div class="list-group" style="font-size: 1.2em;">
 	<a href="/{{ App::getLocale() }}/panel" class="list-group-item {{{ (Request::is( App::getLocale().'/panel') ? 'active' : '') }}}" ><i class="fa fa-tachometer" aria-hidden="true"></i> @lang('front.paneldashboard')</a>
+
+	<a href="/{{ App::getLocale() }}/panel/docs" class="list-group-item {{{ (Request::is( App::getLocale().'/panel/docs') ? 'active' : '') }}}" ><i class="fa fa-file-text" aria-hidden="true"></i> @lang('front.documents')</a>
+
 	<a href="/{{ App::getLocale() }}/panel/invoices" class="list-group-item {{{ (Request::is(App::getLocale().'/panel/invoices*') ? 'active' : '') }}}"><i class="fa fa-list" aria-hidden="true"></i> @lang('front.invoices')</a>
 	<a href="/{{ App::getLocale() }}/panel/profile" class="list-group-item {{{ (Request::is(App::getLocale().'/panel/profile') ? 'active' : '') }}}"><i class="fa fa-user" aria-hidden="true"></i> @lang('front.myprofile')</a>
 

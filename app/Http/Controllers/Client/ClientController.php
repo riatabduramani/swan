@@ -41,4 +41,11 @@ class ClientController extends Controller
         return view('frontend.panel.index', compact('chosenpacket','credit','unpaidinvoice'));
     }
 
+    public function documents() {
+        $id = Auth::user()->customer->id;
+        $customer = Customer::findOrFail($id);
+
+        return view('frontend.panel.documents', compact('customer'));
+    }
+ 
 }

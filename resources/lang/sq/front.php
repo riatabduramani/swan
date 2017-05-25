@@ -99,6 +99,8 @@ return [
     'status' => 'Statusi',
     'paymentmethod' => 'Mënyra pagesës',
     'paidat' => 'E paguar më',
+    'documents' => 'Dokumente',
+    'nodocuments' => 'NUK KA DOKUMENTE',
 
     'price' => 'Çmimi',
     'service' => 'Shërbimi',

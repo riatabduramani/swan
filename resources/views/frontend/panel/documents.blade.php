@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>@lang('front.invoices') - {{ $settings->company_name }}</title>
+    <title>@lang('front.documents') - {{ $settings->company_name }}</title>
     
     <link href="{{ asset('images/swan-logob.png') }}" rel="shortcut icon" type="image/png">
     <link href="{{ asset('css/front/animate.min.css') }}" rel="stylesheet" type="text/css">
@@ -38,7 +38,7 @@
                         <h1>@lang('front.clientpanel')</h1>
                         <ol class="breadcrumb">
                             <li><a href="{{ env('APP_URL')}}/{{ App::getLocale() }}/panel">@lang('front.home')</a><span></span></li>
-                            <li class="active"><a href="#">@lang('front.invoices')</a></li>
+                            <li class="active"><a href="#">@lang('front.documents')</a></li>
                         </ol>
                     </div>
                 </div>
@@ -54,37 +54,33 @@
                           @include('frontend.panel.menu')
                     </div>
                     <div class="col-md-7">
-                        <h3>@lang('front.invoices')</h3>
-                        <table class="table table-bordered" style="margin-top: 20px;margin-bottom: 20px;">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        @lang('front.invoice') #
-                                    </th>
-                                    <th>
-                                        @lang('front.invoicestatus')
-                                    </th>
-                                    <th>
-                                        @lang('front.issuedate')
-                                    </th>
-                                    <th>@lang('front.action')</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($invoice as $inv)
-                                    <tr>
-                                        <td>@lang('front.invoice') #{{$inv->id}}/{{date('Y', strtotime($inv->invoice_date))}}</td>
-                                        <td>{!! $inv->showPaidStatus($inv) !!}</td>
-                                        <td>{{ date('d.m.Y', strtotime($inv->invoice_date))}}</td>
-                                        <td><a href="/{{ App::getLocale() }}/panel/invoices/{{$inv->id}}"><i class="fa fa-search" aria-hidden="true"></i> @lang('front.view')</a></td>
-                                    </tr> 
-                                @endforeach
-                            </tbody>
+                        <h3>@lang('front.documents')</h3>
+                        <br />
+                       <div class="list-group">
+                       @if($customer->document->count() == 0)
+                            @lang('front.nodocuments')
+                       @else
 
-                        </table>
+                       @foreach($customer->document as $document)
+
+                       @if($document->type == 2)
+
+                            <a href="/public/uploads/documents/{{ $document->renamed }}" target="_blank" class="list-group-item"> 
+                               <span class="badge">
+                                    <i class="fa fa-download" aria-hidden="true"></i>
+                               </span>
+                            <h4 class="list-group-item-heading"><small>{{ date('d.m.Y', strtotime($document->created_at)) }}</small> {{ $document->name }}</h4>
+                            <p class="list-group-item-text">{{ $document->description }}</p>
+                        </a> 
+
+                        @endif
+                        @endforeach
+                        @endif
+                       </div>
                     </div>
                 </div>
             </div>
+
 
 
        @include('frontend.footer')

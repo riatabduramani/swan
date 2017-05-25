@@ -60,7 +60,7 @@
 
                         <div class="well well-sm col-md-4">
                             <b>@lang('front.issuedate'):</b> {{ date('d.m.Y', strtotime($invoice->invoice_date)) }}<br />
-                            <b>@lang('front.statusi'):</b> {!! $invoice->showPaidStatus($invoice) !!}<br />
+                            <b>@lang('front.status'):</b> {!! $invoice->showPaidStatus($invoice) !!}<br />
                             @if($invoice->payment_status == 1)
                                 <b>@lang('front.paymentmethod'):</b> {!! $invoice->showPaidMethod($invoice) !!}<br />
                                 <b>@lang('front.paidat'):</b> {{ date('d.m.Y', strtotime($invoice->paid_at)) }}

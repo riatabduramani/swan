@@ -112,7 +112,7 @@
                                         <td>{!! $inv->showPaidStatus($inv) !!}</td>
                                         <td>{{ date('d.m.Y', strtotime($inv->invoice_date))}}</td>
                                         <td>{{ date('d.m.Y', strtotime($inv->due_date))}}</td>
-                                        <td><a href="/panel/invoices/{{$inv->id}}"><i class="fa fa-search" aria-hidden="true"></i> @lang('front.view')</a></td>
+                                        <td><a href="/{{ App::getLocale() }}/panel/invoices/{{$inv->id}}"><i class="fa fa-search" aria-hidden="true"></i> @lang('front.view')</a></td>
                                     </tr> 
                                 @endforeach
                             </tbody>

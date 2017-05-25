@@ -99,6 +99,8 @@ return [
     'status' => 'Status',
     'paymentmethod' => 'Payment method',
     'paidat' => 'Paid at',
+    'documents' => 'Documents',
+    'nodocuments' => 'NO DOCUMENTS',
 
     'price' => 'Price',
     'service' => 'Service',
