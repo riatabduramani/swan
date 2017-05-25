@@ -79,17 +79,15 @@
             </div>
         </div>
 
-        <div class="form-group {{ $errors->has('password_confirmation') ? 'has-error' : ''}}">
-            {!! Form::label('password_confirmation', __('front.confirmpassword').':', ['class' => 'col-md-4 control-label']) !!}
-            <div class="col-md-6">
-                    {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
-                    {!! $errors->first('password_confirmation', '<p class="help-block">:message</p>') !!}
-                
-            </div>
+    <div class="form-group {{ $errors->has('password_confirmation') ? 'has-error' : ''}}">
+        {!! Form::label('password_confirmation', __('front.confirmpassword').':', ['class' => 'col-md-4 control-label']) !!}
+        <div class="col-md-6">
+                {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
+                {!! $errors->first('password_confirmation', '<p class="help-block">:message</p>') !!}
         </div>
     </div>
-</div>
-
+    </div>
+    </div>
                     <div class="form-group">
                         <div class="col-md-offset-5 col-md-4">
                                 {!! Form::submit(__('front.buttonupdate'), ['class' => 'btn btn-primary']) !!}

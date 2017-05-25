@@ -43,7 +43,7 @@ class PasswordController extends Controller
             
             $user->update();
 
-        Session::flash('flash_message', 'Your password has been changed successfully!');
+        Session::flash('flash_message', __('messages.passwordupdate'));
 
         return back();
     }

@@ -108,4 +108,8 @@ return [
     'total' => 'Total',
     'paynow' => 'Pay now',
 
+    'paid' => 'Paid',
+    'unpaid' => 'Unpaid',
+    'declined' => 'Declined',
+
 ];

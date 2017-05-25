@@ -36,16 +36,16 @@ trait HasModelTrait
     public function showPaidStatus($record) {
         switch ($record) {
             case $record->payment_status == 1:
-                return '<label class="label label-success" aria-hidden="true">Paid</label>';
+                return '<label class="label label-success" aria-hidden="true">'.__('front.paid').'</label>';
                 break;
              case $record->payment_status == 2:
-                return '<label class="label label-danger" aria-hidden="true">Unpaid</label>';
+                return '<label class="label label-danger" aria-hidden="true">'.__('front.unpaid').'</label>';
                 break;
             case $record->payment_status == 3:
-                return '<label class="label label-warning" aria-hidden="true">Declined</label>';
+                return '<label class="label label-warning" aria-hidden="true">'.__('front.declined').'</label>';
                 break;
             default:
-               return '<label class="label label-danger" aria-hidden="true">Unpaid</label>';
+               return '<label class="label label-danger" aria-hidden="true">'.__('front.unpaid').'</label>';
         }
     }
 

@@ -73,7 +73,7 @@ class ProfileController extends Controller
 
         }
 
-        Session::flash('flash_message', 'Your profile has been updated successfully!');
+        Session::flash('flash_message', __('messages.profileupdate'));
 
         return back();
     }

@@ -107,4 +107,8 @@ return [
     'description' => 'Përshkrim',
     'total' => 'Totali',
     'paynow' => 'Paguaj tani',
+
+    'paid' => 'E paguar',
+    'unpaid' => 'E papaguar',
+    'declined' => 'E anuluar',
 ];
