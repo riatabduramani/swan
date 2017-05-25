@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Models\Customer;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -27,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/panel';
 
     /**
      * Create a new controller instance.
@@ -62,10 +63,33 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
+            'surname' => $data['surname'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+        $user->customer()->save(new Customer ([
+            'user_id' => $user->id,
+            'phone_out' => $data['phone_out'],
+            'phone_in' => $data['phone_in'],
+            'address_out' => $data['address_out'],
+            'postal_out' => $data['postal_out'],
+            'city' => $data['city'],
+            'country_id' => $data['country_id'],
+            'address_in' => $data['address_in'],
+            'city_in_id' => $data['city_in_id'],
+            'district_in_id' => $data['district_in_id'],
+            'country_in_id' => $data['country_in_id'],
+            'emergencycontact' => $data['emergencycontact'],
+            'emergencyphone' => $data['emergencyphone'],
+            'created_by' => 'Web',
+        ]));
+
+        $user->attachRole('4');
+        
+
+        return $user;
     }
 }

@@ -69,16 +69,6 @@ class ProfileController extends Controller
             $user = User::findOrFail($customer->user_id);
             $user->name = $request->name;
             $user->surname = $request->surname;
-
-            if($request->password) {
-
-            	 $this->validate($request, [
-            	'password' => 'required|min:6|confirmed',
-        		]);
-
-            	$user->password = bcrypt($request->password);	
-            }
-            
             $user->update();
 
         }

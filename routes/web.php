@@ -49,6 +49,8 @@ Route::get('/', function() {
     return Redirect::to(App::getLocale());
 });
 
+Auth::routes();
+
 Route::group(['prefix' => $language], function()
 {
 	Route::resource('/', 'HomeController');
@@ -63,15 +65,16 @@ Route::group(['prefix' => $language], function()
 
 	Route::get('services','HomeController@services');
 
-});
+//});
 
-Auth::routes();
 
-Route::group(['prefix' => 'panel', 'middleware' => ['auth', 'role:client']], function() {
+
+//Route::group(['prefix' => 'panel', 'middleware' => ['auth', 'role:client']], function() {
 	
-  Route::resource('/profile', 'Client\\ProfileController');
-  Route::resource('/invoices', 'Client\\InvoicesController');
-  Route::resource('/', 'Client\\ClientController');
+  Route::resource('/panel/profile', 'Client\\ProfileController');
+  Route::resource('/panel/invoices', 'Client\\InvoicesController');
+  Route::resource('/panel/password', 'Client\\PasswordController');
+  Route::resource('/panel', 'Client\\ClientController');
 	
 });
 ///Route::get('/home', 'HomeController@index');

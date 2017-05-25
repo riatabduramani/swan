@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>My profile - {{ config('app.name') }}</title>
+    <title>@lang('front.myprofile') - {{ $settings->company_name }}</title>
     
     <link href="{{ asset('images/swan-logob.png') }}" rel="shortcut icon" type="image/png">
     <link href="{{ asset('css/front/animate.min.css') }}" rel="stylesheet" type="text/css">
@@ -32,19 +32,19 @@
     @include('frontend.header')
 
     <section class="">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="romana_page_text">
-                            <h1>Client Panel</h1>
-                            <ol class="breadcrumb">
-                                <li><a href="http://swan.mk">Home</a><span></span></li>
-                                <li class="active"><a href="#">PANEL</a></li>
-                            </ol>
-                        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="romana_page_text">
+                        <h1>@lang('front.clientpanel')</h1>
+                        <ol class="breadcrumb">
+                            <li><a href="{{ env('APP_URL')}}/{{ App::getLocale() }}/panel">@lang('front.home')</a><span></span></li>
+                            <li class="active"><a href="#">@lang('front.myprofile')</a></li>
+                        </ol>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 <!-- ==================================================
     PANEL FORM
@@ -55,6 +55,10 @@
                           @include('frontend.panel.menu')
                     </div>
                     <div class="col-md-9">
+@if(Session::has('flash_message'))
+        <p class="alert alert-success">{{ Session::get('flash_message') }}</p>
+    @endif
+    
 {!! Form::model($customer, [
                             'method' => 'PATCH',
                             'url' => ['/panel/profile', $customer->id],
@@ -65,10 +69,10 @@
 
 
 <div class="panel panel-default">
-  <div class="panel-heading">My profile</div>
+  <div class="panel-heading">@lang('front.myprofile')</div>
   <div class="panel-body">
         <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
-            {!! Form::label('name', 'First Name:', ['class' => 'col-md-4 control-label']) !!}
+            {!! Form::label('name', __('front.firstname').':', ['class' => 'col-md-4 control-label']) !!}
             <div class="col-md-6">
 
                     {!! Form::text('name', isset($customer) ? $customer->user->name : null, ['class' => 'form-control']) !!}
@@ -77,7 +81,7 @@
             </div>
         </div>
         <div class="form-group {{ $errors->has('surname') ? 'has-error' : ''}}">
-            {!! Form::label('surname', 'Last Name:', ['class' => 'col-md-4 control-label']) !!}
+            {!! Form::label('surname', __('front.lastname').':', ['class' => 'col-md-4 control-label']) !!}
             <div class="col-md-6">
 
                     {!! Form::text('surname', (isset($customer) ? $customer->user->surname : null), ['class' => 'form-control']) !!}
@@ -93,60 +97,45 @@
                 
             </div>
         </div>
-        <div class="form-group {{ $errors->has('password') ? 'has-error' : ''}}">
-            {!! Form::label('password', 'New Password:', ['class' => 'col-md-4 control-label']) !!}
-            <div class="col-md-6">
-                    {!! Form::text('password', null, ['placeholder'=>'enter new password','class' => 'form-control']) !!}
-                    {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
-                
-            </div>
-        </div>
-        <div class="form-group {{ $errors->has('password_confirmation') ? 'has-error' : ''}}">
-            {!! Form::label('password_confirmation', 'Confirm Password:', ['class' => 'col-md-4 control-label']) !!}
-            <div class="col-md-6">
-                    {!! Form::text('password_confirmation', null, ['placeholder'=>'confirm new password','class' => 'form-control']) !!}
-                    {!! $errors->first('password_confirmation', '<p class="help-block">:message</p>') !!}
-                
-            </div>
-        </div>
+
     </div>
 </div>
 
 <div class="row">
         <div class="col-md-6">
                <div class="panel panel-default">
-              <div class="panel-heading">Homeland contact:</div>
+              <div class="panel-heading">@lang('front.addressmk')</div>
                 <div class="panel-body">
                     <div class="form-group {{ $errors->has('address_in') ? 'has-error' : ''}}">
-                    {!! Form::label('address_in', 'Address:', ['class' => 'col-md-3 control-label']) !!}
+                    {!! Form::label('address_in', __('front.address').':', ['class' => 'col-md-3 control-label']) !!}
                         <div class="col-md-9">
                             {!! Form::textarea('address_in', $customer->address_in, ['class' => 'form-control', 'rows'=>'5']) !!}
                             {!! $errors->first('address_in', '<p class="help-block">:message</p>') !!}
                         </div>
                     </div>
                      <div class="form-group {{ $errors->has('district_in_id') ? 'has-error' : ''}}">
-                    {!! Form::label('district_in_id', 'Place:', ['class' => 'col-md-3 control-label']) !!}
+                    {!! Form::label('district_in_id', __('front.place').':', ['class' => 'col-md-3 control-label']) !!}
                         <div class="col-md-9">
                             {!! Form::select('district_in_id', $district, $customer->district_in_id, ['placeholder'=>'Select district/place...','class' => 'form-control required']) !!}
                             {!! $errors->first('district_in_id', '<p class="help-block">:message</p>') !!}
                         </div>
                     </div>
                     <div class="form-group {{ $errors->has('city_in_id') ? 'has-error' : ''}}">
-                    {!! Form::label('city_in_id', 'City:', ['class' => 'col-md-3 control-label']) !!}
+                    {!! Form::label('city_in_id', __('front.city').':', ['class' => 'col-md-3 control-label']) !!}
                         <div class="col-md-9">
                             {!! Form::select('city_in_id', $city, 1, ['class' => 'form-control']) !!}
                             {!! $errors->first('city_in_id', '<p class="help-block">:message</p>') !!}
                         </div>
                     </div>
                     <div class="form-group {{ $errors->has('country_in_id') ? 'has-error' : ''}}">
-                    {!! Form::label('country_in_id', 'Country:', ['class' => 'col-md-3 control-label']) !!}
+                    {!! Form::label('country_in_id', __('front.country').':', ['class' => 'col-md-3 control-label']) !!}
                         <div class="col-md-9">
                             {!! Form::select('country_in_id', $country, $customer->country_in_id, ['class' => 'form-control','disabled']) !!}
                             {!! $errors->first('country_in_id', '<p class="help-block">:message</p>') !!}
                         </div>
                     </div>
                     <div class="form-group {{ $errors->has('phone_in') ? 'has-error' : ''}}">
-                    {!! Form::label('phone_in', 'Phone:', ['class' => 'col-md-3 control-label']) !!}
+                    {!! Form::label('phone_in', __('front.phone').':', ['class' => 'col-md-3 control-label']) !!}
                         <div class="col-md-9">
                             {!! Form::text('phone_in', $customer->phone_in, ['class' => 'form-control']) !!}
                             {!! $errors->first('phone_in', '<p class="help-block">:message</p>') !!}
@@ -157,39 +146,39 @@
         </div>
         <div class="col-md-6">
             <div class="panel panel-default">
-              <div class="panel-heading">Outside homeland:</div>
+              <div class="panel-heading">@lang('front.addressout'):</div>
                 <div class="panel-body">
 
                     <div class="form-group {{ $errors->has('address_out') ? 'has-error' : ''}}">
-                        {!! Form::label('address_out', 'Address:', ['class' => 'col-md-3 control-label']) !!}
+                        {!! Form::label('address_out', __('front.address').':', ['class' => 'col-md-3 control-label']) !!}
                         <div class="col-md-9">
                             {!! Form::textarea('address_out', $customer->address_out, ['class' => 'form-control','rows'=>'5']) !!}
                             {!! $errors->first('address_out', '<p class="help-block">:message</p>') !!}
                         </div>
                     </div>
                     <div class="form-group {{ $errors->has('postal_out') ? 'has-error' : ''}}">
-                        {!! Form::label('postal_out', 'Postal:', ['class' => 'col-md-3 control-label']) !!}
+                        {!! Form::label('postal_out', __('front.postal').':', ['class' => 'col-md-3 control-label']) !!}
                         <div class="col-md-9">
                             {!! Form::text('postal_out', $customer->phone_out, ['class' => 'form-control']) !!}
                             {!! $errors->first('postal_out', '<p class="help-block">:message</p>') !!}
                         </div>
                     </div>
                     <div class="form-group {{ $errors->has('city_id') ? 'has-error' : ''}}">
-                        {!! Form::label('city_id', 'City:', ['class' => 'col-md-3 control-label']) !!}
+                        {!! Form::label('city_id', __('front.city').':', ['class' => 'col-md-3 control-label']) !!}
                         <div class="col-md-9">
                             {!! Form::text('city', $customer->city, ['class' => 'form-control']) !!}
                             {!! $errors->first('city', '<p class="help-block">:message</p>') !!}
                         </div>
                     </div>
                     <div class="form-group {{ $errors->has('country_id') ? 'has-error' : ''}}">
-                        {!! Form::label('country_id', 'Country:', ['class' => 'col-md-3 control-label']) !!}
+                        {!! Form::label('country_id', __('front.country').':', ['class' => 'col-md-3 control-label']) !!}
                         <div class="col-md-9">
                             {!! Form::select('country_id', $country, $customer->country_id, ['class' => 'form-control']) !!}
                             {!! $errors->first('country_id', '<p class="help-block">:message</p>') !!}
                         </div>
                     </div>
                     <div class="form-group {{ $errors->has('phone_out') ? 'has-error' : ''}}">
-                    {!! Form::label('phone_out', 'Phone:', ['class' => 'col-md-3 control-label']) !!}
+                    {!! Form::label('phone_out', __('front.phone').':', ['class' => 'col-md-3 control-label']) !!}
                     <div class="col-md-9">
                         {!! Form::text('phone_out', $customer->phone_out, ['class' => 'form-control']) !!}
                         {!! $errors->first('phone_out', '<p class="help-block">:message</p>') !!}
@@ -201,17 +190,17 @@
 </div>
 
 <div class="panel panel-default">
-  <div class="panel-heading">Emergency contact:</div>
+  <div class="panel-heading">@lang('front.emergencycontact'):</div>
     <div class="panel-body">
         <div class="form-group {{ $errors->has('emergencycontact') ? 'has-error' : ''}}">
-            {!! Form::label('emergencycontact', 'Name & Last Name:', ['class' => 'col-md-4 control-label']) !!}
+            {!! Form::label('emergencycontact', __('front.firstname').' & '.__('front.lastname').':', ['class' => 'col-md-4 control-label']) !!}
             <div class="col-md-6">
                 {!! Form::text('emergencycontact', $customer->emergencycontact, ['class' => 'form-control']) !!}
                 {!! $errors->first('emergencycontact', '<p class="help-block">:message</p>') !!}
             </div>
         </div>
         <div class="form-group {{ $errors->has('emergencyphone') ? 'has-error' : ''}}">
-            {!! Form::label('emergencyphone', 'Phone:', ['class' => 'col-md-4 control-label']) !!}
+            {!! Form::label('emergencyphone', __('front.phone').':', ['class' => 'col-md-4 control-label']) !!}
             <div class="col-md-6">
                 {!! Form::text('emergencyphone', $customer->emergencyphone, ['class' => 'form-control']) !!}
                 {!! $errors->first('emergencyphone', '<p class="help-block">:message</p>') !!}
@@ -222,7 +211,7 @@
 
  <div class="form-group">
                         <div class="col-md-offset-5 col-md-4">
-                            {!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}
+                            {!! Form::submit(__('front.buttonupdate'), ['class' => 'btn btn-primary']) !!}
                         </div>
                     </div>
 

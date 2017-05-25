@@ -16,6 +16,7 @@
                                 <div class="footer_social_icon">
 
                         <a href="{{ $settings->facebook }}"><i class="icofont icofont-social-facebook" style="font-size: 30px;"></i></a>
+                        <a href="{{ $settings->youtube }}"><i class="icofont icofont-social-youtube" style="font-size: 30px;"></i></a>
                         <a href="{{ $settings->twitter }}"><i class="icofont icofont-social-twitter" style="font-size: 30px;"></i></a>
                         <a href="{{ $settings->instagram }}"><i class="icofont icofont-social-instagram" style="font-size: 30px;"></i></a>
                         <a href="{{ $settings->linkedin }}"><i class="icofont icofont-brand-linkedin" style="font-size: 30px;"></i></a>

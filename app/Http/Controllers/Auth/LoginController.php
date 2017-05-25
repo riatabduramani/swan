@@ -30,7 +30,7 @@ class LoginController extends Controller
 
         } elseif (auth()->user()->hasRole('client')) {
             
-            return '/panel';
+            return '/'.\App::getLocale().'/panel';
 
         } else {
 
@@ -55,4 +55,5 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
+
 }

@@ -24,10 +24,9 @@ use Illuminate\Support\Facades\Hash;
 class InvoicesController extends Controller
 {
     public function index() {
-    	$invoice = Invoice::where('customer_id', Auth::user()->customer->id)->where('payment_status', 1)->orderBy('invoice_date', 'DESC')->get();
-    	$unpaidinvoice = Invoice::where('customer_id', Auth::user()->customer->id)->where('payment_status', 2)->orderBy('invoice_date', 'DESC')->get();
-
-    	return view('frontend.panel.invoices', compact('invoice','unpaidinvoice'));
+    	$invoice = Invoice::where('customer_id', Auth::user()->customer->id)->orderBy('invoice_date', 'DESC')->get();
+    	
+    	return view('frontend.panel.invoices', compact('invoice'));
     }
 
     public function show($id) {

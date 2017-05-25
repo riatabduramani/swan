@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Show invoice - {{ config('app.name') }}</title>
+    <title>@lang('front.invoices') - {{ $settings->company_name }}</title>
     
     <link href="{{ asset('images/swan-logob.png') }}" rel="shortcut icon" type="image/png">
     <link href="{{ asset('css/front/animate.min.css') }}" rel="stylesheet" type="text/css">
@@ -32,19 +32,20 @@
     @include('frontend.header')
 
     <section class="">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="romana_page_text">
-                            <h1>Client Panel</h1>
-                            <ol class="breadcrumb">
-                                <li><a href="http://swan.mk">Home</a><span></span></li>
-                                <li class="active"><a href="#">PANEL</a></li>
-                            </ol>
-                        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="romana_page_text">
+                        <h1>@lang('front.clientpanel')</h1>
+                        <ol class="breadcrumb">
+                            <li><a href="{{ env('APP_URL')}}/{{ App::getLocale() }}/panel">@lang('front.home')</a><span></span></li>
+                            <li class="active"><a href="{{ env('APP_URL')}}/{{ App::getLocale() }}/panel/invoices">@lang('front.invoices')</a></li>
+                            <li class="active"><a href="#">@lang('front.show')</a></li>
+                        </ol>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 <!-- ==================================================
     PANEL FORM
@@ -55,16 +56,16 @@
                           @include('frontend.panel.menu')
                     </div>
                     <div class="col-md-7">
-                        <h3 style="margin-bottom: 10px;">Invoice #{{ $invoice->id }}/{{ date('Y',strtotime($invoice->invoice_date)) }}</h3>
+                        <h3 style="margin-bottom: 10px;">@lang('front.invoice') #{{ $invoice->id }}/{{ date('Y',strtotime($invoice->invoice_date)) }}</h3>
 
                         <div class="well well-sm col-md-4">
-                            <b>Issue Date:</b> {{ date('d.m.Y', strtotime($invoice->invoice_date)) }}<br />
-                            <b>Status:</b> {!! $invoice->showPaidStatus($invoice) !!}<br />
+                            <b>@lang('front.issuedate'):</b> {{ date('d.m.Y', strtotime($invoice->invoice_date)) }}<br />
+                            <b>@lang('front.statusi'):</b> {!! $invoice->showPaidStatus($invoice) !!}<br />
                             @if($invoice->payment_status == 1)
-                                <b>Payment method:</b> {!! $invoice->showPaidMethod($invoice) !!}<br />
-                                <b>Paid at:</b> {{ date('d.m.Y', strtotime($invoice->paid_at)) }}
+                                <b>@lang('front.paymentmethod'):</b> {!! $invoice->showPaidMethod($invoice) !!}<br />
+                                <b>@lang('front.paidat'):</b> {{ date('d.m.Y', strtotime($invoice->paid_at)) }}
                             @else
-                                <b>Due date:</b> {{ date('d.m.Y', strtotime($invoice->due_date)) }}
+                                <b>@lang('front.duedate'):</b> {{ date('d.m.Y', strtotime($invoice->due_date)) }}
                             @endif
                             
                         </div>
@@ -72,9 +73,9 @@
                         <table class="table table-bordered" style="margin-top: 10px;">
                             <thead style="background: #f5f5f5;">
                                 <tr>
-                                    <th>Service</th>
-                                    <th>Description</th>
-                                    <th>Price</th>
+                                    <th>@lang('front.service')</th>
+                                    <th>@lang('front.description')</th>
+                                    <th>@lang('front.price')</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -94,11 +95,11 @@
                                             @endforeach
                                         </ul>
                                     </td>
-                                    <td>{{ $invoice->packetservice->new_price }}&euro;/monthly</td>
+                                    <td>{{ $invoice->packetservice->new_price }}&euro;/@lang('front.monthly')</td>
                                 </tr>
                             @endif
                                 <tr>
-                                    <td colspan="2" class="text-right"><b>Total:</b></td>
+                                    <td colspan="2" class="text-right"><b>@lang('front.total'):</b></td>
                                     <td style="background: #f5f5f5;"><b>{{ $invoice->total_sum }}&euro;/year</b></td>
                                 </tr>
                             </tbody>
@@ -106,7 +107,7 @@
 
                         @if($invoice->payment_status == 2)
                             <div class="pull-right" style="margin-top: 30px;margin-bottom: 30px;">
-                                <button class="btn btn-danger">Pay now</button>
+                                <button class="btn btn-danger">@lang('front.paynow')</button>
                             </div>
                         @endif
                         

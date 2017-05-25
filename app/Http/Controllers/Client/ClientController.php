@@ -36,8 +36,9 @@ class ClientController extends Controller
                                     ->get()->first();
 
         $credit = Credits::with('customer')->where('customer_id', $id)->sum('balance');
+        $unpaidinvoice = Invoice::where('customer_id', Auth::user()->customer->id)->where('payment_status', 2)->orderBy('invoice_date', 'DESC')->get();
 
-        return view('frontend.panel.index', compact('chosenpacket','credit'));
+        return view('frontend.panel.index', compact('chosenpacket','credit','unpaidinvoice'));
     }
 
 }

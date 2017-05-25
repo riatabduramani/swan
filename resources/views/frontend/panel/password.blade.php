@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>@lang('front.invoices') - {{ $settings->company_name }}</title>
+    <title>@lang('front.changepassword') - {{ $settings->company_name }}</title>
     
     <link href="{{ asset('images/swan-logob.png') }}" rel="shortcut icon" type="image/png">
     <link href="{{ asset('css/front/animate.min.css') }}" rel="stylesheet" type="text/css">
@@ -38,7 +38,7 @@
                         <h1>@lang('front.clientpanel')</h1>
                         <ol class="breadcrumb">
                             <li><a href="{{ env('APP_URL')}}/{{ App::getLocale() }}/panel">@lang('front.home')</a><span></span></li>
-                            <li class="active"><a href="#">@lang('front.invoices')</a></li>
+                            <li class="active"><a href="#">@lang('front.changepassword')</a></li>
                         </ol>
                     </div>
                 </div>
@@ -48,40 +48,55 @@
 <!-- ==================================================
     PANEL FORM
 =================================================== -->
-            <div class="container" style="color: #000;">
+            <div class="container">
                 <div class="row" style="margin-top: 10px;">
                     <div class="col-md-3">
                           @include('frontend.panel.menu')
                     </div>
-                    <div class="col-md-7">
-                        <h3>@lang('front.invoices')</h3>
-                        <table class="table table-bordered" style="margin-top: 20px;margin-bottom: 20px;">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        @lang('front.invoice') #
-                                    </th>
-                                    <th>
-                                        @lang('front.invoicestatus')
-                                    </th>
-                                    <th>
-                                        @lang('front.issuedate')
-                                    </th>
-                                    <th>@lang('front.action')</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($invoice as $inv)
-                                    <tr>
-                                        <td>@lang('front.invoice') #{{$inv->id}}/{{date('Y', strtotime($inv->invoice_date))}}</td>
-                                        <td>{!! $inv->showPaidStatus($inv) !!}</td>
-                                        <td>{{ date('d.m.Y', strtotime($inv->invoice_date))}}</td>
-                                        <td><a href="/panel/invoices/{{$inv->id}}"><i class="fa fa-search" aria-hidden="true"></i> @lang('front.view')</a></td>
-                                    </tr> 
-                                @endforeach
-                            </tbody>
+                    <div class="col-md-9">
+    @if(Session::has('flash_message'))
+        <p class="alert alert-success">{{ Session::get('flash_message') }}</p>
+    @endif
 
-                        </table>
+{!! Form::model($customer, [
+                            'method' => 'PATCH',
+                            'url' => ['/panel/password', $customer->id],
+                            'class' => 'form-horizontal',
+                            'files' => true
+                        ]) !!}
+{!! Form::open(['route' => ['invoice_update']]) !!}
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">@lang('front.changepassword')</div>
+  <div class="panel-body">
+        <div class="form-group {{ $errors->has('password') ? 'has-error' : ''}}">
+            {!! Form::label('password', __('front.newpassword').':', ['class' => 'col-md-4 control-label']) !!}
+            <div class="col-md-6">
+                    {!! Form::password('password', ['class' => 'form-control']) !!}
+                    {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
+                
+            </div>
+        </div>
+
+        <div class="form-group {{ $errors->has('password_confirmation') ? 'has-error' : ''}}">
+            {!! Form::label('password_confirmation', __('front.confirmpassword').':', ['class' => 'col-md-4 control-label']) !!}
+            <div class="col-md-6">
+                    {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
+                    {!! $errors->first('password_confirmation', '<p class="help-block">:message</p>') !!}
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-5 col-md-4">
+                                {!! Form::submit(__('front.buttonupdate'), ['class' => 'btn btn-primary']) !!}
+                            </div>
+                        </div>
+
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

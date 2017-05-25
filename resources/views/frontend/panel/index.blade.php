@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Client panel - {{ config('app.name') }}</title>
+    <title>@lang('front.clientpanel') - {{ $settings->company_name }}</title>
     
     <link href="{{ asset('images/swan-logob.png') }}" rel="shortcut icon" type="image/png">
     <link href="{{ asset('css/front/animate.min.css') }}" rel="stylesheet" type="text/css">
@@ -36,10 +36,10 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="romana_page_text">
-                            <h1>Client Panel</h1>
+                            <h1>@lang('front.clientpanel')</h1>
                             <ol class="breadcrumb">
-                                <li><a href="http://swan.mk">Home</a><span></span></li>
-                                <li class="active"><a href="#">PANEL</a></li>
+                                <li><a href="{{ env('APP_URL')}}/{{ App::getLocale() }}/panel">@lang('front.home')</a><span></span></li>
+                                <li class="active"><a href="#">@lang('front.paneldashboard')</a></li>
                             </ol>
                         </div>
                     </div>
@@ -55,26 +55,67 @@
                           @include('frontend.panel.menu')
                     </div>
                     <div class="col-md-7">
-                        <h3>Welcome <b>{{ Auth::user()->name }} {{ Auth::user()->surname }}</b></h3>
-                        <small>Since: {{ date('d.m.Y', strtotime(Auth::user()->created_at)) }}</small>
+                        <h3>@lang('front.welcome') <b>{{ Auth::user()->name }} {{ Auth::user()->surname }}</b></h3>
+                        <small>@lang('front.since'): {{ date('d.m.Y', strtotime(Auth::user()->created_at)) }}</small>
 
                         <table class="table table-bordered" style="margin-top: 20px;margin-bottom: 20px;">
+                        @if($chosenpacket)
                             <tr>
-                                <td width="140px">Chosen packet:</td>
+                                <td width="140px">@lang('front.chosenpacket'):</td>
                                 <td style="color: #000; font-size: 1.2em; font-weight: bold">{{ $chosenpacket->packet->name }}</td>
                             </tr>
                             <tr>
-                                <td>The packet expires:</td>
+                                <td>@lang('front.packetexpire'):</td>
                                 <td style="color: #000; font-weight: bold">{{ date('d.m.Y', strtotime($chosenpacket->end)) }}</td>
                             </tr>
+                        @else
+
                             <tr>
-                                <td>Available credits:</td>
-                                @if(Auth::user()->customer->credits->sum('balance') > 0)
+                                <td width="140px">@lang('front.chosenpacket'):</td>
+                                <td style="color: #000; font-size: 1.2em; font-weight: bold">@lang('front.nopacket')</td>
+                            </tr>
+                        @endif
+                            <tr>
+                                <td>@lang('front.availablecredits'):</td>
+                                @if(Auth::user()->customer->credits->sum('balance') >= 0)
                                 <td><b>{{ Auth::user()->customer->credits->sum('balance') }} &euro;</b></td>
                                 @else
                                 <td><b style="color: red">{{ Auth::user()->customer->credits->sum('balance') }} &euro;</b></td>
                                 @endif
                             </tr>
+
+                        </table>
+
+                        <h3>@lang('front.unpaidinvoices')</h3>
+                        <table class="table table-bordered" style="margin-top: 20px;margin-bottom: 20px;">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @lang('front.invoice') #
+                                    </th>
+                                    <th>
+                                        @lang('front.invoicestatus')
+                                    </th>
+                                    <th>
+                                        @lang('front.issuedate')
+                                    </th>
+                                    <th>
+                                        @lang('front.duedate')
+                                    </th>
+                                    <th>@lang('front.action')</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($unpaidinvoice as $inv)
+                                    <tr>
+                                        <td>@lang('front.invoice') #{{$inv->id}}/{{date('Y', strtotime($inv->invoice_date))}}</td>
+                                        <td>{!! $inv->showPaidStatus($inv) !!}</td>
+                                        <td>{{ date('d.m.Y', strtotime($inv->invoice_date))}}</td>
+                                        <td>{{ date('d.m.Y', strtotime($inv->due_date))}}</td>
+                                        <td><a href="/panel/invoices/{{$inv->id}}"><i class="fa fa-search" aria-hidden="true"></i> @lang('front.view')</a></td>
+                                    </tr> 
+                                @endforeach
+                            </tbody>
 
                         </table>
 

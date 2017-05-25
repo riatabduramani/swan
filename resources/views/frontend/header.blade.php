@@ -20,7 +20,7 @@
                                         @else
                                             <?php
                                                 $url = URL::to($lang);
-                                                $url = str_replace(App::getLocale(), $lang, env('APP_URL').'/'.$lang.'/'.Request::segment(2));
+                                                $url = str_replace(App::getLocale(), $lang, env('APP_URL').'/'.$lang.'/'.Request::segment(2).'/'.Request::segment(3));
                                             ?>
                                             <li class="inactive"><a lang="{{ $lang }}" href="{{ $url }}">{{ $name }}</a></li>
                                         @endif
@@ -38,10 +38,10 @@
                                 <a href="{{ url('/admin/dashboard') }}"><i class="fa fa-tachometer"></i> @lang('front.dashboard')</a>
                                 @endrole
                                 @role(['client'])
-                                <a href="{{ url('/panel') }}"><i class="fa fa-tachometer"></i> @lang('front.clientdashboard')</a>
+                                <a href="/{{ App::getLocale() }}/panel"><i class="fa fa-tachometer"></i> @lang('front.clientdashboard')</a>
                                 @endrole
                             @else
-            <a href="{{ url('/login') }}"><i class="fa fa-user"></i>&nbsp Login</a> | 
+            <a href="{{ url('/login') }}"><i class="fa fa-user"></i>&nbsp @lang('front.login')</a> | 
             <!--<a href=""><i class="fa fa-user"></i>&nbsp Login</a> | -->
             <a href="{{ url('/register') }}">@lang('front.register')</a>
                             @endif
@@ -66,10 +66,10 @@
                             <div class="mainmenu">
                                 <nav>
                                     <ul>
-                                        <li {{ (Request::is('/') ? 'class=active' : '') }}><a href="{{ env('APP_URL') }}/{{App::getLocale()}}">@lang('front.home')</a></li>
-                                        <li {{ (Request::is('about') ? 'class=active' : '') }}><a href="/{{App::getLocale()}}/about">@lang('front.about')</a></li>
-                                        <li {{ (Request::is('services') ? 'class=active' : '') }}><a href="/{{App::getLocale()}}/services">@lang('front.services')</a></li>
-                                        <li {{ (Request::is('contact') ? 'class=active' : '') }}><a href="/{{App::getLocale()}}/contact">@lang('front.contact')</a></li>
+                                        <li {{ (Request::is(App::getLocale().'/') ? 'class=active' : '') }}><a href="{{ env('APP_URL') }}/{{App::getLocale()}}">@lang('front.home')</a></li>
+                                        <li {{ (Request::is(App::getLocale().'/about') ? 'class=active' : '') }}><a href="/{{App::getLocale()}}/about">@lang('front.about')</a></li>
+                                        <li {{ (Request::is(App::getLocale().'/services') ? 'class=active' : '') }}><a href="/{{App::getLocale()}}/services">@lang('front.services')</a></li>
+                                        <li {{ (Request::is(App::getLocale().'/contact') ? 'class=active' : '') }}><a href="/{{App::getLocale()}}/contact">@lang('front.contact')</a></li>
                                     </ul>
                                 </nav>
                             </div>

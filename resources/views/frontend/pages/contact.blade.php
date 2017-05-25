@@ -56,15 +56,15 @@
                     <div class="col-sm-6 col-xs-12 col-md-5">
                         <div class="romana_contact_form">
                             <form action="#">
-                                <label for="contact_name">Full name</label>
-                                <input type="text" name="contact_name" id="contact_name" placeholder="Full name here..">
-                                <label for="contact_email">Email Address</label>
-                                <input type="text" name="contact_email" id="contact_email" placeholder="Email here..">
-                                <label for="contact_phone">Phone number</label>
-                                <input type="text" name="contact_name" id="contact_phone" placeholder="Phone number here..">
-                                <label for="contact_message">Message</label>
-                                <textarea rows="4" placeholder="Your message here.." id="contact_message"></textarea>
-                                <input type="submit" class="send-now" name="contact_Send" value="send">
+                                <label for="contact_name">@lang('front.name')</label>
+                                <input type="text" name="contact_name" id="contact_name" placeholder="@lang('front.entername')...">
+                                <label for="contact_email">E-mail</label>
+                                <input type="text" name="contact_email" id="contact_email" placeholder="@lang('front.enteremail')">
+                                <label for="contact_phone">@lang('front.phone')</label>
+                                <input type="text" name="contact_name" id="contact_phone" placeholder="@lang('front.enterphone')..">
+                                <label for="contact_message">@lang('front.message')</label>
+                                <textarea rows="4" placeholder="@lang('front.entermessage').." id="contact_message"></textarea>
+                                <input type="submit" class="send-now" name="contact_Send" value="@lang('front.send')">
                             </form>
                         </div>
                     </div>
@@ -72,16 +72,17 @@
                     <div class="col-sm-6 col-md-5 responsive-bg col-xs-12 col-md-offset-2">
                         <div class="romana_contract_address">
                             <ul class="address">
-                                <li>Do not hesitate to contact us</li>
-                                <li><a href="#"><span class="fa fa-envelope"></span>info@swan.mk</a></li>
-                                <li><span class="fa fa-map-marker"></span>Tetovo, Macedonia</li>
-                                <li><a href="#"><span class="fa fa-phone"></span>+389 (0) 70 123 4563</a></li>
+                                <li>@lang('front.donthesitate')</li>
+                                <li><a href="#"><span class="fa fa-envelope"></span>{{ $settings->email }}</a></li>
+                                <li><span class="fa fa-map-marker"></span>{{ $settings->address }}</li>
+                                <li><a href="#"><span class="fa fa-phone"></span>{{ $settings->phone }}</a></li>
                             </ul>
                             <div class="romana_socail_link">
-                                <a href="#" class="fa fa-facebook"></a>
-                                <a href="#" class="fa fa-twitter"></a>
-                                <a href="#" class="fa fa-google"></a>
-                                <a href="#" class="fa fa-linkedin"></a>
+                                <a href="{{ $settings->facebook }}" class="fa fa-facebook"></a>
+                                <a href="{{ $settings->youtube }}" class="fa fa-youtube"></a>
+                                <a href="{{ $settings->twitter }}" class="fa fa-twitter"></a>
+                                <a href="{{ $settings->googleplus }}" class="fa fa-google"></a>
+                                <a href="{{ $settings->linkedin }}" class="fa fa-linkedin"></a>
                             </div>
                         </div>
                     </div>
