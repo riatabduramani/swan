@@ -60,7 +60,7 @@
 
 {!! Form::model($customer, [
                             'method' => 'PATCH',
-                            'url' => ['/panel/password', $customer->id],
+                            'url' => ['/'.App::getLocale().'/panel/password', $customer->id],
                             'class' => 'form-horizontal',
                             'files' => true
                         ]) !!}
