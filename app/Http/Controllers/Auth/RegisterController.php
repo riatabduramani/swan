@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/panel';
+    protected $redirectTo = '/'.\App::getLocale().'/panel';
 
     /**
      * Create a new controller instance.
