@@ -55,7 +55,7 @@
                 <div class="row">
                     @foreach($services as $service)
                     <div class="col-sm-4" id="services-list">
-                        <div class="single_service text-center">
+                        <div class="single_service text-center" id="goto{{ $service->id}}">
                             <h2 style="text-align:left;">{{ $service->name}}</h2>
                             <ul>
                             <li class="service-text">    
