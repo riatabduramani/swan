@@ -71,6 +71,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            @if($invoice->count() > 0)
                                 @foreach($invoice as $inv)
                                     <tr>
                                         <td>@lang('front.invoice') #{{$inv->id}}/{{date('Y', strtotime($inv->invoice_date))}}</td>
@@ -79,6 +80,11 @@
                                         <td><a href="/{{ App::getLocale() }}/panel/invoices/{{$inv->id}}"><i class="fa fa-search" aria-hidden="true"></i> @lang('front.view')</a></td>
                                     </tr> 
                                 @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="4" class="text-center">@lang('front.noinvoices')</td>
+                                </tr>
+                            @endif
                             </tbody>
 
                         </table>

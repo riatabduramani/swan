@@ -82,8 +82,8 @@ Route::group(['prefix' => $language], function()
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmin|employee']], function() {
 
-	Route::resource('/users','Admin\\UserController',['middleware'=>['role:superadmin,admin']]);
-	Route::resource('/whyus','Admin\\WhyUsController',['middleware'=>['role:superadmin,admin']]);
+	Route::resource('/users','Admin\\UserController',['middleware'=>['role:superadmin|admin']]);
+	Route::resource('/whyus','Admin\\WhyUsController',['middleware'=>['role:superadmin|admin']]);
 	Route::resource('/roles','Admin\\RoleController',['middleware'=>['role:superadmin']]);
 	Route::resource('/permissions','Admin\\PermissionController',['middleware'=>['role:superadmin']]);
 	Route::resource('/packet', 'Admin\\PacketsController',['middleware'=>['permission:manage-packet']]);

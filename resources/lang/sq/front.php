@@ -101,6 +101,7 @@ return [
     'paidat' => 'E paguar më',
     'documents' => 'Dokumente',
     'nodocuments' => 'NUK KA DOKUMENTE',
+    'noinvoices' => 'NUK KA FATURA',
 
     'price' => 'Çmimi',
     'service' => 'Shërbimi',

@@ -90,7 +90,7 @@
                             <a href="/admin/dashboard">Dashboard</a>
                         </li>
                     @endrole
-                    @role('superadmin')
+                    @role(['admin','superadmin'])
                         <li {{{ (Request::is('admin/settings*') ? 'class=active' : '') }}}><a href="/admin/settings">Settings</a></li>
                         <li {{{ (Request::is('admin/pages*') ? 'class=active' : '') }}}><a href="/admin/pages">Pages</a></li>
                     @endrole

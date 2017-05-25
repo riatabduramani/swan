@@ -101,6 +101,7 @@ return [
     'paidat' => 'Paid at',
     'documents' => 'Documents',
     'nodocuments' => 'NO DOCUMENTS',
+    'noinvoices' => 'NO INVOICES',
 
     'price' => 'Price',
     'service' => 'Service',
