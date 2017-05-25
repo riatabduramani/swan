@@ -132,7 +132,7 @@
                      <div class="form-group {{ $errors->has('district_in_id') ? 'has-error' : ''}}">
                     {!! Form::label('district_in_id', 'Place:', ['class' => 'col-md-4 control-label']) !!}
                         <div class="col-md-6">
-                            {!! Form::select('district_in_id', $district, null, ['placeholder'=>'Select district/place...','class' => 'form-control required']) !!}
+                            {!! Form::select('district_in_id', $district, null, ['placeholder'=>'Select district/place...','class' => 'form-control','required']) !!}
                             {!! $errors->first('district_in_id', '<p class="help-block">:message</p>') !!}
                         </div>
                     </div>
