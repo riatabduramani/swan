@@ -54,7 +54,7 @@
                 <div class="row">
                     <div class="col-md-5 col-sm-6">
                         <div class="romana_story_img">
-                            <img src="/images/swan3.png" alt="" style="margin-top:0px;">
+                            <img src="/images/swan3.png" alt="" style="margin-top:30px;">
                         </div>
                     </div>
                     <div class="col-md-6 col-md-offset-1 col-sm-6">

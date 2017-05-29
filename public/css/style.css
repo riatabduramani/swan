@@ -217,7 +217,7 @@ body {
     color: #2a2a2a;
 }
 .romana_contract_address .romana_socail_link a:hover {
-    color: #ffffff;
+    color: #a3e2ff;
 }
 .romana_tag_list li:hover a, .romana_contract_address ul.address li:hover span{
     color: #fff;
@@ -444,7 +444,8 @@ label.mainsearch {
     5.***Hero_Area Css Start***
 ------------------------------------------------- */
 .romana_hero_area{
-    background: rgba(0, 0, 0, 0) url("../images/ofertat2.png") no-repeat scroll top center / cover ;
+    /*background: rgba(0, 0, 0, 0) url("../images/ofertat2.png") no-repeat scroll top center / cover ;*/
+    background: rgba(0, 0, 0, 0) url("../images/bghome.png") no-repeat scroll top center / cover ;
     position: relative;
     top: 0;
     width: 100%;
@@ -1688,7 +1689,8 @@ ul.isotop-nav > li + li::before {
     width: 50%;
     box-shadow: black 7px 5px 16px -6px;
     border-radius: 10px;
-    background-image: url('../images/contactbg2.png');
+    /*background-image: url('../images/contactbg2.png');*/
+    background-image: url('../images/bgcontact.png');
     background-size: contain;
 }
 .romana_contact_form label {
@@ -1760,7 +1762,7 @@ ul.isotop-nav > li + li::before {
     margin-left: 0%;
 }
 .romana_contract_address .romana_socail_link a {
-    color: #a3e2ff;
+    color: #ffffff;
     font-size: 30px;
     margin-right: 50px;
 }
@@ -3490,10 +3492,29 @@ span.change_qty.plus.cursor_hover.fa.fa-angle-up {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
 @media only screen and (max-width: 767px) {
     
+      .footer_logo {
+      	margin-top: 30px !important;
+      }
+     .romana_contract_address .romana_socail_link a {
+     	margin-right: 25px !important;
+     }
+
     .row .col-sm-4s {
-        height: auto;
+        height: auto !important;
     }
     div.tab {
         max-width: 99% !important;
@@ -3829,9 +3850,10 @@ label.mainsearch {
 /* about page */
 .romana_client_area::before {
     width: 100%;
+    background-image: none !important;
 }
 .romana_single_client_text.section_title {
-    color: #ffffff;
+    color: #7e8596;
     margin-bottom: 85px;
 }
 .about_page .owl-theme .owl-dots .owl-dot span, .portfolio_page .owl-theme .owl-dots .owl-dot span {
@@ -4435,12 +4457,12 @@ body.preloader_active {
 
 /* ADDED */ 
 .col-sm-4 .service-text {
-    width: 71%;
+    width: 60%;
     float: left;
 }
 .col-sm-4 .service-photo {
     width: 25%;
-    float: left;
+    float: right;
     margin-left: 32px;
     padding-bottom: 30px;
 }
@@ -4505,7 +4527,8 @@ div.tab button.active {
 }
 
 .row .col-sm-4s {
-     height: auto;  
+     /*height: auto; */
+     height: 200px;
 }
 .row .col-sm-4s:hover {
     background-color: #fbfbfb;
