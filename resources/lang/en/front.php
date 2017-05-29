@@ -113,4 +113,10 @@ return [
     'unpaid' => 'Unpaid',
     'declined' => 'Declined',
 
+    'register' => 'Register',
+    'password' => 'Password',
+    'remember' => 'Remember Me',
+    'forgotpassword' => 'Forgot Your Password?',
+    'selectdistrict' => 'Select district/place',
+
 ];

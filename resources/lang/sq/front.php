@@ -112,4 +112,10 @@ return [
     'paid' => 'E paguar',
     'unpaid' => 'E papaguar',
     'declined' => 'E anuluar',
+
+    'register' => 'Regjistrohu',
+    'password' => 'Fjalëkalimi',
+    'remember' => 'Mbaj mend të dhënat për kyçje',
+    'forgotpassword' => 'Keni harruar fjalëkalimin?',
+    'selectdistrict' => 'Zgjidhni vendin ku jetoni',
 ];

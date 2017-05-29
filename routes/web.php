@@ -45,14 +45,24 @@ if(in_array($routeLanguage, $languages)) {
 Config::set('app.locale', $language);
 App::setLocale($language);
 
+Route::group(['domain' => env('ADMIN_URL')], function()
+{
+	Auth::routes();
+	Route::any('/', function()
+    {
+        return view('admin.auth.login');
+    });
+    
+});
+
 Route::get('/', function() {
     return Redirect::to(App::getLocale());
 });
 
-Auth::routes();
 
 Route::group(['prefix' => $language], function()
 {
+	Auth::routes();
 	Route::resource('/', 'HomeController');
 
 	Route::get('contact', function () {
@@ -65,7 +75,7 @@ Route::group(['prefix' => $language], function()
 
 	Route::get('services','HomeController@services');
 
-	Route::get('services','HomeController@services');
+	//Route::resource('/register','Auth\\RegisterController');
 
 	Route::group(['prefix' => 'panel', 'middleware' => ['auth', 'role:client']], function() {
 		
@@ -78,7 +88,8 @@ Route::group(['prefix' => $language], function()
 	});
 
 });
-///Route::get('/home', 'HomeController@index');
+
+Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmin|employee']], function() {
 

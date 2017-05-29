@@ -41,9 +41,9 @@
                                 <a href="/{{ App::getLocale() }}/panel"><i class="fa fa-tachometer"></i> @lang('front.clientdashboard')</a>
                                 @endrole
                             @else
-            <a href="{{ url('/login') }}"><i class="fa fa-user"></i>&nbsp @lang('front.login')</a> | 
+            <a href="/{{ App::getLocale() }}/login"><i class="fa fa-user"></i>&nbsp @lang('front.login')</a> | 
             <!--<a href=""><i class="fa fa-user"></i>&nbsp Login</a> | -->
-            <a href="{{ url('/register') }}">@lang('front.register')</a>
+            <a href="/{{ App::getLocale() }}/register">@lang('front.register')</a>
                             @endif
                             </div>
                         </div>
