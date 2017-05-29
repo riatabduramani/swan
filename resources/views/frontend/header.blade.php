@@ -11,8 +11,8 @@
                         <div class="col-sm-7 col-md-offset-1">
                             <div class="header_top_left">
                                 <ul>
-                                    <li><span class="fa fa-phone"></span>{{ $settings->phone }}</li>
-                                    <li><span class="fa fa-envelope"></span>{{ $settings->email }}</li>
+                                    <li><span class="fa fa-phone"></span><a href="tel: {{ $settings->phone }} ">{{ $settings->phone }}</a></li>
+                                    <li><span class="fa fa-envelope"></span><a href="mailto:{{ $settings->email }}">{{ $settings->email }}</a></li>
                                       
                                     <!--@foreach (Config::get('app.languages') as $lang => $name)
                                         @if ($lang == App::getLocale())

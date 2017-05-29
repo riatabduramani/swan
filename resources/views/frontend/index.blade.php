@@ -243,14 +243,14 @@
                 <h2>@lang('front.mobile')</h2>
             </div>
             <p>@lang('front.urgentcalls')</p>
-            <h2>{{ $settings->phone }}</h2>
+            <h2><a href="tel: {{ $settings->phone }} ">{{ $settings->phone }}</a></h2>
       </div>
       <div class="rightside">
            <div class="section_title">
                 <h2>@lang('front.office')</h2>
            </div>
            <p>@lang('front.workdays') ( 09:00 - 17:00 )</p>
-           <h2>{{ $settings->phone }}</h2>
+           <h2><a href="tel: {{ $settings->phone }} ">{{ $settings->phone }}</a></h2>
       </div>
  </div>
  </section>
