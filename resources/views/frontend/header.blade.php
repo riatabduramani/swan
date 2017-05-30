@@ -14,8 +14,7 @@
 
                                     <li><span class="fa fa-phone"></span>{{ $settings->phone }}</li>
                                     <li><span class="fa fa-envelope"></span>{{ $settings->email }}</li>
-                                    <li><span class="fa fa-phone"></span><a href="tel: {{ $settings->phone }} ">{{ $settings->phone }}</a></li>
-                                    <li><span class="fa fa-envelope"></span><a href="mailto:{{ $settings->email }}">{{ $settings->email }}</a></li>
+
                                 </ul>
                             </div>
                         </div>
