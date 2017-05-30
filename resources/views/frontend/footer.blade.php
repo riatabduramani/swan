@@ -50,8 +50,8 @@
                                     <li><span class="fa fa-map-marker"></span>
                                         {!! $settings->address !!}
                                     </li>
-                                    <li> <span class="fa fa-envelope"></span><a href="mailt:{{ $settings->email }}">{{ $settings->email }}</a></li>
-                                    <li><span class="fa fa-phone"></span>{{ $settings->phone }}</li>
+                                    <li> <span class="fa fa-envelope"></span><a href="mailto:{{ $settings->email }}">{{ $settings->email }}</a></li>
+                                    <li><span class="fa fa-phone"></span><a href="tel: {{ $settings->phone }} ">{{ $settings->phone }}</a></li>
                                 </ul>
                                 <div class="subscrib">
                                     <h3>@lang('front.subscribe')</h3>

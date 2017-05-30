@@ -11,8 +11,27 @@
                         <div class="col-sm-7 col-md-offset-1">
                             <div class="header_top_left">
                                 <ul>
+<<<<<<< HEAD
                                     <li><span class="fa fa-phone"></span>{{ $settings->phone }}</li>
                                     <li><span class="fa fa-envelope"></span>{{ $settings->email }}</li>
+=======
+                                    <li><span class="fa fa-phone"></span><a href="tel: {{ $settings->phone }} ">{{ $settings->phone }}</a></li>
+                                    <li><span class="fa fa-envelope"></span><a href="mailto:{{ $settings->email }}">{{ $settings->email }}</a></li>
+                                      
+                                    <!--@foreach (Config::get('app.languages') as $lang => $name)
+                                        @if ($lang == App::getLocale())
+                                            <li class="active"><span lang="{{ $lang }}" style="color: #888">{{ $name }}</span></li>
+                                        @else
+                                            <?php
+                                                $url = URL::to($lang);
+                                                $url = str_replace(App::getLocale(), $lang, env('APP_URL').'/'.$lang.'/'.Request::segment(2).'/'.Request::segment(3).'/'.Request::segment(4));
+                                            ?>
+                                            <li class="inactive"><a lang="{{ $lang }}" href="{{ $url }}">{{ $name }}</a></li>
+                                        @endif
+                                    @endforeach-->
+            
+                                    <!--<li><span class="fa fa-map-marker"></span></li>-->
+>>>>>>> 98b40097533907e337089f27cdf43615f72a4e9b
                                 </ul>
                             </div>
                         </div>

@@ -73,9 +73,9 @@
                         <div class="romana_contract_address">
                             <ul class="address">
                                 <li>@lang('front.donthesitate')</li>
-                                <li><a href="#"><span class="fa fa-envelope"></span>{{ $settings->email }}</a></li>
+                                <li><a href="mailto: {{ $settings->email }} "><span class="fa fa-envelope"></span>{{ $settings->email }}</a></li>
                                 <li><span class="fa fa-map-marker"></span>{{ $settings->address }}</li>
-                                <li><a href="#"><span class="fa fa-phone"></span>{{ $settings->phone }}</a></li>
+                                <li><a href="tel: {{ $settings->phone }} "><span class="fa fa-phone"></span>{{ $settings->phone }}</a></li>
                             </ul>
                             <div class="romana_socail_link">
                                 <a href="{{ $settings->facebook }}" class="fa fa-facebook"></a>
