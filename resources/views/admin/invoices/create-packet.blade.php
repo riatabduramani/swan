@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <div class="container">
         <div class="row">
@@ -9,19 +8,19 @@
                         <ul class="list-group">
                               <li class="list-group-item" style="background: #04699a;color: #fff;">
                               <h4 class="text-uppercase">
-                                    {{ $user->name }} {{ $user->surname }}<br/>
+                                    {{ $customer->user->name }} {{ $customer->user->surname }}<br/>
                                 </h4>
                                 <p>
-                                     <small class="label label-success">{{ $user->created_at->format('d.m.Y') }}</small>
-                                    &nbsp;{!! $user->showStatusOf($user) !!} {!! $user->showConfirmedOf($user) !!}
+                                     <small class="label label-success">{{ $customer->user->created_at->format('d.m.Y') }}</small>
+                                    &nbsp;{!! $customer->user->showStatusOf($customer->user) !!} {!! $customer->user->showConfirmedOf($customer->user) !!}
                                    
                                 </p>
                             </li>
                               <li class="list-group-item">
-                                <i class="fa fa-envelope" aria-hidden="true"></i> <abbr title="E-mail: {{ $user->email }}">{{ $user->email }}</abbr>
+                                <i class="fa fa-envelope" aria-hidden="true"></i> <abbr title="E-mail: {{ $customer->user->email }}">{{ $customer->user->email }}</abbr>
                               </li>
-                              <li class="list-group-item"><i class="fa fa-phone-square" aria-hidden="true"></i> {{ $user->customer->phone_in }}</li>
-                              <li class="list-group-item"><i class="fa fa-phone-square" aria-hidden="true"></i> {{ $user->customer->phone_out }}</li>
+                              <li class="list-group-item"><i class="fa fa-phone-square" aria-hidden="true"></i> {{ $customer->phone_in }}</li>
+                              <li class="list-group-item"><i class="fa fa-phone-square" aria-hidden="true"></i> {{ $customer->phone_out }}</li>
                             </ul>
                     </div>
 
@@ -129,7 +128,7 @@
                                                   <div class="form-group">
                                                     <div class="col-md-12" style="margin-top: 10px">
                                                         {!! Form::hidden('invoice_type', 1 ) !!}
-                                                        {!! Form::hidden('customer_id', $user->customer->id ) !!}
+                                                        {!! Form::hidden('customer_id', $customerid ) !!}
                                                         {!! Form::submit(isset($submitButtonText) ? $submitButtonText : 'Create Invoice', ['class' => 'btn btn-primary']) !!}
                                                     </div>
                                                 </div>

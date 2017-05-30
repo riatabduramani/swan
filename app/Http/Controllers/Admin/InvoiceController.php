@@ -209,9 +209,7 @@ class InvoiceController extends Controller
 		$invoice->save();
 
 		//dd($invoice);
-        if($invoice->save() === TRUE) {
-            Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
-        }
+     
 
         Session::flash('flash_message', 'Invoice created successfully!');
 
@@ -225,18 +223,19 @@ class InvoiceController extends Controller
 	    
 		$customerid = $request->customer_id;
         $invoicetype = $request->invoice_type;
-	    $user = User::find($customerid);
+	    //$user = User::find($customerid);
+        $customer = Customer::find($customerid);
 	    $duedate = Carbon::now();
 	    $duedate->addDays(8);
 
         $packets = Packet::listsTranslations('name')->pluck('name', 'id');
 
-        $credits = Credits::with('customer')->where('customer_id',$user->customer->id)
+        $credits = Credits::with('customer')->where('customer_id',$customerid)
                                     ->where('balance','!=', 0)
                                     ->where('balance','>',0)
                                     ->pluck('balance','id');
 
-	    return view('admin.invoices.create', compact('customerid','user','duedate','invoicetype','packets','credits'));	
+	    return view('admin.invoices.create', compact('customerid','customer','duedate','invoicetype','packets','credits'));	
 	   
 	}
 
@@ -245,18 +244,18 @@ class InvoiceController extends Controller
         //$invoicenr = Invoice::pluck('id')->last();
         
         $customerid = $request->customer_id;
-        $user = User::find($customerid);
+        $customer = Customer::find($customerid);
         $duedate = Carbon::now();
         $duedate->addDays(8);
 
         $packets = Packet::listsTranslations('name')->pluck('name', 'id');
 
-        $credits = Credits::with('customer')->where('customer_id',$user->customer->id)
+        $credits = Credits::with('customer')->where('customer_id',$customerid)
                                             ->where('balance','!=', 0)
                                             ->where('balance','>', 0)
                                             ->pluck('balance','id');
 
-        return view('admin.invoices.create-packet', compact('customerid','user','duedate','packets','credits'));   
+        return view('admin.invoices.create-packet', compact('customerid','customer','duedate','packets','credits'));   
        
     }
 
@@ -267,12 +266,12 @@ class InvoiceController extends Controller
         return $price;
     }
 
-	public function destroy($id) {
+	public function destroy(Request $request, $id) {
 
         Invoice::destroy($id);
 
         Session::flash('flash_message', 'Invoice deleted successfully!');
-        //return redirect("/admin/customer/$customerid");
+        return redirect("/admin/customer/$request->customer_id");
     }
 
     public function storePacketInvoice(Request $request)

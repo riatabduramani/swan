@@ -42,6 +42,7 @@
                             'url' => ['admin/invoice', $invoice->id],
                             'style' => 'display:inline'
                         ]) !!}
+                            {!! Form::hidden('customer_id', $invoice->customer->id ) !!}
                             {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
                                     'type' => 'submit',
                                     'class' => 'btn btn-danger btn-xs',
