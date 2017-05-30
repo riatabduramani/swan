@@ -177,6 +177,7 @@ return [
         Zizaco\Entrust\EntrustServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         //Barryvdh\Debugbar\ServiceProvider::class,
+        Bestmomo\LaravelEmailConfirmation\ServiceProvider::class,
 
 
         /*

@@ -46,6 +46,11 @@
 
    <div class="row">
         <div class="col-md-8 col-md-offset-2">
+        @if (session('confirmation-success'))
+            <div class="alert alert-success">
+                {{ session('confirmation-success') }}
+            </div>
+        @endif
             <div class="panel panel-default">
                 <div class="panel-heading" style="color: #fff; background-color: #0a587f; border-color: #ddd;">@lang('front.register')</div>
                 <div class="panel-body">

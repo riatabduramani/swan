@@ -45,6 +45,16 @@
 <div class="container" style="margin-top: 5%;padding-bottom: 5%;">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+        @if (session('confirmation-success'))
+            <div class="alert alert-success">
+                {{ session('confirmation-success') }}
+            </div>
+        @endif
+        @if (session('confirmation-danger'))
+            <div class="alert alert-danger">
+                {!! session('confirmation-danger') !!}
+            </div>
+        @endif
             <div class="panel panel-default">
                 <div class="panel-heading" style="color: #fff; background-color: #0a587f; border-color: #ddd;">@lang('front.login')</div>
                 <div class="panel-body">
