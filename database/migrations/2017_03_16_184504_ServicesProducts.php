@@ -14,12 +14,14 @@ class ServicesProducts extends Migration
     public function up()
     {
         Schema::create('services', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('image')->nullable();
             $table->timestamps();
          });
 
          Schema::create('service_translations', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('service_id')->unsigned();
             $table->string('name');

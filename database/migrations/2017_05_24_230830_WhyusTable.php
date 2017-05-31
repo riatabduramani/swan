@@ -14,11 +14,13 @@ class WhyusTable extends Migration
     public function up()
     {
         Schema::create('whyus', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->timestamps();
         });
 
         Schema::create('whyus_translations', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->text('title')->nullable();
             $table->text('description')->nullable();

@@ -14,6 +14,7 @@ class SettingsTable extends Migration
     public function up()
     {
         Schema::create('settings', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('company_logo')->nullable();
             $table->string('mob')->nullable();
@@ -37,6 +38,7 @@ class SettingsTable extends Migration
         });
 
         Schema::create('settings_translations', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('settings_id')->unsigned();
             $table->string('company_name')->nullable();

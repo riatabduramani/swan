@@ -15,6 +15,7 @@ class PacketService extends Migration
     {
         Schema::create('packet_service', function(Blueprint $table)
         {
+            $table->engine = 'InnoDB';
             $table->integer('packet_id')->unsigned()->index();
             $table->foreign('packet_id')->references('id')->on('packets')->onDelete('cascade');
             $table->integer('service_id')->unsigned()->index();

@@ -14,6 +14,7 @@ class Subscription extends Migration
     public function up()
     {
            Schema::create('subscription', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('invoice_id')->unsigned();
             $table->integer('customer_id')->unsigned();

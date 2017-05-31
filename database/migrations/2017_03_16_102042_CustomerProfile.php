@@ -14,6 +14,7 @@ class CustomerProfile extends Migration
     public function up()
     {
          Schema::create('packets', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->decimal('price')->nullable();
             $table->decimal('new_price');
@@ -22,6 +23,7 @@ class CustomerProfile extends Migration
          });
 
          Schema::create('packet_translations', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('packet_id')->unsigned();
             $table->string('name');
@@ -31,6 +33,7 @@ class CustomerProfile extends Migration
          });
 
         Schema::create('customer', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('phone_out');

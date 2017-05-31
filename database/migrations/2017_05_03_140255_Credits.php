@@ -14,6 +14,7 @@ class Credits extends Migration
     public function up()
     {
         Schema::create('credits', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->decimal('amount');
             $table->decimal('balance');

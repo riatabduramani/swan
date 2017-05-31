@@ -15,6 +15,7 @@ class Invoice extends Migration
      public function up()
     {
         Schema::create('invoice', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             //invoice_type (packets, or custom service, shortcode (0 - defined, 1 - custom))
             $table->boolean('invoice_type')->default(0);

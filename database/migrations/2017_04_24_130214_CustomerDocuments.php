@@ -14,6 +14,7 @@ class CustomerDocuments extends Migration
     public function up()
     {
          Schema::create('documents', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name');
             $table->text('description')->nullable();
@@ -29,6 +30,7 @@ class CustomerDocuments extends Migration
             });
 
         Schema::create('customer_document', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->integer('customer_id')->unsigned();
             $table->integer('document_id')->unsigned();
 

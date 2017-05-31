@@ -14,6 +14,7 @@ class CountryCities extends Migration
     public function up()
     {
         Schema::create('countries', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('code');
             $table->string('name');
@@ -21,6 +22,7 @@ class CountryCities extends Migration
         });
 
         Schema::create('cities', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name');
             $table->integer('country_id')->unsigned();
@@ -32,6 +34,7 @@ class CountryCities extends Migration
         });
 
         Schema::create('district', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name');
             $table->integer('city_id')->unsigned();

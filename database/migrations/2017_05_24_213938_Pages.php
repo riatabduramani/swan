@@ -14,11 +14,13 @@ class Pages extends Migration
     public function up()
     {
         Schema::create('pages', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->timestamps();
         });
 
         Schema::create('pages_translations', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->text('about')->nullable();
             $table->text('vision')->nullable();
