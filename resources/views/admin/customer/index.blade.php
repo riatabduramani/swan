@@ -42,10 +42,8 @@
                         </div>
                         {!! Form::close() !!}
 
-                        <br/>
-                        <br/>
                      
-                        <div class="">
+                        <div class="table-responsive" style="clear:both;">
                             <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
@@ -99,7 +97,7 @@
                                                 <li>
                                                 <a>
                                                 {!! Form::open(['route' => ['invoice_path']]) !!}
-                                                    {!! Form::hidden('customer_id', $item->user->id ) !!}
+                                                    {!! Form::hidden('customer_id', $item->id ) !!}
                                                     {!! Form::hidden('invoice_type', 2 ) !!}
                                                     {!! Form::button('<i class="fa fa-external-link" aria-hidden="true"></i>
                                                         Custom Invoice', array('style' => 'border: none;background: none;padding: 0;', 'type'=>'submit')) !!}
@@ -112,7 +110,7 @@
                                                 <li>
                                                 <a>
                                                 {!! Form::open(['route' => ['invoice_packet_path']]) !!}
-                                                    {!! Form::hidden('customer_id', $item->user->id ) !!}
+                                                    {!! Form::hidden('customer_id', $item->id ) !!}
                                                     {!! Form::hidden('invoice_type', 2 ) !!}
                                                     {!! Form::button('<i class="fa fa-external-link" aria-hidden="true"></i>
                                                         Packet Invoice', array('style' => 'border: none;background: none;padding: 0;', 'type'=>'submit')) !!}
@@ -154,6 +152,7 @@
                                 @endif
                                 </tbody>
                             </table>
+                            </div>
                             <div class="pagination-wrapper"> {!! $customer->appends(['search' => Request::get('search')])->render() !!} </div>
                         </div>
 

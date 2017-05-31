@@ -33,15 +33,17 @@
                               <li class="list-group-item" style="background: #ddd">
                                   <h4>
                                      Packet: 
-                                     @if(isset($chosenpacket))
-                                     <span class="label label-primary">{{ $chosenpacket->packet->name }}</span>
-                                     <br />
-                                     <small>(
-                                     {{ date('d.m.Y',strtotime($chosenpacket->start)) }} -
-                                     {{ date('d.m.Y',strtotime($chosenpacket->end)) }}
-                                     )</small>
+                                     @if(isset($chosenpacket) && $chosenpacket->invoice->payment_status == 1)
+                                     
+                                        <span class="label label-primary">{{ $chosenpacket->packet->name }}</span>
+                                        <br />
+                                        <small>(
+                                        {{ date('d.m.Y',strtotime($chosenpacket->start)) }} -
+                                        {{ date('d.m.Y',strtotime($chosenpacket->end)) }}
+                                        )</small>
+
                                      @foreach($chosenpacketnextpacket as $chosenpacketnext)
-                                       @if(isset($chosenpacketnext) && ($chosenpacketnext->invoice_id != $chosenpacket->invoice_id))
+                                       @if(isset($chosenpacketnext) && ($chosenpacketnext->invoice_id != $chosenpacket->invoice_id) && $chosenpacketnext->invoice->payment_status == 1)
                                        <br /><br />
                                         <small>Next packet: <b>{{ $chosenpacketnext->packet->name }}</b></small>
                                         <br />

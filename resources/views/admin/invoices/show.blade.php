@@ -35,6 +35,26 @@
                         <div class="pull-right">
                             <a href="{{ url('/admin/customer/' . $invoice->customer->id) }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
                             </a>
+                            @if($invoice->payment_status != 1)
+                        {{--
+                        <a href="{{ url('/admin/invoices/' . $invoice->id . '/edit') }}" title="Edit invoice"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                        --}}
+                        @permission('delete-invoice')
+                        {!! Form::open([
+                            'method'=>'DELETE',
+                            'url' => ['admin/invoice', $invoice->id],
+                            'style' => 'display:inline'
+                        ]) !!}
+                            {!! Form::hidden('customer_id', $invoice->customer->id ) !!}
+                            {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
+                                    'type' => 'submit',
+                                    'class' => 'btn btn-danger btn-xs',
+                                    'title' => 'Delete invoice',
+                                    'onclick'=>'return confirm("Confirm delete?")'
+                            ))!!}
+                        {!! Form::close() !!}
+                        @endpermission
+                        @endif
                         </div>
                     </div>
                     <div class="panel-body">
@@ -117,7 +137,7 @@
                                     <div class="col-md-12" style=" margin-top: 10px;">
                                     {!! Form::label('payment_method', 'Payment method:', ['class' => 'col-md-6 control-label']) !!}
                                     <div class="col-md-6">
-                                        {!! Form::select('payment_method', config('app.paymentmenthod'), null, ['class' => 'form-control','onchange'=>"enableApplyCredits()"]) !!}
+                                        {!! Form::select('payment_method', config('app.paymentmenthod'), null, ['placeholder'=>'Method...','class' => 'form-control','onchange'=>"enableApplyCredits()"]) !!}
                                         {!! $errors->first('payment_method', '<p class="help-block">:message</p>') !!}
                                     </div>
                                     </div>

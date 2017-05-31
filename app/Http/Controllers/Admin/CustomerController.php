@@ -248,12 +248,12 @@ class CustomerController extends Controller
 
         $customer = Customer::with('cities','district','invoice')->findOrFail($id);
         //$chosenpacket = Subscription::with('customer')->where('customer_id', $id)->get()->last();
-        $chosenpacket = Subscription::with('customer')
+        $chosenpacket = Subscription::with('customer','invoice')
                                     ->where('customer_id', $id)
                                     ->where('end','>=', Carbon::now())
                                     ->get()->first();
 
-        $chosenpacketnextpacket = Subscription::with('customer')
+        $chosenpacketnextpacket = Subscription::with('customer','invoice')
                                                 ->where('customer_id', $id)
                                                 ->where('end','>=', Carbon::now())
                                                 ->get();

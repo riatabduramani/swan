@@ -146,8 +146,8 @@ class InvoiceController extends Controller
     {
    		
    		$this->validate($request, [
-            'service_title' => 'required|min:3',
-            'service_description' => 'required|min:3',
+            'service_title' => 'required',
+            'service_description' => 'required',
             'service_price' => 'required',
             'invoice_status' => 'required',
         ]);
@@ -220,7 +220,7 @@ class InvoiceController extends Controller
     public function displayForm(Request $request)
 	{
 		//$invoicenr = Invoice::pluck('id')->last();
-	    
+
 		$customerid = $request->customer_id;
         $invoicetype = $request->invoice_type;
 	    //$user = User::find($customerid);

@@ -31,6 +31,10 @@ class Subscription extends Model
         return $this->belongsTo('App\Models\Customer','customer_id');
     }
 
+    public function invoice(){
+        return $this->belongsTo('App\Models\Invoice','invoice_id');
+    }
+
     public function packet(){
         return $this->belongsTo('App\Models\Packet','packet_id');
     }

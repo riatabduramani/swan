@@ -46,6 +46,9 @@ class Invoice extends Model
         return $this->belongsTo('App\Models\Customer','customer_id');
     }
 
+    public function invoice(){
+        return $this->belongsTo('App\Models\Subscription','invoice_id');
+    }
     
     public function customservice()
     {

@@ -173,10 +173,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 	Route::resource('/profile', 'Admin\\ProfileController');
 
 	//Settings
-	Route::resource('/settings', 'Admin\\SettingsController');
+	Route::resource('/settings', 'Admin\\SettingsController',['middleware'=>['role:superadmin|admin']]);
 
 	//Pages
-	Route::resource('/pages', 'Admin\\PagesController');
+	Route::resource('/pages', 'Admin\\PagesController',['middleware'=>['role:superadmin|admin']]);
 
 	//Tasks
 	Route::resource('/tasks', 'Admin\\TodolistController');
