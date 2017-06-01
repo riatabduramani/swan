@@ -139,9 +139,8 @@
                     <table>
                         <tr>
                             <td>
-                                SWAN Dooel<br>
-                                1200 Tetovo<br>
-                                Macedonia
+                                {{ $settings->company_name }}<br>
+                                {{ $settings->company_address }}
                             </td>
                             
                             <td>
