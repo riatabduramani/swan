@@ -155,6 +155,7 @@ class InvoiceController extends Controller
    		$userid = Auth::user()->id;
     	$invoicetype = $request->invoice_type;
         $customerid = $request->customer_id;
+        $customeremail = $request->customer_email;
     		
         $customservice = new CustomerServices();
         $customservice->name = $request->service_title;
@@ -209,18 +210,14 @@ class InvoiceController extends Controller
 		$invoice->save();
 
 		//dd($invoice);
-        $customer = Customer::find($customerid);
         
         if($invoice->save() === TRUE) {
-            //Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
-            Mail::to($customer->user->email)->send(new InvoiceGenerated($invoice));
-
+            Mail::to($customeremail)->send(new InvoiceGenerated($invoice));
         }
 
         Session::flash('flash_message', 'Invoice created successfully!');
 
         return redirect("admin/customer/$customerid");
-    	
     }
 
     public function displayForm(Request $request)

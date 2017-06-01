@@ -97,6 +97,7 @@
                                                 <li>
                                                 <a>
                                                 {!! Form::open(['route' => ['invoice_path']]) !!}
+                                                    {!! Form::hidden('customer_email', $item->user->email ) !!}
                                                     {!! Form::hidden('customer_id', $item->id ) !!}
                                                     {!! Form::hidden('invoice_type', 2 ) !!}
                                                     {!! Form::button('<i class="fa fa-external-link" aria-hidden="true"></i>
@@ -110,6 +111,7 @@
                                                 <li>
                                                 <a>
                                                 {!! Form::open(['route' => ['invoice_packet_path']]) !!}
+                                                    {!! Form::hidden('customer_email', $item->user->email ) !!}
                                                     {!! Form::hidden('customer_id', $item->id ) !!}
                                                     {!! Form::hidden('invoice_type', 2 ) !!}
                                                     {!! Form::button('<i class="fa fa-external-link" aria-hidden="true"></i>
