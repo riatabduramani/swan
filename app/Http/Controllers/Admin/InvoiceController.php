@@ -280,10 +280,10 @@ class InvoiceController extends Controller
     public function storePacketInvoice(Request $request)
     {
 
-
         $userid = Auth::user()->id;
         $invoicetype = $request->invoice_type;
         $customerid = $request->customer_id;
+        $customeremail = $request->customer_email;
         
         $invoice = new Invoice();
         $invoice->invoice_type = $invoicetype;
@@ -303,7 +303,6 @@ class InvoiceController extends Controller
                 $invoice->due_date = $request->duedate;
             }
         }
-        
        
         $packetdate = Carbon::now();
         $invoice->end_date = $packetdate->addYear(1);
@@ -354,6 +353,10 @@ class InvoiceController extends Controller
             $subscription->start = Carbon::now();
             $subscription->end = Carbon::now()->addYear(1);
             $subscription->save();
+        }
+
+        if($invoice->save() === TRUE) {
+            Mail::to($customeremail)->send(new InvoiceGenerated($invoice));
         }
 
         Session::flash('flash_message', 'Invoice created successfully!');

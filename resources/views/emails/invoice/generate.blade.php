@@ -139,12 +139,12 @@
                     <table>
                         <tr>
                             <td>
-                                From:<br />
+                                <b>From:</b><br />
                                 {{ $settings->company_name }}<br>
-                                {{ $settings->{'company_address:en'} }}
+                                {{ $settings->address }}
                             </td>
                             <td>
-                                To:<br />
+                                <b>To:</b><br />
                                 {{ $name }} {{ $surname }}<br>
                                 {{ $address }}<br>
                                 {{ $postal }} {{ $city }}, {{ $country }}<br />
