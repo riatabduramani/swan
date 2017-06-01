@@ -14,6 +14,7 @@ return [
     */
 
     'home' => 'Home',
+    'welcometo' => 'Welcome to',
     'about' => 'About us',
     'contact' => 'Contact',
     'services' => 'Our Services',

@@ -39,8 +39,8 @@ class TodolistController extends Controller
     public function createtask(Request $request)
     {
             $this->validate($request, [
-                'title' => 'required|min:3',
-                'description' => 'required|min:3',
+                'title' => 'required',
+                'description' => 'required',
                 'duedate' => 'required',
             ]);
 

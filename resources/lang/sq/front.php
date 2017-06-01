@@ -14,6 +14,7 @@ return [
     */
 
     'home' => 'Ballina',
+    'welcometo' => 'Mirësevini në',
     'about' => 'Rreth nesh',
     'contact' => 'Kontakt',
     'services' => 'Shërbimet',

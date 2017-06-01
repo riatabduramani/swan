@@ -87,7 +87,7 @@
                     </div> 
                     <div class="form-group">
                       <div class="col-md-12" style="margin-top: 10px; margin-bottom: 10px">
-                        {!! Form::textarea('description', null, array('placeholder'=>'File description','class' => 'form-control','rows'=>'3')) !!}
+                        {!! Form::textarea('doc_description', null, array('placeholder'=>'File description','class' => 'form-control','rows'=>'3')) !!}
                       </div>
                     </div>
                     <div class="form-group">

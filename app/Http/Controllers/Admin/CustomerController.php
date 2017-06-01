@@ -68,14 +68,14 @@ class CustomerController extends Controller
     public function update(Request $request, $id) {
 
         $this->validate($request, [
-            'name' => 'required|min:3',
-            'surname' => 'required|min:3',
-            'phone_out' => 'required|min:3',
-            'phone_in' => 'required|min:3',
-            'address_out' => 'required|min:3',
-            'postal_out' => 'required|min:3',
-            'city' => 'required|min:3',
-            'address_in' => 'required|min:6',
+            'name' => 'required',
+            'surname' => 'required',
+            'phone_out' => 'required',
+            'phone_in' => 'required',
+            'address_out' => 'required',
+            'postal_out' => 'required',
+            'city' => 'required',
+            'address_in' => 'required',
             'status' => 'required',
             'confirmed' => 'required',
             'district_in_id' => 'required',
@@ -152,15 +152,15 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|min:3',
-            'surname' => 'required|min:3',
+            'name' => 'required',
+            'surname' => 'required',
             'email' => 'required|email|max:255|unique:users',
-            'phone_out' => 'required|min:3',
-            'phone_in' => 'required|min:3',
-            'address_out' => 'required|min:3',
-            'postal_out' => 'required|min:3',
-            'city' => 'required|min:3',
-            'address_in' => 'required|min:6',
+            'phone_out' => 'required',
+            'phone_in' => 'required',
+            'address_out' => 'required',
+            'postal_out' => 'required',
+            'city' => 'required',
+            'address_in' => 'required',
             'status' => 'required',
             'confirmed' => 'required',
             'district_in_id' => 'required',
@@ -315,8 +315,8 @@ class CustomerController extends Controller
     public function createtask(Request $request)
     {
             $this->validate($request, [
-                'title' => 'required|min:3',
-                'description' => 'required|min:3',
+                'title' => 'required',
+                'description' => 'required',
                 'duedate' => 'required',
             ]);
 
@@ -396,7 +396,7 @@ class CustomerController extends Controller
             );
 
             $attach->name = $fileName;
-            $attach->description = $request->description;
+            $attach->description = $request->doc_description;
             $attach->renamed = $renamed;
             $attach->created_by = Auth::user()->id;
             $attach->type = $request->type;
