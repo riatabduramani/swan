@@ -135,6 +135,7 @@
                         <div class="col-md-12" style="margin-top: 10px">
                             {!! Form::hidden('invoice_type', 2 ) !!}
                             {!! Form::hidden('customer_id', $customer->id ) !!}
+                            {!! Form::hidden('customer_email', $customer->user->email ) !!}
                             {!! Form::submit(isset($submitButtonText) ? $submitButtonText : 'Create Invoice', ['class' => 'btn btn-primary']) !!}
                         </div>
                     </div>
