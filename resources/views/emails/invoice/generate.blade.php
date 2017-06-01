@@ -141,7 +141,7 @@
                             <td>
                                 From:<br />
                                 {{ $settings->company_name }}<br>
-                                {{ $settings->company_address->translate('en') }}
+                                {{ $settings->{'company_address:en'} }}
                             </td>
                             <td>
                                 To:<br />
