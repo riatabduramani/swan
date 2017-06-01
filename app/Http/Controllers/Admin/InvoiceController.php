@@ -209,9 +209,9 @@ class InvoiceController extends Controller
 		$invoice->save();
 
 		//dd($invoice);
-        if($invoice->save() === TRUE) {
+        //if($invoice->save() === TRUE) {
             Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
-        }
+        //}
 
         Session::flash('flash_message', 'Invoice created successfully!');
 
