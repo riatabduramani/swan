@@ -9,6 +9,8 @@ use App\Models\Credits;
 use App\User;
 use Session;
 use Auth;
+use App\Mail\CreditAdded;
+use Illuminate\Support\Facades\Mail;
 
 class CreditsController extends Controller
 {
@@ -18,12 +20,17 @@ class CreditsController extends Controller
 
     public function store(Request $request) {
     		$credit = new Credits;
+            $customeremail = $request->customer_email;
             $credit->customer_id = $request->customer_id;
             $credit->amount     = $request->amount;
             $credit->balance     = $request->amount;
             $credit->notes     = $request->notes;
             $credit->created_by = Auth::user()->id;
             $credit->save();
+
+            if($credit->save() === TRUE) {
+                Mail::to($customeremail)->send(new CreditAdded($credit));
+            }
 
             Session::flash('flash_message', 'Credit has been added!');
             return redirect()->back();

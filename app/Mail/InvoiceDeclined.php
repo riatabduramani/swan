@@ -8,7 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class InvoiceGenerated extends Mailable
+class InvoiceDeclined extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -32,7 +32,7 @@ class InvoiceGenerated extends Mailable
     public function build()
     {
         return $this->view('emails.invoice.generate')
-                    ->subject("New invoice #".$this->invoice->id."")
+                    ->subject("Invoice #".$this->invoice->id." has been declined")
                     ->with([
                         'invoice' => $this->invoice,
                         'nr' => $this->invoice->id,

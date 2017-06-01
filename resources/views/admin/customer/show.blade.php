@@ -376,6 +376,7 @@
                         <div class="col-md-2">
                           <div class="form-group">
                               {!! Form::hidden('customer_id', $customer->id ) !!}
+                              {!! Form::hidden('customer_email', $customer->user->email ) !!}
                               {!! Form::submit('Add credit',['class'=>'btn btn-primary','id'=>'btn-save']) !!}
                           </div>
                         </div>

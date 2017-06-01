@@ -48,7 +48,8 @@
                                     </div>
                                     <div class="form-group {{ $errors->has('service_description') ? 'has-error' : ''}}">
                                         <div class="col-md-12" style="margin-top:10px">
-                                           <textarea id="service_description" class="form-control" placeholder="Service description" required></textarea>
+
+                                           {!! Form::textarea('service_description', null, ['id'=>'service_description', 'class' => 'form-control','placeholder'=>'Service description','rows'=>'3', 'required']) !!}
                                         </div>
                                     </div>
                                 </div>

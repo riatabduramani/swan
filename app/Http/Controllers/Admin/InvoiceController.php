@@ -18,6 +18,8 @@ use Auth;
 
 use App\Order;
 use App\Mail\InvoiceGenerated;
+use App\Mail\InvoicePaid;
+use App\Mail\InvoiceDeclined;
 use Illuminate\Support\Facades\Mail;
 
 class InvoiceController extends Controller
@@ -70,22 +72,23 @@ class InvoiceController extends Controller
         ]);
 
     	$invoiceid = $request->invoice_id;
+        $customeremail = $request->customer_email;
     	$updatedby = Auth::user()->id;
 
-    	$update = Invoice::find($invoiceid);
+    	$invoice = Invoice::find($invoiceid);
     	
-	    $update->payment_status = $request->invoice_status;
+	    $invoice->payment_status = $request->invoice_status;
     	
 
         if($request->notes) {
-            $update->description = $request->notes;
+            $invoice->description = $request->notes;
         }
 
         if($request->invoice_status == 3) {
-            $update->payment_method = NULL;
-            $update->declined_at = Carbon::now();
+            $invoice->payment_method = NULL;
+            $invoice->declined_at = Carbon::now();
         } else {
-            $update->payment_method = $request->payment_method;
+            $invoice->payment_method = $request->payment_method;
         }
         
         if(!empty($request->apply_credit)) {
@@ -94,9 +97,19 @@ class InvoiceController extends Controller
             $credit->save();
         } 
 
-    	$update->updated_by = $updatedby;
-    	$update->paid_at = Carbon::now();
-    	$update->update();
+    	$invoice->updated_by = $updatedby;
+    	$invoice->paid_at = Carbon::now();
+    	$invoice->update();
+
+        if($invoice->update() === TRUE) {
+            if($request->invoice_status == 1) {
+                Mail::to($customeremail)->send(new InvoicePaid($invoice));
+            } elseif($request->invoice_status == 3) { 
+                Mail::to($customeremail)->send(new InvoiceDeclined($invoice));
+            } else {
+
+            }
+        }
 
     	return redirect("/admin/invoice/custominvoice/$invoiceid");
     }
@@ -108,20 +121,20 @@ class InvoiceController extends Controller
 
         $invoiceid = $request->invoice_id;
         $updatedby = Auth::user()->id;
-
-        $update = Invoice::find($invoiceid);
+        $customeremail = $request->customer_email;
+        $invoice = Invoice::find($invoiceid);
         
-        $update->payment_status = $request->invoice_status;
+        $invoice->payment_status = $request->invoice_status;
         //$update->payment_method = $request->payment_method;
 
         if($request->notes) {
-            $update->description = $request->notes;
+            $invoice->description = $request->notes;
         }
 
          if($request->invoice_status == 3) {
-            $update->payment_method = NULL;
+            $invoice->payment_method = NULL;
         } else {
-            $update->payment_method = $request->payment_method;
+            $invoice->payment_method = $request->payment_method;
         }
 
         if(!empty($request->apply_credit)) {
@@ -130,9 +143,19 @@ class InvoiceController extends Controller
             $credit->save();
         } 
 
-        $update->updated_by = $updatedby;
-        $update->paid_at = Carbon::now();
-        $update->update();
+        $invoice->updated_by = $updatedby;
+        $invoice->paid_at = Carbon::now();
+        $invoice->update();
+
+        if($invoice->update() === TRUE) {
+            if($request->invoice_status == 1) {
+                Mail::to($customeremail)->send(new InvoicePaid($invoice));
+            } elseif($request->invoice_status == 3) { 
+                Mail::to($customeremail)->send(new InvoiceDeclined($invoice));
+            } else {
+
+            }
+        }
 
         return redirect("/admin/invoice/packetinvoice/$invoiceid");
     }
@@ -184,7 +207,8 @@ class InvoiceController extends Controller
             }
 		}
 		
-		$invoice->description = $request->service_note;
+		$invoice->notes = $request->service_note;
+        $invoice->description = $request->service_description;
 		$invoice->customer_id = $request->customer_id;
 
         if(!empty($request->apply_credit)) {
@@ -307,7 +331,8 @@ class InvoiceController extends Controller
         $packetdate = Carbon::now();
         $invoice->end_date = $packetdate->addYear(1);
 
-        $invoice->description = $request->service_note;
+        $invoice->notes = $request->service_note;
+        $invoice->description = nl2br($request->service_description);
         $invoice->customer_id = $request->customer_id;
         
         if(!empty($request->apply_credit)) {

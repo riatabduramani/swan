@@ -88,7 +88,7 @@
                                 <tbody>
                                     <tr>
                                         <td> {{ $invoice->customservice->name }} </td>
-                                        <td> {{ $invoice->customservice->description }} </td>
+                                        <td> {{ $invoice->description }} </td>
                                         <td class="text-right"> {{ $invoice->total_sum }} </td>
                                     </tr>
                                     <tr>
@@ -104,7 +104,7 @@
                                 <div class="well">
                                     <b>Notes:</b> <br />
                                    
-                                   {{$invoice->description}}
+                                   {{ $invoice->notes }}
                                   
                                 </div>
                             </div>
@@ -116,7 +116,7 @@
                                 <div class="well">
                                     <b>Notes:</b> <br />
                                    
-                                    {!! Form::textarea('notes',(count($invoice->description)>0) ? $invoice->description : '',['placeholder'=>'Add a note...','class' => 'form-control',
+                                    {!! Form::textarea('notes',(count($invoice->notes)>0) ? $invoice->notes : '',['placeholder'=>'Add a note...','class' => 'form-control',
                   'rows'=>'2']) !!}
                                   
                                 </div>
@@ -154,6 +154,7 @@
                                 </div>
 
                                 <div class="form-group update">
+                                  {!! Form::hidden('customer_email', $invoice->customer->user->email ) !!}
                                   {!! Form::hidden('invoice_id', $invoice->id ) !!}
                                   {!! Form::hidden('service_price', $invoice->total_sum ) !!}
                                     <div class="col-md-12 text-right" style="margin-top: 10px;padding-right: 31px;">

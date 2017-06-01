@@ -82,19 +82,13 @@
                             @if($invoice->invoice_type == 2)
                                 <tr>
                                     <td>{{ $invoice->customservice->name }}</td>
-                                    <td>{{ $invoice->customservice->description }}</td>
+                                    <td>{!! $invoice->description !!}</td>
                                     <td>{{ $invoice->total_sum }}</td>
                                 </tr>
                             @else
                                 <tr>
                                     <td>{{ $invoice->packetservice->name }}</td>
-                                    <td>
-                                        <ul>
-                                            @foreach($invoice->packetservice->service as $ingr) 
-                                            <li>- {{ $ingr->name }} </li>
-                                            @endforeach
-                                        </ul>
-                                    </td>
+                                     <td>{!! $invoice->description !!}</td>
                                     <td>{{ $invoice->packetservice->new_price }}&euro;/@lang('front.monthly')</td>
                                 </tr>
                             @endif

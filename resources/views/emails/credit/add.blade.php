@@ -122,12 +122,7 @@
                             </td>
                             
                             <td>
-                                Invoice #: {{ $nr }} / {{ date('Y',strtotime($date)) }}<br>
                                 Created: {{ date('d.m.Y',strtotime($date)) }}<br>
-                                @if($status == 2)
-                                Due: {{ date('d.m.Y',strtotime($due)) }}<br />
-                                @endif
-                                Type: @if($type == 2) Custom @else Packet @endif
                             </td>
                         </tr>
                     </table>
@@ -139,12 +134,10 @@
                     <table>
                         <tr>
                             <td>
-                                <b>From:</b><br />
                                 {{ $settings->company_name }}<br>
                                 {{ $settings->address }}
                             </td>
                             <td>
-                                <b>To:</b><br />
                                 {{ $name }} {{ $surname }}<br>
                                 {{ $address }}<br>
                                 {{ $postal }} {{ $city }}, {{ $country }}<br />
@@ -155,52 +148,26 @@
                 </td>
             </tr>
             
-            <tr class="heading">
-                 <td>Payment status</td>
-                 <td>Payment method</td>
-            </tr>
-            
-            <tr class="details">
-                <td>
-                    {!! $invoice->showPaidStatus($invoice) !!}
-                </td>
-                
-                <td>
-                    {!! $invoice->showPaidMethod($invoice) !!}
-                </td>
-            </tr>
             
             <tr class="heading">
                 <td>
-                    Service
+                    Credit Description
                 </td>
                 
                 <td>
-                    Price
+                    Sum
                 </td>
             </tr>
                         
             <tr class="item last">
 
-                <td>{{ $title }}
-                	<p style="font-size: 10pt"><i>{!! $description !!}</i></p>
+                <td>
+                    {{ $notes }}
                 </td>
                 
-                <td>{{ $total_sum }}&euro;</td>
+                <td>{{ $amount }}&euro;</td>
             </tr>
             
-            <tr class="total">
-                <td>
-                	<b>Notes:</b>
-                	<div style="border:1px solid #ddd; font-size: 9pt; padding: 6px;">
-                		<p>{{ $notes }}</p>
-                	</div>
-                </td>
-                
-                <td>
-                   Total: {{ $total_sum }}&euro;
-                </td>
-            </tr>
         </table>
     </div>
 </body>
