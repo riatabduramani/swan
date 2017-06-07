@@ -16,6 +16,8 @@
     <link href="{{ asset('css/front/owl.carousel.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('fonts/webfonts/fonts.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
+        <script src="{{ asset('sweetalert/dist/sweetalert.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('sweetalert/dist/sweetalert.css') }}">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -55,17 +57,32 @@
                 <div class="row">
                     <div class="col-sm-6 col-xs-12 col-md-5">
                         <div class="romana_contact_form">
-                            <form action="#">
+                         <ul>
+                            @foreach($errors->all() as $error)
+                                
+                                <script type="text/javascript">
+                                    
+                                    swal({
+                                      title: "{{ __('front.error') }}",
+                                      text: "{{ $error }}",
+                                      type: "error",
+                                      confirmButtonText: "OK"
+                                    });
+                                </script>
+                            @endforeach
+                        </ul>
+                            {!! Form::open(array('method'=>'POST', 
+                          'action'=>'HomeController@contact')) !!}
                                 <label for="contact_name">@lang('front.name')</label>
-                                <input type="text" name="contact_name" id="contact_name" placeholder="@lang('front.entername')...">
+                                <input type="text" name="contact_name" id="contact_name" placeholder="@lang('front.entername')..." required>
                                 <label for="contact_email">E-mail</label>
-                                <input type="text" name="contact_email" id="contact_email" placeholder="@lang('front.enteremail')">
+                                <input type="text" name="contact_email" id="contact_email" placeholder="@lang('front.enteremail')" required>
                                 <label for="contact_phone">@lang('front.phone')</label>
-                                <input type="text" name="contact_name" id="contact_phone" placeholder="@lang('front.enterphone')..">
+                                <input type="text" name="contact_phone" id="contact_phone" placeholder="@lang('front.enterphone').." required>
                                 <label for="contact_message">@lang('front.message')</label>
-                                <textarea rows="4" placeholder="@lang('front.entermessage').." id="contact_message"></textarea>
+                                <textarea rows="4" placeholder="@lang('front.entermessage').." id="contact_message" name="contact_message" required></textarea>
                                 <input type="submit" class="send-now" name="contact_Send" value="@lang('front.send')">
-                            </form>
+                            {!! Form::close() !!}
                         </div>
                     </div>
 
@@ -111,6 +128,7 @@
         <script src="{{ asset('js/front/jquery.counterup.min.js') }}"></script>
         <script src="{{ asset('js/front/waypoints.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('js/front/active.js') }}"></script>
+        @include('sweet::alert')
     </div>
 </body>
 </html>

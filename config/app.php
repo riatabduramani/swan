@@ -178,6 +178,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         //Barryvdh\Debugbar\ServiceProvider::class,
         Bestmomo\LaravelEmailConfirmation\ServiceProvider::class,
+        UxWeb\SweetAlert\SweetAlertServiceProvider::class,
 
 
         /*
@@ -245,6 +246,7 @@ return [
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Alert' => UxWeb\SweetAlert\SweetAlert::class,
         //'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],

@@ -105,7 +105,7 @@
                                     @lang('front.login')
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a class="btn btn-link" href="/{{ App::getLocale() }}/password/reset">
                                     @lang('front.forgotpassword')
                                 </a>
                             </div>

@@ -119,4 +119,25 @@ return [
     'remember' => 'Mbaj mend të dhënat për kyçje',
     'forgotpassword' => 'Keni harruar fjalëkalimin?',
     'selectdistrict' => 'Zgjidhni vendin ku jetoni',
+
+    'resetpassword' => 'Ndrysho fjalëkalimin',
+    'sendpasswordlink' => 'Dërgo kërkesën',
+
+    'allrights' => 'Të gjitha të drejtat e rezervuara.',
+
+    'troubleview1' => 'Nëse keni problem për të klikuar ',
+    'troubleview2' => 'butonin, atëherë kopjoni linkun dhe kërkoni nëpërmjet browser-it tuaj.',
+
+    'receivingemail' => 'Ju e keni pranuar këtë e-mail sepse keni bërë kërkesë për ndryshim të fajlëkalimit të llogarisë suaj.',
+    'norequest' => 'Nëse ju nuk e keni bërë këtë kërkesë, atëherë mos merrni asnjë veprim, vetëm lajmëroni në info@swan.mk.',
+
+    'hellodear' => 'Përshëndetje i/e nderuar,',
+
+    'regards' => 'Çdo të mirë',
+
+    'messagesent' => 'Mesazhi u dërgua',
+    'thankscontact' => 'Ju faleminderit që na kontaktuat!',
+    'contactsubject' => 'Mesazh i ri nga forma e web-it',
+
+    'error' => 'Gabim!',
 ];

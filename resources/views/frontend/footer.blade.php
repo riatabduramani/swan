@@ -84,3 +84,4 @@
         </footer>
         <script type="text/javascript" async="async" defer="defer" data-cfasync="false" src="https://mylivechat.com/chatinline.aspx?hccid=38804934"></script>
         <script src="{{ asset('js/front/hometabs.js') }}"></script>
+        

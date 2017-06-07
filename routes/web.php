@@ -73,6 +73,9 @@ Route::group(['prefix' => $language], function()
 	    return view('frontend.pages.about');
 	});
 
+	Route::post('/sendcontactus','HomeController@contactus');
+	Route::post('/sendcontact','HomeController@contact');
+
 	Route::get('services','HomeController@services');
 
 	//Route::resource('/register','Auth\\RegisterController');

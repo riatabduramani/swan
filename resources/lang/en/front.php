@@ -120,4 +120,23 @@ return [
     'forgotpassword' => 'Forgot Your Password?',
     'selectdistrict' => 'Select district/place',
 
+    'resetpassword' => 'Reset Password',
+    'sendpasswordlink' => 'Send Password Reset Link',
+
+    'allrights' => 'All rights reserved.',
+
+    'troubleview1' => 'If you’re having trouble clicking the',
+    'troubleview2' => 'button, copy and paste the URL below into your web browser:',
+
+    'receivingemail' => 'You are receiving this email because we received a password reset request for your account.',
+    'norequest' => 'If you did not request a password reset, no further action is required.',
+
+    'hellodear' => 'Hello dear,',
+    'regards' => 'Regards',
+    
+    'messagesent' => 'Message Sent',
+    'thankscontact' => 'Thanks for contacting us!',
+    'contactsubject' => 'New message from web form',
+
+    'error' => 'Error!',
 ];

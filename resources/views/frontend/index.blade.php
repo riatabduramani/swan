@@ -18,6 +18,8 @@
     <link href="{{ asset('css/front/owl.carousel.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('fonts/webfonts/fonts.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
+    <script src="{{ asset('sweetalert/dist/sweetalert.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('sweetalert/dist/sweetalert.css') }}">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,7 +35,6 @@
         <div class="preloader_spinner"></div>
     </div>
     <div class="home_page">
-
     @include('frontend.header')
 
 <!-- ==================================================
@@ -201,33 +202,49 @@
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
                         <div class="romana_booking_form">
-                            <form action="#">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                
+                                <script type="text/javascript">
+                                    
+                                    swal({
+                                      title: "{{ __('front.error') }}",
+                                      text: "{{ $error }}",
+                                      type: "error",
+                                      confirmButtonText: "OK"
+                                    });
+                                </script>
+                            @endforeach
+                        </ul>
+
+                            {!! Form::open(array('method'=>'POST', 
+                          'action'=>'HomeController@contactus')) !!}
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <label for="name">@lang('front.name')*</label>
                                         <br>
-                                        <input type="text" name="name" placeholder="@lang('front.entername')" id="name">
+                                        <input type="text" name="name" placeholder="@lang('front.entername')" id="name" required>
                                         <label for="Phone">@lang('front.phone')*</label>
-                                        <input type="text" name="Phone" placeholder="@lang('front.phone')" id="Phone">
+                                        <input type="text" name="phone" placeholder="@lang('front.phone')" id="phone" required>
                                         <br>
                                     </div>
                                     <div class="col-sm-6">
                                         <label for="email">E-mail*</label>
                                         <br>
-                                        <input type="text" name="email" placeholder="@lang('front.enteremail')" id="email">
+                                        <input type="text" name="email" placeholder="@lang('front.enteremail')" id="email" required>
                                         <label for="Date">@lang('front.address')*</label>
                                         <br>
-                                        <input type="text" name="address" placeholder="@lang('front.enteraddress')" id="address">
+                                        <input type="text" name="address" placeholder="@lang('front.enteraddress')" id="address" required>
                                     </div>
                                     <div class="col-xs-12">
                                         <label for="Message">@lang('front.message')*</label>
                                         <br>
-                                        <textarea rows="4" placeholder="@lang('front.entermessage')" name="message" id="Message"></textarea>
+                                        <textarea rows="4" placeholder="@lang('front.entermessage')" name="message" id="Message" required></textarea>
                                         <br>
                                         <input type="submit" value="@lang('front.send')">
                                     </div>
                                 </div>
-                            </form>
+                            {!! Form::close() !!}
                         </div>
                     </div>
                 </div>
@@ -381,6 +398,9 @@
 
            });
        </script>
+
+        <!-- Include this after the sweet alert js file -->
+        @include('sweet::alert')
     </div>
 </body>
 </html>

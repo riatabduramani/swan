@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 use App\Traits\HasModelTrait;
 
+
 class User extends Authenticatable
 {
     use EntrustUserTrait;
