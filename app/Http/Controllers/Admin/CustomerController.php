@@ -418,4 +418,29 @@ class CustomerController extends Controller
             return redirect()->back();
     }
 
+    public function generateNewPassword(Request $request) {
+
+            $email = $request->get('email');
+            $password = str_random(8);
+            $newpassword = Hash::make($password);
+
+            User::where('email', $email)
+                    ->update(['password' => $newpassword]);
+
+            \Mail::send('emails.newpassword',
+            array(
+                'email' => $request->get('email'),
+                'password' => $password
+            ), function($message) use($email)
+            {
+                $message->from(env('OFFICIAL_MAIL'));
+                $message->to($email, 'SWAN')->subject('New password');
+            });
+
+            Session::flash('flash_message', 'New password has been sent!');
+
+
+            return redirect()->back();
+    }
+
 }

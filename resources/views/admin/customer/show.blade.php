@@ -24,6 +24,11 @@
                                 </label>
                               </p>
                               @endpermission
+                              {!! Form::open(array('method'=>'POST', 
+                                'action'=>'Admin\\CustomerController@generateNewPassword')) !!}
+                              {!! Form::hidden('email', $customer->user->email ) !!}
+                              {!! Form::button('<i class="fa fa-key" aria-hidden="true"></i> Send new password', array('class' => 'btn btn-default btn-xs','type'=>'submit')) !!}
+                              {!! Form::close() !!}
                             </li>
                               <li class="list-group-item">
                                 <i class="fa fa-envelope" aria-hidden="true"></i> <abbr title="E-mail: {{ $customer->user->email }}">{{ $customer->user->email }}</abbr>

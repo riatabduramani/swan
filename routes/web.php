@@ -185,4 +185,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 	Route::resource('/tasks', 'Admin\\TodolistController');
 	Route::post('/tasks','Admin\\TodolistController@createtask',['middleware'=>['permission:create-task']]);
 	Route::get('/tasks/done/{id}', 'Admin\\TodolistController@doneTask');
+
+	//Generate new password
+	Route::post('/customer/newpassword', 'Admin\\CustomerController@generateNewPassword');
 });
