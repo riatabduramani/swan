@@ -76,6 +76,8 @@ Route::group(['prefix' => $language], function()
 	Route::post('/sendcontactus','HomeController@contactus');
 	Route::post('/sendcontact','HomeController@contact');
 
+	Route::post('/subscribe','HomeController@subscribe');
+
 	Route::get('services','HomeController@services');
 
 	//Route::resource('/register','Auth\\RegisterController');
@@ -188,4 +190,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 
 	//Generate new password
 	Route::post('/customer/newpassword', 'Admin\\CustomerController@generateNewPassword');
+
+	//Subscriber
+	Route::resource('/subscriber', 'Admin\\SubscriberController',['middleware'=>['role:superadmin|admin']]);
 });
+

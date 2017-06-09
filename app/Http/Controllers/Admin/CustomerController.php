@@ -220,20 +220,6 @@ class CustomerController extends Controller
                         ->update(['commentable_id'=> $lastinsertedid, 'commentable_type' => get_class($customer)]);
 
                 Potential::destroy($request->potential_id);
-            /*
-                $comment = Comment::where('commentable_id', $request->potential_id)
-                        ->where('commentable_type','App\Models\Potential')->get();
-
-                foreach ($comment as $newcomment) {
-                    $addcomment = new Comment();
-
-                    $addcomment->body = $newcomment->body;
-                    $addcomment->commentable_id =  $lastinsertedid;
-                    $addcomment->commentable_type = 'App\Models\Customer';
-                    $addcomment->created_by = $newcomment->created_by;
-                    $addcomment->save();
-                }
-            */
 
             }
 

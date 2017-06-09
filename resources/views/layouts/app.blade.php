@@ -94,8 +94,11 @@
                         <li {{{ (Request::is('admin/settings*') ? 'class=active' : '') }}}><a href="/admin/settings">Settings</a></li>
                         <li {{{ (Request::is('admin/pages*') ? 'class=active' : '') }}}><a href="/admin/pages">Pages</a></li>
                     @endrole
+                    @role(['admin','superadmin'])
+                        <li {{{ (Request::is('admin/subscriber*') ? 'class=active' : '') }}}><a href="/admin/subscriber">Subscriber</a></li>
+                    @endrole
                     @role('superadmin')
-                        <li {{{ (Request::is('admin/roles*') ? 'class=active' : '') }}}><a href="/admin/roles">Roles & Permissions</a></li>
+                        <li {{{ (Request::is('admin/roles*') ? 'class=active' : '') }}}><a href="/admin/roles">Roles</a></li>
                     @endrole
                     @role(['admin','superadmin'])
                          <li {{{ (Request::is('admin/users*') ? 'class=active' : '') }}}>

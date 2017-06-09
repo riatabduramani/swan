@@ -139,4 +139,7 @@ return [
     'contactsubject' => 'New message from web form',
 
     'error' => 'Error!',
+
+    'messagesubscriber' => 'Successfully subscribed.',
+    'thankssubscriber' => 'Thank you!',
 ];

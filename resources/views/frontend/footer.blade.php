@@ -54,9 +54,23 @@
                                     <li><span class="fa fa-phone"></span><a href="tel: {{ $settings->phone }} ">{{ $settings->phone }}</a></li>
                                 </ul>
                                 <div class="subscrib">
+                                @if (count($errors) > 0)
+                                        @foreach ($errors->all() as $error)
+                                            <script type="text/javascript">
+                                                swal({
+                                                  title: "{{ __('front.error') }}",
+                                                  text: "{{ $error }}",
+                                                  type: "error",
+                                                  confirmButtonText: "OK"
+                                                });
+                                            </script>
+                                        @endforeach
+                                @endif
                                     <h3>@lang('front.subscribe')</h3>
-                                    <input type="text" name="email" placeholder="E-mail">
+                                    {!! Form::open(array('method'=>'POST','action'=>'HomeController@subscribe')) !!}
+                                    <input type="text" name="subscriberemail" name="subscriberemail" placeholder="E-mail" required>
                                     <input type="submit" name="submit" value="@lang('front.send')">
+                                    {!! Form::close() !!}
                                     <p>@lang('front.dontshareinfo')</p>
                                 </div>
                             </div>

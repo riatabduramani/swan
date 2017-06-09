@@ -15,6 +15,7 @@ use App\Models\Credits;
 use App\Models\Service;
 use App\Models\Packet;
 use App\Models\Settings;
+use App\Models\Subscriber;
 use File;
 use App\User;
 use Session;
@@ -23,6 +24,7 @@ use Carbon\Carbon;
 use DB;
 use Illuminate\Support\Facades\Hash;
 use Alert;
+
 
 class HomeController extends Controller
 {
@@ -113,5 +115,21 @@ class HomeController extends Controller
 
 
             return redirect()->back();
+    }
+
+    public function subscribe(Request $request) {
+
+        $this->validate($request, [
+                'subscriberemail' => 'required|email|unique:subscribers,subscriber',
+            ]);
+
+        $subscribe = new Subscriber();
+        $subscribe->subscriber = $request->subscriberemail;
+        $subscribe->save();
+
+        alert()->success(__('front.messagesubscriber'), __('front.thankssubscriber'));
+
+
+        return redirect()->back();
     }
 }

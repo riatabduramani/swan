@@ -140,4 +140,7 @@ return [
     'contactsubject' => 'Mesazh i ri nga forma e web-it',
 
     'error' => 'Gabim!',
+
+    'messagesubscriber' => 'Abonimi u kry me sukses.',
+    'thankssubscriber' => 'Ju faleminderit!',
 ];

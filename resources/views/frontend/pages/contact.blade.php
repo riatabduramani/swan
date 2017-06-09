@@ -114,6 +114,7 @@
             <div class="content_bg">
                 <div class="border"></div>
             </div>
+            {!! $settings->googlemap !!}
         </div>
 
        @include('frontend.footer')

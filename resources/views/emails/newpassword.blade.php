@@ -1,4 +1,6 @@
-Your new password at SWAN System:
+<img src="{{ config('app.url')}}/images/swan-logoh.png" style="width:100%; max-width:300px;">
+<br />
+<b>Your new password at SWAN System:</b>
 
 <p>
 <b>E-mail:</b> {{ $email }}
