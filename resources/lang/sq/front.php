@@ -143,4 +143,6 @@ return [
 
     'messagesubscriber' => 'Abonimi u kry me sukses.',
     'thankssubscriber' => 'Ju faleminderit!',
+
+    'negotiable' => 'Me negociatë',
 ];

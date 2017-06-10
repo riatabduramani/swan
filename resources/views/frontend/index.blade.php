@@ -69,6 +69,9 @@
 
                         <div class="romana_single_price @if($headers[$i] == 'header-ekstra') price_current_item @endif text-center" id="{{ $ids[$i] }}">
                             <h3 class="{{ $headers[$i] }}">{{ $packet->name }}</h3>
+                            @if($packet->options == 3)
+                                <a href="/{{App::getLocale()}}/contact" style="margin-bottom: 10px">@lang('front.negotiable')</a>
+                            @endif
                             @if($packet->options != 3)
                             <h4>{{ floatval($packet->new_price) }}€<span>/@lang('front.monthly')</span></h4>
                             @endif
@@ -77,7 +80,7 @@
                                     <li><i class="fa fa-check"></i>&nbsp {{ $service->name }}</li>
                                 @endforeach
                             </ul>
-                            <a href="{{App::getLocale()}}/services">@lang('front.readmore')</a>
+                            <a href="/{{App::getLocale()}}/services">@lang('front.readmore')</a>
                         </div>
                         <?php $i++; ?>
                         @endforeach

@@ -142,4 +142,6 @@ return [
 
     'messagesubscriber' => 'Successfully subscribed.',
     'thankssubscriber' => 'Thank you!',
+
+    'negotiable' => 'Negotiable',
 ];
