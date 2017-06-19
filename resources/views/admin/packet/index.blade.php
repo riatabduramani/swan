@@ -20,7 +20,7 @@
                             <table class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Name [EN]</th><th>Name [AL]</th><th>Price</th><th>Actions</th>
+                                        <th>ID</th><th>Name [EN]</th><th>Name [AL]</th><th>Price</th><th>Months</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -35,6 +35,7 @@
                                             <del style="color: red">{{ $item->price }}€</del> / 
                                         @endif
                                         {{ $item->new_price }}€</td>
+                                        <td>{{ $item->months }}</td>
                                         <td>
                                             <a href="{{ url('/admin/packet/' . $item->id . '/edit') }}" title="Edit packet"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
                                             {!! Form::open([

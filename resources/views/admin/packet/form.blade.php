@@ -40,6 +40,13 @@
         {!! $errors->first('options', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
+<div class="form-group {{ $errors->has('months') ? 'has-error' : ''}}">
+    {!! Form::label('months', 'Months', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        {!! Form::select('months', [1=>1,2=>2,3=>3,4=>4,5=>5,6=>6,7=>7,8=>8,9=>9,10=>10,11=>11,12=>12], null, ['class' => 'form-control','placeholder' => 'Select months','required']) !!}
+        {!! $errors->first('months', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
 
 <div class="well">
 <h4>Select <span class="label label-warning">Services</span></h4>

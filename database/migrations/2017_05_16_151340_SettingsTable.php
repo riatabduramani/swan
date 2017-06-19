@@ -49,6 +49,8 @@ class SettingsTable extends Migration
             $table->unique(['settings_id','locale']);
             $table->foreign('settings_id')->references('id')->on('settings')->onDelete('cascade');
          });
+
+
     }
 
     /**

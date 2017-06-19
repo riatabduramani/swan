@@ -329,7 +329,8 @@ class InvoiceController extends Controller
         }
        
         $packetdate = Carbon::now();
-        $invoice->end_date = $packetdate->addYear(1);
+        //$invoice->end_date = $packetdate->addYear(1);
+        $invoice->end_date = $packetdate->addMonths($request->months);
 
         $invoice->notes = $request->service_note;
         $invoice->description = nl2br($request->service_description);
@@ -368,7 +369,7 @@ class InvoiceController extends Controller
             $subscription->customer_id = $customerid;
             $subscription->packet_id = $request->packets;
             $subscription->start = Carbon::parse($chosenpacket->end);
-            $subscription->end = Carbon::parse($chosenpacket->end)->addYear(1);
+            $subscription->end = Carbon::parse($chosenpacket->end)->addMonths($request->months);
             $subscription->save();
         } else {
             $subscription = new Subscription();
@@ -376,7 +377,7 @@ class InvoiceController extends Controller
             $subscription->customer_id = $customerid;
             $subscription->packet_id = $request->packets;
             $subscription->start = Carbon::now();
-            $subscription->end = Carbon::now()->addYear(1);
+            $subscription->end = Carbon::now()->addMonths($request->months);
             $subscription->save();
         }
 

@@ -74,6 +74,15 @@
                                 </div>
                                 @endforeach
                                 </div>
+
+                                <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Company Tax nr:</label>
+                                        {!! Form::text('tax', null, array('placeholder' => 'company tax nr','class' => 'form-control')) !!}
+                                    </div>
+                                </div>
+                                </div>
                                 
                             </div>
                             <div role="tabpanel" class="tab-pane" id="contact">

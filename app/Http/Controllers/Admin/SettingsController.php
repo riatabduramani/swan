@@ -81,6 +81,7 @@ class SettingsController extends Controller
         try {
 
                 $settings = Settings::find($id);
+                $settings->tax = $request->tax;
                 $settings->company_logo = $request->company_logo;
                 $settings->company_keywords = $request->company_keywords;
                 $settings->mob = $request->mob;

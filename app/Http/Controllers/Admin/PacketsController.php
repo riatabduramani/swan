@@ -61,6 +61,7 @@ class PacketsController extends Controller
 
         $requestData = new Packet();
         $requestData->price = $request->price;
+        $requestData->months = $request->months;
         $requestData->new_price = $request->new_price;
         $requestData->options = $request->options;
 
@@ -129,6 +130,7 @@ class PacketsController extends Controller
         $requestData = Packet::findOrFail($id);
 
         $requestData->price = $request->input('price');
+        $requestData->months = $request->input('months');
         $requestData->new_price = $request->input('new_price');
         $requestData->options = $request->input('options');
 
