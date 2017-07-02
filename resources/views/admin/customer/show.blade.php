@@ -224,9 +224,10 @@
                       CUSTOMER ADDRESS 
 
                       @if($customer->latitude && $customer->longitude)
+                      <br />
                       <a href="http://www.google.com/maps/place/{{ $customer->latitude }}, {{ $customer->longitude }}" class="btn btn-success btn-xs" target="_blank">Show on map</a>
                       @endif
-                      
+
                      <div class="pull-right">
                         <a href="{{ url('/admin/customer') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
 
