@@ -81,7 +81,6 @@ class SettingsController extends Controller
         try {
 
                 $settings = Settings::find($id);
-                $settings->tax = $request->tax;
                 $settings->company_logo = $request->company_logo;
                 $settings->company_keywords = $request->company_keywords;
                 $settings->mob = $request->mob;
@@ -99,6 +98,7 @@ class SettingsController extends Controller
                 $settings->currency = $request->currency;
                 $settings->googleanalytics = $request->googleanalytics;
                 $settings->googlemap = $request->googlemap;
+                $settings->tax = $request->tax;
 
                 foreach (config('app.language') as $locale => $suffix) {
                     $settings->translateOrNew($locale)->company_name = $request->input("company_name{$suffix}");

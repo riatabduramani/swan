@@ -52,6 +52,7 @@
                                     </li>
                                     <li> <span class="fa fa-envelope"></span><a href="mailto:{{ $settings->email }}">{{ $settings->email }}</a></li>
                                     <li><span class="fa fa-phone"></span><a href="tel: {{ $settings->phone }} ">{{ $settings->phone }}</a></li>
+                                    <li><span class="fa fa-mobile"></span><a href="tel: {{ $settings->mob }} ">{{ $settings->mob }}</a></li>
                                 </ul>
                                 <div class="subscrib">
                                 @if (count($errors) > 0)

@@ -266,7 +266,7 @@
                 <h2>@lang('front.mobile')</h2>
             </div>
             <p>@lang('front.urgentcalls')</p>
-            <h2><a href="tel: {{ $settings->phone }} ">{{ $settings->phone }}</a></h2>
+            <h2><a href="tel: {{ $settings->mob }} ">{{ $settings->mob }}</a></h2>
       </div>
       <div class="rightside">
            <div class="section_title">
