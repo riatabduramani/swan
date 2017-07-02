@@ -221,7 +221,12 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"  style="background: #04699a;color: #fff;">
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      CUSTOMER ADDRESS
+                      CUSTOMER ADDRESS 
+
+                      @if($customer->latitude && $customer->longitude)
+                      <a href="http://www.google.com/maps/place/{{ $customer->latitude }}, {{ $customer->longitude }}" class="btn btn-success btn-xs" target="_blank">Show on map</a>
+                      @endif
+                      
                      <div class="pull-right">
                         <a href="{{ url('/admin/customer') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
 

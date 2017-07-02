@@ -34,6 +34,8 @@ class Customer extends Model
 		'address_out',
 		'postal_out',
 		'city',
+        'latitude',
+        'longitude',
 		'country_id',
 		'address_in',
 		'city_in_id',

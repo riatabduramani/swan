@@ -131,9 +131,28 @@
         </div>
 </div>
 
+<div class="panel panel-default">
+  <div class="panel-heading" style="background: rgb(4, 105, 154); color: rgb(255, 255, 255);">Map Coordinates:</div>
+    <div class="panel-body">
+        
+        <div class="form-group {{ $errors->has('latitude') ? 'has-error' : ''}}">
+            {!! Form::label('latitude', 'Latitude:', ['class' => 'col-md-4 control-label']) !!}
+            <div class="col-md-6">
+                {!! Form::text('latitude', null, ['class' => 'form-control']) !!}
+                {!! $errors->first('latitude', '<p class="help-block">:message</p>') !!}
+            </div>
+        </div>
 
+        <div class="form-group {{ $errors->has('longitude') ? 'has-error' : ''}}">
+            {!! Form::label('longitude', 'Longitude:', ['class' => 'col-md-4 control-label']) !!}
+            <div class="col-md-6">
+                {!! Form::text('longitude', null, ['class' => 'form-control']) !!}
+                {!! $errors->first('longitude', '<p class="help-block">:message</p>') !!}
+            </div>
+        </div>
 
-
+    </div>
+</div>
 
 <div class="panel panel-default">
   <div class="panel-heading" style="background: rgb(4, 105, 154); color: rgb(255, 255, 255);">Emergency contact:</div>

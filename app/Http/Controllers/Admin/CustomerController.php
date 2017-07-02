@@ -91,6 +91,8 @@ class CustomerController extends Controller
             $customer->country_in_id = $request->country_in_id;
             $customer->postal_out = $request->postal_out;
             $customer->phone_out = $request->phone_out;
+            $customer->latitude = $request->latitude;
+            $customer->longitude = $request->longitude;
             $customer->address_in = $request->address_in;
             $customer->district_in_id = $request->district_in_id;
             $customer->city_in_id = $request->city_in_id;
@@ -189,6 +191,8 @@ class CustomerController extends Controller
             $customer->country_in_id = $request->country_in_id;
             $customer->postal_out = $request->postal_out;
             $customer->phone_out = $request->phone_out;
+            $customer->latitude = $request->latitude;
+            $customer->longitude = $request->longitude;
             $customer->address_in = $request->address_in;
             $customer->district_in_id = $request->district_in_id;
             $customer->city_in_id = $request->city_in_id;
