@@ -168,9 +168,7 @@
                                 
                             </div>
                             @if($invoice->payment_status == 1)
-                                <div class="col-md-12">
-                                    
-            <button class="btn btn-primary"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Download Invoice</button>
+                                 <a href="/admin/downloadinvoice/{{ $invoice->id }}" class="btn btn-primary"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Download Invoice</a>
                              
                             </div>
                             @endif

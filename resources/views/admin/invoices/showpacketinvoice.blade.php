@@ -160,7 +160,7 @@
                                 </div>
 
                                 <div class="form-group update">
-                                    {!! Form::hidden('customer_email', $invoice->customer->user->email ) !!}
+                                  {!! Form::hidden('customer_email', $invoice->customer->user->email ) !!}
                                   {!! Form::hidden('invoice_id', $invoice->id ) !!}
                                   {!! Form::hidden('total_sum', $invoice->total_sum ) !!}
                                     <div class="col-md-12 text-right" style="margin-top: 10px;padding-right: 31px;">
@@ -176,7 +176,7 @@
                             @if($invoice->payment_status == 1)
                                 <div class="col-md-12">
                                     
-            <button class="btn btn-primary"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Download Invoice</button>
+           <a href="/admin/downloadinvoice/{{ $invoice->id }}" class="btn btn-primary"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Download Invoice</a>
                              
                             </div>
                             @endif

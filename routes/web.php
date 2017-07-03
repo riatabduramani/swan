@@ -103,6 +103,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 	Route::resource('/roles','Admin\\RoleController',['middleware'=>['role:superadmin']]);
 	Route::resource('/permissions','Admin\\PermissionController',['middleware'=>['role:superadmin']]);
 	Route::resource('/packet', 'Admin\\PacketsController',['middleware'=>['permission:manage-packet']]);
+	Route::get ('/downloadinvoice/{id}', 'PDFInvoiceController@pdf');
 
 	Route::resource('/dashboard','Admin\\DashboardController');
 	Route::resource('/customer-status', 'Admin\\CustomerStatusController',['middleware'=>['permission:manage-statuses']]);

@@ -315,6 +315,7 @@ class InvoiceController extends Controller
         
         //this should be inserted into custom_service and get that id
         //if is customer service insert customservice ID, if is packet then insert that packet id
+        
         $customid = $request->packets;
         $invoice->service_id = $customid;
 
