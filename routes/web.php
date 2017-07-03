@@ -89,6 +89,7 @@ Route::group(['prefix' => $language], function()
 	  Route::resource('/invoices', 'Client\\InvoicesController');
 	  Route::resource('/password', 'Client\\PasswordController');
 	  Route::resource('/', 'Client\\ClientController');
+	  Route::get ('/downloadinvoice/{id}', 'PDFInvoiceController@pdf');
 		
 	});
 

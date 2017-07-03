@@ -103,6 +103,10 @@
                             <div class="pull-right" style="margin-top: 30px;margin-bottom: 30px;">
                                 <button class="btn btn-danger">@lang('front.paynow')</button>
                             </div>
+                        @else
+                            <div class="pull-right" style="margin-top: 30px;margin-bottom: 30px;">
+                                <a href="/{{ App::getLocale() }}/panel/downloadinvoice/{{ $invoice->id }}" class="btn btn-primary"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Download Invoice</a>
+                            </div>
                         @endif
                         
                     </div>

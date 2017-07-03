@@ -38,7 +38,7 @@ class PDFInvoiceController extends Controller
 
 			$invoice = PDF::loadView('pdfinvoice', $invoiceInfo)->setPaper('a4');
 
-			return $invoice->download("Invoice-".$invoiceData->id.".pdf");
+			return $invoice->download("Invoice-SWAN-".$invoiceData->id.".pdf");
 			//return $invoice->stream();
 
 	   	} catch (Exception $e) {

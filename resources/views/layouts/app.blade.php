@@ -193,9 +193,9 @@
                     $('#price').empty();
                     $('#total_price').empty();
                     $.each(data, function(index, priceObj) {
-                        $('#price').append('<div class="input-group"><input type="text" name="total_sum" value="'+priceObj.price+'" class="form-control text-right" placeholder="0.00" required><div class="input-group-addon">€</div></div><div class="input-group"><input type="text" name="months" value="'+priceObj.months+'" class="form-control text-right" required><div class="input-group-addon">months</div></div>');
+                        $('#price').append('<div class="input-group"><input type="text" name="productprice" value="'+priceObj.price+'" class="form-control text-right" placeholder="0.00" oninput="calculate()" required><div class="input-group-addon">€</div></div><div class="input-group"><input type="text" name="months" id="months" value="'+priceObj.months+'" class="form-control text-right" oninput="calculate()" required><div class="input-group-addon">months</div></div>');
 
-                        $('#total_price').append('<b>Total:</b> <div class="input-group"><input type="text" name="total_sum" value="'+priceObj.price*priceObj.months+'.00" class="form-control text-right" placeholder="0.00" required><div class="input-group-addon">€</div></div>');
+                        $('#total_price').append('<b>Total:</b> <div class="input-group"><input type="text" name="total_sum" id="total_sum" value="'+priceObj.price*priceObj.months+'.00" class="form-control text-right" placeholder="0.00" required><div class="input-group-addon">€</div></div>');
 
                         $('#service_price').append('<input id="service_price" name="service_price" type="hidden" value="'+priceObj.price*priceObj.months+'" placeholder="0.00" pattern="^\d+(?:\.\d{0,2})" required>');
 
@@ -207,10 +207,10 @@
                         });
 
                     });
-                    
                 });
                 
         });
+
 </script>
 
 
