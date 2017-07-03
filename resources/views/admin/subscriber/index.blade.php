@@ -5,7 +5,12 @@
         <div class="row">
             <div class="col-md-offset-3 col-md-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading" style="background: rgb(4, 105, 154); color: rgb(255, 255, 255);">Subscribers</div>
+                    <div class="panel-heading" style="background: rgb(4, 105, 154); color: rgb(255, 255, 255);">Subscribers
+
+                    <div class="pull-right">
+                        <a href="/admin/subscribers/export" class="btn btn-primary btn-xs">Export CSV</a>
+                    </div>
+                    </div>
                     <div class="panel-body">
                         <a href="{{ url('/admin/subscriber/create') }}" class="btn btn-primary btn-sm" title="Add New Subscriber">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
@@ -37,7 +42,7 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->subscriber }}</td>
                                         <td>
-                                            <a href="{{ url('/admin/subscriber/' . $item->id) }}" title="View Subscriber"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            
                                             <a href="{{ url('/admin/subscriber/' . $item->id . '/edit') }}" title="Edit Subscriber"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                                             {!! Form::open([
                                                 'method'=>'DELETE',

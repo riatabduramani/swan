@@ -5,6 +5,8 @@ use PDF;
 use Auth;
 use Carbon;
 use App\Models\Invoice;
+use App\Models\Subscriber;
+use Excel;
 
 use Illuminate\Http\Request;
 
@@ -46,26 +48,19 @@ class PDFInvoiceController extends Controller
 	   	}
     }
 
-    public function  test() {
-    	$invoiceData = \AcceptedAuctionBid::where('transaction_code','=',$currentBidId)
-        ->with('withBid','belongsToSeller','belongsToBidder','belongsToBidWithAnimal')
-        ->first();
-       	
-       	$invoiceInfo = [
-           'invoice_number'=>$invoiceData->transaction_code,
-           'bid_amount'=>$invoiceData->withBid->bid_amount,
-           'timestamp'=>$invoiceData->withBid->created_at,
-           //sellers details
-           'sellers_company'=>$invoiceData->belongsToSeller->businessInformation->company_name,
-           'sellers_email'=>$invoiceData->belongsToSeller->businessInformation->email,
-           'sellers_tel'=>$invoiceData->belongsToSeller->businessInformation->tel,
-           'sellers_vat_nr'=>$invoiceData->belongsToSeller->businessInformation->vat_nr,
-           'sellers_address'=>explode(',',$invoiceData->belongsToSeller->businessInformation->address),
-               ];
+    public function export() {
 
+        $subscriber = Subscriber::pluck('subscriber');
 
-		    //end data
-		    $invoice = PDF::loadView('pdf.purchaseorder',$invoiceInfo);
-		    return $invoice->stream();
+            Excel::create('Subscribers-SWAN-'.date('d-m-Y'), function($excel) use($subscriber) {
+
+                $excel->sheet('SWAN Subscribers', function($sheet) use($subscriber) {
+
+                    $sheet->fromArray($subscriber);
+
+                });
+
+            })->export('csv');
     }
+
 }

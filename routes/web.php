@@ -89,8 +89,7 @@ Route::group(['prefix' => $language], function()
 	  Route::resource('/invoices', 'Client\\InvoicesController');
 	  Route::resource('/password', 'Client\\PasswordController');
 	  Route::resource('/', 'Client\\ClientController');
-	  Route::get ('/downloadinvoice/{id}', 'PDFInvoiceController@pdf');
-		
+	  Route::get ('/downloadinvoice/{id}', 'PDFInvoiceController@pdf');		
 	});
 
 });
@@ -105,6 +104,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 	Route::resource('/permissions','Admin\\PermissionController',['middleware'=>['role:superadmin']]);
 	Route::resource('/packet', 'Admin\\PacketsController',['middleware'=>['permission:manage-packet']]);
 	Route::get ('/downloadinvoice/{id}', 'PDFInvoiceController@pdf');
+	Route::get ('/subscribers/export', 'PDFInvoiceController@export');
 
 	Route::resource('/dashboard','Admin\\DashboardController');
 	Route::resource('/customer-status', 'Admin\\CustomerStatusController',['middleware'=>['permission:manage-statuses']]);
