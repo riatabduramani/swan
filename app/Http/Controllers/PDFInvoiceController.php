@@ -16,8 +16,31 @@ class PDFInvoiceController extends Controller
     	try {
 			
 			$invoiceData = Invoice::find($id);
-			$invoiceInfo = [
-						'invoice' => $invoiceData,
+            if($invoiceData->invoice_type == 2) {
+                $invoiceInfo = [
+                        'invoice' => $invoiceData,
+                        'nr' => $invoiceData->id,
+                        'date' => $invoiceData->invoice_date,
+                        'due' => $invoiceData->due_date,
+                        'type' => $invoiceData->invoice_type,
+                        'title' => $invoiceData->customservice->name,
+                        //'packetname' => $invoiceData->packetservice->name,
+                        'description' => $invoiceData->description,
+                        'notes' => $invoiceData->notes,
+                        'total_sum' => $invoiceData->total_sum,
+                        'status' => $invoiceData->payment_status,
+                        'name' => $invoiceData->customer->user->name,
+                        'surname' => $invoiceData->customer->user->surname,
+                        'address' => $invoiceData->customer->address_out,
+                        'postal' => $invoiceData->customer->postal_out,
+                        'city' => $invoiceData->customer->city,
+                        'country' => $invoiceData->customer->countryout->code,
+                        'email' => $invoiceData->customer->user->email,
+
+                ];
+            } else {
+                 $invoiceInfo = [
+                        'invoice' => $invoiceData,
                         'nr' => $invoiceData->id,
                         'date' => $invoiceData->invoice_date,
                         'due' => $invoiceData->due_date,
@@ -36,7 +59,9 @@ class PDFInvoiceController extends Controller
                         'country' => $invoiceData->customer->countryout->code,
                         'email' => $invoiceData->customer->user->email,
 
-			];
+                ];
+            }
+			
 
 			$invoice = PDF::loadView('pdfinvoice', $invoiceInfo)->setPaper('a4');
 
