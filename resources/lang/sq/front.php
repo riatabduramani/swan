@@ -57,7 +57,7 @@ return [
     //about
     'ourmission' => 'Misioni ynë',
     'ourvision' => 'Vizioni ynë',
-    'whyus' => 'Përse ne!',
+    'whyus' => 'Pse ne!',
     'fewwordsabout' => 'Disa fjalë për ne',
 
     'donthesitate' => 'Mos hezitoni për të na kontaktuar!',

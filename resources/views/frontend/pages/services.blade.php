@@ -59,7 +59,7 @@
                             <h2 style="text-align:left;">{{ $service->name}}</h2>
                             <ul>
                             <li class="service-text">    
-                            <p>{{ $service->description }}</p>
+                            <p>{!! $service->description !!}</p>
                             </li>
                             <li class="service-photo">    
                                <img src="/uploads/services/{{ $service->image }}" style="border-radius: 15px;"/>

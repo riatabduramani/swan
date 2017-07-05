@@ -82,6 +82,10 @@ body {
     background: #fff;
 }
 
+p {
+    text-align: justify!important;
+}
+
 .logo {
     margin-top: -21px;
     height: 60px;

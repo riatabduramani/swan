@@ -12,7 +12,7 @@
     </div><div class="form-group {{ $errors->has('description'.$suffix) ? 'has-error' : ''}}">
         {!! Form::label('description'.$suffix, 'Description ['.$lang.']', ['class' => 'col-md-5 control-label','style'=>'text-align: left']) !!}
         <div class="col-md-12">
-            {!! Form::textarea('description'.$suffix, (isset($serviceitem) ? $serviceitem->{"description:$lang"} : null), ['class' => 'form-control', 'required']) !!}
+            {!! Form::textarea('description'.$suffix, (isset($serviceitem) ? strip_tags($serviceitem->{"description:$lang"}) : null), ['class' => 'form-control', 'required']) !!}
             {!! $errors->first('description'.$suffix, '<p class="help-block">:message</p>') !!}
         </div>
     </div>

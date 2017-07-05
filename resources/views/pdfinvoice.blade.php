@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>New invoice generated / {{ $nr }}</title>
     
     <style>
@@ -124,9 +124,10 @@
                     <table>
                         <tr>
                             <td>
-                                <b>From:</b><br />
+                                <b>Од:</b><br />
                                 {{ $settings->company_name }}<br>
-                                {{ $settings->address }}
+                                {{ $settings->address }}<br />
+                                TAX nr.: {{ $settings->tax }}
                             </td>
                             <td>
                                 <b>To:</b><br />
@@ -176,24 +177,48 @@
                 	<p style="font-size: 10pt"><i>{!! $description !!}</i></p>
                 </td>
                 
-                <td>{{ $total_sum }}&euro;</td>
+                <td>{{ number_format( round($total_sum * env('CURRENCY')),2,",",".") }} MKD</td>
             </tr>
             
-            <tr class="total">
+            <tr>
             	@if($notes)
-                <td>
-                	<b>Notes:</b>
-                	<div style="border:1px solid #eee; font-size: 9pt; padding: 6px;">
-                		<p>{{ $notes }}</p>
-                	</div>
+               
+                  <td>
+                <tr class="total" style="text-align: right">
+                    <td>Total:</td>
+                    <td>{{ number_format( round($total_sum * env('CURRENCY')),2,",",".") }} MKD</td>
+                </tr>
+                <tr class="total" style="text-align: right">
+                    <td>VAT {{ env('VAT')* 100 }}%:</td>
+                    <td>{{ number_format( round(($total_sum * env('CURRENCY')) * env('VAT') ),2,",",".") }} MKD</td>
+                </tr>
+                <tr class="total" style="text-align: right">
+                    <td>Total with VAT:</td>
+                    <td>{{ number_format( round((($total_sum * env('CURRENCY')) * env('VAT')) + ($total_sum * env('CURRENCY'))),2,",",".") }} MKD</td>
+                </tr>
                 </td>
-                <td>
-                   Total: {{ $total_sum }}&euro;
+                 <td>
+                    <b>Notes:</b>
+                    <div style="border:1px solid #eee; font-size: 9pt; padding: 6px;">
+                        <p>{{ $notes }}</p>
+                    </div>
                 </td>
+
                 @else
                 <td></td>
                 <td>
-                   Total: {{ $total_sum }}&euro;
+                <tr class="total" style="text-align: right">
+                    <td>Total:</td>
+                    <td>{{ number_format( round($total_sum * env('CURRENCY')),2,",",".") }} MKD</td>
+                </tr>
+                <tr class="total" style="text-align: right">
+                    <td>VAT {{ env('VAT')* 100 }}%:</td>
+                    <td>{{ number_format( round(($total_sum * env('CURRENCY')) * env('VAT') ),2,",",".") }} MKD</td>
+                </tr>
+                <tr class="total" style="text-align: right">
+                    <td>Total with VAT:</td>
+                    <td>{{ number_format( round((($total_sum * env('CURRENCY')) * env('VAT')) + ($total_sum * env('CURRENCY'))),2,",",".") }} MKD</td>
+                </tr>
                 </td>
                 @endif
             </tr>

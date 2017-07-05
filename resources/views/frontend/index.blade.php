@@ -160,13 +160,13 @@
                             <div class="col-sm-6 col-xs-12" id="vision-text">
                                 <div class="explore_text">
                                     <h3>@lang('front.vision')</h3>
-                                    <p>{{ $pages->vision }}</p>
+                                    <p>{!! $pages->vision !!}</p>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-xs-12" id="mission-text">
                                 <div class="explore_text explore_text_padding">
                                     <h3>@lang('front.mission')</h3>
-                                    <p>{{ $pages->mission }}</p>
+                                    <p>{!! $pages->mission !!}</p>
                                 </div>
                             </div>
                         </div>

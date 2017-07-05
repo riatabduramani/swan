@@ -33,7 +33,7 @@
                     </div>
                     <div id="about{{$suffix}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="aboutus{{$suffix}}">
                       <div class="panel-body">
-                        {!! Form::textarea('about'.$suffix, (isset($pages) ? $pages->{"about:$lang"} : null), array('placeholder' => 'about us text '.$lang,'class' => 'form-control', 'rows'=>'10')) !!}
+                        {!! Form::textarea('about'.$suffix, (isset($pages) ? strip_tags($pages->{"about:$lang"}) : null), array('placeholder' => 'about us text '.$lang,'class' => 'form-control', 'rows'=>'10')) !!}
                       </div>
                     </div>
                   </div>
@@ -48,7 +48,7 @@
                     </div>
                     <div id="vision{{$suffix}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ourvision{{$suffix}}">
                       <div class="panel-body">
-                        {!! Form::textarea('vision'.$suffix, (isset($pages) ? $pages->{"vision:$lang"} : null), array('placeholder' => 'vision text '.$lang,'class' => 'form-control', 'rows'=>'10')) !!}
+                        {!! Form::textarea('vision'.$suffix, (isset($pages) ? strip_tags($pages->{"vision:$lang"}) : null), array('placeholder' => 'vision text '.$lang,'class' => 'form-control', 'rows'=>'10')) !!}
                       </div>
                     </div>
                   </div>
@@ -63,7 +63,7 @@
                     </div>
                     <div id="mission{{$suffix}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ourmission{{$suffix}}">
                       <div class="panel-body">
-                        {!! Form::textarea('mission'.$suffix, (isset($pages) ? $pages->{"mission:$lang"} : null), array('placeholder' => 'mission text '.$lang,'class' => 'form-control', 'rows'=>'10')) !!}
+                        {!! Form::textarea('mission'.$suffix, (isset($pages) ? strip_tags($pages->{"mission:$lang"}) : null), array('placeholder' => 'mission text '.$lang,'class' => 'form-control', 'rows'=>'10')) !!}
                       </div>
                     </div>
                   </div>

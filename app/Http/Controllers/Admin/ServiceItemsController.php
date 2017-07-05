@@ -73,8 +73,8 @@ class ServiceItemsController extends Controller
         $requestData->translateOrNew('en')->name = $request->name;
         $requestData->translateOrNew('sq')->name = $request->name_sq;
 
-        $requestData->translateOrNew('en')->description = $request->description;
-        $requestData->translateOrNew('sq')->description = $request->description_sq;
+        $requestData->translateOrNew('en')->description = nl2br($request->description);
+        $requestData->translateOrNew('sq')->description = nl2br($request->description_sq);
 
         $requestData->save();
 
@@ -138,8 +138,8 @@ class ServiceItemsController extends Controller
         
 
         foreach (['en'=> '', 'sq' => '_sq'] as $locale => $suffix) {
-            $requestData->translateOrNew($locale)->name = $request->input("name{$suffix}");
-            $requestData->translateOrNew($locale)->description = $request->input("description{$suffix}");
+            $requestData->translateOrNew($locale)->name = nl2br($request->input("name{$suffix}"));
+            $requestData->translateOrNew($locale)->description = nl2br($request->input("description{$suffix}"));
         }
 
         $requestData->update();
