@@ -2,7 +2,6 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>New invoice generated / {{ $nr }}</title>
     
     <style>
     .invoice-box{
@@ -11,9 +10,9 @@
         padding:30px;
         #border:1px solid #eee;
         box-shadow:0 0 10px rgba(0, 0, 0, .15);
-        font-size:16px;
-        line-height:24px;
-        font-family:'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        font-size:12px;
+        line-height:18px;
+        font-family:'dejavu sans', 'Helvetica', Helvetica, Arial, sans-serif;
         color:#555;
     }
     
@@ -107,12 +106,12 @@
                             </td>
                             
                             <td>
-                                Invoice #: {{ $nr }} / {{ date('Y',strtotime($date)) }}<br>
-                                Created: {{ date('d.m.Y',strtotime($date)) }}<br>
+                                Фатура #: {{ $nr }} / {{ date('Y',strtotime($date)) }}<br>
+                                Креирано: {{ date('d.m.Y',strtotime($date)) }}<br>
                                 @if($status == 2)
-                                Due: {{ date('d.m.Y',strtotime($due)) }}<br />
+                                До: {{ date('d.m.Y',strtotime($due)) }}<br />
                                 @endif
-                                Type: @if($type == 2) Custom @else Packet @endif
+                                Тип: @if($type == 2) Custom @else Packet @endif
                             </td>
                         </tr>
                     </table>
@@ -127,10 +126,10 @@
                                 <b>Од:</b><br />
                                 {{ $settings->company_name }}<br>
                                 {{ $settings->address }}<br />
-                                TAX nr.: {{ $settings->tax }}
+                                Даночен бр.: {{ $settings->tax }}
                             </td>
                             <td>
-                                <b>To:</b><br />
+                                <b>До:</b><br />
                                 {{ $name }} {{ $surname }}<br>
                                 {{ $address }}<br>
                                 {{ $postal }} {{ $city }}, {{ $country }}<br />
@@ -142,8 +141,8 @@
             </tr>
             
             <tr class="heading">
-                 <td>Payment status</td>
-                 <td>Payment method</td>
+                 <td>Статус на плаќање</td>
+                 <td>Начин на плаќање</td>
             </tr>
             
             <tr class="details">
@@ -158,11 +157,11 @@
             
             <tr class="heading">
                 <td>
-                    Service
+                    Услуга
                 </td>
                 
                 <td>
-                    Price
+                    Шена
                 </td>
             </tr>
                         
@@ -177,7 +176,7 @@
                 	<p style="font-size: 10pt"><i>{!! $description !!}</i></p>
                 </td>
                 
-                <td>{{ number_format( round($total_sum * env('CURRENCY')),2,",",".") }} MKD</td>
+                <td>{{ number_format( round($total_sum * env('CURRENCY')),2,",",".") }} МКД</td>
             </tr>
             
             <tr>
@@ -185,20 +184,20 @@
                
                   <td>
                 <tr class="total" style="text-align: right">
-                    <td>Total:</td>
-                    <td>{{ number_format( round($total_sum * env('CURRENCY')),2,",",".") }} MKD</td>
+                    <td>Вкупно:</td>
+                    <td>{{ number_format( round($total_sum * env('CURRENCY')),2,",",".") }} МКД</td>
                 </tr>
                 <tr class="total" style="text-align: right">
-                    <td>VAT {{ env('VAT')* 100 }}%:</td>
-                    <td>{{ number_format( round(($total_sum * env('CURRENCY')) * env('VAT') ),2,",",".") }} MKD</td>
+                    <td>ДДВ {{ env('VAT')* 100 }}%:</td>
+                    <td>{{ number_format( round(($total_sum * env('CURRENCY')) * env('VAT') ),2,",",".") }} МКД</td>
                 </tr>
                 <tr class="total" style="text-align: right">
-                    <td>Total with VAT:</td>
-                    <td>{{ number_format( round((($total_sum * env('CURRENCY')) * env('VAT')) + ($total_sum * env('CURRENCY'))),2,",",".") }} MKD</td>
+                    <td>Вкупно со ДДВ:</td>
+                    <td>{{ number_format( round((($total_sum * env('CURRENCY')) * env('VAT')) + ($total_sum * env('CURRENCY'))),2,",",".") }} МКД</td>
                 </tr>
                 </td>
-                 <td>
-                    <b>Notes:</b>
+                 <td style="margin-top: 15px;">
+                    <b>Опис:</b>
                     <div style="border:1px solid #eee; font-size: 9pt; padding: 6px;">
                         <p>{{ $notes }}</p>
                     </div>
@@ -208,16 +207,16 @@
                 <td></td>
                 <td>
                 <tr class="total" style="text-align: right">
-                    <td>Total:</td>
-                    <td>{{ number_format( round($total_sum * env('CURRENCY')),2,",",".") }} MKD</td>
+                    <td>Вкупно:</td>
+                    <td>{{ number_format( round($total_sum * env('CURRENCY')),2,",",".") }} МКД</td>
                 </tr>
                 <tr class="total" style="text-align: right">
-                    <td>VAT {{ env('VAT')* 100 }}%:</td>
-                    <td>{{ number_format( round(($total_sum * env('CURRENCY')) * env('VAT') ),2,",",".") }} MKD</td>
+                    <td>ДДВ {{ env('VAT')* 100 }}%:</td>
+                    <td>{{ number_format( round(($total_sum * env('CURRENCY')) * env('VAT') ),2,",",".") }} МКД</td>
                 </tr>
                 <tr class="total" style="text-align: right">
-                    <td>Total with VAT:</td>
-                    <td>{{ number_format( round((($total_sum * env('CURRENCY')) * env('VAT')) + ($total_sum * env('CURRENCY'))),2,",",".") }} MKD</td>
+                    <td>Вкупно со ДДВ:</td>
+                    <td>{{ number_format( round((($total_sum * env('CURRENCY')) * env('VAT')) + ($total_sum * env('CURRENCY'))),2,",",".") }} МКД</td>
                 </tr>
                 </td>
                 @endif
