@@ -37,7 +37,7 @@
                                                 {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
                                                         'type' => 'submit',
                                                         'class' => 'btn btn-danger btn-xs',
-                                                        'title' => 'Delete WhyUs Item',
+                                                        'title' => 'Delete Why Us Item',
                                                         'onclick'=>'return confirm("Confirm to delete?")'
                                                 )) !!}
                                             {!! Form::close() !!}

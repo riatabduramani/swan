@@ -106,12 +106,12 @@
                             </td>
                             
                             <td>
-                                Фатура #: {{ $nr }} / {{ date('Y',strtotime($date)) }}<br>
-                                Креирано: {{ date('d.m.Y',strtotime($date)) }}<br>
+                                Fatura #: {{ $nr }} / {{ date('Y',strtotime($date)) }}<br>
+                                Krijuar më: {{ date('d.m.Y',strtotime($date)) }}<br>
                                 @if($status == 2)
-                                До: {{ date('d.m.Y',strtotime($due)) }}<br />
+                                Deri më: {{ date('d.m.Y',strtotime($due)) }}<br />
                                 @endif
-                                Тип: @if($type == 2) Custom @else Packet @endif
+                                Lloji: @if($type == 2) Custom @else Packet @endif
                             </td>
                         </tr>
                     </table>
@@ -123,13 +123,13 @@
                     <table>
                         <tr>
                             <td>
-                                <b>Од:</b><br />
+                                <b>Nga:</b><br />
                                 {{ $settings->company_name }}<br>
                                 {{ $settings->address }}<br />
-                                Даночен бр.: {{ $settings->tax }}
+                                Nr. Tatimor.: {{ $settings->tax }}
                             </td>
                             <td>
-                                <b>До:</b><br />
+                                <b>Deri:</b><br />
                                 {{ $name }} {{ $surname }}<br>
                                 {{ $address }}<br>
                                 {{ $postal }} {{ $city }}, {{ $country }}<br />
@@ -141,8 +141,8 @@
             </tr>
             
             <tr class="heading">
-                 <td>Статус на плаќање</td>
-                 <td>Начин на плаќање</td>
+                 <td>Statusi i Pagesës</td>
+                 <td>Mënyra e Pagesës</td>
             </tr>
             
             <tr class="details">
@@ -157,11 +157,11 @@
             
             <tr class="heading">
                 <td>
-                    Услуга
+                    Shërbimi
                 </td>
                 
                 <td>
-                    Шена
+                    Shuma
                 </td>
             </tr>
                         
@@ -176,13 +176,14 @@
                 	<p style="font-size: 10pt"><i>{!! $description !!}</i></p>
                 </td>
                 
-                <td>{{ number_format( round($total_sum * env('CURRENCY')),2,",",".") }} МКД</td>
+                <!--<td>{{ number_format( round($total_sum * env('CURRENCY')),2,",",".") }} МКД</td>-->
+                <td>{{ number_format( round($total_sum),2,",",".") }} &euro;</td>
             </tr>
             
             <tr>
             	@if($notes)
                
-                  <td>
+                <!--<td>
                 <tr class="total" style="text-align: right">
                     <td>Вкупно:</td>
                     <td>{{ number_format( round($total_sum * env('CURRENCY')),2,",",".") }} МКД</td>
@@ -195,9 +196,23 @@
                     <td>Вкупно со ДДВ:</td>
                     <td>{{ number_format( round((($total_sum * env('CURRENCY')) * env('VAT')) + ($total_sum * env('CURRENCY'))),2,",",".") }} МКД</td>
                 </tr>
+                </td>-->
+                <td>
+                <!--<tr class="total" style="text-align: right">
+                    <td>Total:</td>
+                    <td>{{ number_format( round($total_sum),2,",",".") }} &euro;</td>
+                </tr>
+                <tr class="total" style="text-align: right">
+                    <td>TVSH {{ env('VAT') * 100 }} %:</td>
+                    <td>{{ number_format( round(($total_sum * env('VAT') )),2,",",".") }} &euro;</td>
+                </tr>-->
+                <tr class="total" style="text-align: right">
+                    <td>Total me TVSH:</td>
+                    <td>{{ number_format( round(($total_sum)),2,",",".") }}  &euro;</td>
+                </tr>
                 </td>
                  <td style="margin-top: 15px;">
-                    <b>Опис:</b>
+                    <b>Shënim:</b>
                     <div style="border:1px solid #eee; font-size: 9pt; padding: 6px;">
                         <p>{{ $notes }}</p>
                     </div>
@@ -205,7 +220,7 @@
 
                 @else
                 <td></td>
-                <td>
+                <!--<td>
                 <tr class="total" style="text-align: right">
                     <td>Вкупно:</td>
                     <td>{{ number_format( round($total_sum * env('CURRENCY')),2,",",".") }} МКД</td>
@@ -217,6 +232,20 @@
                 <tr class="total" style="text-align: right">
                     <td>Вкупно со ДДВ:</td>
                     <td>{{ number_format( round((($total_sum * env('CURRENCY')) * env('VAT')) + ($total_sum * env('CURRENCY'))),2,",",".") }} МКД</td>
+                </tr>
+                </td>-->
+                <td>
+                <!--<tr class="total" style="text-align: right">
+                    <td>Total:</td>
+                    <td>{{ number_format( round($total_sum),2,",",".") }} &euro;</td>
+                </tr>
+                <tr class="total" style="text-align: right">
+                    <td>TVSH {{ env('VAT')* 100 }}%:</td>
+                    <td>{{ number_format( round(($total_sum) * env('VAT') ),2,",",".") }} &euro;</td>
+                </tr>-->
+                <tr class="total" style="text-align: right">
+                    <td>Total me TVSH:</td>
+                    <td>{{ number_format( round(($total_sum)),2,",",".") }} &euro;</td>
                 </tr>
                 </td>
                 @endif

@@ -83,7 +83,7 @@
   <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background: rgb(4, 105, 154); color: rgb(255, 255, 255);">
-                        WhyUs items
+                        Why Us items
                     <div class="pull-right">
                         <a href="{{ url('/admin/whyus/create') }}" class="btn btn-primary btn-xs" title="Add New WhyUs">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
@@ -116,7 +116,7 @@
                                                 {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i>', array(
                                                         'type' => 'submit',
                                                         'class' => 'btn btn-danger btn-xs',
-                                                        'title' => 'Delete WhyUs option',
+                                                        'title' => 'Delete Why Us option',
                                                         'onclick'=>'return confirm("Confirm to delete?")'
                                                 )) !!}
                                             {!! Form::close() !!}
