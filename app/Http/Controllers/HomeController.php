@@ -56,6 +56,12 @@ class HomeController extends Controller
         return view('frontend.pages.services', compact('services'));
     }
 
+    public function getServices($id) {
+        $services = Packet::findOrFail($id);
+        //$services = Service::translated()->findOrFail($id);
+        return view('frontend.pages.showservices', compact('services'));
+    }
+
     public function footer() {
         $packets = Packet::translated()->get();
         //$settings = Settings::translated()->first();

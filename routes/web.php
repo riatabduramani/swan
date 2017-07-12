@@ -79,6 +79,7 @@ Route::group(['prefix' => $language], function()
 	Route::post('/subscribe','HomeController@subscribe');
 
 	Route::get('services','HomeController@services');
+	Route::get('services/{id}','HomeController@getServices');
 
 	//Route::resource('/register','Auth\\RegisterController');
 

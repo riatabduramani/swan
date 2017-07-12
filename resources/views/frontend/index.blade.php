@@ -80,7 +80,7 @@
                                     <li><i class="fa fa-check"></i>&nbsp {{ $service->name }}</li>
                                 @endforeach
                             </ul>
-                            <a href="/{{App::getLocale()}}/services">@lang('front.readmore')</a>
+                            <a href="/{{App::getLocale()}}/services/{{ $packet->id }}">@lang('front.readmore')</a>
                         </div>
                         <?php $i++; ?>
                         @endforeach
