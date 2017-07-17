@@ -300,6 +300,7 @@
                       {!! Form::open(['route' => ['invoice_packet_path']]) !!}
                                     {!! Form::hidden('customer_email', $customer->user->email ) !!}
                                     {!! Form::hidden('customer_id', $customer->id ) !!}
+                                    {!! Form::hidden('customer_user_id', $customer->user->id ) !!}
                                     {!! Form::hidden('invoice_type', 1 ) !!}
                                     {!! Form::button('<i class="fa fa-plus" aria-hidden="true"></i>
  Packet Invoice', array('class' => 'btn btn-primary btn-xs','type'=>'submit')) !!}

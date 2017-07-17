@@ -113,7 +113,8 @@
                                                 {!! Form::open(['route' => ['invoice_packet_path']]) !!}
                                                     {!! Form::hidden('customer_email', $item->user->email ) !!}
                                                     {!! Form::hidden('customer_id', $item->id ) !!}
-                                                    {!! Form::hidden('invoice_type', 2 ) !!}
+                                                    {!! Form::hidden('customer_user_id', $item->user->id ) !!}
+                                                    {!! Form::hidden('invoice_type', 1 ) !!}
                                                     {!! Form::button('<i class="fa fa-external-link" aria-hidden="true"></i>
                                                         Packet Invoice', array('style' => 'border: none;background: none;padding: 0;', 'type'=>'submit')) !!}
                                                     {!! Form::close() !!}

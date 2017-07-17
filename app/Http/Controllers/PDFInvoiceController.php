@@ -45,7 +45,7 @@ class PDFInvoiceController extends Controller
                         'date' => $invoiceData->invoice_date,
                         'due' => $invoiceData->due_date,
                         'type' => $invoiceData->invoice_type,
-                        'title' => $invoiceData->customservice->name,
+                        'title' => $invoiceData->packetservice->name,
                         'packetname' => $invoiceData->packetservice->name,
                         'description' => $invoiceData->description,
                         'notes' => $invoiceData->notes,

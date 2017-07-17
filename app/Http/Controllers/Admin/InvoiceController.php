@@ -128,11 +128,12 @@ class InvoiceController extends Controller
         //$update->payment_method = $request->payment_method;
 
         if($request->notes) {
-            $invoice->description = $request->notes;
+            $invoice->notes = $request->notes;
         }
 
          if($request->invoice_status == 3) {
             $invoice->payment_method = NULL;
+            $invoice->declined_at = Carbon::now();
         } else {
             $invoice->payment_method = $request->payment_method;
         }
@@ -271,6 +272,7 @@ class InvoiceController extends Controller
         //$invoicenr = Invoice::pluck('id')->last();
         
         $customerid = $request->customer_id;
+        $customeruserid = $request->customer_user_id;
         $customer = Customer::find($customerid);
         $duedate = Carbon::now();
         $duedate->addDays(8);
@@ -282,7 +284,7 @@ class InvoiceController extends Controller
                                             ->where('balance','>', 0)
                                             ->pluck('balance','id');
 
-        return view('admin.invoices.create-packet', compact('customerid','customer','duedate','packets','credits'));   
+        return view('admin.invoices.create-packet', compact('customeruserid','customerid','customer','duedate','packets','credits'));   
        
     }
 
@@ -307,6 +309,7 @@ class InvoiceController extends Controller
         $userid = Auth::user()->id;
         $invoicetype = $request->invoice_type;
         $customerid = $request->customer_id;
+        $customeruserid = $request->customer_user_id;
         $customeremail = $request->customer_email;
         
         $invoice = new Invoice();
@@ -389,6 +392,7 @@ class InvoiceController extends Controller
         Session::flash('flash_message', 'Invoice created successfully!');
 
         return redirect("admin/customer/$customerid");
+        //return $invoice->save();
 
     }
 
