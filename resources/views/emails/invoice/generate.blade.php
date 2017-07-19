@@ -191,10 +191,12 @@
             
             <tr class="total">
                 <td>
+                @if($notes)
                 	<b>Notes:</b>
                 	<div style="border:1px solid #ddd; font-size: 9pt; padding: 6px;">
                 		<p>{{ $notes }}</p>
                 	</div>
+                @endif
                 </td>
                 
                 <td>
