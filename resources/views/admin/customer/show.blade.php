@@ -122,7 +122,7 @@
                     <i class="fa fa-file-text-o" aria-hidden="true"></i> Documents for Swan
                   </div>
                   <div class="panel-body">
-                    <ul class="list-group">
+                    <ul class="panel-body list-group" style="height: 250px; overflow-y: auto;">
                     @if(count($customer->document) > 0)
                     @foreach($customer->document as $document)
                     @if($document->type == 1)
@@ -172,7 +172,7 @@
                     <i class="fa fa-file-text-o" aria-hidden="true"></i> Documents for customer
                   </div>
                   <div class="panel-body">
-                    <ul class="list-group">
+                    <ul class="panel-body list-group" style="height: 250px; overflow-y: auto;">
                     @if(count($customer->document) > 0)
                     @foreach($customer->document as $document)
                      @if($document->type == 2)
