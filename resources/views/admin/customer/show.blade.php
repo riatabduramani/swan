@@ -148,7 +148,7 @@
 
                       </div>
                       <a href="/public/uploads/documents/{{ $document->renamed }}" target="_blank">
-                          <h4 class="list-group-item-heading">{{ $document->name }}</h4>
+                          <h4 class="list-group-item-heading">{{ (strlen($document->name) > 20) ? substr($document->name, 0, 21) : $document->name }}</h4>
                       </a>
 
                       @if($document->description)
@@ -198,7 +198,7 @@
 
                       </div>
                       <a href="/public/uploads/documents/{{ $document->renamed }}" target="_blank">
-                          <h4 class="list-group-item-heading">{{ $document->name }}</h4>
+                          <h4 class="list-group-item-heading">{{ (strlen($document->name) > 20) ? substr($document->name, 0, 21) : $document->name }}</h4>
                       </a>
 
                       @if($document->description)
@@ -308,7 +308,7 @@
                     </div>
                     @endpermission
               </div>
-                 <div class="panel-body"> 
+                 <div class="panel-body" style="height: 250px; overflow-y: auto;"> 
                  @if(count($customer->invoice) > 0)             
                                 <table class="table table-bordered" id="listinvoice">
                                   <thead>
@@ -468,7 +468,7 @@
                 </div>
                 @endpermission
                 </div>
-                <div class="panel-body"> 
+                <div class="panel-body" style="height: 550px; overflow-y: auto;"> 
                 <div class="col-md-12">
 
                 @if(count($tasks) > 0)
@@ -670,7 +670,7 @@
   </div>
   @endpermission
  </div>
-                <div class="panel-body" style="background: #efefef;">   
+                <div class="panel-body" style="background: #efefef; height: 250px; overflow-y: auto;">   
                 @if(count($customer->comments) > 0)
                 @foreach ($customer->comments as $comment)
                    <div class="col-md-12" id="comment-{{$comment->id}}">
