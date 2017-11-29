@@ -21,6 +21,11 @@ use Carbon\Carbon;
 use DB;
 use Illuminate\Support\Facades\Hash;
 
+use App\Mail\InvoiceGenerated;
+use App\Mail\InvoicePaid;
+use App\Mail\InvoiceDeclined;
+use Illuminate\Support\Facades\Mail;
+
 class InvoicesController extends Controller
 {
     public function index() {
@@ -30,16 +35,15 @@ class InvoicesController extends Controller
     }
 
     public function show($id) {
-    	$invoice = Invoice::findOrFail($id);
-    	$invoicmax = Invoice::max('id')+1;
 
+    	$invoice = Invoice::findOrFail($id);
     	$gateway =  array(
                             'clientId'          =>  env('HALK_CLIENTID'), 
-                            'amount'            =>  number_format($invoice->packetservice->new_price * $invoice->packetservice->months, 2, '.', ','),
-                            'amount-mk'         =>  round(($invoice->packetservice->new_price * $invoice->packetservice->months) * env('CURRENCY')),
-                            'oid'               =>  "oid-P-$invoicmax-".rand(100,1000),
-                            'okUrl'             =>  env('APP_URL').'/en/paymentstatus',
-                            'failUrl'           =>  env('APP_URL').'/en/paymentstatus',
+                            'amount'            =>  number_format($invoice->total_sum, 2, '.', ','),
+                            'amount-mk'         =>  floor($invoice->total_sum_mkd),
+                            'oid'               =>  "oid-P-$invoice->id",
+                            'okUrl'             =>  env('APP_URL').'/'.\App::getLocale().'/payment-status',
+                            'failUrl'           =>  env('APP_URL').'/'.\App::getLocale().'/payment-status',
                             'rnd'               =>  microtime(),
                             'currencyVal'       =>  env('HALK_CURRENCYVAL'),
                             'storekey'          =>  env('HALK_STOREKEY'),
@@ -65,26 +69,40 @@ class InvoicesController extends Controller
 
                switch ($Response) {
                     case 'Approved':
-                    	
-                    	Invoice::where('order_id', $oid)->update(['payment_status' => 1, 'payment_method' => 2]);
+                        $invoice = Invoice::where('order_id', '=', $request->ReturnOid)->first();
+                        $invoice->paid_at = Carbon::now();
+                        $invoice->save();
+                    	Invoice::where('order_id', $request->ReturnOid)->update(['payment_status' => 1, 'payment_method' => 2]);
 
-                        return view('frontend.panel.showinvoice');
+                        Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
+
+                        Session::flash('message-approved', __('front.approved'));
+                        return redirect()->back();
                         break;
-                    case 'Error",':
-                        return "<font color=\"red\">Your payment is not approved.</font>";
+                    case 'Error':
+                        $invoice = Invoice::where('order_id', '=', $request->ReturnOid)->first();
+                        $invoice->payment_status = 2;
+                        $invoice->save();
+
+                        Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
+                        Session::flash('message-notapproved', __('front.notapproved'));
+                        return redirect()->back();
                         break;
-                   case 'Declined",':
-                        return "<font color=\"red\">Your payment has been declined.</font>";
+                   case 'Declined':
+                        Session::flash('message-declined', __('front.declined'));
+                        return redirect()->back();
                         break;
                    default:
-                        return "<font color=\"red\">Your payment has been declined.</font>";
+                        Session::flash('message-declined', __('front.declined'));
+                        return redirect()->back();
                         break;
                 }
                
             }   
             else
             {
-                return "<font color=\"red\">3D Authentication is not successful.</font>";
+                Session::flash('message-declined', __('front.3dauth'));
+                return redirect()->back();
             }   
 
     }

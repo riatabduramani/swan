@@ -56,6 +56,17 @@
                           @include('frontend.panel.menu')
                     </div>
                     <div class="col-md-7">
+
+                        @if (Session::has('message-approved'))
+                           <div class="alert alert-success">{{ Session::get('message-approved') }}</div>
+                        @endif
+                        @if (Session::has('message-notapproved'))
+                           <div class="alert alert-danger">{{ Session::get('message-declined') }}</div>
+                        @endif
+                        @if (Session::has('message-declined'))
+                           <div class="alert alert-danger">{{ Session::get('message-declined') }}</div>
+                        @endif
+
                         <h3 style="margin-bottom: 10px;">@lang('front.invoice') #{{ $invoice->id }}/{{ date('Y',strtotime($invoice->invoice_date)) }}</h3>
 
                         <div class="well well-sm col-md-4">
@@ -89,17 +100,18 @@
                                 <tr>
                                     <td>{{ $invoice->packetservice->name }}</td>
                                      <td>{!! $invoice->description !!}</td>
-                                    <td>{{ $invoice->packetservice->new_price }}&euro;
-                                        x {{ $invoice->packetservice->months }} @lang('front.months')
+                                    <td>{{ $invoice->price }}&euro;
+                                        x {{ $invoice->months }} @lang('front.months')
                                     </td>
                                 </tr>
                             @endif
                                 <tr>
                                     <td colspan="2" class="text-right"><b>@lang('front.total'):</b></td>
-                                    <td style="background: #f5f5f5;"><b>{{ $invoice->total_sum }}&euro; / year</b>
+                                    <td style="background: #f5f5f5;"><b>{{ number_format($invoice->total_sum, 2, '.', ',') }}&euro; / year</b>
+
                                         <br>
                                         <small style="font-size: 10pt; color: #adadad">
-                                            {{ number_format(round(env('CURRENCY')), 2,',','.') }} MKD
+                                            {{ number_format(floor($invoice->total_sum_mkd), 2, ',', '.') }} MKD
                                         </small>
                                     </td>
                                 </tr>

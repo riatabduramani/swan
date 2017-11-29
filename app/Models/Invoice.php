@@ -38,8 +38,12 @@ class Invoice extends Model
 			'payment_method',
 			'payment_status',
 			'total_sum',
+            'months',
+            'price',
+            'price_mkd',
+            'total_sum_mkd',
 			'created_by',
-			'updated_by'
+			'updated_by',
     	];
 
     public function customer(){

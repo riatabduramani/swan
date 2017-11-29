@@ -55,6 +55,17 @@
                           @include('frontend.panel.menu')
                     </div>
                     <div class="col-md-7">
+
+                        @if (Session::has('message-approved'))
+                           <div class="alert alert-success">{{ Session::get('message-approved') }}</div>
+                        @endif
+                        @if (Session::has('message-notapproved'))
+                           <div class="alert alert-danger">{{ Session::get('message-declined') }}</div>
+                        @endif
+                        @if (Session::has('message-declined'))
+                           <div class="alert alert-danger">{{ Session::get('message-declined') }}</div>
+                        @endif
+
                         <h3>@lang('front.welcome') <b>{{ Auth::user()->name }} {{ Auth::user()->surname }}</b></h3>
                         <small>@lang('front.since'): {{ date('d.m.Y', strtotime(Auth::user()->created_at)) }}</small>
 

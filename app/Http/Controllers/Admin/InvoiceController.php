@@ -16,7 +16,6 @@ use Carbon\Carbon;
 use Session;
 use Auth;
 
-use App\Order;
 use App\Mail\InvoiceGenerated;
 use App\Mail\InvoicePaid;
 use App\Mail\InvoiceDeclined;
@@ -339,15 +338,20 @@ class InvoiceController extends Controller
         $invoice->notes = $request->service_note;
         $invoice->description = nl2br($request->service_description);
         $invoice->customer_id = $request->customer_id;
+        $invoice->months = $request->months;
+        $invoice->price = $request->productprice;
+        $invoice->price_mkd = round($request->productprice * env('CURRENCY'));
         
         if(!empty($request->apply_credit)) {
             $credit = Credits::find($request->apply_credit);
             $credit->balance = $credit->balance - $request->total_sum;
             $credit->save();
             $invoice->total_sum = $request->total_sum;
+            $invoice->total_sum_mkd = round($request->total_sum * env('CURRENCY'));
         } 
         else {
             $invoice->total_sum = $request->total_sum;
+            $invoice->total_sum_mkd = round($request->total_sum * env('CURRENCY'));
         }
         
         

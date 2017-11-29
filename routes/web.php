@@ -94,6 +94,7 @@ Route::group(['prefix' => $language], function()
 	Route::get('/checkout/{id}','HomeController@tocheckout');
 
 	Route::post('/paymentstatus', 'HomeController@paymentstatus');
+	Route::post('/payment-status', 'Client\\InvoicesController@paymentstatus');
 
 
 

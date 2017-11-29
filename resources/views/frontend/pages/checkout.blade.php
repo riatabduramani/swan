@@ -72,11 +72,11 @@
                                         @endforeach
                                     </td>
                                     <td>{{ $services->new_price }} &euro;</td>
-                                    <td>x 12 @lang('front.months')</td>
-                                    <td style="text-align: right;color: #000;font-size: 15pt;">{{ number_format($services->new_price * 12, 2, '.', ',') }} &euro;
+                                    <td>x {{ $services->months }} @lang('front.months')</td>
+                                    <td style="text-align: right;color: #000;font-size: 15pt;">{{ number_format($services->new_price * $services->months, 2, '.', ',') }} &euro;
                                         <br />
                                         <small style="font-size: 10pt; color: #adadad">
-                                            {{ number_format($gateway['amount-mk'], 2,',','.') }} MKD
+                                            {{ number_format(round(($services->new_price * $services->months)*env('CURRENCY')), 2, '.', ',') }} MKD
                                         </small>
                                     </td>
                                 </tr>

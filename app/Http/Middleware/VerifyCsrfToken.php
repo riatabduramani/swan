@@ -14,6 +14,8 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         'en/paymentstatus',
         'sq/paymentstatus',
+        'en/payment-status',
+        'sq/payment-status',
     ];
 
     

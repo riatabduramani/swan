@@ -152,4 +152,10 @@ return [
     'thankssubscriber' => 'Ju faleminderit!',
 
     'negotiable' => 'Me negociatë',
+
+    //Payment status
+    'approved' => 'Ju faleminderit! Pagesa juaj u aprovua.',
+    'notapproved' => 'Pagesa e juaj dështoj.',
+    'declined' => 'Pagesa juaj u anulua.',
+    '3dauth' => 'Autentikimi 3D nuk është i suksesshëm.',
 ];

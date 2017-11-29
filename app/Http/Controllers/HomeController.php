@@ -26,6 +26,11 @@ use DB;
 use Illuminate\Support\Facades\Hash;
 use Alert;
 
+//use App\Order;
+use App\Mail\InvoiceGenerated;
+use App\Mail\InvoicePaid;
+use App\Mail\InvoiceDeclined;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -64,15 +69,94 @@ class HomeController extends Controller
     }
 
     public function tocheckout($id, Request $request) {
-        $services = Packet::findOrFail($id);
 
-        $invoice = Invoice::max('id')+1;
+
+        if(Auth::check() && Auth::user()->hasRole('client')) {
+            
+
+        $invoicemax = Invoice::max('id')+1;
+
+        $services = Packet::findOrFail($id);
+        
+        foreach ($services->service as $servicedesc) {
+            $locale = App::getLocale();
+            $description[] = $servicedesc->{"name:$locale"};
+        }
+
+        $showdescription = implode('<br>', $description);
+
+        $userid = Auth::user()->id;
+        $customerid = Auth::user()->customer->id;//$customerid = $request->customer_id;
+        $customeruserid = Auth::user()->customer->id; //$request->customer_user_id;
+        $customeremail = Auth::user()->email; //$request->customer_email;
+        
+        $invoice = new Invoice();
+        $invoice->invoice_type = 1;
+        $invoice->invoice_date = Carbon::now();
+        
+        //this should be inserted into custom_service and get that id
+        //if is customer service insert customservice ID, if is packet then insert that packet id
+        
+        $invoice->service_id = $id;
+
+        //if the status is not Paid then show duedate
+        $invoice->payment_status = 2;
+        
+        $invoice->due_date = Carbon::now()->addDays(8);
+                        
+       
+        $packetdate = Carbon::now();
+        //$invoice->end_date = $packetdate->addYear(1);
+        $invoice->end_date = $packetdate->addMonths($services->months);
+
+        //$invoice->notes = $request->service_note;
+        $invoice->description = nl2br($showdescription);
+        $invoice->customer_id = $customeruserid;
+        $invoice->months = $services->months;
+        $invoice->price = $services->new_price;
+        $invoice->price_mkd = round($services->new_price * env('CURRENCY'));
+        
+        $invoice->total_sum = $services->new_price * $services->months;
+        $invoice->total_sum_mkd = round(($services->new_price * $services->months) * env('CURRENCY'));
+
+        //the user who has created this custom service
+        $invoice->created_by = $userid;
+
+        $invoice->order_id = "oid-P-$invoicemax";
+
+        $invoice->save();
+
+        $chosenpacket = Subscription::with('customer')->where('customer_id', $customerid)->get()->last();
+
+        if(count($chosenpacket) > 0) {
+            $subscription = new Subscription();
+            $subscription->invoice_id = $invoice->id;
+            $subscription->customer_id = $customerid;
+            $subscription->packet_id = $id;
+            $subscription->start = Carbon::parse($chosenpacket->end);
+            $subscription->end = Carbon::parse($chosenpacket->end)->addMonths($services->months);
+            $subscription->save();
+        } else {
+            $subscription = new Subscription();
+            $subscription->invoice_id = $invoice->id;
+            $subscription->customer_id = $customerid;
+            $subscription->packet_id = $id;
+            $subscription->start = Carbon::now();
+            $subscription->end = Carbon::now()->addMonths($services->months);
+            $subscription->save();
+        }
+
+        if($invoice->save() === TRUE) {
+            //Mail::to($customeremail)->send(new InvoiceGenerated($invoice));
+        
+
+        Session::flash('flash_message', 'Invoice created successfully!');
 
         $gateway =  array(
                             'clientId'          =>  env('HALK_CLIENTID'), 
-                            'amount'            =>  number_format($services->new_price * 12, 2, '.', ','),
-                            'amount-mk'         =>  round(($services->new_price * 1)*env('CURRENCY')),
-                            'oid'               =>  "oid-P-$invoice-".rand(100,1000),
+                            'amount'            =>  $invoice->total_sum,
+                            'amount-mk'         =>  $invoice->total_sum_mkd,
+                            'oid'               =>  "oid-P-$invoice->id",
                             'okUrl'             =>  env('APP_URL').'/'.App::getLocale().'/paymentstatus',
                             'failUrl'           =>  env('APP_URL').'/'.App::getLocale().'/paymentstatus',
                             'rnd'               =>  microtime(),
@@ -88,8 +172,9 @@ class HomeController extends Controller
 
         $hash = base64_encode(pack('H*',sha1($hashstr)));
 
-        if(Auth::check() && Auth::user()->hasRole('client')) {
-             return view('frontend.pages.checkout', compact('services', 'gateway', 'hash', 'invoice'));
+         }
+
+          return view('frontend.pages.checkout', compact('services', 'gateway', 'hash', 'invoice'));
          } else {
 
             return view('auth.login');
@@ -97,7 +182,7 @@ class HomeController extends Controller
        
     }
 
-    public function paymentstatus(Request $request) {
+         public function paymentstatus(Request $request) {
 
          $mdStatus= $request->mdStatus;
     
@@ -107,23 +192,51 @@ class HomeController extends Controller
 
                switch ($Response) {
                     case 'Approved':
-                        return "<font color=\"green\">Your payment is approved.</font>";
+                        $invoice = Invoice::where('order_id', '=', $request->ReturnOid)->first();
+                        $invoice->payment_status = 1;
+                        $invoice->paid_at =  Carbon::now();
+
+                        $invoice->save();
+
+                        Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
+
+                        Session::flash('message-approved', __('front.approved'));
+                        //return '/'.App::getLocale().'/panel/invoices/'.$invoice->id;
+                        //return redirect('/'.App::getLocale()."/panel/invoices");
+                        return redirect('/'.App::getLocale()."/panel/invoices/$invoice->id");
                         break;
-                    case 'Error",':
-                        return "<font color=\"red\">Your payment is not approved.</font>";
+                    case 'Error':
+                        $invoice = Invoice::where('order_id', '=', $request->ReturnOid)->first();
+                        $invoice->payment_status = 2;
+                        $invoice->due_date = Carbon::now()->addDays(8);
+                        $invoice->save();
+
+                        Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
+                        
+                        Session::flash('message-notapproved', __('front.notapproved'));
+                        return redirect('/'.App::getLocale()."/panel/invoices/$invoice->id");
                         break;
-                   case 'Declined",':
-                        return "<font color=\"red\">Your payment has been declined.</font>";
+                   case 'Declined':
+                        $invoice = Invoice::where('order_id', '=', $request->ReturnOid)->first();
+                        $invoice->payment_status = 3;
+                        $invoice->save();
+                        Session::flash('message-declined', __('front.declined'));
+                        return redirect('/'.App::getLocale()."/panel/invoices");
                         break;
                    default:
-                        return "<font color=\"red\">Your payment has been declined.</font>";
+                        $invoice = Invoice::where('order_id', '=', $request->ReturnOid)->first();
+                        $invoice->payment_status = 3;
+                        $invoice->save();
+                        Session::flash('message-declined', __('front.declined'));
+                        return redirect('/'.App::getLocale()."/panel/invoices");
                         break;
                 }
                
             }   
             else
             {
-                return "<font color=\"red\">3D Authentication is not successful.</font>";
+                Session::flash('message-declined', __('front.3dauth'));
+                return redirect()->back();
             }   
 
     }

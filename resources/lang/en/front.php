@@ -152,4 +152,10 @@ return [
     'thankssubscriber' => 'Thank you!',
 
     'negotiable' => 'Negotiable',
+
+    //Payment status
+    'approved' => 'Thank you! Your payment has been approved.',
+    'notapproved' => 'Your payment is not approved.',
+    'declined' => 'Your payment has been declined.',
+    '3dauth' => '3D Authentication is not successful.',
 ];
