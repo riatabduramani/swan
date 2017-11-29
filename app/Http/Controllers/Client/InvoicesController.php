@@ -82,19 +82,27 @@ class InvoicesController extends Controller
                     case 'Error':
                         $invoice = Invoice::where('order_id', '=', $request->ReturnOid)->first();
                         $invoice->payment_status = 2;
+                        $invoice->due_date = Carbon::now()->addDays(8);
                         $invoice->save();
 
                         Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
+                        
                         Session::flash('message-notapproved', __('front.notapproved'));
-                        return redirect()->back();
+                        return redirect('/'.App::getLocale()."/panel/invoices/$invoice->id");
                         break;
                    case 'Declined':
+                        $invoice = Invoice::where('order_id', '=', $request->ReturnOid)->first();
+                        $invoice->payment_status = 3;
+                        $invoice->save();
                         Session::flash('message-declined', __('front.declined'));
-                        return redirect()->back();
+                        return redirect('/'.App::getLocale()."/panel/invoices");
                         break;
                    default:
+                        $invoice = Invoice::where('order_id', '=', $request->ReturnOid)->first();
+                        $invoice->payment_status = 3;
+                        $invoice->save();
                         Session::flash('message-declined', __('front.declined'));
-                        return redirect()->back();
+                        return redirect('/'.App::getLocale()."/panel/invoices");
                         break;
                 }
                
