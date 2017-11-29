@@ -59,6 +59,7 @@ Route::get('/', function() {
     return Redirect::to(App::getLocale());
 });
 
+Auth::routes();
 
 Route::group(['prefix' => $language], function()
 {
@@ -68,6 +69,12 @@ Route::group(['prefix' => $language], function()
 	Route::get('contact', function () {
 	    return view('frontend.pages.contact');
 	});
+
+	Route::get('checkout', function () {
+	    return view('frontend.pages.checkout');
+	});
+
+	
 
 	Route::get('about', function () {
 	    return view('frontend.pages.about');
@@ -82,6 +89,13 @@ Route::group(['prefix' => $language], function()
 	Route::get('services/{id}','HomeController@getServices');
 
 	//Route::resource('/register','Auth\\RegisterController');
+	
+
+	Route::get('/checkout/{id}','HomeController@tocheckout');
+
+	Route::post('/paymentstatus', 'HomeController@paymentstatus');
+
+
 
 	Route::group(['prefix' => 'panel', 'middleware' => ['auth', 'role:client']], function() {
 		
@@ -90,12 +104,11 @@ Route::group(['prefix' => $language], function()
 	  Route::resource('/invoices', 'Client\\InvoicesController');
 	  Route::resource('/password', 'Client\\PasswordController');
 	  Route::resource('/', 'Client\\ClientController');
-	  Route::get ('/downloadinvoice/{id}', 'PDFInvoiceController@pdf');		
+	  Route::get ('/downloadinvoice/{id}', 'PDFInvoiceController@pdf');	
 	});
 
 });
 
-Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmin|employee']], function() {
 

@@ -81,6 +81,10 @@
                                 @endforeach
                             </ul>
                             <a href="/{{App::getLocale()}}/services/{{ $packet->id }}">@lang('front.readmore')</a>
+                            @if($packet->options != 3)
+                                <a style="background: #d02379" href="/{{App::getLocale()}}/checkout/{{ $packet->id }}">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy</a>
+                            @endif
                         </div>
                         <?php $i++; ?>
                         @endforeach

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>@lang('front.invoices') - {{ $settings->company_name }}</title>
+    <title>@lang('front.checkoutitle') - {{ $settings->company_name }}</title>
     
     <link href="{{ asset('images/swan-logob.png') }}" rel="shortcut icon" type="image/png">
     <link href="{{ asset('css/front/animate.min.css') }}" rel="stylesheet" type="text/css">
@@ -16,6 +16,8 @@
     <link href="{{ asset('css/front/owl.carousel.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('fonts/webfonts/fonts.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
+        <script src="{{ asset('sweetalert/dist/sweetalert.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('sweetalert/dist/sweetalert.css') }}">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -31,85 +33,58 @@
 
     @include('frontend.header')
 
-    <section class="">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="romana_page_text">
-                        <h1>@lang('front.clientpanel')</h1>
-                        <ol class="breadcrumb">
-                            <li><a href="{{ env('APP_URL')}}/{{ App::getLocale() }}/panel">@lang('front.home')</a><span></span></li>
-                            <li class="active"><a href="{{ env('APP_URL')}}/{{ App::getLocale() }}/panel/invoices">@lang('front.invoices')</a></li>
-                            <li class="active"><a href="#">@lang('front.show')</a></li>
-                        </ol>
+    <section class="romana_allPage_area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="romana_page_text">
+                            <h1>@lang('front.checkoutitle')</h1>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
-        </div>
     </section>
 <!-- ==================================================
-    PANEL FORM
+    CONTACT FORM
 =================================================== -->
-            <div class="container" style="color: #000;">
-                <div class="row" style="margin-top: 10px;">
-                    <div class="col-md-3">
-                          @include('frontend.panel.menu')
-                    </div>
-                    <div class="col-md-7">
-                        <h3 style="margin-bottom: 10px;">@lang('front.invoice') #{{ $invoice->id }}/{{ date('Y',strtotime($invoice->invoice_date)) }}</h3>
-
-                        <div class="well well-sm col-md-4">
-                            <b>@lang('front.issuedate'):</b> {{ date('d.m.Y', strtotime($invoice->invoice_date)) }}<br />
-                            <b>@lang('front.status'):</b> {!! $invoice->showPaidStatus($invoice) !!}<br />
-                            @if($invoice->payment_status == 1)
-                                <b>@lang('front.paymentmethod'):</b> {!! $invoice->showPaidMethod($invoice) !!}<br />
-                                <b>@lang('front.paidat'):</b> {{ date('d.m.Y', strtotime($invoice->paid_at)) }}
-                            @else
-                                <b>@lang('front.duedate'):</b> {{ date('d.m.Y', strtotime($invoice->due_date)) }}
-                            @endif
-                            
-                        </div>
-                        
-                        <table class="table table-bordered" style="margin-top: 10px;">
-                            <thead style="background: #f5f5f5;">
-                                <tr>
-                                    <th>@lang('front.service')</th>
-                                    <th>@lang('front.description')</th>
-                                    <th>@lang('front.price')</th>
-                                </tr>
+        <section class="section_padding" style="background-image:none;">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-sm-12">
+<div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr class="active" style="font-weight: bold; font-size: 14pt; color: #000;">
+                                <td>@lang('front.title')</td>
+                                <td>@lang('front.description')</td>
+                                <td>@lang('front.price')</td>
+                                <td></td>
+                                <td style="text-align: right">@lang('front.total')</td>
+                            </tr>
                             </thead>
-                            <tbody>
-                            @if($invoice->invoice_type == 2)
+                            <tbody style="font-size: 12pt">
                                 <tr>
-                                    <td>{{ $invoice->customservice->name }}</td>
-                                    <td>{!! $invoice->description !!}</td>
-                                    <td>{{ $invoice->total_sum }}</td>
-                                </tr>
-                            @else
-                                <tr>
-                                    <td>{{ $invoice->packetservice->name }}</td>
-                                     <td>{!! $invoice->description !!}</td>
-                                    <td>{{ $invoice->packetservice->new_price }}&euro;
-                                        x {{ $invoice->packetservice->months }} @lang('front.months')
+                                    <td>{{ $services->name }}</td>
+                                    <td>
+                                        @foreach($services->service as $service)
+                                            <li><i class="fa fa-check" aria-hidden="true"></i> {{ $service->name}}</li>
+                                        @endforeach
                                     </td>
-                                </tr>
-                            @endif
-                                <tr>
-                                    <td colspan="2" class="text-right"><b>@lang('front.total'):</b></td>
-                                    <td style="background: #f5f5f5;"><b>{{ $invoice->total_sum }}&euro; / year</b>
-                                        <br>
+                                    <td>{{ $services->new_price }} &euro;</td>
+                                    <td>x 12 @lang('front.months')</td>
+                                    <td style="text-align: right;color: #000;font-size: 15pt;">{{ number_format($services->new_price * 12, 2, '.', ',') }} &euro;
+                                        <br />
                                         <small style="font-size: 10pt; color: #adadad">
-                                            {{ number_format(round(env('CURRENCY')), 2,',','.') }} MKD
+                                            {{ number_format($gateway['amount-mk'], 2,',','.') }} MKD
                                         </small>
                                     </td>
                                 </tr>
-                            </tbody>
-                        </table>
+                                <tr>
+                                    <td colspan="4"></td>
+                                    <td style="text-align: right">
 
-                        @if($invoice->payment_status == 2)
-                            <div class="pull-right" style="margin-top: 30px;margin-bottom: 30px;">
-
-                                <form method="post" action="https://entegrasyon.asseco-see.com.tr/fim/est3Dgate">
+                                        <form method="post" action="https://entegrasyon.asseco-see.com.tr/fim/est3Dgate">
                                             <input type="hidden" name="clientid" value="{{ $gateway['clientId'] }}" />
                                             <input type="hidden" name="amount" value="{{ $gateway['amount-mk'] }}" />
                                             <input type="hidden" name="islemtipi" value="{{ $gateway['transactionType'] }}" />
@@ -132,19 +107,20 @@
                                             <input type="hidden" name="tel" value="{{ Auth::user()->customer->phone_out }}"/>
                                             <input type="hidden" name="email" value="{{ Auth::user()->email }}" />
 
-                                            <button class="btn btn-danger"><i class="fa fa-shopping-cart" aria-hidden="true"></i> @lang('front.paynow')</button>
+                                            <button class="btn btn-danger"><i class="fa fa-shopping-cart" aria-hidden="true"></i> @lang('front.checkoutitle')</button>
                                         </form>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+</div>
 
-                            </div>
-                        @else
-                            <div class="pull-right" style="margin-top: 30px;margin-bottom: 30px;">
-                                <a href="/{{ App::getLocale() }}/panel/downloadinvoice/{{ $invoice->id }}" class="btn btn-primary"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Download Invoice</a>
-                            </div>
-                        @endif
-                        
                     </div>
+
+                  
                 </div>
             </div>
+        </section>
 
 
        @include('frontend.footer')
@@ -159,6 +135,7 @@
         <script src="{{ asset('js/front/jquery.counterup.min.js') }}"></script>
         <script src="{{ asset('js/front/waypoints.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('js/front/active.js') }}"></script>
+        @include('sweet::alert')
     </div>
 </body>
 </html>

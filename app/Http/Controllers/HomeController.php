@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Http\Response;
+use App;
 use App\Models\Country;
 use App\Models\City;
 use App\Models\District;
@@ -60,6 +61,71 @@ class HomeController extends Controller
         $services = Packet::findOrFail($id);
         //$services = Service::translated()->findOrFail($id);
         return view('frontend.pages.showservices', compact('services'));
+    }
+
+    public function tocheckout($id, Request $request) {
+        $services = Packet::findOrFail($id);
+
+        $invoice = Invoice::max('id')+1;
+
+        $gateway =  array(
+                            'clientId'          =>  env('HALK_CLIENTID'), 
+                            'amount'            =>  number_format($services->new_price * 12, 2, '.', ','),
+                            'amount-mk'         =>  round(($services->new_price * 1)*env('CURRENCY')),
+                            'oid'               =>  "oid-P-$invoice-".rand(100,1000),
+                            'okUrl'             =>  env('APP_URL').'/'.App::getLocale().'/paymentstatus',
+                            'failUrl'           =>  env('APP_URL').'/'.App::getLocale().'/paymentstatus',
+                            'rnd'               =>  microtime(),
+                            'currencyVal'       =>  env('HALK_CURRENCYVAL'),
+                            'storekey'          =>  env('HALK_STOREKEY'),
+                            'storetype'         =>  env('HALK_STORETYPE'),
+                            'lang'              =>  env('HALK_LANG'),
+                            'instalment'        =>  "",
+                            'transactionType'   =>  env('HALK_TRANSACTIONTYPE'),
+                        );
+
+        $hashstr = $gateway['clientId'] . $gateway['oid'] . $gateway['amount-mk'] . $gateway['okUrl'] . $gateway['failUrl'] .$gateway['transactionType'] .$gateway['rnd'] . $gateway['storekey'];
+
+        $hash = base64_encode(pack('H*',sha1($hashstr)));
+
+        if(Auth::check() && Auth::user()->hasRole('client')) {
+             return view('frontend.pages.checkout', compact('services', 'gateway', 'hash', 'invoice'));
+         } else {
+
+            return view('auth.login');
+         }
+       
+    }
+
+    public function paymentstatus(Request $request) {
+
+         $mdStatus= $request->mdStatus;
+    
+            if($mdStatus =="1" || $mdStatus == "2" || $mdStatus == "3" || $mdStatus == "4")
+            {              
+               $Response = $request->Response;
+
+               switch ($Response) {
+                    case 'Approved':
+                        return "<font color=\"green\">Your payment is approved.</font>";
+                        break;
+                    case 'Error",':
+                        return "<font color=\"red\">Your payment is not approved.</font>";
+                        break;
+                   case 'Declined",':
+                        return "<font color=\"red\">Your payment has been declined.</font>";
+                        break;
+                   default:
+                        return "<font color=\"red\">Your payment has been declined.</font>";
+                        break;
+                }
+               
+            }   
+            else
+            {
+                return "<font color=\"red\">3D Authentication is not successful.</font>";
+            }   
+
     }
 
     public function footer() {

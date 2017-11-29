@@ -20,20 +20,62 @@
                         </div>
 
                         <div class="col-md-2 col-sm-3 col-xs-12">
-                            <div class="header_top_right">
-                             @if (Auth::check())
+                            <div class="dropdown header_top_right">
+                                @if (Auth::check())
                                 @role(['admin','superadmin','employee'])
-                                <a href="{{ url('/admin/dashboard') }}"><i class="fa fa-tachometer"></i> @lang('front.dashboard')</a>
+                                <a id="dLabel" data-target="#" href="{{ url('/admin/dashboard') }}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-tachometer"></i>
+                                    @lang('front.dashboard')
+                                    <span class="caret"></span>
+                                </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                <li><a href="/{{ App::getLocale() }}/panel"><i class="fa fa-eye" aria-hidden="true"></i>
+                                 @lang('front.adminpanel')</a>  
+                                </li>
+                                <li>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" class="list-group-item" style="border: 0px; border-radius: 0; background: red; color: #fff">
+                                        <i class="fa fa-sign-out" aria-hidden="true"></i> @lang('front.logout')
+                                    </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                                </li>
+                              </ul>
+
                                 @endrole
                                 @role(['client'])
-                                <a href="/{{ App::getLocale() }}/panel"><i class="fa fa-tachometer"></i> @lang('front.clientdashboard')</a>
+     
+                                <a id="dLabel" data-target="#" href="/{{ App::getLocale() }}/panel" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-tachometer"></i>
+                                    @lang('front.dashboard')
+                                    <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                <li><a href="/{{ App::getLocale() }}/panel"><i class="fa fa-eye" aria-hidden="true"></i>
+                                 @lang('front.clientpanel')</a>  
+                                </li>
+                                <li>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" class="list-group-item" style="border: 0px; border-radius: 0; background: red; color: #fff">
+                                        <i class="fa fa-sign-out" aria-hidden="true"></i> @lang('front.logout')
+                                    </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                                </li>
+                              </ul>
+                              
                                 @endrole
-                            @else
+                              @else
             <a href="/{{ App::getLocale() }}/login"><i class="fa fa-user"></i>&nbsp @lang('front.login')</a> | 
             <!--<a href=""><i class="fa fa-user"></i>&nbsp Login</a> | -->
             <a href="/{{ App::getLocale() }}/register">@lang('front.register')</a>
                             @endif
                             </div>
+                           
                         </div>
                     </div>
                 </div>

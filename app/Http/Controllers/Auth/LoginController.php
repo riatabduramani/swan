@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 //use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Support\Facades\Auth;
+
 use Bestmomo\LaravelEmailConfirmation\Traits\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
@@ -32,7 +32,9 @@ class LoginController extends Controller
 
         } elseif (auth()->user()->hasRole('client')) {
             
-            return '/'.\App::getLocale().'/panel';
+            $url = '/'.\App::getLocale().'/panel';
+
+            return $url;
 
         } else {
 

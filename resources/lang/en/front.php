@@ -26,6 +26,13 @@ return [
     'register' => 'Register',
     'dashboard' => 'Dashboard',
 
+    //checkout page
+    'checkout' => 'checkout',
+    'checkoutitle' => 'Checkout',
+    'title' => 'Title',
+    'months' => 'months',
+
+
     //contact
     'morehelp' => 'Need more help?',
     'writeus' => 'Write us',
@@ -65,6 +72,7 @@ return [
     //panel area
     'paneldashboard' => 'Dashboard',
     'clientpanel' => 'Client Panel',
+    'adminpanel' => 'Admin Panel',
     'invoices' => 'Invoices',
     'myprofile' => 'My profile',
     'changepassword' => 'Change password',

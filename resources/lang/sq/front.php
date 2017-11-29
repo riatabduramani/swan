@@ -23,8 +23,15 @@ return [
     'vision' => 'Vizioni',
     'mission' => 'Misioni',
     'clientdashboard' => 'Paneli Klientit',
+    'adminpanel' => 'Paneli Adminit',
     'register' => 'Regjistrohu',
     'dashboard' => 'Paneli',
+
+        //checkout page
+    'checkout' => 'checkout',
+    'checkoutitle' => 'Checkout',
+    'title' => 'Titulli',
+    'months' => 'muaj',
 
     //contact
     'morehelp' => 'Ju duhet ndihmë?',

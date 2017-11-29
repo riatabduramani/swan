@@ -267,13 +267,13 @@ p {
     position: relative;
 }
 .hvr-icon-hang::before {
-    content: "Ã¯Æ’Â­";
+    content: "ÃƒÆ’Ã‚Â¯Ãƒâ€ Ã¢â‚¬â„¢Ãƒâ€šÃ‚Â­";
     right: 160px;
     top: 0;
 }
 .hvr-icon-bob::before {
     color: #2a2a2a;
-    /*content: "Ã¯â€¦Â¶";*/
+    /*content: "ÃƒÆ’Ã‚Â¯ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦Ãƒâ€šÃ‚Â¶";*/
     font-family: FontAwesome;
     font-size: 11px;
     right: 11px;
@@ -332,9 +332,9 @@ p {
     border-left: 2px solid #0a587f;
     background-color: #0a587f;
     border-radius: 10px;
-    padding-right: 21px;
+    padding-right: 24px;
     color: white;
-    padding-left: 12px;
+    padding-left: 10px;
     padding-bottom: 3px;
     padding-top: 3px;
 }
@@ -1415,7 +1415,7 @@ preloader {
 }
 .romana_single_aside li a::before {
     color: #14adf4;
-    content: "Ã¯â€¦Â·";
+    content: "ÃƒÆ’Ã‚Â¯ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦Ãƒâ€šÃ‚Â·";
     font-family: fontawesome;
     height: 2px;
     position: absolute;
@@ -1946,7 +1946,7 @@ blockquote {
 }
 blockquote::before {
     color: #14adf4;
-    content: "Ã¯â€žÅ½";
+    content: "ÃƒÆ’Ã‚Â¯ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€¦Ã‚Â½";
     font-family: fontawesome;
     font-size: 34px;
     left: 51px;
@@ -3511,10 +3511,10 @@ span.change_qty.plus.cursor_hover.fa.fa-angle-up {
 @media only screen and (max-width: 767px) {
     
       .footer_logo {
-      	margin-top: 30px !important;
+        margin-top: 30px !important;
       }
      .romana_contract_address .romana_socail_link a {
-     	margin-right: 25px !important;
+        margin-right: 25px !important;
      }
 
     .row .col-sm-4s {
@@ -4650,3 +4650,4 @@ div.tab button.active {
 #logo-box {
     width: 41.667%;
 }
+
