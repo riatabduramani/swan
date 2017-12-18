@@ -215,10 +215,14 @@ class InvoiceController extends Controller
             $credit = Credits::find($request->apply_credit);
             $credit->balance = $credit->balance - $request->service_price;
             $credit->save();
+            $invoice->price_mkd = round($request->service_price * env('CURRENCY'));
             $invoice->total_sum = $request->service_price;
+            $invoice->total_sum_mkd = round($request->service_price * env('CURRENCY'));
+
         } 
         else {
             $invoice->total_sum = $request->service_price;
+            $invoice->total_sum_mkd = round($request->service_price * env('CURRENCY'));
         }
 		
 		

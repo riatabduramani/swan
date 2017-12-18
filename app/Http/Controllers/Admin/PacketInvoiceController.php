@@ -45,8 +45,7 @@ class PacketInvoiceController extends Controller
 
         $packets = Packet::listsTranslations('name')->pluck('name', 'id');
 
-        return view('admin.invoices.create-packet', compact('customerid','user','duedate','packets','packetprice'));   
-       
+        return view('admin.invoices.create-packet', compact('customerid','user','duedate','packets','packetprice');
     }
 
     public function product_prices(){
@@ -55,6 +54,4 @@ class PacketInvoiceController extends Controller
         
         return $price;
     }
-
-
 }
