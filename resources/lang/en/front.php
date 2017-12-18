@@ -25,6 +25,7 @@ return [
     'clientdashboard' => 'Client Dashboard',
     'register' => 'Register',
     'dashboard' => 'Dashboard',
+    'buy' => 'Buy',
 
     //checkout page
     'checkout' => 'checkout',

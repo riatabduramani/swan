@@ -26,6 +26,8 @@ return [
     'adminpanel' => 'Paneli Adminit',
     'register' => 'Regjistrohu',
     'dashboard' => 'Paneli',
+    'buy' => 'Blej',
+
 
         //checkout page
     'checkout' => 'checkout',

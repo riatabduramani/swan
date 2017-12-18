@@ -107,7 +107,7 @@
                             @endif
                                 <tr>
                                     <td colspan="2" class="text-right"><b>@lang('front.total'):</b></td>
-                                    <td style="background: #f5f5f5;"><b>{{ number_format($invoice->total_sum, 2, '.', ',') }}&euro; / year</b>
+                                    <td style="background: #f5f5f5;"><b>{{ number_format($invoice->total_sum, 2, '.', ',') }}&euro;</b>
 
                                         <br>
                                         <small style="font-size: 10pt; color: #adadad">
