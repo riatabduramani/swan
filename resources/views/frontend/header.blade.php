@@ -30,7 +30,7 @@
                                 </a>
 
                             <ul class="dropdown-menu" aria-labelledby="dLabel">
-                                <li><a href="/{{ App::getLocale() }}/panel"><i class="fa fa-eye" aria-hidden="true"></i>
+                                <li><a href="/admin/dashboard"><i class="fa fa-eye" aria-hidden="true"></i>
                                  @lang('front.adminpanel')</a>  
                                 </li>
                                 <li>
