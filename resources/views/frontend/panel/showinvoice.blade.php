@@ -121,7 +121,7 @@
                         @if($invoice->payment_status == 2)
                             <div class="pull-right" style="margin-top: 30px;margin-bottom: 30px;">
 
-                                <form method="post" action="https://entegrasyon.asseco-see.com.tr/fim/est3Dgate">
+                                <form method="post" action="{{ env('HALK_3D_POST_URL') }}">
                                             <input type="hidden" name="clientid" value="{{ $gateway['clientId'] }}" />
                                             <input type="hidden" name="amount" value="{{ $gateway['amount-mk'] }}" />
                                             <input type="hidden" name="islemtipi" value="{{ $gateway['transactionType'] }}" />
