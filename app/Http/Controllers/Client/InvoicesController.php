@@ -73,9 +73,9 @@ class InvoicesController extends Controller
                     case 'Approved':
                     	Invoice::where('order_id', $request->ReturnOid)->update(['payment_status' => 1, 'paid_at'=>Carbon::now(), 'payment_method' => 2]);
                         
-                        $invoice = Invoice::where('order_id', $request->ReturnOid)->first();
+                        //$invoice = Invoice::where('order_id', $request->ReturnOid)->first();
 
-                        Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
+                        //Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
 
                         Session::flash('message-approved', __('front.approved'));
                         return redirect()->back();
@@ -83,9 +83,9 @@ class InvoicesController extends Controller
                     case 'Error':
                         Invoice::where('order_id', $request->ReturnOid)->update(['payment_status' => 2, 'due_date' => Carbon::now()->addDays(8)]);
 
-                        $invoice = Invoice::where('order_id', $request->ReturnOid)->first();
+                        //$invoice = Invoice::where('order_id', $request->ReturnOid)->first();
                         
-                        Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
+                        //Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
                         Session::flash('message-notapproved', __('front.notapproved'));
                         //return redirect('/'.App::getLocale()."/panel/invoices/$invoice->id");
                         return redirect()->back();
