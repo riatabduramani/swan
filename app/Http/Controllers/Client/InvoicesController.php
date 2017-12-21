@@ -59,20 +59,19 @@ class InvoicesController extends Controller
 
     	return view('frontend.panel.showinvoice', compact('invoice','gateway','hash'));
     }
+     
+
      public function paymentstatus(Request $request) {
 
          $mdStatus= $request->mdStatus;
     
-            if($mdStatus =="1" || $mdStatus == "2" || $mdStatus == "3" || $mdStatus == "4")
+            if($mdStatus == 1 || $mdStatus == 2 || $mdStatus == 3 || $mdStatus == 4)
             {              
                $Response = $request->Response;
 
                switch ($Response) {
                     case 'Approved':
-                        $invoice = Invoice::where('order_id', '=', $request->ReturnOid)->first();
-                        $invoice->paid_at = Carbon::now();
-                        $invoice->save();
-                    	Invoice::where('order_id', $request->ReturnOid)->update(['payment_status' => 1, 'payment_method' => 2]);
+                    	$invoice = Invoice::where('order_id', $request->ReturnOid)->update(['payment_status' => 1, 'paid_at'=>Carbon::now(), 'payment_method' => 2]);
 
                         Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
 
@@ -80,29 +79,23 @@ class InvoicesController extends Controller
                         return redirect()->back();
                         break;
                     case 'Error':
-                        $invoice = Invoice::where('order_id', '=', $request->ReturnOid)->first();
-                        $invoice->payment_status = 2;
-                        $invoice->due_date = Carbon::now()->addDays(8);
-                        $invoice->save();
-
-                        Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
+                        $invoice = Invoice::where('order_id', $request->ReturnOid)->update(['payment_status' => 2, 'due_date' => Carbon::now()->addDays(8)]);
                         
+                        Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
                         Session::flash('message-notapproved', __('front.notapproved'));
-                        return redirect('/'.App::getLocale()."/panel/invoices/$invoice->id");
+                        //return redirect('/'.App::getLocale()."/panel/invoices/$invoice->id");
+                        return redirect()->back();
                         break;
                    case 'Declined':
-                        $invoice = Invoice::where('order_id', '=', $request->ReturnOid)->first();
-                        $invoice->payment_status = 3;
-                        $invoice->save();
+                        Invoice::where('order_id', $request->ReturnOid)->update(['payment_status' => 3]);
                         Session::flash('message-declined', __('front.declined'));
-                        return redirect('/'.App::getLocale()."/panel/invoices");
+                        //return redirect('/'.\App::getLocale()."/panel/invoices");
+                        return redirect()->back();
                         break;
                    default:
-                        $invoice = Invoice::where('order_id', '=', $request->ReturnOid)->first();
-                        $invoice->payment_status = 3;
-                        $invoice->save();
+                        $invoice = Invoice::where('order_id', $request->ReturnOid)->update(['payment_status' => 3]);
                         Session::flash('message-declined', __('front.declined'));
-                        return redirect('/'.App::getLocale()."/panel/invoices");
+                        return redirect()->back();
                         break;
                 }
                
