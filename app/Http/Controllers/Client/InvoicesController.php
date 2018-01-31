@@ -41,7 +41,7 @@ class InvoicesController extends Controller
                             'clientId'          =>  env('HALK_CLIENTID'), 
                             'amount'            =>  number_format($invoice->total_sum, 2, '.', ','),
                             'amount-mk'         =>  floor($invoice->total_sum_mkd),
-                            'oid'               =>  "oid-P-$invoice->id",
+                            'oid'               =>  "oid-PCL-$invoice->id",
                             'okUrl'             =>  env('APP_URL').'/'.\App::getLocale().'/payment-status',
                             'failUrl'           =>  env('APP_URL').'/'.\App::getLocale().'/payment-status',
                             'rnd'               =>  microtime(),
@@ -61,45 +61,53 @@ class InvoicesController extends Controller
     }
      
 
-     public function paymentstatus(Request $request) {
+    public function paymentstatus(Request $request) {
 
          $mdStatus= $request->mdStatus;
     
-            if($mdStatus == 1 || $mdStatus == 2 || $mdStatus == 3 || $mdStatus == 4)
+            if($mdStatus =="1" || $mdStatus == "2" || $mdStatus == "3" || $mdStatus == "4")
             {              
                $Response = $request->Response;
 
                switch ($Response) {
                     case 'Approved':
-                    	Invoice::where('order_id', $request->ReturnOid)->update(['payment_status' => 1, 'paid_at'=>Carbon::now(), 'payment_method' => 2]);
-                        
-                        //$invoice = Invoice::where('order_id', $request->ReturnOid)->first();
+                        $invoice = Invoice::where('order_id', '=', $request->ReturnOid)->first();
+                        $invoice->payment_status = 1;
+                        $invoice->paid_at =  Carbon::now();
 
-                        //Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
+                        $invoice->save();
+
+                        Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
 
                         Session::flash('message-approved', __('front.approved'));
-                        return redirect()->back();
+                        //return '/'.App::getLocale().'/panel/invoices/'.$invoice->id;
+                        //return redirect('/'.App::getLocale()."/panel/invoices");
+                        return redirect('/'.App::getLocale()."/panel/invoices/$invoice->id");
                         break;
                     case 'Error':
-                        Invoice::where('order_id', $request->ReturnOid)->update(['payment_status' => 2, 'due_date' => Carbon::now()->addDays(8)]);
+                        $invoice = Invoice::where('order_id', '=', $request->ReturnOid)->first();
+                        $invoice->payment_status = 2;
+                        $invoice->due_date = Carbon::now()->addDays(8);
+                        $invoice->save();
 
-                        //$invoice = Invoice::where('order_id', $request->ReturnOid)->first();
+                        Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
                         
-                        //Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
                         Session::flash('message-notapproved', __('front.notapproved'));
-                        //return redirect('/'.App::getLocale()."/panel/invoices/$invoice->id");
-                        return redirect()->back();
+                        return redirect('/'.App::getLocale()."/panel/invoices/$invoice->id");
                         break;
                    case 'Declined':
-                        Invoice::where('order_id', $request->ReturnOid)->update(['payment_status' => 3]);
+                        $invoice = Invoice::where('order_id', '=', $request->ReturnOid)->first();
+                        $invoice->payment_status = 3;
+                        $invoice->save();
                         Session::flash('message-declined', __('front.declined'));
-                        //return redirect('/'.\App::getLocale()."/panel/invoices");
-                        return redirect()->back();
+                        return redirect('/'.App::getLocale()."/panel/invoices");
                         break;
                    default:
-                        $invoice = Invoice::where('order_id', $request->ReturnOid)->update(['payment_status' => 3]);
+                        $invoice = Invoice::where('order_id', '=', $request->ReturnOid)->first();
+                        $invoice->payment_status = 3;
+                        $invoice->save();
                         Session::flash('message-declined', __('front.declined'));
-                        return redirect()->back();
+                        return redirect('/'.App::getLocale()."/panel/invoices");
                         break;
                 }
                
