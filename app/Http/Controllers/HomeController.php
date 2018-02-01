@@ -122,7 +122,7 @@ class HomeController extends Controller
         //the user who has created this custom service
         $invoice->created_by = $userid;
 
-        $invoice->order_id = "oid-P-$invoicemax";
+        $invoice->order_id = "oid-PCL-$invoicemax";
 
         $invoice->save();
 
@@ -156,7 +156,7 @@ class HomeController extends Controller
                             'clientId'          =>  env('HALK_CLIENTID'), 
                             'amount'            =>  $invoice->total_sum,
                             'amount-mk'         =>  $invoice->total_sum_mkd,
-                            'oid'               =>  "oid-P-$invoice->id",
+                            'oid'               =>  "oid-PCL-$invoice->id",
                             'okUrl'             =>  env('APP_URL').'/'.App::getLocale().'/paymentstatus',
                             'failUrl'           =>  env('APP_URL').'/'.App::getLocale().'/paymentstatus',
                             'rnd'               =>  microtime(),

@@ -187,9 +187,8 @@ class InvoiceController extends Controller
         $customservice->save();
         $customid = $customservice->id;
     
-  
         $invoice = new Invoice();
-        
+
 		$invoice->invoice_type = $invoicetype;
 		$invoice->invoice_date = Carbon::now();
 		
@@ -198,6 +197,7 @@ class InvoiceController extends Controller
 		$invoice->service_id = $customid;
 
 		//if the status is not Paid then show duedate
+
 		$invoice->payment_status = $request->invoice_status;
 		$paystatus = $request->invoice_status;
 
