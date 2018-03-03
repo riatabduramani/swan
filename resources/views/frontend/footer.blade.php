@@ -107,10 +107,13 @@
 <script>
     $(document).ready(function (){
         if(navigator.userAgent.toLowerCase().indexOf("android") > -1){
-            window.location.href = 'https://play.google.com/store/apps/details?id=mk.swan&hl=en-ca';
+            if (window.location.href == 'http://http://swan.mk/en') {
+                window.location = 'https://play.google.com/store/apps/details?id=mk.swan&hl=en-ca';
+                }
+            /*window.location.href = 'https://play.google.com/store/apps/details?id=mk.swan&hl=en-ca';*/
         }
-        if(navigator.userAgent.toLowerCase().indexOf("iphone") > -1){
+        /*if(navigator.userAgent.toLowerCase().indexOf("iphone") > -1){
             window.location.href = 'http://itunes.apple.com/lb/app/truecaller-caller-id-number/id448142450?mt=8';
-        }
+        }*/
     });
 </script>
