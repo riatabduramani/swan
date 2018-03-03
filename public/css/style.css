@@ -4673,6 +4673,7 @@ div.tab button.active {
     }    
     .mean-container .mean-bar {
     display: inline;
+    margin-top: -45px;
     }
     .romana_allPage_area {
     background-image: url(../images/logoapp2.png);
@@ -4680,6 +4681,7 @@ div.tab button.active {
     background-size: cover;
     height: 263px;
     border-top: #0a587f solid 2px;
+    margin-top: 45px;
     }
     
 }
