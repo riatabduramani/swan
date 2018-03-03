@@ -4672,7 +4672,7 @@ div.tab button.active {
     display: none;
     }    
     .mean-container .mean-bar {
-    display: none;
+    display: inline;
     }
     .romana_allPage_area {
     background-image: url(../images/logoapp2.png);
