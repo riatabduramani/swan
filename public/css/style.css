@@ -4651,3 +4651,50 @@ div.tab button.active {
     width: 41.667%;
 }
 
+
+
+
+
+
+
+/* RESPONSIVE */
+@media (min-width: 100px) and (max-width: 420px) {
+    .romana_footer {
+    background: #0a587f;
+    position: relative;
+    border-top: white 1px solid;
+    display: none;
+    }
+    .romana_header {
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    display: none;
+    }    
+    .mean-container .mean-bar {
+    display: none;
+    }
+    .romana_allPage_area {
+    background-image: url(../images/logoapp2.png);
+    background-position: center center;
+    background-size: cover;
+    height: 263px;
+    border-top: #0a587f solid 2px;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
