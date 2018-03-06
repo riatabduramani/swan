@@ -127,6 +127,7 @@
                     @foreach($customer->document as $document)
                     @if($document->type == 1)
                     <li class="list-group-item">
+
                      <div class="pull-right">
                         <a href="/public/uploads/documents/{{ $document->renamed }}" target="_blank" class="btn btn-primary btn-xs">
                           <i class="fa fa-download" aria-hidden="true"></i>
@@ -147,8 +148,18 @@
                         @endif
 
                       </div>
+                      <div class="pull-right" style="margin-right: 10px;">
+                        <a href="/public/uploads/documents/{{ $document->renamed }}" target="_blank">
+                          @if($document->extension == 'jpg')
+                            <img src="/public/uploads/documents/{{ $document->renamed }}" width="50" height="50" />
+                          @else
+                            <img src="/public/images/pdf-icon.png" width="50" height="50" />
+                          @endif
+                          
+                        </a>
+                      </div>
                       <a href="/public/uploads/documents/{{ $document->renamed }}" target="_blank">
-                          <h4 class="list-group-item-heading">{{ (strlen($document->name) > 20) ? substr($document->name, 0, 21) : $document->name }}</h4>
+                          <h4 class="list-group-item-heading">{{ (strlen($document->name) > 20) ? substr($document->name, 0, 11).'...' : $document->name }}</h4>
                       </a>
 
                       @if($document->description)
@@ -178,6 +189,7 @@
                      @if($document->type == 2)
                     <li class="list-group-item">
                      <div class="pull-right">
+
                         <a href="/public/uploads/documents/{{ $document->renamed }}" target="_blank" class="btn btn-primary btn-xs">
                           <i class="fa fa-download" aria-hidden="true"></i>
                         </a>
@@ -197,8 +209,17 @@
                         @endif
 
                       </div>
+                      <div class="pull-right" style="margin-right: 10px;">
+                        <a href="/public/uploads/documents/{{ $document->renamed }}" target="_blank">
+                          @if($document->extension == 'jpg')
+                            <img src="/public/uploads/documents/{{ $document->renamed }}" width="50" height="50" />
+                          @else
+                            <img src="/public/images/pdf-icon.png" width="50" height="50" />
+                          @endif
+                        </a>
+                      </div>
                       <a href="/public/uploads/documents/{{ $document->renamed }}" target="_blank">
-                          <h4 class="list-group-item-heading">{{ (strlen($document->name) > 20) ? substr($document->name, 0, 21) : $document->name }}</h4>
+                          <h4 class="list-group-item-heading">{{ (strlen($document->name) > 20) ? substr($document->name, 0, 11).'...' : $document->name }}</h4>
                       </a>
 
                       @if($document->description)

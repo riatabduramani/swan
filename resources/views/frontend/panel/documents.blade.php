@@ -66,9 +66,19 @@
                        @if($document->type == 2)
 
                             <a href="/public/uploads/documents/{{ $document->renamed }}" target="_blank" class="list-group-item"> 
+
+                                
                                <span class="badge">
+                                    
                                     <i class="fa fa-download" aria-hidden="true"></i>
                                </span>
+                               <div class="pull-right" style="margin-right: 10px;">
+                                    @if($document->extension == 'jpg')
+                                        <img src="/public/uploads/documents/{{ $document->renamed }}" width="50" height="50" />
+                                      @else
+                                        <img src="/public/images/pdf-icon.png" width="50" height="50" />
+                                      @endif
+                                </div>
                             <h4 class="list-group-item-heading"><small>{{ date('d.m.Y', strtotime($document->created_at)) }}</small> {{ $document->name }}</h4>
                             <p class="list-group-item-text">{{ $document->description }}</p>
                         </a> 
