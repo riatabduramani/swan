@@ -100,3 +100,20 @@
         <script type="text/javascript" async="async" defer="defer" data-cfasync="false" src="https://mylivechat.com/chatinline.aspx?hccid=38804934"></script>
         <script src="{{ asset('js/front/hometabs.js') }}"></script>
         
+
+
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
+<script>
+    $(document).ready(function (){
+        if(navigator.userAgent.toLowerCase().indexOf("android") > -1){
+            if (window.location.href == 'http://swan.mk/en' || window.location.href == 'www.swan.mk/en' || window.location.href == 'http://www.swan.mk/en') {
+                window.location = 'https://play.google.com/store/apps/details?id=mk.swan&hl=en-ca';
+                }
+            /*window.location.href = 'https://play.google.com/store/apps/details?id=mk.swan&hl=en-ca';*/
+        }
+        /*if(navigator.userAgent.toLowerCase().indexOf("iphone") > -1){
+            window.location.href = 'http://itunes.apple.com/lb/app/truecaller-caller-id-number/id448142450?mt=8';
+        }*/
+    });
+</script>
