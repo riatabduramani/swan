@@ -4657,7 +4657,7 @@ div.tab button.active {
 
 
 
-/* RESPONSIVE */
+/* RESPONSIVE APP */
 @media (min-width: 100px) and (max-width: 420px) {
     .romana_footer {
     background: #0a587f;
@@ -4683,8 +4683,11 @@ div.tab button.active {
     border-top: #0a587f solid 2px;
     margin-top: 45px;
     }
+
+    
     
 }
+/* END RESPONSIVE APP */
 
 
 

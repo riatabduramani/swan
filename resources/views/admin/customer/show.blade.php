@@ -691,7 +691,7 @@
   </div>
   @endpermission
  </div>
-                <div class="panel-body" style="background: #efefef; height: 250px; overflow-y: auto;">   
+                <div class="panel-body" style="background: #efefef; height: 500px; overflow-y: auto;">   
                 @if(count($customer->comments) > 0)
                 @foreach ($customer->comments as $comment)
                    <div class="col-md-12" id="comment-{{$comment->id}}">
