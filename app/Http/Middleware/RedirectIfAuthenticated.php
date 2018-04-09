@@ -18,9 +18,20 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('/admin/dashboard');
-        }
-
+            /*return redirect('/');*/
+            
+        if(auth()->user()->hasRole(['admin','superadmin','employee']))
+        {
+            return redirect('/admin/dashboard');   
+        } 
+        if (auth()->user()->hasRole('client')) {       
+            $url = '/'.\App::getLocale().'/panel';
+            return redirect ($url);
+        } 
+  
+        } 
+        
+    
         return $next($request);
     }
 }
