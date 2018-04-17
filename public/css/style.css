@@ -4427,14 +4427,14 @@ body.preloader_active {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #F9F9FA;
+    background-color: #ffffff;
     z-index: 99999999999;
 }
 .preloader_spinner {
-    background: rgba(0, 0, 0, 0) url("../images/broomswp.gif") no-repeat scroll center center;
+    background: rgba(0, 0, 0, 0) url("../images/preload-logo.jpg") no-repeat scroll center center;
     display: block;
     height: 120px;
-    left: 50%;
+    left: 40%;
     margin-left: -32px;
     margin-top: -32px;
     position: absolute;
