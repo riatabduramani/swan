@@ -24,6 +24,7 @@ use DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
+
 class CustomerController extends Controller
 {
     

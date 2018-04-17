@@ -138,6 +138,59 @@
                             </tbody>
 
                         </table>
+                        
+                        
+                        
+                                        <div class="panel panel-default">
+                <div class="panel-heading" style="background: #04699a;color: #fff;">
+                    <i class="fa fa-history" aria-hidden="true"></i> TASKS HISTORY
+                </div>
+                <div class="panel-body"> 
+                  <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Done</th>
+                      <th>Due</th>
+                    </tr>
+                  </thead>
+                  @foreach($tasksdone as $task)
+                    <tr>
+                      <td> 
+                          <a href="#task-{{ $task->id }}" data-toggle="collapse" data-target="#task-{{ $task->id }}">{{$task->title}} </a>
+                      </td>
+                      <td> 
+                      @if(!empty($task->datedone))
+                        @if($task->datedone < $task->duedate)
+                          {{ date('d.m.Y', strtotime($task->datedone)) }} 
+                        @else
+                          <span style="color: red">{{ date('d.m.Y', strtotime($task->datedone)) }} </span>
+                        @endif
+                      @endif
+                      </td>
+                      <td> {{ date('d.m.Y', strtotime($task->duedate)) }} </td>
+                    </tr>
+                    <tr id="task-{{ $task->id }}" class="collapse" style="background: #f3f3f3">
+                      <td colspan="3">
+                      <b>Description:</b> {{ $task->description }}<br /><br />
+                       @role(['admin','superadmin'])
+                      <b>Assigned to:</b>  {{ $task->assignedto->name }} {{ $task->assignedto->surname }}
+                      @endrole
+                      @if($task->customer)
+                          <span class="text-muted">
+                              <i class="fa fa-user" aria-hidden="true"></i> <b>Customer:</b>
+                              <a href="/admin/customer/{{ $task->customer->id}}">{{ $task->customer->user->name}} {{ $task->customer->user->surname}}</a>
+                          </span>
+                          @endif
+                      </td>
+                    </tr>
+                  @endforeach
+                  </table>
+                {!! $tasksdone->render() !!}
+                </div>
+                </div>
+                        
+                        
 
                     </div>
                 </div>

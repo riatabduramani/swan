@@ -21,6 +21,9 @@ use Carbon\Carbon;
 use DB;
 use Illuminate\Support\Facades\Hash;
 
+use App\Models\Todolist;
+use Illuminate\Support\Facades\Storage;
+
 class ClientController extends Controller
 {
 
@@ -37,8 +40,27 @@ class ClientController extends Controller
 
         $credit = Credits::with('customer')->where('customer_id', $id)->sum('balance');
         $unpaidinvoice = Invoice::where('customer_id', Auth::user()->customer->id)->where('payment_status', 2)->orderBy('invoice_date', 'DESC')->get();
+        
+        
+        
+        /*Added*/
+        if(Auth::user()->hasRole(['superadmin','admin'])) {
+    		$tasks = Todolist::whereNull('datedone')->orderBy('duedate','asc')->get(); 		
+    		$tasksdone = Todolist::whereNotNull('datedone')->orderBy('duedate','asc')->paginate(10);
+    	} else {		
+    		$tasks = Todolist::whereNull('datedone')->where('assigned_to', Auth::user()->id)->orderBy('duedate','asc')->get();
+    		
+    		$tasksdone = Todolist::whereNotNull('datedone')->where('assigned_to', Auth::user()->id)->orderBy('duedate','asc')->paginate(15);
+    	}
+        $users = User::whereHas('roles', function($q)
+                        {
+                            $q->where('name', 'employee')->orWhere('name', 'admin');
+                        })->pluck('name','id');
+        /*End Added*/
+        
+        
 
-        return view('frontend.panel.index', compact('chosenpacket','credit','unpaidinvoice'));
+        return view('frontend.panel.index', compact('chosenpacket','credit','unpaidinvoice','tasksdone'));
     }
 
     public function documents() {
