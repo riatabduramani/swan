@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'sq',
 
     'locales' => ['en', 'sq'],
 
@@ -101,7 +101,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'sq',
 
     /*
     |--------------------------------------------------------------------------
