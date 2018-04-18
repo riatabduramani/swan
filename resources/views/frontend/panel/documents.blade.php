@@ -65,7 +65,7 @@
 
                        @if($document->type == 2)
 
-                            <a href="/public/uploads/documents/{{ $document->renamed }}" target="_blank" class="list-group-item"> 
+                            <a href="/public/uploads/documents/{{ $document->renamed }}" target="_blank" class="list-group-item" download="http://swan.mk/public/uploads/documents/239-12-01-2018-1.jpg"> 
 
                                 
                                <span class="badge">

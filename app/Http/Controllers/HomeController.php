@@ -50,8 +50,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    
     public function index()
     {
+        /*App::setLocale('sq');*/
         $services = Service::translated()->get();
 
         return view('frontend.index', compact('services'));
@@ -150,7 +153,7 @@ class HomeController extends Controller
             //Mail::to($customeremail)->send(new InvoiceGenerated($invoice));
         
 
-        Session::flash('flash_message', 'Invoice created successfully!');
+        Session::flash('flash_message', 'Invoice created successfully.');
 
         $gateway =  array(
                             'clientId'          =>  env('HALK_CLIENTID'), 

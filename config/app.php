@@ -13,6 +13,9 @@ return [
     */
 
     'name' => 'SWAN',
+    
+    /*'useAcceptLanguageHeader' => false,*/
+ 
 
     /*
     |--------------------------------------------------------------------------
@@ -77,7 +80,8 @@ return [
     |
     */
 
-    'locale' => 'sq',
+    'locale' => 'en',
+ 
 
     'locales' => ['en', 'sq'],
 
@@ -101,7 +105,8 @@ return [
     |
     */
 
-    'fallback_locale' => 'sq',
+    'fallback_locale' => 'en',
+     
 
     /*
     |--------------------------------------------------------------------------
@@ -252,5 +257,6 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
+  
 
 ];
