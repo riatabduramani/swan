@@ -140,7 +140,7 @@
                         </table>
                         
                         
-                        
+                    
                                         <div class="panel panel-default">
                 <div class="panel-heading" style="background: #04699a;color: #fff;">
                     <i class="fa fa-history" aria-hidden="true"></i> TASKS HISTORY
