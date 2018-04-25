@@ -43,15 +43,11 @@ class ClientController extends Controller
         
         
         
-        /*Added*/
-        if(Auth::user()->hasRole(['superadmin','admin'])) {
-    		$tasks = Todolist::whereNull('datedone')->orderBy('duedate','asc')->get(); 		
-    		$tasksdone = Todolist::whereNotNull('datedone')->orderBy('duedate','asc')->paginate(10);
-    	} else {		
-    		$tasks = Todolist::whereNull('datedone')->where('assigned_to', Auth::user()->id)->orderBy('duedate','asc')->get();
+        /*Added*/		
+    		/*$tasks = Todolist::whereNull('datedone')->where('customer_id', $id)->orderBy('duedate','asc')->get();*/
     		
-    		$tasksdone = Todolist::whereNotNull('datedone')->where('assigned_to', Auth::user()->id)->orderBy('duedate','asc')->paginate(15);
-    	}
+    		$tasksdone = Todolist::whereNotNull('datedone')->where('customer_id', $id)->orderBy('duedate','asc')->paginate(15);
+
         $users = User::whereHas('roles', function($q)
                         {
                             $q->where('name', 'employee')->orWhere('name', 'admin');
