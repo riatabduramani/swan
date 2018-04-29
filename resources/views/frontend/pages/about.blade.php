@@ -60,7 +60,12 @@
                     <div class="col-md-6 col-md-offset-1 col-sm-6">
                         <div class="romana_story_text section_title">
                             <h2>@lang('front.fewwordsabout')</h2>
-                            <p>{!! $pages->about !!}</p>
+                            @if (App::getLocale()=='sq')
+                            <p>{!! $pages->translate('sq')->about !!}</p>
+                            @else
+                            <p>{!! $pages->translate('en')->about !!}</p>
+                            @endif
+                            
                         </div>
                     </div>
                 </div>
@@ -76,11 +81,19 @@
                         <div class="romana_client_text hero_slider">
                             <div class="romana_single_client_text section_title">
                                 <h2>@lang('front.ourvision')</h2>
-                                <p>{!! $pages->vision !!}</p>
+                            @if (App::getLocale()=='sq')
+                            <p>{!! $pages->translate('sq')->vision !!}</p>
+                            @else
+                            <p>{!! $pages->translate('en')->vision !!}</p>
+                            @endif
                             </div>
                             <div class="romana_single_client_text section_title">
                                 <h2>@lang('front.ourmission')</h2>
-                                <p>{!! $pages->mission !!}</p>
+                            @if (App::getLocale()=='sq')
+                            <p>{!! $pages->translate('sq')->mission !!}</p>
+                            @else
+                            <p>{!! $pages->translate('en')->mission !!}</p>
+                            @endif
                             </div>
                         </div>
                     </div>
@@ -150,8 +163,14 @@
                         @foreach($why as $we)
                             <div class="single_staff">
                                 <!--<a href="#"><img src="images/img1.jpg" alt=""></a>-->
-                                <a href="#"><h3>{{ $we->title }}</h3></a>
-                                <p>{{ $we->description }}</p>
+                            @if (App::getLocale()=='sq')
+                            <a href="#"><h3>{{ $we->translate('sq')->title }}</h3></a>
+                            <p>{{ $we->translate('sq')->description }}</p>
+                            @else
+                            <a href="#"><h3>{{ $we->translate('en')->title }}</h3></a>
+                            <p>{{ $we->translate('en')->description }}</p>
+                            @endif
+                                
                             </div>
                         @endforeach
                         </div>

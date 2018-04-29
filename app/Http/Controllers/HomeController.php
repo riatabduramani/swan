@@ -54,7 +54,7 @@ class HomeController extends Controller
     
     public function index()
     {
-        /*App::setLocale('sq');*/
+        /*App::setLocale('sq');*/ 
         $services = Service::translated()->get();
 
         return view('frontend.index', compact('services'));

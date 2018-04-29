@@ -56,10 +56,19 @@
                     @foreach($services as $service)
                     <div class="col-sm-4" id="services-list">
                         <div class="single_service text-center" id="goto{{ $service->id}}">
-                            <h2 style="text-align:left;">{{ $service->name}}</h2>
+                            @if (App::getLocale()=='sq')
+                             <h2 style="text-align:left;">{{ $service->translate('sq')->name}}</h2>
+                            @else
+                            <h2 style="text-align:left;">{{ $service->translate('en')->name}}</h2>
+                            @endif
                             <ul>
-                            <li class="service-text">    
-                            <p>{!! $service->description !!}</p>
+                            <li class="service-text">
+                            @if (App::getLocale()=='sq')
+                            <p>{!! $service->translate('sq')->description !!}</p>
+                            @else
+                            <p>{!! $service->translate('en')->description !!}</p>
+                            @endif
+                            
                             </li>
                             <li class="service-photo">    
                                <img src="/uploads/services/{{ $service->image }}" style="border-radius: 15px;"/>

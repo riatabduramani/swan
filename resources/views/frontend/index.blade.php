@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ App::getLocale() }}">
 <head>
     <meta charset="utf-8">
     <meta name="description" content="{{ $settings->company_shortdescription }}">
@@ -40,6 +40,7 @@
 <!-- ==================================================
     PACKAGES
 =================================================== -->
+       
     <section class="romana_hero_area">
             <div class="container">
                 <div class="row">
@@ -68,7 +69,13 @@
                         @foreach($packets as $packet)
 
                         <div class="romana_single_price @if($headers[$i] == 'header-ekstra') price_current_item @endif text-center" id="{{ $ids[$i] }}">
-                            <h3 class="{{ $headers[$i] }}">{{ $packet->name }}</h3>
+                             @if (App::getLocale()=='sq')
+                            <h3 class="{{ $headers[$i] }}">{{ $packet->translate('sq')->name }}</h3>
+                            @else
+                            <h3 class="{{ $headers[$i] }}">{{ $packet->translate('en')->name }}</h3>
+                            @endif
+                           
+                            
                             @if($packet->options == 3)
                                 <a href="/{{App::getLocale()}}/contact" style="margin-bottom: 67px;margin-top: 32px;">@lang('front.negotiable')</a>
                             @endif
@@ -77,7 +84,13 @@
                             @endif
                             <ul class="offer-rows">
                                 @foreach($packet->service as $service)
-                                    <li><i class="fa fa-check"></i>&nbsp {{ $service->name }}</li>
+                                
+                            @if (App::getLocale()=='sq')
+                            <li><i class="fa fa-check"></i>&nbsp {{ $service->translate('sq')->name }}</li>
+                            @else
+                            <li><i class="fa fa-check"></i>&nbsp {{ $service->translate('en')->name }}</li>
+                            @endif
+
                                 @endforeach
                             </ul>
                             <a href="/{{App::getLocale()}}/services/{{ $packet->id }}">@lang('front.readmore')</a>
@@ -138,7 +151,12 @@
                     <a href="/{{ App::getLocale() }}/services#goto{{ $service->id}}">
                         <div class="single_service text-center">
                             <img src="/uploads/services/{{ $service->image }}" alt="">
-                            <h2>{{ $service->name }}</h2>
+                            @if (App::getLocale()=='sq')
+                              <h2>{{ $service->translate('sq')->name }}</h2>
+                            @else
+                           <h2>{{ $service->translate('en')->name }}</h2>
+                            @endif
+                            
                             <p></p>
                         </div>
                     </a>
@@ -164,7 +182,12 @@
                             <div class="col-sm-6 col-xs-12" id="vision-text">
                                 <div class="explore_text">
                                     <h3>@lang('front.vision')</h3>
-                                    <p>{!! $pages->vision !!}</p>
+                            @if (App::getLocale()=='sq')
+                              <p>{!! $pages->translate('sq')->vision !!}</p>
+                            @else
+                            <p>{!! $pages->translate('en')->vision !!}</p>
+                            @endif
+                                    
                                 </div>
                             </div>
                             <div class="col-sm-6 col-xs-12" id="mission-text">

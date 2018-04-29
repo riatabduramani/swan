@@ -37,8 +37,8 @@ return [
     | you can specify what default should be used here.
     |
     */
-    /*'locale' => null,*/
-    'locale' => 'en',
+    'locale' => null,
+    /*'locale' => 'en',*/
 
     /*
     |--------------------------------------------------------------------------
@@ -51,8 +51,8 @@ return [
     | $useTranslationFallback when defined
     |
     */
-    /*'use_fallback' => false,*/
-    'use_fallback' => 'en',
+    'use_fallback' => false,
+    /*'use_fallback' => 'en',*/
 
     /*
     |--------------------------------------------------------------------------

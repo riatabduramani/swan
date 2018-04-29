@@ -12,7 +12,12 @@
                                 <div class="footer_logo">
                                     <a href="{{ env('APP_URL') }}/{{App::getLocale()}}"><img src="/images/swan-logohw.png" alt="footer logo"></a>
                                 </div>
-                                <p>{{ $settings->company_shortdescription }}</p>
+                            @if (App::getLocale()=='sq')
+                             <p>{{ $settings->translate('sq')->company_shortdescription }}</p>
+                            @else
+                           <p>{{ $settings->translate('en')->company_shortdescription }}</p>
+                            @endif
+                                
                                 <div class="footer_social_icon">
 
                         <a href="{{ $settings->facebook }}"><i class="icofont icofont-social-facebook" style="font-size: 30px;"></i></a>
@@ -39,7 +44,14 @@
                                 <h2>@lang('front.packages')</h2>
                                 <ul>
                                     @foreach($packets as $packet)
-                                        <li><a href="">{{ $packet->name }}</a></li>
+                            @if (App::getLocale()=='sq')
+                             <li><a href="">{{ $packet->translate('sq')->name }}</a></li>
+                            @else
+                            <li><a href="">{{ $packet->translate('en')->name }}</a></li>
+                            @endif
+                                    
+                                    
+                                       
                                     @endforeach
                                 </ul>
                             </div>
