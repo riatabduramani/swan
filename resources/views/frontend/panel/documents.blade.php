@@ -65,7 +65,7 @@
 
 @if($document->type == 2)
 
-                            <a href="{{ env('APP_URL')}}/{{ App::getLocale() }}/panel/download/{{ $document->renamed }}" target="_blank" class="list-group-item" android:linksClickable="true" android:autoLink="web">
+                            <a href="{{ env('APP_URL')}}/{{ App::getLocale() }}/panel/download/{{ $document->renamed }}" target="_blank" class="list-group-item" android:linksClickable="true" android:autoLink="web" download>
                         
                                <span class="badge">
                                     
