@@ -63,11 +63,10 @@
 
                        @foreach($customer->document as $document)
 
-                       @if($document->type == 2)
+@if($document->type == 2)
 
-                            <a href="/public/uploads/documents/{{ $document->renamed }}" target="_blank" class="list-group-item" download="http://swan.mk/public/uploads/documents/239-12-01-2018-1.jpg"> 
-
-                                
+                            <a href="{{ env('APP_URL')}}/{{ App::getLocale() }}/panel/download/{{ $document->renamed }}" target="_blank" class="list-group-item">
+                        
                                <span class="badge">
                                     
                                     <i class="fa fa-download" aria-hidden="true"></i>

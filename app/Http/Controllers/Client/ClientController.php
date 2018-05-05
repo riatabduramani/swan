@@ -65,5 +65,16 @@ class ClientController extends Controller
 
         return view('frontend.panel.documents', compact('customer'));
     }
+    
+    
+    public function downloadFile($file)
+    {
+        $myFile = public_path("uploads/documents/".$file);
+        $headers = ['Content-Type: image/jpg'];
+        $newName = time().$file;
+
+
+        return response()->download($myFile, $newName, $headers);
+    }
  
 }
