@@ -80,6 +80,7 @@ class CustomerController extends Controller
             'status' => 'required',
             'confirmed' => 'required',
             'district_in_id' => 'required',
+            'email' => 'required|email|max:255|unique:users',
         ]);
 
         if(isset($request)) {
