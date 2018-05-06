@@ -131,6 +131,16 @@
         <script src="{{ asset('js/front/jquery.counterup.min.js') }}"></script>
         <script src="{{ asset('js/front/waypoints.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('js/front/active.js') }}"></script>
+<script>
+    $(document).ready(function (){    
+        if(navigator.userAgent.toLowerCase().indexOf("android") > -1){
+            $('div.pull-left').hide();
+        }
+        if(navigator.userAgent.toLowerCase().indexOf("iphone") > -1){
+            $('div.pull-left').hide();
+        }
+    });
+</script>
     </div>
 </body>
 </html>
