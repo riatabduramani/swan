@@ -61,7 +61,8 @@ class ClientController extends Controller
 
     public function documents() {
         $id = Auth::user()->customer->id;
-        $customer = Customer::findOrFail($id);
+        $customer = Customer::orderBy('created_at', 'desc')->findOrFail($id);
+        /*$customer = Customer::where('created_by', $id)->orderBy('created_at', 'DESC')->get();*/
 
         return view('frontend.panel.documents', compact('customer'));
     }
