@@ -44,6 +44,7 @@ class Customer extends Model
 		'emergencycontact',
 		'emergencyphone',
 		'created_by',
+        'created_at',
 		'updated_by'
     ];
 
