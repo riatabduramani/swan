@@ -46,7 +46,7 @@ class ClientController extends Controller
         /*Added*/		
     		/*$tasks = Todolist::whereNull('datedone')->where('customer_id', $id)->orderBy('duedate','asc')->get();*/
     		
-    		$tasksdone = Todolist::whereNotNull('datedone')->where('customer_id', $id)->orderBy('duedate','asc')->paginate(15);
+    		$tasksdone = Todolist::whereNotNull('datedone')->where('customer_id', $id)->orderBy('duedate','desc')->paginate(15);
 
         $users = User::whereHas('roles', function($q)
                         {
