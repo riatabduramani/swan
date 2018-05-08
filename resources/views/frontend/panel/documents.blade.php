@@ -57,13 +57,12 @@
                         <h3>@lang('front.documents')</h3>
                         <br />
                        <div class="list-group">
-                    
-                           
-                       @if($customer->count() == 0)
+                       @if($customer->document->count() == 0)
                             @lang('front.nodocuments')
                        @else
-                       @foreach($customer as $document)
-                       @if($document->type == 2)   
+                       @foreach($customer->document as $document)
+                       @if($document->type == 2)
+                           
                         <li class="list-group-item">
     
                                <div class="pull-right" style="margin-right: 10px;">
