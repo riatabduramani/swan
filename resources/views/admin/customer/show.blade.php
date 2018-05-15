@@ -150,7 +150,8 @@
 
                       </div>
                       <div class="pull-right" style="margin-right: 10px;">
-                        <a href="{{ env('APP_URL')}}/admin/customer/download/{{ $document->renamed }}" target="_blank">
+                        <!--<a href="{{ env('APP_URL')}}/admin/customer/download/{{ $document->renamed }}" target="_blank">-->
+                         <a href="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" target="_blank"> 
                           @if($document->extension == 'jpg')
                             <img src="/public/uploads/documents/{{ $document->renamed }}" width="50" height="50" />
                           @else
