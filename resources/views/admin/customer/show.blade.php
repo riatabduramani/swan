@@ -129,7 +129,8 @@
                     <li class="list-group-item">
 
                      <div class="pull-right">
-                        <a href="{{ env('APP_URL')}}/admin/customer/download/{{ $document->renamed }}" target="_blank" class="btn btn-primary btn-xs">
+                        <!--<a href="{{ env('APP_URL')}}/admin/customer/download/{{ $document->renamed }}" target="_blank" class="btn btn-primary btn-xs">-->
+                        <a href="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" target="_blank" class="btn btn-primary btn-xs">
                           <i class="fa fa-download" aria-hidden="true"></i>
                         </a>
 
@@ -158,7 +159,8 @@
                           
                         </a>
                       </div>
-                      <a href="{{ env('APP_URL')}}/admin/customer/download/{{ $document->renamed }}" target="_blank">
+                      <!--<a href="{{ env('APP_URL')}}/admin/customer/download/{{ $document->renamed }}" target="_blank">-->
+                      <a href="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" target="_blank">     
                           <h4 class="list-group-item-heading">{{ (strlen($document->name) > 20) ? substr($document->name, 0, 11).'...' : $document->name }}</h4>
                       </a>
 
@@ -190,7 +192,10 @@
                     <li class="list-group-item">
                      <div class="pull-right">
 
-                        <a href="{{ env('APP_URL')}}/admin/customer/download/{{ $document->renamed }}" target="_blank" class="btn btn-primary btn-xs">
+                        <!--<a href="{{ env('APP_URL')}}/admin/customer/download/{{ $document->renamed }}" target="_blank" class="btn btn-primary btn-xs">
+                          <i class="fa fa-download" aria-hidden="true"></i>
+                        </a>-->
+                         <a href="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" target="_blank" class="btn btn-primary btn-xs">
                           <i class="fa fa-download" aria-hidden="true"></i>
                         </a>
 
@@ -210,7 +215,8 @@
 
                       </div>
                       <div class="pull-right" style="margin-right: 10px;">
-                        <a href="{{ env('APP_URL')}}/admin/customer/download/{{ $document->renamed }}" target="_blank">
+                        <!--<a href="{{ env('APP_URL')}}/admin/customer/download/{{ $document->renamed }}" target="_blank">-->
+                         <a href="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" target="_blank"> 
                           @if($document->extension == 'jpg')
                             <img src="/public/uploads/documents/{{ $document->renamed }}" width="50" height="50" />
                           @else
@@ -218,7 +224,8 @@
                           @endif
                         </a>
                       </div>
-                      <a href="{{ env('APP_URL')}}/admin/customer/download/{{ $document->renamed }}" target="_blank">
+                      <!--<a href="{{ env('APP_URL')}}/admin/customer/download/{{ $document->renamed }}" target="_blank">-->
+                      <a href="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" target="_blank">     
                           <h4 class="list-group-item-heading">{{ (strlen($document->name) > 20) ? substr($document->name, 0, 11).'...' : $document->name }}</h4>
                       </a>
 
