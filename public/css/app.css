@@ -51,8 +51,11 @@ address{margin-bottom:22px;font-style:normal;line-height:1.6}code,kbd,pre,samp{f
     }
     .panel-body .list-group-item {
         /*height: 55px;*/
-        height: auto;
+        height: auto !important;
     }
+    /*.panel .panel-body .list-group-item {
+        height: 60px;
+    }*/
     .btn-primary {
     color: #fff;
     background-color: #5ab035;

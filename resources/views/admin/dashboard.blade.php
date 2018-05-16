@@ -65,9 +65,9 @@
                         @if(count($invoices) > 0)
                         @foreach($invoices as $invoice)
                         @if($invoice->invoice_type == 2)
-                            <a href="/admin/invoice/custominvoice/{{ $invoice->id }}" class="list-group-item">
+                            <a href="/admin/invoice/custominvoice/{{ $invoice->id }}" class="list-group-item" style="    height: 60px !important;">
                         @else
-                            <a href="/admin/invoice/packetinvoice/{{ $invoice->id }}" class="list-group-item">
+                            <a href="/admin/invoice/packetinvoice/{{ $invoice->id }}" class="list-group-item" style="    height: 60px !important;">
                         @endif
                                 <i class="fa fa-search" aria-hidden="true"></i>
                                  <b>{{ $invoice->customer->user->name }} {{ $invoice->customer->user->surname }}</b>

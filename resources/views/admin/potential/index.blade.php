@@ -138,7 +138,7 @@
                                             {!! Form::open([
                                                 'method'=>'DELETE',
                                                 'url' => ['/admin/customer-status', $item->id],
-                                                'style' => 'display:inline'
+                                                'style' => 'display:inherit;float: right;'
                                             ]) !!}
                                                 {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
                                                         'type' => 'submit',
