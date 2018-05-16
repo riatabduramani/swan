@@ -159,7 +159,7 @@
                     <div class="form-group {{ $errors->has('postal_out') ? 'has-error' : ''}}">
                         {!! Form::label('postal_out', __('front.postal').':', ['class' => 'col-md-3 control-label']) !!}
                         <div class="col-md-9">
-                            {!! Form::text('postal_out', $customer->phone_out, ['class' => 'form-control']) !!}
+                            {!! Form::text('postal_out', $customer->postal_out, ['class' => 'form-control']) !!}
                             {!! $errors->first('postal_out', '<p class="help-block">:message</p>') !!}
                         </div>
                     </div>
