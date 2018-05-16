@@ -40,6 +40,10 @@ address{margin-bottom:22px;font-style:normal;line-height:1.6}code,kbd,pre,samp{f
         width: 100% !important;
         padding-bottom: 15px;
     }
+    .list-group-item .pull-right img {
+        width: 100%;
+        height: auto    
+    }
     .pull-right {
         width: 100% !important;
     }
