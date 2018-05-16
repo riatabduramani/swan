@@ -47,6 +47,7 @@ address{margin-bottom:22px;font-style:normal;line-height:1.6}code,kbd,pre,samp{f
     }
     .pull-right {
         width: 100% !important;
+        margin-right: 0 !important;
     }
     .panel-body .list-group-item {
         /*height: 55px;*/
