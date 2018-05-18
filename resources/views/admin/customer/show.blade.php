@@ -87,7 +87,7 @@
                 {!! Form::open(array('method'=>'POST','action' => 'Admin\\CustomerController@attachdocument','files' => true)) !!}
                     <div class="form-group">
                         <div class="col-md-12">
-                            <input type="file" id="attach" placeholder="Attach" name="attach" class="" required/>
+                            <input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>
                         </div>
                     </div> 
                     <div class="form-group">
