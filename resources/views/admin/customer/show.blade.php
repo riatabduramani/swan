@@ -84,20 +84,34 @@
                             </ul>
                         @endif
 
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
                 {!! Form::open(array('method'=>'POST','action' => 'Admin\\CustomerController@attachdocument','files' => true)) !!}
                     <div class="form-group">
                         <div class="col-md-12">
                             <!--<input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>-->
 <?php   if(stristr(strtolower($_SERVER['HTTP_USER_AGENT']),'android') || strstr(strtolower($_SERVER['HTTP_USER_AGENT']),'android')) { ?>
-<button onclick="importLibrary();">Import from Library</button> 
+<!--<button onclick="importLibrary(event);">Import from Library</button> -->
+<input type="file" id="attach" onclick="importLibrary(event);" accept="image/*" capture="filesystem" rel="external" placeholder="Attach" name="attach" class="" required/>
 <?php } else { ?>
- <input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>
- <?php  } ?>                           
+ <input type="file" id="attach" accept="image/*" capture="filesystem" rel="external" placeholder="Attach" name="attach" class="" required/>
+ <?php  } ?>   
+
         <script type="text/javascript">
-        function importLibrary()
+        function importLibrary(event)
         {
-            intel.xdk.camera.importPicture();
-        } 
+            /*intel.xdk.camera.importPicture();*/
+navigator.camera.getPicture(function(){
+    // On Success logic
+    that._onPhotoURISuccess.apply(that,arguments);
+}, function(){
+    // On Failure logic
+    cameraApp._onFail.apply(that,arguments);
+}, {
+    quality: 50,
+    destinationType: cameraApp._destinationType.FILE_URI,
+    sourceType: PHOTOLIBRARY
+});
         </script>
                         </div>
                     </div> 
