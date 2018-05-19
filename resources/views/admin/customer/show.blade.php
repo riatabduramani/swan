@@ -87,7 +87,18 @@
                 {!! Form::open(array('method'=>'POST','action' => 'Admin\\CustomerController@attachdocument','files' => true)) !!}
                     <div class="form-group">
                         <div class="col-md-12">
-                            <input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>
+                            <!--<input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>-->
+<?php   if(stristr(strtolower($_SERVER['HTTP_USER_AGENT']),'android') || strstr(strtolower($_SERVER['HTTP_USER_AGENT']),'android')) { ?>
+<button onclick="importLibrary();">Import from Library</button> 
+<?php } else { ?>
+ <input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>
+ <?php  } ?>                           
+        <script type="text/javascript">
+        function importLibrary()
+        {
+            intel.xdk.camera.importPicture();
+        } 
+        </script>
                         </div>
                     </div> 
                     <div class="form-group">
