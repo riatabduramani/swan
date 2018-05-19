@@ -92,21 +92,21 @@
 <?php   if(stristr(strtolower($_SERVER['HTTP_USER_AGENT']),'android') || strstr(strtolower($_SERVER['HTTP_USER_AGENT']),'android')) { ?>
 <!--<button onclick="importLibrary(event);">Import from Library</button> -->
 <!--<input type="file" id="attach" onclick="importLibrary(event);" accept="image/*" capture="filesystem" rel="external" placeholder="Attach" name="attach" class="" required/>-->
- <input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>
-<!--<a href="" onclick="importLibrary('http://swan.mk/admin/customer/{{$customer->id}}' )">Add Photo</a>-->
+ <!--<input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>-->
+<a href="" onclick="importLibrary()">Add Photo</a>
 <?php } else { ?>
  <input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>
  <?php  } ?>   
 
         <script>
-        function importLibrary(url)
+        function importLibrary()
         {
  
-window.open(url, "_system");
+/*window.open(url, "_system");*/
  /*navigator.app.loadUrl(url, {openExternal : true})*/
 /*intel.xdk.camera.importPicture();*/
 
-/*navigator.camera.getPicture(function(){
+navigator.camera.getPicture(function(){
     that._onPhotoURISuccess.apply(that,arguments);
 }, function(){
     cameraApp._onFail.apply(that,arguments);
@@ -114,7 +114,7 @@ window.open(url, "_system");
     quality: 50,
     destinationType: cameraApp._destinationType.FILE_URI,
     sourceType: PHOTOLIBRARY
-});*/
+});
 }
         </script>
                         </div>
