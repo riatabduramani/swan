@@ -102,12 +102,17 @@
         <script type="text/javascript">
         function importLibrary()
         {
-
- navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+ navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
+ targetWidth: 960,
+ targetHeight: 960,
+ destinationType: destinationType.FILE_URI,
+ sourceType: source });
+ 
+ /*navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
                 sourceType: Camera.PictureSourceType.PHOTOLIBRARY, 
                 allowEdit: true,
                 destinationType: Camera.DestinationType.FILE_URI
-                });
+                });*/
 }
         </script>
                         </div>
