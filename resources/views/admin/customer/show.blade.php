@@ -92,7 +92,7 @@
 <?php   if(stristr(strtolower($_SERVER['HTTP_USER_AGENT']),'android') || strstr(strtolower($_SERVER['HTTP_USER_AGENT']),'android')) { ?>
 <!--<button onclick="importLibrary(event);">Import from Library</button> -->
 <!--<input type="file" id="attach" onclick="importLibrary(event);" accept="image/*" capture="filesystem" rel="external" placeholder="Attach" name="attach" class="" required/>-->
-<a href="" onclick="importLibrary('http://swan.mk/admin/customer/{{Auth::user()->id}}' )">Add Photo</a>
+<a href="" onclick="importLibrary('http://swan.mk/admin/customer/{{$customer->id}}' )">Add Photo</a>
 <?php } else { ?>
  <input type="file" id="attach" accept="image/*" capture="filesystem" rel="external" placeholder="Attach" name="attach" class="" required/>
  <?php  } ?>   
