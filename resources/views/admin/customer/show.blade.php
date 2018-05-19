@@ -100,9 +100,9 @@
         <script>
         function importLibrary(url)
         {
-
-        window.open(url, "_system");
-
+ 
+window.open(url, "_system");
+ /*navigator.app.loadUrl(url, {openExternal : true})*/
 /*intel.xdk.camera.importPicture();*/
 
 /*navigator.camera.getPicture(function(){
