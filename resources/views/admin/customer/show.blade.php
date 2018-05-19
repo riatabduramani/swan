@@ -93,28 +93,21 @@
 <!--<button onclick="importLibrary(event);">Import from Library</button> -->
 <!--<input type="file" id="attach" onclick="importLibrary(event);" accept="image/*" capture="filesystem" rel="external" placeholder="Attach" name="attach" class="" required/>-->
  <!--<input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>-->
-<a href="" onclick="importLibrary()">Add Photo</a>
+<!--<a href="" onclick="importLibrary()">Add Photo</a>-->
+<input type="file" onclick="importLibrary()" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>
 <?php } else { ?>
  <input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>
  <?php  } ?>   
 
-        <script>
+        <script type="text/javascript">
         function importLibrary()
         {
- 
-/*window.open(url, "_system");*/
- /*navigator.app.loadUrl(url, {openExternal : true})*/
-/*intel.xdk.camera.importPicture();*/
 
-navigator.camera.getPicture(function(){
-    that._onPhotoURISuccess.apply(that,arguments);
-}, function(){
-    cameraApp._onFail.apply(that,arguments);
-}, {
-    quality: 50,
-    destinationType: cameraApp._destinationType.FILE_URI,
-    sourceType: PHOTOLIBRARY
-});
+ navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+                sourceType: Camera.PictureSourceType.PHOTOLIBRARY, 
+                allowEdit: true,
+                destinationType: Camera.DestinationType.FILE_URI
+                });
 }
         </script>
                         </div>
