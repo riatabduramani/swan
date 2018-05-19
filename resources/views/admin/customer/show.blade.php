@@ -101,11 +101,11 @@
         function importLibrary()
         {
 
-        window.open("http://swan.mk/admin/customer/", "_system");
+        /*window.open("http://swan.mk/admin/customer/", "_system");*/
 
 /*intel.xdk.camera.importPicture();*/
 
-/*navigator.camera.getPicture(function(){
+navigator.camera.getPicture(function(){
     that._onPhotoURISuccess.apply(that,arguments);
 }, function(){
     cameraApp._onFail.apply(that,arguments);
@@ -113,7 +113,7 @@
     quality: 50,
     destinationType: cameraApp._destinationType.FILE_URI,
     sourceType: PHOTOLIBRARY
-});*/
+});
 }
         </script>
                         </div>
