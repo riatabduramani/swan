@@ -94,7 +94,7 @@
 <!--<input type="file" id="attach" onclick="importLibrary(event);" accept="image/*" capture="filesystem" rel="external" placeholder="Attach" name="attach" class="" required/>-->
  <!--<input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>-->
 <!--<a href="" onclick="importLibrary()">Add Photo</a>-->
-<input type="file" onclick="importLibrary()" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>
+<input type="file" onclick="importLibrary()" id="attach" rel="external" placeholder="Attach" name="attach" class="" accept="image/*" capture required/>
 <?php } else { ?>
  <input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>
  <?php  } ?>   
