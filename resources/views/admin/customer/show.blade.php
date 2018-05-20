@@ -152,14 +152,12 @@
                     <ul class="panel-body list-group" style="height: 250px; overflow-y: auto;">
                     @if(count($customer->document) > 0)
                     @foreach($customer->document as $document)
-                    @if($document->type == 1)
+                     @if($document->type == 2)
                     <li class="list-group-item">
-
                      <div class="pull-right">
-                        <!--<a href="{{ env('APP_URL')}}/admin/customer/download/{{ $document->renamed }}" target="_blank" class="btn btn-primary btn-xs">-->
-                        <a href="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" target="_blank" class="btn btn-primary btn-xs">
+                         <!--<a href="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" target="_blank" class="btn btn-primary btn-xs">
                           <i class="fa fa-download" aria-hidden="true"></i>
-                        </a>
+                        </a>-->
 
                         @if(($document->createdby->id == Auth::user()->id) || Auth::user()->hasRole(['admin','superadmin']))
                         {!! Form::open([
@@ -177,26 +175,56 @@
 
                       </div>
                       <div class="pull-right" style="margin-right: 10px;">
-                        <!--<a href="{{ env('APP_URL')}}/admin/customer/download/{{ $document->renamed }}" target="_blank">-->
-                         <a href="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" target="_blank"> 
+                         <!--<a href="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" target="_blank">--> 
                           @if($document->extension == 'jpg')
-                            <img src="/public/uploads/documents/{{ $document->renamed }}" width="50" height="50" />
+                           <a style="cursor: zoom-in" data-toggle="modal" data-target="#myModal{{ $document->id }}"><img src="{{ env('APP_URL')}}/public/uploads/documents/{{ $document->renamed }}" width="50" height="50" /></a>
                           @else
-                            <img src="/public/images/pdf-icon.png" width="50" height="50" />
+                             <img src="{{ env('APP_URL')}}/public/images/pdf-icon.png" width="50" height="50" id="myImg" />
                           @endif
-                          
-                        </a>
+                        <!--</a>-->
                       </div>
-                      <!--<a href="{{ env('APP_URL')}}/admin/customer/download/{{ $document->renamed }}" target="_blank">-->
-                      <a href="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" target="_blank">     
+                       <h4 class="list-group-item-heading"><small>{{ date('d.m.Y', strtotime($document->created_at)) }}</small> {{ $document->name }}</h4>
+                            <p class="list-group-item-text">{{ $document->description }}</p>
+                      <!--<a href="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" target="_blank">     
                           <h4 class="list-group-item-heading">{{ (strlen($document->name) > 20) ? substr($document->name, 0, 11).'...' : $document->name }}</h4>
                       </a>
-
                       @if($document->description)
                         <small><b>Description:</b> {{ $document->description }}</small><br />
                       @endif
-                      <small><b>Created by:</b> {{ $document->createdby->name }} {{ $document->createdby->surname }}</small>
+                      <small><b>Created by:</b> {{ $document->createdby->name }} {{ $document->createdby->surname }}</small>-->
                     </li>
+                    
+                                        <!--MODAL IMAGE -->
+                    <div id="myModal{{ $document->id }}" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            
+                            <div class="modal-content">
+                               <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title"><strong>{{ $document->renamed }}</strong>
+                                        <small>[{{ date('d.m.Y', strtotime($document->created_at)) }}]</small>
+                                    </h4>
+                                </div>
+                                <div class="modal-body" style="padding:0!important">
+                                    <img src="{{ env('APP_URL')}}/public/uploads/documents/{{ $document->renamed }}" width="100%" />
+                                </div>
+                               <div class="modal-footer">
+                                <div class="pull-left">
+                                    <a href="{{ env('APP_URL')}}/{{ App::getLocale() }}/panel/download/{{ $document->renamed }}">
+                                   <span class="badge">
+                                        <i class="fa fa-download" aria-hidden="true"></i> Download
+                                   </span>
+                                </a>
+                                </div>
+
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--END OF MODAL IMAGE-->
+                    
                     @endif
                     @endforeach
                     @else
@@ -206,6 +234,8 @@
                   </div>
                 </div>
                 @endpermission
+                
+                
                 
               @permission('view-documents')
                <div class="panel panel-default">
@@ -243,7 +273,6 @@
 
                       </div>
                       <div class="pull-right" style="margin-right: 10px;">
-                        <!--<a href="{{ env('APP_URL')}}/admin/customer/download/{{ $document->renamed }}" target="_blank">-->
                          <a href="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" target="_blank"> 
                           @if($document->extension == 'jpg')
                             <img src="/public/uploads/documents/{{ $document->renamed }}" width="50" height="50" />
@@ -252,7 +281,6 @@
                           @endif
                         </a>
                       </div>
-                      <!--<a href="{{ env('APP_URL')}}/admin/customer/download/{{ $document->renamed }}" target="_blank">-->
                       <a href="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" target="_blank">     
                           <h4 class="list-group-item-heading">{{ (strlen($document->name) > 20) ? substr($document->name, 0, 11).'...' : $document->name }}</h4>
                       </a>
