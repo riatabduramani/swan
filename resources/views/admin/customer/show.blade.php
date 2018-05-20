@@ -210,7 +210,7 @@
                                 </div>
                                <div class="modal-footer">
                                 <div class="pull-left">
-                                    <a href="{{ env('APP_URL')}}/{{ App::getLocale() }}/panel/download/{{ $document->renamed }}">
+                                    <a href="{{ env('APP_URL')}}/admin/download/{{ $document->renamed }}">
                                    <span class="badge">
                                         <i class="fa fa-download" aria-hidden="true"></i> Download
                                    </span>
@@ -304,7 +304,7 @@
                                 </div>
                                <div class="modal-footer">
                                 <div class="pull-left">
-                                    <a href="{{ env('APP_URL')}}/{{ App::getLocale() }}/panel/download/{{ $document->renamed }}">
+                                    <a href="{{ env('APP_URL')}}/{{ App::getLocale() }}/admin/download/{{ $document->renamed }}">
                                    <span class="badge">
                                         <i class="fa fa-download" aria-hidden="true"></i> Download
                                    </span>

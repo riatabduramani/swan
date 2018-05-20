@@ -409,6 +409,16 @@ class CustomerController extends Controller
             Session::flash('flash_message', 'Your document has been deleted!');
             return redirect()->back();
     }
+    
+    public function downloadFile($file)
+    {
+        $myFile = public_path("uploads/documents/".$file);
+        $headers = ['Content-Type: image/jpg'];
+        $newName = time().$file;
+
+
+        return response()->download($myFile, $newName, $headers);
+    }
 
     public function generateNewPassword(Request $request) {
 

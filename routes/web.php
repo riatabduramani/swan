@@ -105,8 +105,8 @@ Route::group(['prefix' => $language], function()
 	  Route::resource('/invoices', 'Client\\InvoicesController');
 	  Route::resource('/password', 'Client\\PasswordController');
 	  Route::resource('/', 'Client\\ClientController');
-	  Route::get ('/downloadinvoice/{id}', 'PDFInvoiceController@pdf');	
-        Route::get('/download/{file}', 'Client\\ClientController@downloadFile');
+	  Route::get('/downloadinvoice/{id}', 'PDFInvoiceController@pdf');	
+      Route::get('/download/{file}', 'Client\\ClientController@downloadFile');
 	});
 
 });
@@ -183,7 +183,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 	Route::post('/customer/allowlogin', array('as' => 'allowLogin', 'uses' => 'Admin\\CustomerController@allowlogin'));
 	Route::post('/customer/attachdoc', array('as' => 'attach', 'uses' => 'Admin\\CustomerController@attachdocument',['middleware'=>['permission:upload-documents']]));
 	Route::delete('/customer/attachdoc/{id}', 'Admin\\CustomerController@deleteDocument');
-    /*Route::get('/customer/download/{file}', 'Client\\ClientController@downloadFile');*/
+   /* Route::get('/download/{file}', 'Admin\\CustomerController@downloadFile');*/
+    Route::get('/download/{file}', 'Admin\\CustomerController@downloadFile');
 
 	//Apply credits
 	Route::resource('/credits', 'Admin\\CreditsController',['middleware'=>['permission:manage-credits']]);
