@@ -99,7 +99,7 @@
  <input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>
  <?php  } ?>   
 
-        <script type="text/javascript">
+        <script type="text/javascript" charset="utf-8">
         function importLibrary()
         {
 navigator.camera.getPicture(uploadPhoto,
