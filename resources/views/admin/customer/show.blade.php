@@ -91,26 +91,25 @@
 
 <?php   if(stristr(strtolower($_SERVER['HTTP_USER_AGENT']),'android') || strstr(strtolower($_SERVER['HTTP_USER_AGENT']),'android')) { ?>
 
-<!--<input type="file" id="attach" onclick="importLibrary();"rel="external" placeholder="Attach" name="attach" class="" accept="image/*" capture required/>-->
-<a href="" onclick="importLibrary();">Choose Photo</a>
+<input type="file" id="attach" onclick="importLibrary();"rel="external" placeholder="Attach" name="attach" class="" accept="image/*" capture required/>
+<!--<a href="" onclick="importLibrary();">Choose Photo</a>-->
 <?php } else { ?>
  <input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>
  <?php  } ?>   
 
 <script type="text/javascript" charset="utf-8">
-        function importLibrary()
-        {
-        document.addEventListener("deviceready", onDeviceReady, false);
+function importLibrary() {
+document.addEventListener("deviceready", onDeviceReady, false);
         function onDeviceReady() {
-            /* window.location.href = 'http://swan.mk/en/login';*/
-            window.open("http://swan.mk/admin/customer/{{$customer->id}}", '_system', 'toolbar=no,location=no, clearsessioncache=yes');
-        }
-/*navigator.camera.getPicture(uploadPhoto,
+            /*window.open("http://swan.mk/admin/customer/{{$customer->id}}", '_system', 'toolbar=no,location=no, clearsessioncache=yes');*/
+            navigator.camera.getPicture(uploadPhoto,
     function(message) { alert('get picture failed'); },
             { quality: 50, 
                 destinationType: navigator.camera.DestinationType.FILE_URI,
                                         sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY }
-                                        );*/
+                                        );
+        }
+
 }
         </script>
                         </div>
