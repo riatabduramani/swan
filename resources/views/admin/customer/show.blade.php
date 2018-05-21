@@ -94,7 +94,7 @@
 <!--<input type="file" id="attach" onclick="importLibrary(event);" accept="image/*" capture="filesystem" rel="external" placeholder="Attach" name="attach" class="" required/>-->
  <!--<input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>-->
 <!--<a href="" onclick="importLibrary()">Add Photo</a>-->
-<input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" accept="image/*" capture required/>
+<input type="file" id="attach" onclick="importLibrary();"rel="external" placeholder="Attach" name="attach" class="" accept="image/*" capture required/>
 <?php } else { ?>
  <input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>
  <?php  } ?>   
@@ -102,11 +102,12 @@
         <script type="text/javascript">
         function importLibrary()
         {
- navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
- targetWidth: 960,
- targetHeight: 960,
- destinationType: destinationType.FILE_URI,
- sourceType: source });
+navigator.camera.getPicture(uploadPhoto,
+    function(message) { alert('get picture failed'); },
+            { quality: 50, 
+                destinationType: navigator.camera.DestinationType.FILE_URI,
+                                        sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY }
+                                        );
  
  /*navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
                 sourceType: Camera.PictureSourceType.PHOTOLIBRARY, 
