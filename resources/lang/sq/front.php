@@ -88,7 +88,7 @@ return [
     'postal' => 'Kodi postal',
     'emergencycontact' => 'Kontakti për urgjencë',
     'logout' => 'Dalje nga sistemi',
-    'welcome' => 'Mirëseerdhe',
+    'welcome' => 'Mirë se erdhe',
     'since' => 'Prej më',
     'chosenpacket' => 'Paketa e zgjedhur',
     'packetexpire' => 'Skadimi i paketës',
