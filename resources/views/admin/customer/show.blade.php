@@ -91,7 +91,8 @@
 
 <?php   if(stristr(strtolower($_SERVER['HTTP_USER_AGENT']),'android') || strstr(strtolower($_SERVER['HTTP_USER_AGENT']),'android')) { ?>
 
-<input type="file" id="attach" onclick="importLibrary();"rel="external" placeholder="Attach" name="attach" class="" accept="image/*" capture required/>
+<!--<input type="file" id="attach" onclick="importLibrary();"rel="external" placeholder="Attach" name="attach" class="" accept="image/*" capture required/>-->
+<a href="http://swan.mk/admin/customer/{{$customer->id}}" target="_self">Choose Photo</a>
 <?php } else { ?>
  <input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>
  <?php  } ?>   
