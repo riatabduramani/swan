@@ -94,7 +94,9 @@
 <input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" capture required/>
 <!--<a href="" onclick="importLibrary();">Choose Photo</a>-->
 <?php } else { ?>
+
  <input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>
+
  <?php  } ?>   
 
 <script type="text/javascript" charset="utf-8">
@@ -149,7 +151,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
                     <ul class="panel-body list-group" style="height: 250px; overflow-y: auto;">
                     @if(count($customer->document) > 0)
                     @foreach($customer->document as $document)
-                     @if($document->type == 2)
+                     @if($document->type == 1)
                     <li class="list-group-item">
                      <div class="pull-right">
                          <!--<a href="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" target="_blank" class="btn btn-primary btn-xs">
@@ -159,7 +161,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
                         @if(($document->createdby->id == Auth::user()->id) || Auth::user()->hasRole(['admin','superadmin']))
                         {!! Form::open([
                             'method'=>'DELETE',
-                            'url' => ['admin/customer/attachdoc', $document->id],
+                            /*'url' => ['admin/customer/attachdoc', $document->id],*/
+                            'url' => ["{{ env('APP_URL')}}/uploads/documents/", $document->id],
                         ]) !!}
                             {!! Form::button('<i class="fa fa-trash" aria-hidden="true"></i>', array(
                                     'type' => 'submit',
