@@ -161,8 +161,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
                         @if(($document->createdby->id == Auth::user()->id) || Auth::user()->hasRole(['admin','superadmin']))
                         {!! Form::open([
                             'method'=>'DELETE',
-                            /*'url' => ['admin/customer/attachdoc', $document->id],*/
-                            'url' => ["{{ env('APP_URL')}}/uploads/documents/", $document->id],
+                            'url' => ['admin/customer/attachdoc', $document->id],
+                            /*'url' => ["{{ env('APP_URL')}}/uploads/documents/", $document->id],*/
                         ]) !!}
                             {!! Form::button('<i class="fa fa-trash" aria-hidden="true"></i>', array(
                                     'type' => 'submit',

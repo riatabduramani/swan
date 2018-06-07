@@ -183,7 +183,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 	Route::post('/customer/allowlogin', array('as' => 'allowLogin', 'uses' => 'Admin\\CustomerController@allowlogin'));
 	Route::post('/customer/attachdoc', array('as' => 'attach', 'uses' => 'Admin\\CustomerController@attachdocument',['middleware'=>['permission:upload-documents']]));
 	Route::delete('/customer/attachdoc/{id}', 'Admin\\CustomerController@deleteDocument');
-   /* Route::get('/download/{file}', 'Admin\\CustomerController@downloadFile');*/
+   /*Route::delete('/uploads/documents/{id}', 'Admin\\CustomerController@deleteDocument');*/
+    
     Route::get('/download/{file}', 'Admin\\CustomerController@downloadFile');
 
 	//Apply credits
