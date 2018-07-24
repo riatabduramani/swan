@@ -86,12 +86,11 @@ class ClientController extends Controller
     }
     
     
-    public function downloadFile($file)
+    public function downloadFile($file) 
     {
         $myFile = public_path("uploads/documents/".$file);
         $headers = ['Content-Type: image/jpg'];
         $newName = time().$file;
-
 
         return response()->download($myFile, $newName, $headers);
     }

@@ -369,34 +369,48 @@ class CustomerController extends Controller
 
     public function attachdocument(Request $request)
     {
-            
-            $this->validate($request, [
-                'attach' => 'required|max:5000|mimes:pdf,jpeg,png,doc,docx,excel',
-            ]);
-            
-            $customerid = $request->customer_id;
 
+            /*$customerid = $request->customer_id;
             $attach = new Document;
-
             $attach->extension = $request->file('attach')->getClientOriginalExtension();
-            
             $fileName = $request->file('attach')->getClientOriginalName();
-            $renamed = rand(100, 1000).'-'.Carbon::now()->format('d-m-Y').'-'.$fileName;
-            
+            $renamed = rand(100, 1000).'-'.Carbon::now()->format('d-m-Y').'-'.$fileName;    
             $request->file('attach')->move(
                 base_path() . '/public/uploads/documents', $renamed
             );
-
             $attach->name = $fileName;
             $attach->description = $request->doc_description;
             $attach->renamed = $renamed;
             $attach->created_by = Auth::user()->id;
             $attach->type = $request->type;
             $attach->save();
+            $attach->customer()->attach($customerid);*/
+        
+            $customerid = $request->customer_id;
+            
+            foreach($request->file('attach') as $images)
+            {
+            /*$this->validate($request, [
+                'attach' => 'required|max:5000|mimes:pdf, jpg, jpeg, png, doc, docx, xls, xlsx',
+            ]);*/
+                
+            $attach = new Document;  
+            $attach->extension = $images->getClientOriginalExtension();
+            $fileName = $images->getClientOriginalName();
+            $renamed = rand(100, 1000).'-'.Carbon::now()->format('d-m-Y').'-'.$fileName;    
 
-            $attach->customer()->attach($customerid);
+            $images->move(base_path() . '/public/uploads/documents', $renamed); 
+                
+            $attach->name = $fileName;
+            $attach->description = $request->doc_description;
+            $attach->renamed = $renamed;
+            $attach->created_by = Auth::user()->id;
+            $attach->type = $request->type;
+            $attach->save();
+            $attach->customer()->attach($customerid);             
+            }    
 
-            Session::flash('flash_message', "Document $fileName Attached successfully!");
+            Session::flash('flash_message', "Document(s) Attached successfully!");
             return redirect()->back();
     }
 

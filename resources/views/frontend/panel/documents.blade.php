@@ -68,7 +68,7 @@
                                <div class="pull-right" style="margin-right: 10px;">
                                     @if($document->extension == 'jpg')
 
-                                        <a style="cursor: zoom-in" data-toggle="modal" data-target="#myModal{{ $document->id }}"><img src="{{ env('APP_URL')}}/public/uploads/documents/{{ $document->renamed }}" width="50" height="50" /></a>
+                                        <a style="cursor: zoom-in" data-toggle="modal" data-target="#myModal{{ $document->id }}"><img src="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" width="50" height="50" /></a>
                                       @else
                                         <img src="{{ env('APP_URL')}}/public/images/pdf-icon.png" width="50" height="50" id="myImg" />
                                       @endif
@@ -88,7 +88,7 @@
                                     </h4>
                                 </div>
                                 <div class="modal-body" style="padding:0!important">
-                                    <img src="{{ env('APP_URL')}}/public/uploads/documents/{{ $document->renamed }}" width="100%" />
+                                    <img src="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" width="100%" />
                                 </div>
                                <div class="modal-footer">
                                 <div class="pull-left">
@@ -130,14 +130,14 @@
         <script src="{{ asset('js/front/waypoints.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('js/front/active.js') }}"></script>
 <script>
-    $(document).ready(function (){    
+   /* $(document).ready(function (){    
         if(navigator.userAgent.toLowerCase().indexOf("android") > -1){
             $('div.pull-left').hide();
         }
         if(navigator.userAgent.toLowerCase().indexOf("iphone") > -1){
             $('div.pull-left').hide();
         }
-    });
+    });*/
 </script>
     </div>
 </body>

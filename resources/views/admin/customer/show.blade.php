@@ -91,11 +91,11 @@
 
 <?php   if(stristr(strtolower($_SERVER['HTTP_USER_AGENT']),'android') || strstr(strtolower($_SERVER['HTTP_USER_AGENT']),'android')) { ?>
 
-<input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" capture required/>
+<!--<input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" capture required/>-->
 <!--<a href="" onclick="importLibrary();">Choose Photo</a>-->
 <?php } else { ?>
 
- <input type="file" id="attach" rel="external" placeholder="Attach" name="attach" class="" required/>
+ <input type="file" id="attach" rel="external" placeholder="Attach" name="attach[]" enctype="multipart/form-data" multiple required/>
 
  <?php  } ?>   
 
@@ -175,11 +175,11 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
                       </div>
                       <div class="pull-right" style="margin-right: 10px;">
-                         <!--<a href="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" target="_blank">--> 
+                         <!--<a href="{{ env('APP_URL')}}/public/uploads/documents/{{ $document->renamed }}" target="_blank">--> 
                           @if($document->extension == 'jpg')
-                           <a style="cursor: zoom-in" data-toggle="modal" data-target="#myModal{{ $document->id }}"><img src="{{ env('APP_URL')}}/public/uploads/documents/{{ $document->renamed }}" width="50" height="50" /></a>
+                           <a style="cursor: zoom-in" data-toggle="modal" data-target="#myModal{{ $document->id }}"><img src="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" width="50" height="50" /></a>
                           @else
-                             <img src="{{ env('APP_URL')}}/public/images/pdf-icon.png" width="50" height="50" id="myImg" />
+                             <img src="{{ env('APP_URL')}}/images/pdf-icon.png" width="50" height="50" id="myImg" />
                           @endif
                         <!--</a>-->
                       </div>
@@ -206,7 +206,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
                                     </h4>
                                 </div>
                                 <div class="modal-body" style="padding:0!important">
-                                    <img src="{{ env('APP_URL')}}/public/uploads/documents/{{ $document->renamed }}" width="100%" />
+                                    <img src="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" width="100%" />
                                 </div>
                                <div class="modal-footer">
                                 <div class="pull-left">
@@ -269,11 +269,11 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
                       </div>
                       <div class="pull-right" style="margin-right: 10px;">
-                         <!--<a href="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" target="_blank">--> 
+                         <!--<a href="{{ env('APP_URL')}}/public/uploads/documents/{{ $document->renamed }}" target="_blank">--> 
                           @if($document->extension == 'jpg')
-                           <a style="cursor: zoom-in" data-toggle="modal" data-target="#myModal{{ $document->id }}"><img src="{{ env('APP_URL')}}/public/uploads/documents/{{ $document->renamed }}" width="50" height="50" /></a>
+                           <a style="cursor: zoom-in" data-toggle="modal" data-target="#myModal{{ $document->id }}"><img src="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" width="50" height="50" /></a>
                           @else
-                             <img src="{{ env('APP_URL')}}/public/images/pdf-icon.png" width="50" height="50" id="myImg" />
+                             <img src="{{ env('APP_URL')}}/images/pdf-icon.png" width="50" height="50" id="myImg" />
                           @endif
                         <!--</a>-->
                       </div>
@@ -300,7 +300,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
                                     </h4>
                                 </div>
                                 <div class="modal-body" style="padding:0!important">
-                                    <img src="{{ env('APP_URL')}}/public/uploads/documents/{{ $document->renamed }}" width="100%" />
+                                    <img src="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" width="100%" />
                                 </div>
                                <div class="modal-footer">
                                 <div class="pull-left">
