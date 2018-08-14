@@ -176,7 +176,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
                       </div>
                       <div class="pull-right" style="margin-right: 10px;">
                          <!--<a href="{{ env('APP_URL')}}/public/uploads/documents/{{ $document->renamed }}" target="_blank">--> 
-                          @if($document->extension == 'jpg')
+                          @if($document->extension == 'jpg' || $document->extension == 'JPG' || $document->extension == 'png' || $document->extension == 'PNG' || $document->extension == 'jpeg' || $document->extension == 'JPEG')
                            <a style="cursor: zoom-in" data-toggle="modal" data-target="#myModal{{ $document->id }}"><img src="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" width="50" height="50" /></a>
                           @else
                              <img src="{{ env('APP_URL')}}/images/pdf-icon.png" width="50" height="50" id="myImg" />
@@ -270,7 +270,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
                       </div>
                       <div class="pull-right" style="margin-right: 10px;">
                          <!--<a href="{{ env('APP_URL')}}/public/uploads/documents/{{ $document->renamed }}" target="_blank">--> 
-                          @if($document->extension == 'jpg')
+                          @if($document->extension == 'jpg' || $document->extension == 'JPG' || $document->extension == 'png' || $document->extension == 'PNG' || $document->extension == 'jpeg' || $document->extension == 'JPEG')
                            <a style="cursor: zoom-in" data-toggle="modal" data-target="#myModal{{ $document->id }}"><img src="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" width="50" height="50" /></a>
                           @else
                              <img src="{{ env('APP_URL')}}/images/pdf-icon.png" width="50" height="50" id="myImg" />
