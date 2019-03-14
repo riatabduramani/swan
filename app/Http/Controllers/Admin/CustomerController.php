@@ -29,7 +29,6 @@ class CustomerController extends Controller
 {
     
     public function index(Request $request) {
-
         $keyword = $request->get('search');
         $status = $request->get('status');
         $confirmed = $request->get('confirmed');

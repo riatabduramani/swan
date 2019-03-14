@@ -18,7 +18,6 @@
                     @endpermission
                     </div>
                     <div class="panel-body">
-
                         {!! Form::open(['method' => 'GET', 'url' => '/admin/customer', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}
                         <div class="input-group">
                             <input type="text" class="form-control" name="search" placeholder="Search...">
