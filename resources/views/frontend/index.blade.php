@@ -93,11 +93,16 @@
 
                                 @endforeach
                             </ul>
-                            <a href="/{{App::getLocale()}}/services/{{ $packet->id }}">@lang('front.readmore')</a>
-                            @if($packet->options != 3)
-                                <a style="background: #d02379" href="/{{App::getLocale()}}/checkout/{{ $packet->id }}">
-                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> @lang('front.buy')</a>
+                            @if ($packet->id == 1)
+                            <a href="/{{App::getLocale()}}/services/{{ $packet->id }}" style="background: #d19a1f none repeat scroll 0 0;">@lang('front.readmore')</a>
+                            @else 
+                            <a href="/{{App::getLocale()}}/services/{{ $packet->id }}" style="background: #0a587f none repeat scroll 0 0;">@lang('front.readmore')</a>
                             @endif
+                            
+                            <!--if($packet->options != 3)
+                                <a style="background: #d02379" href="/{App::getLocale()}}/checkout/{ $packet->id }}">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> lang('front.buy')</a>
+                            endif-->
                         </div>
                         <?php $i++; ?>
                         @endforeach
