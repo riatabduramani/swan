@@ -156,12 +156,12 @@ class HomeController extends Controller
         Session::flash('flash_message', 'Invoice created successfully.');
 
         $gateway =  array(
-                            'clientId'          =>  env('HALK_CLIENTID'), 
+                            'clientId'          =>  '180000188', 
                             'amount'            =>  $invoice->total_sum,
                             'amount-mk'         =>  $invoice->total_sum_mkd,
                             'oid'               =>  "oid-PCL-$invoice->id",
-                            'okUrl'             =>  Request::Root().'/'.App::getLocale().'/paymentstatus',
-                            'failUrl'           =>  Request::Root().'/'.App::getLocale().'/paymentstatus',
+                            'okUrl'             =>  'http://swan.mk/'.App::getLocale().'/paymentstatus',
+                            'failUrl'           =>  'http://swan.mk//'.App::getLocale().'/paymentstatus',
                             'rnd'               =>  microtime(),
                             'currencyVal'       =>  '807',
                             'storekey'          =>  'SKEY0188',
@@ -170,6 +170,7 @@ class HomeController extends Controller
                             'instalment'        =>  "",
                             'transactionType'   =>  'Auth',
                         );
+                        dd($gateway);
 
         $hashstr = $gateway['clientId'] . $gateway['oid'] . $gateway['amount-mk'] . $gateway['okUrl'] . $gateway['failUrl'] .$gateway['transactionType'] .$gateway['rnd'] . $gateway['storekey'];
 

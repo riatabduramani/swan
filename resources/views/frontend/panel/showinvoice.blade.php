@@ -127,8 +127,8 @@
                                             <input type="hidden" name="islemtipi" value="{{ $gateway['transactionType'] }}" />
                                             <input type="hidden" name="taksit" value="{{ $gateway['instalment'] }}" />
                                             <input type="hidden" name="oid" value="{{ $gateway['oid'] }}" />
-                                            <input type="hidden" name="okUrl" value="{{ $gateway['okUrl'] }}" />
-                                            <input type="hidden" name="failUrl" value="{{ $gateway['failUrl'] }}" />
+                                            <input type="hidden" name="okUrl" value="http://swan.mk/en/payment-status" />
+                                            <input type="hidden" name="failUrl" value="http://swan.mk/en/payment-status" />
                                             <input type="hidden" name="rnd" value="{{ $gateway['rnd'] }}" />
                                             <input type="hidden" name="hash" value="{{ $hash }}" />
                                             <input type="hidden" name="storetype" value="3D_PAY_HOSTING" />
