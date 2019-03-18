@@ -170,7 +170,6 @@ class HomeController extends Controller
                             'instalment'        =>  "",
                             'transactionType'   =>  'Auth',
                         );
-                        dd($gateway);
 
         $hashstr = $gateway['clientId'] . $gateway['oid'] . $gateway['amount-mk'] . $gateway['okUrl'] . $gateway['failUrl'] .$gateway['transactionType'] .$gateway['rnd'] . $gateway['storekey'];
 
