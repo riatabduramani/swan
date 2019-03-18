@@ -5486,7 +5486,7 @@ div.tab button.active {
         background: #0a587f;
         position: relative;
         border-top: white 1px solid;
-        display: none;
+        /*display: none;*/
     }
     .romana_header {
         position: absolute;
@@ -5496,7 +5496,8 @@ div.tab button.active {
     }
     .mean-container .mean-bar {
         display: inline;
-        margin-top: -45px;
+        /*margin-top: -45px;*/
+        margin-top: 0px;
     }
     .romana_allPage_area {
         background-image: url(../images/logoapplogin.png);
