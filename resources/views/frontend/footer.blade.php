@@ -116,13 +116,12 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 
-<script>
+<!--<script>
     $(document).ready(function (){
         if(navigator.userAgent.toLowerCase().indexOf("android") > -1){
             if (window.location.href == 'http://swan.mk/en' || window.location.href == 'www.swan.mk/en' || window.location.href == 'http://www.swan.mk/en') {
                 window.location = 'https://play.google.com/store/apps/details?id=mk.swan&hl=en-ca';
                 }
-            /*window.location.href = 'https://play.google.com/store/apps/details?id=mk.swan&hl=en-ca';*/
         }
         if(navigator.userAgent.toLowerCase().indexOf("iphone") > -1){
              if (window.location.href == 'http://swan.mk/en' || window.location.href == 'www.swan.mk/en' || window.location.href == 'http://www.swan.mk/en') {
@@ -130,4 +129,4 @@
                 }
         }
     });
-</script>
+</script>-->

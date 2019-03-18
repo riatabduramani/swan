@@ -160,15 +160,15 @@ class HomeController extends Controller
                             'amount'            =>  $invoice->total_sum,
                             'amount-mk'         =>  $invoice->total_sum_mkd,
                             'oid'               =>  "oid-PCL-$invoice->id",
-                            'okUrl'             =>  env('APP_URL').'/'.App::getLocale().'/paymentstatus',
-                            'failUrl'           =>  env('APP_URL').'/'.App::getLocale().'/paymentstatus',
+                            'okUrl'             =>  Request::Root().'/'.App::getLocale().'/paymentstatus',
+                            'failUrl'           =>  Request::Root().'/'.App::getLocale().'/paymentstatus',
                             'rnd'               =>  microtime(),
-                            'currencyVal'       =>  env('HALK_CURRENCYVAL'),
-                            'storekey'          =>  env('HALK_STOREKEY'),
-                            'storetype'         =>  env('HALK_STORETYPE'),
-                            'lang'              =>  env('HALK_LANG'),
+                            'currencyVal'       =>  '807',
+                            'storekey'          =>  'SKEY0188',
+                            'storetype'         =>  '3D_PAY_HOSTING',
+                            'lang'              =>  'en',
                             'instalment'        =>  "",
-                            'transactionType'   =>  env('HALK_TRANSACTIONTYPE'),
+                            'transactionType'   =>  'Auth',
                         );
 
         $hashstr = $gateway['clientId'] . $gateway['oid'] . $gateway['amount-mk'] . $gateway['okUrl'] . $gateway['failUrl'] .$gateway['transactionType'] .$gateway['rnd'] . $gateway['storekey'];

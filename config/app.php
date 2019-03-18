@@ -140,6 +140,8 @@ return [
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
+    'HALK_3D_POST_URL'=>'https://epay.halkbank.mk/fim/est3Dgate',
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -255,6 +257,8 @@ return [
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+
+        'HALK_3D_POST_URL'=>'https://epay.halkbank.mk/fim/est3Dgate',
 
     ],
   

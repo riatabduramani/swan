@@ -121,8 +121,8 @@
                         @if($invoice->payment_status == 2)
                             <div class="pull-right" style="margin-top: 30px;margin-bottom: 30px;">
 
-                                <form method="post" action="{{ env('HALK_3D_POST_URL') }}">
-                                            <input type="hidden" name="clientid" value="{{ $gateway['clientId'] }}" />
+                                <form method="post" action="https://epay.halkbank.mk/fim/est3Dgate">
+                                            <input type="hidden" name="clientid" value="180000188" />
                                             <input type="hidden" name="amount" value="{{ $gateway['amount-mk'] }}" />
                                             <input type="hidden" name="islemtipi" value="{{ $gateway['transactionType'] }}" />
                                             <input type="hidden" name="taksit" value="{{ $gateway['instalment'] }}" />
@@ -131,9 +131,9 @@
                                             <input type="hidden" name="failUrl" value="{{ $gateway['failUrl'] }}" />
                                             <input type="hidden" name="rnd" value="{{ $gateway['rnd'] }}" />
                                             <input type="hidden" name="hash" value="{{ $hash }}" />
-                                            <input type="hidden" name="storetype" value="{{ $gateway['storetype'] }}" />
-                                            <input type="hidden" name="lang" value="{{ $gateway['lang'] }}" />
-                                            <input type="hidden" name="currency" value="{{ $gateway['currencyVal'] }}" />
+                                            <input type="hidden" name="storetype" value="3D_PAY_HOSTING" />
+                                            <input type="hidden" name="lang" value="en" />
+                                            <input type="hidden" name="currency" value="807" />
                                             <input type="hidden" name="refreshtime" value="3" />
                                          
                                             <input type="hidden" name="BillToName" value="{{ Auth::user()->name }} {{ Auth::user()->surname }}" /> 
@@ -144,7 +144,9 @@
                                             <input type="hidden" name="tel" value="{{ Auth::user()->customer->phone_out }}"/>
                                             <input type="hidden" name="email" value="{{ Auth::user()->email }}" />
 
-                                            <button class="btn btn-danger"><i class="fa fa-shopping-cart" aria-hidden="true"></i> @lang('front.paynow')</button>
+                                            <button class="btn btn-danger">
+                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i> @lang('front.paynow')
+                                            </button>
                                         </form>
 
                             </div>
