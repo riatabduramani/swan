@@ -1124,7 +1124,7 @@ label.mainsearch {
 
 .romana_single_price h3 {
     color: #ffffff;
-    font-size: 19px;
+    font-size: 35px;
     margin-bottom: 10px;
     padding-bottom: 10px;
     position: relative;
@@ -1144,10 +1144,10 @@ label.mainsearch {
 .romana_single_price h4 {
     color: #ffffff !important;
     line-height: normal;
-    margin-bottom: 30px;
+    margin-bottom: 240px;
     margin-top: 26px;
     text-transform: uppercase;
-    font-size: 38px;
+    font-size: 65px;
 }
 
 .romana_single_price h4 span {
@@ -5395,12 +5395,17 @@ div.tab button.active {
 }
 
 #box-standard-home {
-    /*margin-top: 31.1%;*/
+    /*margin-top: 31.1%;
+    */
     margin-top: 29.1%;
     height: auto;
     background-image: url(../images/sl-standard.png);
     background-size: cover;
-    border-radius: 34px;
+    border-radius: 42px;
+    -webkit-border-radius: 42px;
+    -moz-border-radius: 42px;
+    -ms-border-radius: 42px;
+    -o-border-radius: 42px;
 }
 
 #box-ekstra {
@@ -5411,7 +5416,11 @@ div.tab button.active {
     margin-top: 24.9%;
     background-image: url(../images/sl-eksluziv.png);
     background-size: cover;
-    border-radius: 34px;
+    border-radius: 44px;
+    -webkit-border-radius: 44px;
+    -moz-border-radius: 44px;
+    -ms-border-radius: 44px;
+    -o-border-radius: 44px;
 }
 
 #box-eksklusiv {
