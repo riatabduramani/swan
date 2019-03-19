@@ -95,6 +95,7 @@ Route::group(['prefix' => $language], function()
 
 	Route::post('/paymentstatus', 'HomeController@paymentstatus');
 	Route::post('/payment-status', 'Client\\InvoicesController@paymentstatus');
+	Route::post('/payinvoice', 'HomeController@method');
 
 
 

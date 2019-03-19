@@ -31,6 +31,8 @@ use App\Mail\InvoiceGenerated;
 use App\Mail\InvoicePaid;
 use App\Mail\InvoiceDeclined;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Input;
 
 class HomeController extends Controller
 {
@@ -160,8 +162,8 @@ class HomeController extends Controller
                             'amount'            =>  $invoice->total_sum,
                             'amount-mk'         =>  $invoice->total_sum_mkd,
                             'oid'               =>  "oid-PCL-$invoice->id",
-                            'okUrl'             =>  'http://swan.mk/'.App::getLocale().'/paymentstatus',
-                            'failUrl'           =>  'http://swan.mk//'.App::getLocale().'/paymentstatus',
+                            'okUrl'             =>  'http://swan.mk/'.App::getLocale().'/payment-status',
+                            'failUrl'           =>  'http://swan.mk/'.App::getLocale().'/payment-status',
                             'rnd'               =>  microtime(),
                             'currencyVal'       =>  '807',
                             'storekey'          =>  'SKEY0188',
@@ -184,6 +186,12 @@ class HomeController extends Controller
          }
        
     }
+
+        public function method(Request $request) {
+
+            return Redirect::away("https://epay.halkbank.mk/fim/est3Dgate")->withInput(Input::all());
+            /*redirect()->away("https://epay.halkbank.mk/fim/est3Dgate")->withInput(Input::all());*/
+        }
 
          public function paymentstatus(Request $request) {
 

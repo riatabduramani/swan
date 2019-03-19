@@ -20,6 +20,7 @@ return [
     'services' => 'Shërbimet',
     'readmore' => 'Më shumë',
     'monthly' => 'mujore',
+    'yearly' => 'Vjetore',
     'vision' => 'Vizioni',
     'mission' => 'Misioni',
     'clientdashboard' => 'Paneli Klientit',

@@ -63,6 +63,7 @@ class PacketsController extends Controller
         $requestData->price = $request->price;
         $requestData->months = $request->months;
         $requestData->new_price = $request->new_price;
+        $requestData->yearlyprice = $request->yearlyprice;
         $requestData->options = $request->options;
 
         foreach (config('app.language') as $locale => $suffix) {
@@ -132,6 +133,7 @@ class PacketsController extends Controller
         $requestData->price = $request->input('price');
         $requestData->months = $request->input('months');
         $requestData->new_price = $request->input('new_price');
+        $requestData->yearlyprice = $request->input('yearlyprice');
         $requestData->options = $request->input('options');
 
         foreach (['en'=> '', 'sq' => '_sq'] as $locale => $suffix) {

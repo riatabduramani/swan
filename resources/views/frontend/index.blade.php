@@ -80,7 +80,7 @@
                                 <a href="/{{App::getLocale()}}/contact" style="margin-bottom: 67px;margin-top: 32px;">@lang('front.negotiable')</a>
                             @endif
                             @if($packet->options != 3)
-                            <h4>{{ floatval($packet->new_price) }}€<span>/@lang('front.monthly')</span></h4>
+                            <h4>{{ floatval($packet->yearlyprice) }}€<span>/@lang('front.yearly')</span></h4>
                             @endif
                             <ul class="offer-rows">
                                 @foreach($packet->service as $service)

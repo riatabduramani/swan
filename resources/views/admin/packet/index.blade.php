@@ -20,7 +20,7 @@
                             <table class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Name [EN]</th><th>Name [AL]</th><th>Price</th><th>Months</th><th>Actions</th>
+                                        <th>ID</th><th>Name [EN]</th><th>Name [AL]</th><th>Monthly Price</th><th>Yearly Price</th><th>Months</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -32,9 +32,10 @@
                                         <td>{{ $item->translate('sq')->name }}</td>
                                         <td>
                                         @if($item->price)
-                                            <del style="color: red">{{ $item->price }}€</del> / 
+                                            <del style="color: red">{{ $item->price }} €</del> / 
                                         @endif
-                                        {{ $item->new_price }}€</td>
+                                        {{ $item->new_price }} €</td>
+                                        <td>{{ $item->yearlyprice }} €</td>
                                         <td>{{ $item->months }}</td>
                                         <td>
                                             <a href="{{ url('/admin/packet/' . $item->id . '/edit') }}" title="Edit packet"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>

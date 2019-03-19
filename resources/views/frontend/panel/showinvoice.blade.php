@@ -121,10 +121,11 @@
                         @if($invoice->payment_status == 2)
                             <div class="pull-right" style="margin-top: 30px;margin-bottom: 30px;">
 
-                                <form method="post" action="https://epay.halkbank.mk/fim/est3Dgate">
+                            <form method="post" action="https://epay.halkbank.mk/fim/est3Dgate">
+                                    {{ csrf_field() }}
                                             <input type="hidden" name="clientid" value="180000188" />
                                             <input type="hidden" name="amount" value="{{ $gateway['amount-mk'] }}" />
-                                            <input type="hidden" name="islemtipi" value="{{ $gateway['transactionType'] }}" />
+                                            <input type="hidden" name="islemtipi" value="Auth" />
                                             <input type="hidden" name="taksit" value="{{ $gateway['instalment'] }}" />
                                             <input type="hidden" name="oid" value="{{ $gateway['oid'] }}" />
                                             <input type="hidden" name="okUrl" value="{{Request::Root()}}/checkout/{{$invoice->id}}" />

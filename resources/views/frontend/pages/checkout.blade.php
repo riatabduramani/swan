@@ -84,10 +84,10 @@
                                     <td colspan="4"></td>
                                     <td style="text-align: right">
 
-                                        <form method="post" action="http://swan.mk/en/payment-status">
+                                        <form method="post" action="{{action("HomeController@method")}}">
                                             <input type="hidden" name="clientid" value="180000188" />
                                             <input type="hidden" name="amount" value="{{ $gateway['amount-mk'] }}" />
-                                            <input type="hidden" name="islemtipi" value="{{ $gateway['transactionType'] }}" />
+                                            <input type="hidden" name="islemtipi" value="Auth" />
                                             <input type="hidden" name="taksit" value="{{ $gateway['instalment'] }}" />
                                             <input type="hidden" name="oid" value="{{ $gateway['oid'] }}" />
                                             <input type="hidden" name="okUrl" value="https://epay.halkbank.mk/fim/est3Dgate" />

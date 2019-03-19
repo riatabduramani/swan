@@ -20,6 +20,7 @@ return [
     'services' => 'Our Services',
     'readmore' => 'Read more',
     'monthly' => 'mo',
+    'yearly' => 'Yearly',
     'vision' => 'Vision',
     'mission' => 'Mission',
     'clientdashboard' => 'Client Dashboard',
