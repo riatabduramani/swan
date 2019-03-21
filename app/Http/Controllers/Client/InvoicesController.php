@@ -49,15 +49,14 @@ class InvoicesController extends Controller
                             'storekey'          =>  'SKEY0188',
                             'storetype'         =>  '3D_PAY_HOSTING',
                             'lang'              =>  'en',
-                            'instalment'        =>  '2',
+                            'instalment'        =>  '',
                             'transactionType'   =>  'Auth',
                         );
 
         /*$hashstr = $gateway['clientId'] . $gateway['oid'] . $gateway['amount-mk'] . $gateway['okUrl'] . $gateway['failUrl'] .$gateway['transactionType'] .$gateway['rnd'] . $gateway['storekey'];*/
         /*$hash = base64_encode(pack('H*',sha1($hashstr)));*/
-        $hashstr = $hashstr = $gateway['clientId'] . $gateway['oid'] . $gateway['amount-mk'] . $gateway['okUrl'] . $gateway['failUrl'] .$gateway['transactionType'] .$gateway['instalment'] .$gateway['rnd'] . $gateway['storekey'];
-       /* dd($hashstr);*/
-
+        $hashstr = 
+        $gateway['clientId'] . $gateway['oid'] . $gateway['amount-mk'] . $gateway['okUrl'] . $gateway['failUrl'] .$gateway['transactionType'] .$gateway['instalment'] .$gateway['rnd'] . $gateway['storekey'];
         $hash = base64_encode(pack('H*',sha1($hashstr)));
 
         return view('frontend.panel.showinvoice', compact('invoice','gateway','hash'));
@@ -65,10 +64,10 @@ class InvoicesController extends Controller
      
 
     public function paymentstatus(Request $request) {
-
+dd('d');
          $mdStatus= $request->mdStatus;
          $Response = $request->Response;
-         /*dd($mdStatus);*/
+
             if($mdStatus =="1" || $mdStatus == "2" || $mdStatus == "3" || $mdStatus == "4")
             {              
                $Response = $request->Response;
@@ -82,7 +81,7 @@ class InvoicesController extends Controller
                         Session::flash('message-approved', __('front.approved'));
                         return redirect('/'.App::getLocale()."/panel/invoices/$invoice->id");
                         break;
-                    case 'Error':
+                    case 'Error':         
                         $invoice = Invoice::find(substr($request->ReturnOid,8));
                         $invoice->where('id', $invoice->id)
                                 ->update(['order_id' => $request->ReturnOid,'payment_status' => 2, 'due_date'=>Carbon::now()->addDays(8)]);
@@ -112,6 +111,7 @@ class InvoicesController extends Controller
             }   
             else
             {
+                /*dd($Response);*/
                 Session::flash('message-declined', __('front.3dauth'));
                 return redirect()->back();
             }  
