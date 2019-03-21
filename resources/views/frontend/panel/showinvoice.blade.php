@@ -126,13 +126,13 @@
                                             <input type="hidden" name="clientid" value="180000188" />
                                             <input type="hidden" name="amount" value="{{ $gateway['amount-mk'] }}" />
                                             <input type="hidden" name="islemtipi" value="Auth" />
-                                            <input type="hidden" name="taksit" value="{{ $gateway['instalment'] }}" />
+                                            <input type="hidden" name="instalment" value="2" />
                                             <input type="hidden" name="oid" value="{{ $gateway['oid'] }}" />
-                                            <input type="hidden" name="okUrl" value="{{Request::Root()}}/checkout/{{$invoice->id}}" />
-                                            <input type="hidden" name="failUrl" value="{{Request::Root()}}/en/payment-status" />
+                                            <input type="hidden" name="okUrl" value="{{request::Root()}}/en/checkout/{{$invoice->id}}" />
+                                            <input type="hidden" name="failUrl" value="{{request::Root()}}/en/paymentstatus" />
                                             <input type="hidden" name="rnd" value="{{ $gateway['rnd'] }}" />
                                             <input type="hidden" name="hash" value="{{ $hash }}" />
-                                            <input type="hidden" name="storetype" value="3D_PAY_HOSTING" />
+                                            <input type="hidden" name="storetype" value="3d_pay_hosting" />
                                             <input type="hidden" name="lang" value="en" />
                                             <input type="hidden" name="currency" value="807" />
                                             <input type="hidden" name="refreshtime" value="3" />

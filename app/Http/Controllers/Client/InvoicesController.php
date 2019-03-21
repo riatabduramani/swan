@@ -38,22 +38,25 @@ class InvoicesController extends Controller
 
         $invoice = Invoice::findOrFail($id);
         $gateway =  array(
-                            'clientId'          =>  env('HALK_CLIENTID'), 
+                            'clientId'          =>  '180000188', 
                             'amount'            =>  number_format($invoice->total_sum, 2, '.', ','),
                             'amount-mk'         =>  floor($invoice->total_sum_mkd),
                             'oid'               =>  "oid-PCL-$invoice->id",
-                            'okUrl'             =>  env('APP_URL').'/'.\App::getLocale().'/payment-status',
-                            'failUrl'           =>  env('APP_URL').'/'.\App::getLocale().'/payment-status',
+                            'okUrl'             =>  'http://swan.mk/en/payment-status',
+                            'failUrl'           =>  'http://swan.mk/en/payment-status',
                             'rnd'               =>  microtime(),
-                            'currencyVal'       =>  env('HALK_CURRENCYVAL'),
-                            'storekey'          =>  env('HALK_STOREKEY'),
-                            'storetype'         =>  env('HALK_STORETYPE'),
-                            'lang'              =>  env('HALK_LANG'),
-                            'instalment'        =>  "",
-                            'transactionType'   =>  env('HALK_TRANSACTIONTYPE'),
+                            'currencyVal'       =>  '807',
+                            'storekey'          =>  'SKEY0188',
+                            'storetype'         =>  '3D_PAY_HOSTING',
+                            'lang'              =>  'en',
+                            'instalment'        =>  '2',
+                            'transactionType'   =>  'Auth',
                         );
 
-        $hashstr = $gateway['clientId'] . $gateway['oid'] . $gateway['amount-mk'] . $gateway['okUrl'] . $gateway['failUrl'] .$gateway['transactionType'] .$gateway['rnd'] . $gateway['storekey'];
+        /*$hashstr = $gateway['clientId'] . $gateway['oid'] . $gateway['amount-mk'] . $gateway['okUrl'] . $gateway['failUrl'] .$gateway['transactionType'] .$gateway['rnd'] . $gateway['storekey'];*/
+        /*$hash = base64_encode(pack('H*',sha1($hashstr)));*/
+        $hashstr = $hashstr = $gateway['clientId'] . $gateway['oid'] . $gateway['amount-mk'] . $gateway['okUrl'] . $gateway['failUrl'] .$gateway['transactionType'] .$gateway['instalment'] .$gateway['rnd'] . $gateway['storekey'];
+       /* dd($hashstr);*/
 
         $hash = base64_encode(pack('H*',sha1($hashstr)));
 
@@ -65,7 +68,7 @@ class InvoicesController extends Controller
 
          $mdStatus= $request->mdStatus;
          $Response = $request->Response;
-         
+         /*dd($mdStatus);*/
             if($mdStatus =="1" || $mdStatus == "2" || $mdStatus == "3" || $mdStatus == "4")
             {              
                $Response = $request->Response;
