@@ -38,26 +38,26 @@ class InvoicesController extends Controller
 
         $invoice = Invoice::findOrFail($id);
         $gateway =  array(
-                            'clientId'          =>  '180000188', 
+                            'clientId'          =>  "180000188", 
                             'amount'            =>  number_format($invoice->total_sum, 2, '.', ','),
-                            'amount-mk'         =>  floor($invoice->total_sum_mkd),
+                            /*'amount-mk'         =>  floor($invoice->total_sum_mkd),*/
+                            'amount-mk'         =>  number_format($invoice->total_sum_mkd, 2, '.', ','),
                             'oid'               =>  "oid-PCL-$invoice->id",
-                            'okUrl'             =>  'http://swan.mk/en/payment-status',
-                            'failUrl'           =>  'http://swan.mk/en/payment-status',
+                            'okUrl'             =>  "http://swan.mk/en/payment-status",
+                            'failUrl'           =>  "http://swan.mk/en/payment-status",
                             'rnd'               =>  microtime(),
-                            'currencyVal'       =>  '807',
-                            'storekey'          =>  'SKEY0188',
-                            'storetype'         =>  '3D_PAY_HOSTING',
-                            'lang'              =>  'en',
-                            'instalment'        =>  '',
-                            'transactionType'   =>  'Auth',
+                            'currencyVal'       =>  "807",
+                            /*'storekey'          =>  'SKEY0188',*/
+                            'storekey'          =>  "SKEY1234",
+                            'storetype'         =>  "3D_PAY_HOSTING",
+                            'lang'              =>  "en",
+                            'instalment'        =>  "",
+                            'transactionType'   =>  "Auth",
                         );
-
-        /*$hashstr = $gateway['clientId'] . $gateway['oid'] . $gateway['amount-mk'] . $gateway['okUrl'] . $gateway['failUrl'] .$gateway['transactionType'] .$gateway['rnd'] . $gateway['storekey'];*/
-        /*$hash = base64_encode(pack('H*',sha1($hashstr)));*/
         $hashstr = 
         $gateway['clientId'] . $gateway['oid'] . $gateway['amount-mk'] . $gateway['okUrl'] . $gateway['failUrl'] .$gateway['transactionType'] .$gateway['instalment'] .$gateway['rnd'] . $gateway['storekey'];
         $hash = base64_encode(pack('H*',sha1($hashstr)));
+        /*$hash = base64_encode(SHA1($hashstr));*/
 
         return view('frontend.panel.showinvoice', compact('invoice','gateway','hash'));
     }

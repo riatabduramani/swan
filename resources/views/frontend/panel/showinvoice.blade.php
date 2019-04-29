@@ -128,7 +128,7 @@
                                             <input type="hidden" name="islemtipi" value="Auth" />
                                             <input type="hidden" name="taksit" value="" />
                                             <input type="hidden" name="oid" value="{{ $gateway['oid'] }}" />
-                                            <input type="hidden" name="okUrl" value="{{request::Root()}}/en/checkout/{{$invoice->id}}" />
+                                            <input type="hidden" name="okUrl" value="{{request::Root()}}/en/paymentstatus" />
                                             <input type="hidden" name="failUrl" value="{{request::Root()}}/en/paymentstatus" />
                                             <input type="hidden" name="rnd" value="{{ $gateway['rnd'] }}" />
                                             <input type="hidden" name="hash" value="{{ $hash }}" />

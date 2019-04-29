@@ -409,7 +409,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
                                     </div>
                       @endpermission
                       @permission('create-packetinvoice')
-<div class="pull-right" style="margin-right: 3px; padding-top: 10px;">
+<div class="pull-right" style="margin-right: 3px; padding-top: 0px;">
                       {!! Form::open(['route' => ['invoice_packet_path']]) !!}
                                     {!! Form::hidden('customer_email', $customer->user->email ) !!}
                                     {!! Form::hidden('customer_id', $customer->id ) !!}

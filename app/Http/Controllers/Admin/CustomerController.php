@@ -448,7 +448,7 @@ class CustomerController extends Controller
                 'password' => $password
             ), function($message) use($email)
             {
-                $message->from(env('OFFICIAL_MAIL'));
+                $message->from('info@swan.mk');
                 $message->to($email, 'SWAN')->subject('New password');
             });
 
