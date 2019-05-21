@@ -123,25 +123,24 @@
 
                             <form method="post" action="https://epay.halkbank.mk/fim/est3Dgate">
                                     {{ csrf_field() }}
-                                            <input type="hidden" name="clientid" value="180000188" />
-                                            <input type="hidden" name="amount" value="{{ $gateway['amount-mk'] }}" />
-                                            <input type="hidden" name="islemtipi" value="Auth" />
-                                            <input type="hidden" name="taksit" value="" />
-                                            <input type="hidden" name="oid" value="{{ $gateway['oid'] }}" />
-                                            <input type="hidden" name="okUrl" value="{{request::Root()}}/en/paymentstatus" />
-                                            <input type="hidden" name="failUrl" value="{{request::Root()}}/en/paymentstatus" />
-                                            <input type="hidden" name="rnd" value="{{ $gateway['rnd'] }}" />
-                                            <input type="hidden" name="hash" value="{{ $hash }}" />
-                                            <input type="hidden" name="storetype" value="3d_pay_hosting" />
-                                            <input type="hidden" name="lang" value="en" />
-                                            <input type="hidden" name="encoding" value="utf-8" />
-                                            <input type="hidden" name="currency" value="807" />
-                                            <input type="hidden" name="refreshtime" value="10" />
-                                         
+                                    <input type="hidden" name="clientid" value="{{ $clientId }}" />
+                                    <input type="hidden" name="amount" value="{{ $amount }}" />
+                                    <input type="hidden" name="islemtipi" value="{{ $transactionType }}" />
+                                    <input type="hidden" name="taksit" value="{{ $instalment }}" />
+                                    <input type="hidden" name="oid" value="{{ $oid }}" />
+                                    <input type="hidden" name="okUrl" value="{{request::Root()}}/en/paymentstatus" />
+                                    <input type="hidden" name="failUrl" value="{{request::Root()}}/en/paymentstatus" />
+                                    <input type="hidden" name="rnd" value="{{ $rnd }}" />
+                                    <input type="hidden" name="hash" value="{{ $hash }}" />
+                                    <input type="hidden" name="storetype" value="{{ $storetype }}" />
+                                    <input type="hidden" name="lang" value="{{ $lang }}" />
+                                    <input type="hidden" name="currency" value="807" />
+                                     <input type="hidden" name="refreshtime" value="10" />
+                                            
+                                            <input type="hidden" name="encoding" value="utf-8" />     
                                             <input type="hidden" name="BillToName" value="{{ Auth::user()->name }} {{ Auth::user()->surname }}" /> 
                                             <input type="hidden" name="BillToStreet1" value="{{ Auth::user()->customer->address_out }}"/> 
                                             <input type="hidden" name="BillToCity" value="{{ Auth::user()->customer->city }}"/> 
-
                                             <input type="hidden" name="BillToCountry" value="{{ Auth::user()->customer->country_id }}"/>
                                             <input type="hidden" name="tel" value="{{ Auth::user()->customer->phone_out }}"/>
                                             <input type="hidden" name="email" value="{{ Auth::user()->email }}" />

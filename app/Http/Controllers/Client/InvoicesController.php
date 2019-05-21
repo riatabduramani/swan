@@ -37,30 +37,44 @@ class InvoicesController extends Controller
     public function show($id) {
 
         $invoice = Invoice::findOrFail($id);
-        $gateway =  array(
+       /*$gateway =  array(
                             'clientId'          =>  "180000188", 
                             'amount'            =>  number_format($invoice->total_sum, 2, '.', ','),
-                            /*'amount-mk'         =>  floor($invoice->total_sum_mkd),*/
                             'amount-mk'         =>  number_format($invoice->total_sum_mkd, 2, '.', ','),
                             'oid'               =>  "oid-PCL-$invoice->id",
                             'okUrl'             =>  "http://swan.mk/en/payment-status",
                             'failUrl'           =>  "http://swan.mk/en/payment-status",
                             'rnd'               =>  microtime(),
                             'currencyVal'       =>  "807",
-                            /*'storekey'          =>  'SKEY0188',*/
                             'storekey'          =>  "SKEY1234",
                             'storetype'         =>  "3D_PAY_HOSTING",
                             'lang'              =>  "en",
                             'instalment'        =>  "",
                             'transactionType'   =>  "Auth",
-                        );
-        $hashstr = 
-        $gateway['clientId'] . $gateway['oid'] . $gateway['amount-mk'] . $gateway['okUrl'] . $gateway['failUrl'] .$gateway['transactionType'] .$gateway['instalment'] .$gateway['rnd'] . $gateway['storekey'];
-        $hash = base64_encode(pack('H*',sha1($hashstr)));
-        /*$hash = base64_encode(SHA1($hashstr));*/
+                        );*/
+$clientId = "180000188";			//Merchant Id defined by bank to user
+$amount = number_format($invoice->total_sum_mkd, 2, '.', ',');					//Transaction amount
+$oid = "oid-PCL-$invoice->id";							//Order Id. Must be unique. If left blank, system will generate a unique one.
+$okUrl = "http://swan.mk/en/paymentstatus";		//URL which client be redirected if authentication is successful
+$failUrl = "http://swan.mk/en/paymentstatus";	//URL which client be redirected if authentication is not successful
+$rnd = microtime();				//A random number, such as date/time
+$currencyVal = "949";			//Currency code, 949 for TL, ISO_4217 standard
+$storekey = "SKEY1234";			//Store key value, defined by bank.
+$storetype = "3d_pay_hosting";	//3D authentication model
+$lang = "en";					//Language parameter, "tr" for Turkish (default), "en" for English 
+$instalment = "";				//Instalment count, if there's no instalment should left blank
+$transactionType = "Auth";		//transaction type	
 
-        return view('frontend.panel.showinvoice', compact('invoice','gateway','hash'));
-    }
+$hashstr = $clientId . $oid . $amount . $okUrl . $failUrl .$transactionType. $instalment .$rnd . $storekey;
+$hash = base64_encode(pack('H*',sha1($hashstr)));
+
+/*$hashstr = 
+$gateway['clientId'] . $gateway['oid'] . $gateway['amount-mk'] . $gateway['okUrl'] . $gateway['failUrl'] .$gateway['transactionType'] .$gateway['instalment'] .$gateway['rnd'] . $gateway['storekey'];
+$hash = base64_encode(pack('H*',sha1($hashstr)));*/
+/*$hash = base64_encode(SHA1($hashstr));*/
+
+return view('frontend.panel.showinvoice', compact('invoice','gateway','clientId','amount','oid','transactionType','instalment','rnd','lang','storetype','islemtipi','storekey','hash'));
+}
      
 
     public function paymentstatus(Request $request) {
