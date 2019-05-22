@@ -53,7 +53,7 @@ class InvoicesController extends Controller
                             'transactionType'   =>  "Auth",
                         );*/
 $clientId = "180000188";			//Merchant Id defined by bank to user
-$amount = number_format($invoice->total_sum_mkd, 2, '.', ',');					//Transaction amount
+$amount = number_format($invoice->total_sum_mkd, 2, '.', '');					//Transaction amount
 $oid = "oid-PCL-$invoice->id";							//Order Id. Must be unique. If left blank, system will generate a unique one.
 $okUrl = "http://swan.mk/en/paymentstatus";		//URL which client be redirected if authentication is successful
 $failUrl = "http://swan.mk/en/paymentstatus";	//URL which client be redirected if authentication is not successful
