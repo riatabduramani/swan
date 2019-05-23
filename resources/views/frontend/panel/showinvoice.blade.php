@@ -129,7 +129,7 @@
                                     <input type="hidden" name="taksit" value="{{ $instalment }}" />
                                     <input type="hidden" name="oid" value="{{ $oid }}" />
                                     <input type="hidden" name="okUrl" value="http://swan.mk/en/paymentstatus" />
-                                    <input type="hidden" name="failUrl" value="http://127.0.0.1:8000/en/paymentstatus" />
+                                    <input type="hidden" name="failUrl" value="http://swan.mk/en/paymentstatus" />
                                     <input type="hidden" name="rnd" value="{{ $rnd }}" />
                                     <input type="hidden" name="hash" value="{{ $hash }}" />
                                     <input type="hidden" name="storetype" value="{{ $storetype }}" />
