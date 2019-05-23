@@ -75,7 +75,7 @@ class InvoiceController extends Controller
     	$updatedby = Auth::user()->id;
 
     	$invoice = Invoice::find($invoiceid);
-    	
+        $invoice->order_id = "oid-PCL-$invoiceid";
 	    $invoice->payment_status = $request->invoice_status;
     	
 
@@ -122,7 +122,7 @@ class InvoiceController extends Controller
         $updatedby = Auth::user()->id;
         $customeremail = $request->customer_email;
         $invoice = Invoice::find($invoiceid);
-        
+        $invoice->order_id = "oid-PCL-$invoiceid";
         $invoice->payment_status = $request->invoice_status;
         //$update->payment_method = $request->payment_method;
 
@@ -175,7 +175,8 @@ class InvoiceController extends Controller
             'invoice_status' => 'required',
         ]);
 
-   		$userid = Auth::user()->id;
+        
+        $userid = Auth::user()->id;
     	$invoicetype = $request->invoice_type;
         $customerid = $request->customer_id;
         $customeremail = $request->customer_email;
@@ -187,8 +188,9 @@ class InvoiceController extends Controller
         $customservice->save();
         $customid = $customservice->id;
     
+        $invoicemax = Invoice::max('id')+1;
         $invoice = new Invoice();
-
+        $invoice->order_id = "oid-PCL-$invoicemax";
 		$invoice->invoice_type = $invoicetype;
 		$invoice->invoice_date = Carbon::now();
 		
@@ -315,7 +317,9 @@ class InvoiceController extends Controller
         $customeruserid = $request->customer_user_id;
         $customeremail = $request->customer_email;
         
+        $invoicemax = Invoice::max('id')+1;
         $invoice = new Invoice();
+        $invoice->order_id = "oid-PCL-$invoicemax";
         $invoice->invoice_type = $invoicetype;
         $invoice->invoice_date = Carbon::now();
         

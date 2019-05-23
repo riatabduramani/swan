@@ -78,7 +78,7 @@ return view('frontend.panel.showinvoice', compact('invoice','gateway','clientId'
      
 
     public function paymentstatus(Request $request) {
-dd('d');
+
          $mdStatus= $request->mdStatus;
          $Response = $request->Response;
 
