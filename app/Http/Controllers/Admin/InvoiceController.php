@@ -215,14 +215,14 @@ class InvoiceController extends Controller
             $credit = Credits::find($request->apply_credit);
             $credit->balance = $credit->balance - $request->service_price;
             $credit->save();
-            $invoice->price_mkd = round($request->service_price * env('CURRENCY'));
+            $invoice->price_mkd = round($request->service_price * 61.35);
             $invoice->total_sum = $request->service_price;
-            $invoice->total_sum_mkd = round($request->service_price * env('CURRENCY'));
+            $invoice->total_sum_mkd = round($request->service_price * 61.35);
 
         } 
         else {
             $invoice->total_sum = $request->service_price;
-            $invoice->total_sum_mkd = round($request->service_price * env('CURRENCY'));
+            $invoice->total_sum_mkd = round($request->service_price * 61.35);
         }
 		
 		
@@ -344,18 +344,18 @@ class InvoiceController extends Controller
         $invoice->customer_id = $request->customer_id;
         $invoice->months = $request->months;
         $invoice->price = $request->productprice;
-        $invoice->price_mkd = round($request->productprice * env('CURRENCY'));
+        $invoice->price_mkd = round($request->productprice * 61.35);
         
         if(!empty($request->apply_credit)) {
             $credit = Credits::find($request->apply_credit);
             $credit->balance = $credit->balance - $request->total_sum;
             $credit->save();
             $invoice->total_sum = $request->total_sum;
-            $invoice->total_sum_mkd = round($request->total_sum * env('CURRENCY'));
+            $invoice->total_sum_mkd = round($request->total_sum * 61.35);
         } 
         else {
             $invoice->total_sum = $request->total_sum;
-            $invoice->total_sum_mkd = round($request->total_sum * env('CURRENCY'));
+            $invoice->total_sum_mkd = round($request->total_sum * 61.35);
         }
         
         
