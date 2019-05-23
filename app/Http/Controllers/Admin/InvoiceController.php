@@ -33,7 +33,7 @@ class InvoiceController extends Controller
 
     public function showcustominvoice($id) {
     	
-    	$invoice = Invoice::with('customservice')->find($id);
+        $invoice = Invoice::with('customservice')->find($id);
         $customerid = $invoice->customer->id;
     	$datenow = Carbon::now();
         $chosenpacket = Subscription::with('customer')->where('customer_id', $customerid)->get()->last();
