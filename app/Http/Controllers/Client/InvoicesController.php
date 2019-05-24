@@ -80,7 +80,6 @@ return view('frontend.panel.showinvoice', compact('invoice','gateway','clientId'
     public function paymentstatus(Request $request) {
 
          $mdStatus= $request->mdStatus;
-         $Response = $request->Response;
 
             if($mdStatus =="1" || $mdStatus == "2" || $mdStatus == "3" || $mdStatus == "4")
             {              

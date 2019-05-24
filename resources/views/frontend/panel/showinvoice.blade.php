@@ -128,7 +128,7 @@
                                     <input type="hidden" name="islemtipi" value="{{ $transactionType }}" />
                                     <input type="hidden" name="taksit" value="{{ $instalment }}" />
                                     <input type="hidden" name="oid" value="{{ $oid }}" />
-                                    <input type="hidden" name="okUrl" value="http://swan.mk/en/paymentstatus" />
+                                    <input type="hidden" name="okUrl" value="http://swan.mk/en/panel/invoices" />
                                     <input type="hidden" name="failUrl" value="http://swan.mk/en/paymentstatus" />
                                     <input type="hidden" name="rnd" value="{{ $rnd }}" />
                                     <input type="hidden" name="hash" value="{{ $hash }}" />
