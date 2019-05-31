@@ -58,7 +58,7 @@ $oid = "oid-PCL-$invoice->id";							//Order Id. Must be unique. If left blank, 
 $okUrl = "http://swan.mk/en/paymentstatus";		//URL which client be redirected if authentication is successful
 $failUrl = "http://swan.mk/en/paymentstatus";	//URL which client be redirected if authentication is not successful
 $rnd = microtime();				//A random number, such as date/time
-$currencyVal = "949";			//Currency code, 949 for TL, ISO_4217 standard
+$currencyVal = "807";			//Currency code, 949 for TL, ISO_4217 standard
 $storekey = "SKEY1234";			//Store key value, defined by bank.
 $storetype = "3d_pay_hosting";	//3D authentication model
 $lang = "en";					//Language parameter, "tr" for Turkish (default), "en" for English 
@@ -77,17 +77,13 @@ return view('frontend.panel.showinvoice', compact('invoice','gateway','clientId'
 }
      
 
-    public function paymentstatus(Request $request) {
-
+    /*public function paymentstatus(Request $request) {
          $mdStatus= $request->mdStatus;
-
             if($mdStatus =="1" || $mdStatus == "2" || $mdStatus == "3" || $mdStatus == "4")
             {              
                $Response = $request->Response;
-
                switch ($Response) {
                     case 'Approved':
-                        /*$invoice = Invoice::find(substr($request->ReturnOid,8));*/
                         $invoice = Invoice::find(substr($request->oid,8));
                         $invoice->where('id', $invoice->id)
                                 ->update(['order_id' => $request->oid,'payment_status' => 1, 'paid_at'=>Carbon::now()]);
@@ -99,9 +95,7 @@ return view('frontend.panel.showinvoice', compact('invoice','gateway','clientId'
                         $invoice = Invoice::find(substr($request->oid,8));
                         $invoice->where('id', $invoice->id)
                                 ->update(['order_id' => $request->oid,'payment_status' => 2, 'due_date'=>Carbon::now()->addDays(8)]);
-
-                        Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
-                        
+                        Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));                      
                         Session::flash('message-notapproved', __('front.notapproved'));
                         return redirect('/'.App::getLocale()."/panel/invoices");
                         break;
@@ -120,18 +114,13 @@ return view('frontend.panel.showinvoice', compact('invoice','gateway','clientId'
                         Session::flash('message-declined', __('front.declined'));
                         return redirect('/'.App::getLocale()."/panel/invoices");
                         break;
-                }
-               
+                }        
             }   
             else
             {
-                /*dd($Response);*/
                 Session::flash('message-declined', __('front.3dauth'));
                 return redirect()->back();
             }  
-
-
-
-    }
+    }*/
 
 }

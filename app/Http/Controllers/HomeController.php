@@ -194,43 +194,36 @@ class HomeController extends Controller
         }
 
          public function paymentstatus(Request $request) {
-
-         $mdStatus= $request->mdStatus;
-
-            if($mdStatus =="1" || $mdStatus == "2" || $mdStatus == "3" || $mdStatus == "4" || $mdStatus == "7")
+            /*dd($request->mdStatus);*/
+            $mdStatus = $request->mdStatus;
+            if($mdStatus =="1" || $mdStatus == "2" || $mdStatus == "3" || $mdStatus == "4")
             {              
                $Response = $request->Response;
-
                switch ($Response) {
                     case 'Approved':
                         /*$invoice = Invoice::where('order_id', '=', $request->ReturnOid)->first();*/
-                        $invoice = Invoice::where('id', '=', substr($request->oid,8))->first();
+                        $invoice = Invoice::where('id', '=', substr($request->oid,8))->orWhere('order_id', '=', $request->oid)->first();
                         $invoice->payment_status = 1;
                         $invoice->paid_at =  Carbon::now();
                         $invoice->save();
-
                         Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
-
                         Session::flash('message-approved', __('front.approved'));
                         //return '/'.App::getLocale().'/panel/invoices/'.$invoice->id;
-                        //return redirect('/'.App::getLocale()."/panel/invoices");
                         return redirect('/'.App::getLocale()."/panel/invoices");
                         break;
                     case 'Error':
                         /*$invoice = Invoice::where('order_id', '=', $request->ReturnOid)->first();*/
-                        $invoice = Invoice::where('id', '=', substr($request->oid,8))->first();
+                        $invoice = Invoice::where('id', '=', substr($request->oid,8))->orWhere('order_id', '=', $request->oid)->first();
                         $invoice->payment_status = 2;
                         $invoice->due_date = Carbon::now()->addDays(8);
                         $invoice->save();
-
-                        Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice));
-                        
+                        Mail::to(Auth::user()->email)->send(new InvoiceGenerated($invoice)); 
                         Session::flash('message-notapproved', __('front.notapproved'));
                         return redirect('/'.App::getLocale()."/panel/invoices");
                         break;
                    case 'Declined':
                         /*$invoice = Invoice::where('order_id', '=', $request->ReturnOid)->first();*/
-                        $invoice = Invoice::where('id', '=', substr($request->oid,8))->first();
+                        $invoice = Invoice::where('id', '=', substr($request->oid,8))->orWhere('order_id', '=', $request->oid)->first();
                         $invoice->payment_status = 3;
                         $invoice->save();
                         Session::flash('message-declined', __('front.declined'));
@@ -238,14 +231,13 @@ class HomeController extends Controller
                         break;
                    default:
                         /*$invoice = Invoice::where('order_id', '=', $request->ReturnOid)->first();*/
-                        $invoice = Invoice::where('id', '=', substr($request->oid,8))->first();
+                        $invoice = Invoice::where('id', '=', substr($request->oid,8))->orWhere('order_id', '=', $request->oid)->first();
                         $invoice->payment_status = 3;
                         $invoice->save();
                         Session::flash('message-declined', __('front.declined'));
                         return redirect('/'.App::getLocale()."/panel/invoices");
                         break;
-                }
-               
+                }     
             }   
             else
             {
