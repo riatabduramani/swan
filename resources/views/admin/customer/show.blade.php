@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
     @if(Session::has('flash_message'))
-          <p class="alert alert-success">{{ Session::get('flash_message') }}</p>
+          <p class="alert alert-success" style="text-align: center;">{{ Session::get('flash_message') }}</p>
         @endif
 
         <div class="row">
@@ -148,51 +148,48 @@ document.addEventListener("deviceready", onDeviceReady, false);
                     <i class="fa fa-file-text-o" aria-hidden="true"></i> Documents for Swan
                   </div>
                   <div class="panel-body">
+                    <form method="POST" action="{{Request::Root()}}/admin/customer/attachdoc/delete" autocomplete="off" enctype="multipart/form-data" style="text-align: center;">
+                    {{ csrf_field() }}  
+                    <input type="submit" class="btn btn-danger btn-xs" name="btn_delete"  onclick="return confirm('Do you want to Delete these Attachment(s)?')" value="Delete" style="padding:5px; margin-bottom:10px;"/>
                     <ul class="panel-body list-group" style="height: 250px; overflow-y: auto;">
                     @if(count($customer->document) > 0)
                     @foreach($customer->document as $document)
-                     @if($document->type == 1)
-                    <li class="list-group-item">
-                     <div class="pull-right">
-                         <!--<a href="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" target="_blank" class="btn btn-primary btn-xs">
-                          <i class="fa fa-download" aria-hidden="true"></i>
-                        </a>-->
+                    @if($document->type == 1)
+         
+                      <li class="list-group-item">                       
+                          <!--<div class="pull-right">
+                           if(($document->createdby->id == Auth::user()->id) || Auth::user()->hasRole(['admin','superadmin']))
+                             !! Form::open([
+                                 'method'=>'get',
+                                 'url' => ['admin/customer/attachdoc', $document->id],
+                             ]) !!}
+                                 !! Form::button('<i class="fa fa-trash" aria-hidden="true"></i>', array(
+                                         'type' => 'submit',
+                                         'class' => 'btn btn-danger btn-xs',
+                                         'title' => 'Delete document',
+                                         'onclick'=>'return confirm("Confirm to delete the document?")'
+                                 ))!!}
+                             !! Form::close() !!
+                           endif
+                           </div>-->
+                           <input type="checkbox" name="attachedphoto[]" class="sub_chk" value="{{$document->id}}" style="float:left;" multiple/>
+                           <div class="pull-right" style="margin-right: 10px;">
+                               @if($document->extension == 'jpg' || $document->extension == 'JPG' || $document->extension == 'png' || $document->extension == 'PNG' || $document->extension == 'jpeg' || $document->extension == 'JPEG')
+                                <a style="cursor: zoom-in" data-toggle="modal" data-target="#myModal{{ $document->id }}"><img src="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" width="50" height="50" /></a>
+                               @else
+                                  <input type="checkbox" name="attachedphoto" class="sub_chk" value="{{$document->id}}" data-id="{{$document->id}}"/>
+                                  <img src="{{ env('APP_URL')}}/images/pdf-icon.png" width="50" height="50" id="myImg" />
+                               @endif
+                           </div>
+                            <h4 class="list-group-item-heading"><small>{{ date('d.m.Y', strtotime($document->created_at)) }}</small> {{ $document->name }}</h4>
+                                 <p class="list-group-item-text">{{ $document->description }}</p>
+                           @if($document->description)
+                             <small><b>Description:</b> {{ $document->description }}</small><br />
+                           @endif
+                           <small><b>By:</b> {{ $document->createdby->name }} {{ $document->createdby->surname }}</small>
+                         </li>
 
-                        @if(($document->createdby->id == Auth::user()->id) || Auth::user()->hasRole(['admin','superadmin']))
-                        {!! Form::open([
-                            'method'=>'DELETE',
-                            'url' => ['admin/customer/attachdoc', $document->id],
-                            /*'url' => ["{{ env('APP_URL')}}/uploads/documents/", $document->id],*/
-                        ]) !!}
-                            {!! Form::button('<i class="fa fa-trash" aria-hidden="true"></i>', array(
-                                    'type' => 'submit',
-                                    'class' => 'btn btn-danger btn-xs',
-                                    'title' => 'Delete document',
-                                    'onclick'=>'return confirm("Confirm to delete the document?")'
-                            ))!!}
-                        {!! Form::close() !!}
-                        @endif
-
-                      </div>
-                      <div class="pull-right" style="margin-right: 10px;">
-                         <!--<a href="{{ env('APP_URL')}}/public/uploads/documents/{{ $document->renamed }}" target="_blank">--> 
-                          @if($document->extension == 'jpg' || $document->extension == 'JPG' || $document->extension == 'png' || $document->extension == 'PNG' || $document->extension == 'jpeg' || $document->extension == 'JPEG')
-                           <a style="cursor: zoom-in" data-toggle="modal" data-target="#myModal{{ $document->id }}"><img src="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" width="50" height="50" /></a>
-                          @else
-                             <img src="{{ env('APP_URL')}}/images/pdf-icon.png" width="50" height="50" id="myImg" />
-                          @endif
-                        <!--</a>-->
-                      </div>
-                       <h4 class="list-group-item-heading"><small>{{ date('d.m.Y', strtotime($document->created_at)) }}</small> {{ $document->name }}</h4>
-                            <p class="list-group-item-text">{{ $document->description }}</p>
-                      <!--<a href="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" target="_blank">     
-                          <h4 class="list-group-item-heading">{{ (strlen($document->name) > 20) ? substr($document->name, 0, 11).'...' : $document->name }}</h4>
-                      </a>
-                      @if($document->description)
-                        <small><b>Description:</b> {{ $document->description }}</small><br />
-                      @endif
-                      <small><b>Created by:</b> {{ $document->createdby->name }} {{ $document->createdby->surname }}</small>-->
-                    </li>
+                       
                     
                     <!--MODAL IMAGE -->
                     <div id="myModal{{ $document->id }}" class="modal fade" role="dialog">
@@ -227,10 +224,13 @@ document.addEventListener("deviceready", onDeviceReady, false);
                     
                     @endif
                     @endforeach
+                   
                     @else
                     No documents attached
-                      @endif
+                    @endif 
                     </ul>
+                   
+                  </form>
                   </div>
                 </div>
                 @endpermission
@@ -243,31 +243,30 @@ document.addEventListener("deviceready", onDeviceReady, false);
                     <i class="fa fa-file-text-o" aria-hidden="true"></i> Documents for customer
                   </div>
                   <div class="panel-body">
+                    <form method="POST" action="{{Request::Root()}}/admin/customer/attachdoc/delete" autocomplete="off" enctype="multipart/form-data" style="text-align: center;">
+                    {{ csrf_field() }}  
+                    <input type="submit" class="btn btn-danger btn-xs" name="btn_delete" onclick="return confirm('Do you want to Delete these Attachment(s)?')" value="Delete" style="padding:5px; margin-bottom:10px;"/>
                     <ul class="panel-body list-group" style="height: 250px; overflow-y: auto;">
                     @if(count($customer->document) > 0)
                     @foreach($customer->document as $document)
                      @if($document->type == 2)
                     <li class="list-group-item">
-                     <div class="pull-right">
-                         <!--<a href="{{ env('APP_URL')}}/uploads/documents/{{ $document->renamed }}" target="_blank" class="btn btn-primary btn-xs">
-                          <i class="fa fa-download" aria-hidden="true"></i>
-                        </a>-->
-
-                        @if(($document->createdby->id == Auth::user()->id) || Auth::user()->hasRole(['admin','superadmin']))
-                        {!! Form::open([
+                     <!--<div class="pull-right">
+                        if(($document->createdby->id == Auth::user()->id) || Auth::user()->hasRole(['admin','superadmin']))
+                        !! Form::open([
                             'method'=>'DELETE',
                             'url' => ['admin/customer/attachdoc', $document->id],
                         ]) !!}
-                            {!! Form::button('<i class="fa fa-trash" aria-hidden="true"></i>', array(
+                            !! Form::button('<i class="fa fa-trash" aria-hidden="true"></i>', array(
                                     'type' => 'submit',
                                     'class' => 'btn btn-danger btn-xs',
                                     'title' => 'Delete document',
                                     'onclick'=>'return confirm("Confirm to delete the document?")'
                             ))!!}
-                        {!! Form::close() !!}
-                        @endif
-
-                      </div>
+                        !! Form::close() !!}
+                        endif
+                      </div>-->
+                      <input type="checkbox" name="attachedphoto[]" class="sub_chk" value="{{$document->id}}" style="float:left;" multiple/>
                       <div class="pull-right" style="margin-right: 10px;">
                          <!--<a href="{{ env('APP_URL')}}/public/uploads/documents/{{ $document->renamed }}" target="_blank">--> 
                           @if($document->extension == 'jpg' || $document->extension == 'JPG' || $document->extension == 'png' || $document->extension == 'PNG' || $document->extension == 'jpeg' || $document->extension == 'JPEG')
@@ -323,8 +322,9 @@ document.addEventListener("deviceready", onDeviceReady, false);
                     @endforeach
                     @else
                     No documents attached
-                      @endif
+                    @endif
                     </ul>
+                  </form>
                   </div>
                 </div>
                 @endpermission

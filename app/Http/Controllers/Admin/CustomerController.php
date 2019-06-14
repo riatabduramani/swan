@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Country;
@@ -413,14 +414,31 @@ class CustomerController extends Controller
             return redirect()->back();
     }
 
-    public function deleteDocument($id) {
-            $document = Document::findOrFail($id);
+    public function deleteDocument(Request $request) {
             //unlink('/public/uploads/documents/'.$document->renamed);
+            /*$document = Document::findOrFail($id);
             File::delete('uploads/documents/' . "$document->renamed");
-            $document->delete();
+            $document->delete();*/
 
-            Session::flash('flash_message', 'Your document has been deleted!');
-            return redirect()->back();
+            /*$ids = Request::input('attachedphoto',[]);*/
+            $ids = $request->input('attachedphoto');
+            /*dd($ids);*/
+            /*foreach ($ids as $id) {
+                if(empty($id)) {
+                    break;
+                } 
+                Document::whereIn("id",$id)->delete(); 
+            }*/
+
+            if(empty($ids)) {
+                Session::flash('flash_message', 'Select attachment to Delete!!!');
+                return redirect()->back();
+            }
+            else {
+                Document::whereIn("id",$ids)->delete(); 
+                Session::flash('flash_message', 'Your selected documents have been deleted successfully!');
+                return redirect()->back();
+            }   
     }
     
     public function downloadFile($file)
