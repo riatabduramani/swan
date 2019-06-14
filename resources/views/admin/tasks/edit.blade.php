@@ -18,8 +18,8 @@
                            <strong><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                             Edit Task</strong>
                         </div>
-                        @if(count($tasks) > 0)
-                        @foreach($tasks as $todolist)
+                        @if(count($tasksedit) > 0)
+                        @foreach($tasksedit as $todolist)
                         <div class="panel-body">
                                 <!--!! Form::open(array('method'=>'POST', 
                                  'action'=>'Admin\\TodolistController@editTask',$todolist->id))-->

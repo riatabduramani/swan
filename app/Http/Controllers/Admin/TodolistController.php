@@ -93,15 +93,13 @@ class TodolistController extends Controller
     public function toeditTask(Request $request, $id) {
         if(Auth::user()->hasRole(['superadmin','admin'])) {
 
-    		$tasks = Todolist::whereNull('datedone')->where('id','=',$id)->orderBy('duedate','asc')->get();
-    		
-    		$tasksdone = Todolist::whereNotNull('datedone')->where('id','=',$id)->orderBy('duedate','asc')->paginate(10);
+            $tasks = Todolist::whereNull('datedone')->orderBy('duedate','asc')->get();
+            $tasksedit = Todolist::whereNull('datedone')->where('id','=',$id)->orderBy('duedate','asc')->get();
 
     	} else {
     		
-    		$tasks = Todolist::whereNull('datedone')->where('assigned_to', Auth::user()->id)->where('id','=',$id)->orderBy('duedate','asc')->get();
-    		
-    		$tasksdone = Todolist::whereNotNull('datedone')->where('assigned_to', Auth::user()->id)->where('id','=',$id)->orderBy('duedate','asc')->paginate(15);
+            $tasks = Todolist::whereNull('datedone')->where('assigned_to', Auth::user()->id)->orderBy('duedate','asc')->get();
+            $tasksedit = Todolist::whereNull('datedone')->where('assigned_to', Auth::user()->id)->where('id','=',$id)->orderBy('duedate','asc')->get();
 
     	}
 
@@ -110,7 +108,7 @@ class TodolistController extends Controller
                             $q->where('name', 'employee')->orWhere('name', 'admin');
                         })->pluck('name','id');
 
-        return view('admin.tasks.edit', compact('users','tasks','tasksdone'));
+        return view('admin.tasks.edit', compact('users','tasks','tasksedit','tasksdone'));
     }
 
     public function editTask(Request $request, $id) {
