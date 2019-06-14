@@ -192,7 +192,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 	Route::resource('/credits', 'Admin\\CreditsController',['middleware'=>['permission:manage-credits']]);
 
 	//Todolist
-	Route::post('/customer/todolist','Admin\\CustomerController@creates',['middleware'=>['permission:create-task']]);
+	Route::post('/customer/todolist','Admin\\CustomerController@createtask',['middleware'=>['permission:create-task']]);
 	Route::get('/customer/todolist/{id}', 'Admin\\CustomerController@deleteTask');
 	Route::get('/customer/todolist/done/{id}', 'Admin\\CustomerController@doneTask');
 
