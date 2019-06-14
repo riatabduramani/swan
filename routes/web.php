@@ -192,7 +192,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 	Route::resource('/credits', 'Admin\\CreditsController',['middleware'=>['permission:manage-credits']]);
 
 	//Todolist
-	Route::post('/customer/todolist','Admin\\CustomerController@createtask',['middleware'=>['permission:create-task']]);
+	Route::post('/customer/todolist','Admin\\CustomerController@creates',['middleware'=>['permission:create-task']]);
 	Route::get('/customer/todolist/{id}', 'Admin\\CustomerController@deleteTask');
 	Route::get('/customer/todolist/done/{id}', 'Admin\\CustomerController@doneTask');
 
@@ -209,6 +209,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|superadmi
 	Route::resource('/tasks', 'Admin\\TodolistController');
 	Route::post('/tasks','Admin\\TodolistController@createtask',['middleware'=>['permission:create-task']]);
 	Route::get('/tasks/done/{id}', 'Admin\\TodolistController@doneTask');
+	Route::get('/tasks/toedit/{id}', 'Admin\\TodolistController@toeditTask');
+	Route::post('/tasks/edit/{id}', 'Admin\\TodolistController@editTask');
 
 	//Generate new password
 	Route::post('/customer/newpassword', 'Admin\\CustomerController@generateNewPassword');

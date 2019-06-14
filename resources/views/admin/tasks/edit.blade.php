@@ -15,104 +15,70 @@
                 <div class="col-md-12" id="createtask" >
                      <div class="panel panel-default" style="background: rgb(245, 248, 250)">
                         <div class="panel-heading">
-                           <strong><i class="fa fa-plus-square" aria-hidden="true"></i>
-                            Create Task</strong>
+                           <strong><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            Edit Task</strong>
                         </div>
+                        @if(count($tasks) > 0)
+                        @foreach($tasks as $todolist)
                         <div class="panel-body">
-                         {!! Form::open(array('method'=>'POST', 
-                          'action'=>'Admin\\TodolistController@createtask')) !!}
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              {!! Form::text('title',null,['placeholder'=>'Task title','class' => 'form-control','required']) !!}
-                            </div>
-                          </div>
-                          <div class="col-md-12">
-                            <div class="form-group">
-                                {!! Form::textarea('description',null,['placeholder'=>'Add task description...','class' => 'form-control','rows'=>'2','required']) !!}
-                            </div>
-                          </div>
-                          <div class="col-md-5">
-                            <div class="form-group">
-                            {!! Form::label('duedate', 'Due date:', ['class' => 'control-label']) !!}
-                              {!! Form::date('duedate',null,['class' => 'form-control','required']) !!}
-                            </div>
-                          </div>
-                          @role(['admin','superadmin'])
-                           <div class="col-md-4">
-                            <div class="form-group">
-                              {!! Form::label('assign_to', 'Assign to:', ['class' => 'control-label']) !!}
-                              {!! Form::select('assign_to',$users, null,['class' => 'form-control']) !!}
-                            </div>
-                          </div>
-                          @endrole
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              {!! Form::label('repeat', 'Repeat every:', ['class' => 'control-label']) !!}
-                              {!! Form::select('repeat',array_combine(range(1,30),range(1,30)), null,['placeholder'=>'days...','class' => 'form-control']) !!}
-                              <p class="help-block">days</p>
-                            </div>
-                          </div>
-                           <div class="col-md-12">
-                          <div class="form-group">
-                              
-                              {!! Form::submit('Create Task',['class'=>'btn btn-primary','id'=>'btn-save']) !!}
-                          </div>
-                           </div>
-                          {!! Form::close() !!}
-                        </div>
+                                <!--!! Form::open(array('method'=>'POST', 
+                                 'action'=>'Admin\\TodolistController@editTask',$todolist->id))-->
+                                  {!! Form::open([
+                                    'method'=>'POST',
+                                    'url' => ['/admin/tasks/edit', $todolist->id],
+                                    'style' => 'display:inline'
+                                ]) !!}
+
+                                 <div class="col-md-12">
+                                   <div class="form-group">
+                                     {!! Form::text('title',$todolist->title,['placeholder'=>'Task title','class' => 'form-control','required']) !!}
+                                   </div>
+                                 </div>
+                                 <div class="col-md-12">
+                                   <div class="form-group">
+                                       {!! Form::textarea('description',$todolist->description,['placeholder'=>'Add task description...','class' => 'form-control','rows'=>'2','required']) !!}
+                                   </div>
+                                 </div>
+                                 <div class="col-md-5">
+                                   <div class="form-group">
+                                   {!! Form::label('duedate', 'Due date:', ['class' => 'control-label']) !!}
+                                     {!! Form::date('duedate',null,['class' => 'form-control','required']) !!}
+                                   </div>
+                                 </div>
+                                 @role(['admin','superadmin'])
+                                  <div class="col-md-4">
+                                   <div class="form-group">
+                                     {!! Form::label('assign_to', 'Assign to:', ['class' => 'control-label']) !!}
+                                     {!! Form::select('assign_to',$users, null,['class' => 'form-control']) !!}
+                                   </div>
+                                 </div>
+                                 @endrole
+                                 <div class="col-md-3">
+                                   <div class="form-group">
+                                     {!! Form::label('repeat', 'Repeat every:', ['class' => 'control-label']) !!}
+                                     {!! Form::select('repeat',array_combine(range(1,30),range(1,30)), null,['placeholder'=>'days...','class' => 'form-control']) !!}
+                                     <p class="help-block">days</p>
+                                   </div>
+                                 </div>
+                                  <div class="col-md-12">
+                                 <div class="form-group">
+                                     
+                                     {!! Form::submit('Edit Task',['class'=>'btn btn-primary','id'=>'btn-save']) !!}
+                                 </div>
+                                  </div>
+                                 {!! Form::close() !!}
+                               </div>
+                        @endforeach
+                        @else
+                          <div class="well">No tasks yet</div>
+                        @endif
+
                      </div>
                   </div>
                   @endpermission
                   <!-- END OF CREATE TASK -->
               </div>
-                <div class="panel panel-default">
-                <div class="panel-heading" style="background: #04699a;color: #fff;">
-                    <i class="fa fa-history" aria-hidden="true"></i> TASKS HISTORY
-                </div>
-                <div class="panel-body"> 
-                  <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>Title</th>
-                      <th>Done</th>
-                      <th>Due</th>
-                    </tr>
-                  </thead>
-                  @foreach($tasksdone as $task)
-                    <tr>
-                      <td> 
-                          <a href="#task-{{ $task->id }}" data-toggle="collapse" data-target="#task-{{ $task->id }}">{{$task->title}} </a>
-                      </td>
-                      <td> 
-                      @if(!empty($task->datedone))
-                        @if($task->datedone < $task->duedate)
-                          {{ date('d.m.Y', strtotime($task->datedone)) }} 
-                        @else
-                          <span style="color: red">{{ date('d.m.Y', strtotime($task->datedone)) }} </span>
-                        @endif
-                      @endif
-                      </td>
-                      <td> {{ date('d.m.Y', strtotime($task->duedate)) }} </td>
-                    </tr>
-                    <tr id="task-{{ $task->id }}" class="collapse" style="background: #f3f3f3">
-                      <td colspan="3">
-                      <b>Description:</b> {{ $task->description }}<br /><br />
-                       @role(['admin','superadmin'])
-                      <b>Assigned to:</b>  {{ $task->assignedto->name }} {{ $task->assignedto->surname }}
-                      @endrole
-                      @if($task->customer)
-                          <span class="text-muted">
-                              <i class="fa fa-user" aria-hidden="true"></i> <b>Customer:</b>
-                              <a href="/admin/customer/{{ $task->customer->id}}">{{ $task->customer->user->name}} {{ $task->customer->user->surname}}</a>
-                          </span>
-                          @endif
-                      </td>
-                    </tr>
-                  @endforeach
-                  </table>
-                {!! $tasksdone->render() !!}
-                </div>
-                </div>
+
             </div>
         <div class="col-md-6">
         		<!-- TO  DO LIST SECTION -->
@@ -172,7 +138,6 @@
                                         'class' => 'btn btn-primary btn-xs',
                                 ))!!}
                             {!! Form::close() !!}
-
                               
                               {!! Form::open([
                                   'method'=>'DELETE',
